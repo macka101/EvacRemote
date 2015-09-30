@@ -1,0 +1,141 @@
+#topnav
+{
+    background-color: #000000;
+    color: #FFFFFF;
+    background-image: url(../images/background-v-slice.gif);
+    background-repeat: repeat-x;
+    background-position: top left;
+    height:42px;
+    clear:both;
+}
+
+#topnav table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#topnav table td
+{
+    margin: 0px; padding:0px;
+    background: #000000;
+    color: #FFFFFF;
+}
+
+#topnav ul
+{
+    display: table;
+    width: 100%;
+}
+
+#topnav ul li
+{
+    display: table-cell;
+    float: left;
+}
+
+#topnav ul li a, #topnav td a  
+{
+    display: block;
+    text-align: center;
+    line-height:  41px;
+    background-color: #000000;
+    background-image: url(../images/topNav-v-slice.gif);
+    background-repeat: repeat-x;
+    background-position: top left;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#topnav ul li a:hover, #topnav td a:hover  
+{
+    background-position: bottom left;
+}
+
+
+/* ******************************* */
+/*	Sub-Navigation Styles			*/
+
+#leftnav
+{
+    overflow-x: hidden;
+    width: 217px;
+}
+
+#subnavUL
+{
+	padding:0;
+	margin:0;
+	font-family: arial, helvetica, sans-serif;
+	list-style-type:none;
+	width:217px;
+}
+
+#subnavUL li
+{
+	padding:1px 0px 0px 0px;
+}
+
+#subnavUL li ul
+{
+	padding:0px 0px 0px 10px;	
+}
+
+#subnavUL li ul li
+{
+	padding:5px 0px 0px 0px;
+	border:0;
+	background-color:#cf171f;
+}
+
+#subnavUL li a
+{
+	padding: 0 5px;
+	color: #FFFFFF;
+	background-color:#cf171f;
+	display:block;
+	height: 31px;
+	line-height: 31px;
+	font-weight: bold;
+}
+
+#subnavUL li ul li a
+{
+	padding:2px 0px 2px 5px;
+	background-color:#FFFFFF;
+	display:block;
+}
+
+#subnavUL li a:link
+{
+	color:#FFFFFF;
+}
+
+#subnavUL li a:visited
+{
+	color:#FFFFFF;
+}
+
+#subnavUL li a:hover
+{
+	text-decoration:none;
+	background-image: url(../images/selectedMenuPoint.gif);
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-color: #a50a10;
+}
+
+#subnavUL li a:active
+{
+	color:Black;
+}
+
+/*	selected item in subnav list	*/
+#subnavUL li a.navcurrent
+{
+	background-image: url(../images/selectedMenuPoint.gif);
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-color: #a50a10;
+}
