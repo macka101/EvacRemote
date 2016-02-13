@@ -63,12 +63,12 @@ Partial Class frmMain
         Me.mainTileBar.MaxId = 10
         Me.mainTileBar.Name = "mainTileBar"
         Me.mainTileBar.Padding = New System.Windows.Forms.Padding(26, 3, 26, 3)
-        Me.mainTileBar.Position = 327
+        Me.mainTileBar.Position = 90
         Me.mainTileBar.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons
         Me.mainTileBar.SelectedItem = Me.basketTileBarItem
         Me.mainTileBar.SelectionBorderWidth = 2
         Me.mainTileBar.SelectionColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.mainTileBar.Size = New System.Drawing.Size(1230, 97)
+        Me.mainTileBar.Size = New System.Drawing.Size(1230, 118)
         Me.mainTileBar.TabIndex = 2
         Me.mainTileBar.Text = "tileBar1"
         '
@@ -86,8 +86,7 @@ Partial Class frmMain
         Me.dashboardTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
         Me.dashboardTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement1.Image = CType(resources.GetObject("TileItemElement1.Image"), System.Drawing.Image)
-        TileItemElement1.ImageBorderColor = System.Drawing.Color.Empty
-        TileItemElement1.Text = "Dashboard"
+        TileItemElement1.Text = "Synchronize"
         Me.dashboardTileBarItem.Elements.Add(TileItemElement1)
         Me.dashboardTileBarItem.Id = 0
         Me.dashboardTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
@@ -98,7 +97,6 @@ Partial Class frmMain
         Me.tasksTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.tasksTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement2.Image = CType(resources.GetObject("TileItemElement2.Image"), System.Drawing.Image)
-        TileItemElement2.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement2.Text = "Tasks"
         Me.tasksTileBarItem.Elements.Add(TileItemElement2)
         Me.tasksTileBarItem.Id = 1
@@ -112,7 +110,6 @@ Partial Class frmMain
         Me.scheduleTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
         Me.scheduleTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement3.Image = Global.EvacRemote.My.Resources.Resources.Calendar
-        TileItemElement3.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement3.Text = "Schedule"
         Me.scheduleTileBarItem.Elements.Add(TileItemElement3)
         Me.scheduleTileBarItem.Id = 2
@@ -136,7 +133,6 @@ Partial Class frmMain
         Me.customersTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.customersTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement4.Image = CType(resources.GetObject("TileItemElement4.Image"), System.Drawing.Image)
-        TileItemElement4.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement4.Text = "Customers"
         Me.customersTileBarItem.Elements.Add(TileItemElement4)
         Me.customersTileBarItem.Id = 4
@@ -150,7 +146,6 @@ Partial Class frmMain
         Me.productsTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
         Me.productsTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement5.Image = CType(resources.GetObject("TileItemElement5.Image"), System.Drawing.Image)
-        TileItemElement5.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement5.Text = "Products"
         Me.productsTileBarItem.Elements.Add(TileItemElement5)
         Me.productsTileBarItem.Id = 3
@@ -162,7 +157,6 @@ Partial Class frmMain
         Me.surveyTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.surveyTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement6.Image = CType(resources.GetObject("TileItemElement6.Image"), System.Drawing.Image)
-        TileItemElement6.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement6.Text = "Survey"
         Me.surveyTileBarItem.Elements.Add(TileItemElement6)
         Me.surveyTileBarItem.Id = 6
@@ -176,7 +170,6 @@ Partial Class frmMain
         Me.basketTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
         Me.basketTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement7.Image = CType(resources.GetObject("TileItemElement7.Image"), System.Drawing.Image)
-        TileItemElement7.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement7.Text = "Basket"
         Me.basketTileBarItem.Elements.Add(TileItemElement7)
         Me.basketTileBarItem.Id = 5
@@ -188,7 +181,6 @@ Partial Class frmMain
         Me.ServiceTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.ServiceTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement8.Image = Global.EvacRemote.My.Resources.Resources.bookmark_32x32
-        TileItemElement8.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement8.Text = "Service"
         Me.ServiceTileBarItem.Elements.Add(TileItemElement8)
         Me.ServiceTileBarItem.Id = 7
@@ -198,7 +190,6 @@ Partial Class frmMain
         'tbiSnapReports
         '
         Me.tbiSnapReports.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement9.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement9.Text = "Reps"
         Me.tbiSnapReports.Elements.Add(TileItemElement9)
         Me.tbiSnapReports.Id = 8
@@ -208,7 +199,6 @@ Partial Class frmMain
         'tbiEmailTemplates
         '
         Me.tbiEmailTemplates.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement10.ImageBorderColor = System.Drawing.Color.Empty
         TileItemElement10.Text = "Email"
         Me.tbiEmailTemplates.Elements.Add(TileItemElement10)
         Me.tbiEmailTemplates.Id = 9
@@ -218,10 +208,10 @@ Partial Class frmMain
         'MainPnl
         '
         Me.MainPnl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainPnl.Location = New System.Drawing.Point(0, 97)
+        Me.MainPnl.Location = New System.Drawing.Point(0, 118)
         Me.MainPnl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MainPnl.Name = "MainPnl"
-        Me.MainPnl.Size = New System.Drawing.Size(1230, 520)
+        Me.MainPnl.Size = New System.Drawing.Size(1230, 499)
         Me.MainPnl.TabIndex = 3
         '
         'frmMain
@@ -233,6 +223,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.MainPnl)
         Me.Controls.Add(Me.mainTileBar)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmMain"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

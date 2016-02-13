@@ -6,6 +6,7 @@ Imports EvacRemote.EvacTask
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.Data.Helpers
 Imports DevExpress.XtraEditors.DXErrorProvider
+Imports DevExpress.Xpo
 
 Public Class GlobalVariables
     Public Shared SupportFilesDirectory As String = Nothing
@@ -16,6 +17,7 @@ End Class
 
 Module Misc
     Public cn As OdbcConnection
+    Public _offline As Boolean = False
 
     Public iCont As Integer = 0
     Public iDivison As Integer = 0
@@ -39,12 +41,22 @@ Module Misc
     Public _EngineerName As String = ""
 
     Public ThisBasket As Basket
+    Public ChairsList As String = "'1-200','1-110','1-300H-MK4','1-300H-MK4-M','1-300-AMB','1-300-AMB-M','1-500','1-500-M','1-600H','1-600H-M','1-600-AMB','1-700H'"
 
     Public currentADUser As System.DirectoryServices.AccountManagement.UserPrincipal
 
+    Public xpBuildings As XPCollection(Of Building)
+    Public xpEscapeRoutes As XPCollection(Of EscapeRoute)
+    Public xpFloors As XPCollection(Of Asset)
+
     Public Function OpenConnection() As OdbcConnection
 
-        Dim sConnection As String = "DSN=PSCRM 6 Default;UID=DBA;PWD=prospect"
+        Dim sConnection As String
+        If _offline = False Then
+            sConnection = "DSN=PSCRM 6 Default;UID=DBA;PWD=prospect"
+        Else
+            sConnection = "DSN=PSCRM 6 Default OffLine;UID=DBA;PWD=prospect"
+        End If
 
         Try
             cn = New OdbcConnection(sConnection)

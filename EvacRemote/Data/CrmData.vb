@@ -4,26 +4,38 @@ Imports DevExpress.Data.Filtering
 Imports System.Collections.Generic
 Imports System.ComponentModel
 
-<Persistent("Division")> _
 Public Class Division
-    Inherits XPLiteObject
-    <Key, Persistent> _
-    Public divno As Integer
-    Public compno As Integer
-    Public divname As String
-    Public addrno As Integer
-    Public oprano As String
-    Public phone As String
-    Public fax As String
-    Public employees As String
-    Public turnovercd As String
-    Public sic As String
-    Public opcompany As String
-    Public account_mgr As String
-    Public website As String
-    Public notepad As String
-    Public StatusFlag As String
+    Inherits XPObject
     Public Sub New(ByVal session As Session)
         MyBase.New(session)
     End Sub
+    Private _divno As Integer
+    Public Property Divno() As Integer
+        Get
+            Return _divno
+        End Get
+        Set(ByVal value As Integer)
+            SetPropertyValue(Of Integer)("Divno", _divno, value)
+        End Set
+    End Property
+    Private _divname As String
+    Public Property Divname() As String
+        Get
+            Return _divname
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)("Divname", _divname, value)
+        End Set
+    End Property
+    Private _divaddr1 As String
+    Public Property Address1() As String
+        Get
+            Return _divaddr1
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)("Address1", _divaddr1, value)
+        End Set
+    End Property
+
+
 End Class

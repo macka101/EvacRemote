@@ -83,17 +83,31 @@ Public Class CustomerList
 
     Private Sub btnSetCurrent_Click(sender As Object, e As EventArgs) Handles btnSetCurrent.Click
         Dim oRow As DataRowView = GridView1.GetFocusedRow
-        iCont = oRow.Item("contno")
-        iDivison = oRow.Item("divno")
-        SIContact.Text = String.Format("CONTACT <color=47, 81, 165>{0} {1} ", oRow.Item("divname"), oRow.Item("contact"))
-        ParentFormMain.HtmlText = SIContact.Text.Trim
-        ThisBasket = New Basket(_session, ParentFormMain, oRow.Item("contno"))
-        ParentFormMain.SurveyEnabled(True)
+        If oRow IsNot Nothing Then
+            iCont = oRow.Item("contno")
+            iDivison = oRow.Item("divno")
+            SIContact.Text = String.Format("CONTACT <color=47, 81, 165>{0} {1} ", oRow.Item("divname"), oRow.Item("contact"))
+            ParentFormMain.HtmlText = SIContact.Text.Trim
+            ThisBasket = New Basket(_session, ParentFormMain, oRow.Item("contno"))
+            ParentFormMain.SurveyEnabled(True)
+        End If
     End Sub
 
     
     Private Sub btnFind_Click(sender As Object, e As EventArgs) Handles btnFind.Click
-        FetchData()
+        Me.Cursor = Cursors.WaitCursor
+        Try
+            btnSetCurrent.Enabled = False
+            FetchData()
+            btnSetCurrent.Enabled = True
+            btnSetCurrent.Visible = True
+        Catch ex As Exception
+
+        Finally
+            Me.Cursor = Cursors.Default
+        End Try
+
+
     End Sub
 
     Private Sub teName_KeyDown(sender As Object, e As KeyEventArgs) Handles teName.KeyDown

@@ -15,15 +15,13 @@ Imports DevExpress.XtraEditors
 Imports EvacRemote.EvacTask
 
 Public Class ConnectionHelper
-    Const ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8\SQL2012;integrated security=SSPI;initial catalog=evacuk"
+    Public Shared ConnectionString As String = "XpoProvider=MSSqlServer;data source=EVAC2K8\SQL2012;integrated security=SSPI;initial catalog=evacremote"
     Public Shared Sub Connect(ByVal autoCreationOption As DB.AutoCreateOption)
 
-        Dim ds As DevExpress.Xpo.DB.InMemoryDataStore = New DevExpress.Xpo.DB.InMemoryDataStore()
-        XpoDefault.DataLayer = New SimpleDataLayer(ds)
+        'Dim ds As DevExpress.Xpo.DB.InMemoryDataStore = New DevExpress.Xpo.DB.InMemoryDataStore()
+        'XpoDefault.DataLayer = New SimpleDataLayer(ds)
 
-
-        'XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
-        'XpoDefault.DataLayer = SimpleDataLayer
+        XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
         XpoDefault.Session = Nothing
 
     End Sub

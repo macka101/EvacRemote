@@ -22,11 +22,12 @@ Partial Class ScheduleListSwipe
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScheduleListSwipe))
         Dim TimeRuler1 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
         Dim TimeRuler2 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
-        Me.SchedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
+        Me.SchedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage()
+        Me.CentraldiaryBindingSource = New System.Windows.Forms.BindingSource()
+        Me.DataSet1 = New EvacRemote.DataSet1()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.btnToday = New DevExpress.XtraEditors.SimpleButton()
         Me.btnMonth = New DevExpress.XtraEditors.SimpleButton()
@@ -40,13 +41,13 @@ Partial Class ScheduleListSwipe
         Me.lciDayView = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciMonth = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciToday = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.DataSet1 = New EvacRemote.DataSet1()
         Me.Central_diaryTableAdapter1 = New EvacRemote.DataSet1TableAdapters.central_diaryTableAdapter()
-        Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CentraldiaryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EngineerlocationsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource()
+        Me.EngineerlocationsBindingSource = New System.Windows.Forms.BindingSource()
         Me.Engineer_locationsTableAdapter = New EvacRemote.DataSet1TableAdapters.engineer_locationsTableAdapter()
         CType(Me.SchedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CentraldiaryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,9 +58,7 @@ Partial Class ScheduleListSwipe
         CType(Me.lciDayView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciMonth, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciToday, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CentraldiaryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EngineerlocationsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,6 +75,16 @@ Partial Class ScheduleListSwipe
         Me.SchedulerStorage1.Appointments.Mappings.Status = "AppStatus"
         Me.SchedulerStorage1.Appointments.Mappings.Subject = "Subject"
         Me.SchedulerStorage1.Appointments.Mappings.Type = "AppType"
+        '
+        'CentraldiaryBindingSource
+        '
+        Me.CentraldiaryBindingSource.DataMember = "central_diary"
+        Me.CentraldiaryBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'LayoutControl1
         '
@@ -150,7 +159,6 @@ Partial Class ScheduleListSwipe
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(659, 419)
-        Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
         'SISchedule
@@ -170,9 +178,7 @@ Partial Class ScheduleListSwipe
         Me.lciSchedule.Location = New System.Drawing.Point(0, 42)
         Me.lciSchedule.Name = "lciSchedule"
         Me.lciSchedule.Size = New System.Drawing.Size(639, 357)
-        Me.lciSchedule.Text = "lciSchedule"
         Me.lciSchedule.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciSchedule.TextToControlDistance = 0
         Me.lciSchedule.TextVisible = False
         '
         'lciWeek
@@ -182,9 +188,7 @@ Partial Class ScheduleListSwipe
         Me.lciWeek.Location = New System.Drawing.Point(547, 0)
         Me.lciWeek.Name = "lciWeek"
         Me.lciWeek.Size = New System.Drawing.Size(46, 42)
-        Me.lciWeek.Text = "lciWeek"
         Me.lciWeek.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciWeek.TextToControlDistance = 0
         Me.lciWeek.TextVisible = False
         '
         'lciDayView
@@ -194,9 +198,7 @@ Partial Class ScheduleListSwipe
         Me.lciDayView.Location = New System.Drawing.Point(501, 0)
         Me.lciDayView.Name = "lciDayView"
         Me.lciDayView.Size = New System.Drawing.Size(46, 42)
-        Me.lciDayView.Text = "lciDayView"
         Me.lciDayView.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciDayView.TextToControlDistance = 0
         Me.lciDayView.TextVisible = False
         '
         'lciMonth
@@ -206,9 +208,7 @@ Partial Class ScheduleListSwipe
         Me.lciMonth.Location = New System.Drawing.Point(593, 0)
         Me.lciMonth.Name = "lciMonth"
         Me.lciMonth.Size = New System.Drawing.Size(46, 42)
-        Me.lciMonth.Text = "lciMonth"
         Me.lciMonth.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciMonth.TextToControlDistance = 0
         Me.lciMonth.TextVisible = False
         '
         'lciToday
@@ -218,15 +218,8 @@ Partial Class ScheduleListSwipe
         Me.lciToday.Location = New System.Drawing.Point(455, 0)
         Me.lciToday.Name = "lciToday"
         Me.lciToday.Size = New System.Drawing.Size(46, 42)
-        Me.lciToday.Text = "lciToday"
         Me.lciToday.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciToday.TextToControlDistance = 0
         Me.lciToday.TextVisible = False
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Central_diaryTableAdapter1
         '
@@ -236,11 +229,6 @@ Partial Class ScheduleListSwipe
         '
         Me.DataSet1BindingSource.DataSource = Me.DataSet1
         Me.DataSet1BindingSource.Position = 0
-        '
-        'CentraldiaryBindingSource
-        '
-        Me.CentraldiaryBindingSource.DataMember = "central_diary"
-        Me.CentraldiaryBindingSource.DataSource = Me.DataSet1
         '
         'EngineerlocationsBindingSource
         '
@@ -259,6 +247,8 @@ Partial Class ScheduleListSwipe
         Me.Name = "ScheduleListSwipe"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.SchedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CentraldiaryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -269,9 +259,7 @@ Partial Class ScheduleListSwipe
         CType(Me.lciDayView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciMonth, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciToday, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CentraldiaryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EngineerlocationsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

@@ -1,9 +1,9 @@
 ﻿Imports DevExpress.Xpo
 
-Public Class viewEscapeRouteSwipe
+Public Class viewFloorSwipe
     Private _parent As frmMain = Nothing
     Private _viewStairwaySwipe As SurveySwipe = Nothing
-    Private _StairCase As EscapeRoute
+    Private _Floor As Floor
     Private _session As UnitOfWork
 
     Private editValueChangedDelegate As EventHandler
@@ -23,45 +23,28 @@ Public Class viewEscapeRouteSwipe
             _parent = value
         End Set
     End Property
-    Public Property ParentSurvey() As SurveySwipe
-        Get
-            Return _viewStairwaySwipe
-        End Get
-        Set(ByVal value As SurveySwipe)
-            If (Not Object.Equals(_viewStairwaySwipe, Nothing)) Then
-                Return
-            End If
-            _viewStairwaySwipe = value
-        End Set
-    End Property
     Public Sub Initdata()
 
     End Sub
 
-    Public Sub New(ByVal parent As frmMain, ByRef pForm As SurveySwipe, ByRef pStairCase As EscapeRoute)
+    Public Sub New(ByVal parent As frmMain, ByRef pForm As viewEscapeRouteSwipe, ByRef pFloor As Floor)
 
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
-        _viewStairwaySwipe = pForm
-
-        If pStairCase Is Nothing Then
-            _StairCase = New EscapeRoute(_session)
-        Else
-
-        End If
-        _StairCase = pStairCase
+        _session = pFloor.Session
+        _Floor = pFloor
         ' Add any initialization after the InitializeComponent() call.
-        teReference.Text = _StairCase.NoFloors
-        cbeStairwayType.EditValue = _StairCase.Type
-        icbNosing.EditValue = _StairCase.Nosing
-        cbePitch.EditValue = _StairCase.Angle
-        CBEGoing.EditValue = _StairCase.Going
-        teNotes.Text = _StairCase.Notes
+        teFloor.Text = _Floor.Floor
+        cbeStairwayType.EditValue = _Floor.Type
+        icbNosing.EditValue = _Floor.Nosing
+        cbePitch.EditValue = _Floor.Pitch
+        CBEGoing.EditValue = _Floor.Going
+        teNotes.Text = _Floor.Notes
 
         Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
 
-        AddHandler teReference.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler teFloor.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler cbeStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbNosing.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler cbeThread.EditValueChanged, AddressOf edit_EditValueChanged
@@ -84,20 +67,18 @@ Public Class viewEscapeRouteSwipe
         Else
             ' lciBar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
         End If
-        teReference.ReadOnly = [ReadOnly]
 
     End Sub
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        _StairCase.NoFloors = teReference.Text
-        _StairCase.Type = cbeStairwayType.EditValue
-        _StairCase.Nosing = icbNosing.EditValue
-        _StairCase.Angle = cbePitch.EditValue
-        _StairCase.Going = CBEGoing.EditValue
-        _StairCase.Notes = teNotes.Text
-        _StairCase.Save()
-        _StairCase.Session.CommitTransaction()
-        ParentSurvey.RefreshStairWell()
-        ParentMain.HideStairCase()
+        _Floor.Floor = teFloor.Text
+        _Floor.Type = cbeStairwayType.EditValue
+        _Floor.Nosing = icbNosing.EditValue
+        _Floor.Pitch = cbePitch.EditValue
+        _Floor.Going = CBEGoing.EditValue
+        _Floor.Notes = teNotes.Text
+        _Floor.Save()
+        _Floor.Session.CommitTransaction()
+        ParentMain.HideFloor()
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then

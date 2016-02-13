@@ -12,6 +12,7 @@ Public Class frmMain
     Dim _Survey As SurveySwipe
     Dim _Service As ServiceSwipe
     Dim _ViewEscapeRoute As viewEscapeRouteSwipe
+    Dim _ViewFloor As viewFloorSwipe
     Dim _ViewServiceChair As viewAssetSwipeChair
     Dim _ViewServiceIbex As viewAssetSwipeIbex
 
@@ -53,7 +54,9 @@ Public Class frmMain
     End Sub
 
     Private Sub dashboardTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles dashboardTileBarItem.ItemClick
-
+        Using frmsysnc As New FrmSyncronize
+            frmsysnc.ShowDialog()
+        End Using
     End Sub
     Public Sub BasketEnabled(bEnabled As Boolean)
         basketTileBarItem.Enabled = bEnabled
@@ -171,6 +174,21 @@ Public Class frmMain
         _ViewEscapeRoute.Visible = False
         _Survey.Visible = True
     End Sub
+    Public Sub ViewFloor(ByRef pForm As viewEscapeRouteSwipe, ByRef pFloor As Floor)
+        If _ViewFloor Is Nothing Then
+            _ViewFloor = New viewFloorSwipe(Me, pForm, pFloor)
+        End If
+
+        _ViewFloor.Parent = Me.MainPnl
+        _ViewFloor.Dock = DockStyle.Fill
+        _ViewFloor.Initdata()
+        pForm.Visible = False
+        _ViewFloor.Visible = True
+    End Sub
+    Public Sub HideFloor()
+        _ViewFloor.Visible = False
+        _ViewEscapeRoute.Visible = True
+    End Sub
     Public Sub ViewServiceChair(pForm As ServiceSwipe, pAsset As Asset)
         If _ViewServiceChair Is Nothing Then
             _ViewServiceChair = New viewAssetSwipeChair(dataSession, Me, pForm, pAsset)
@@ -285,7 +303,7 @@ Public Class frmMain
     End Sub
 
     Private Sub mainTileBar_Click(sender As Object, e As EventArgs) Handles mainTileBar.Click
-
+        Dim x = 1
     End Sub
 
     Private Sub basketTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles basketTileBarItem.ItemClick
@@ -385,4 +403,5 @@ Public Class frmMain
             frmEmail.ShowDialog()
         End Using
     End Sub
+
 End Class

@@ -95,7 +95,9 @@ Partial Class CustomerList
         '
         'btnSetCurrent
         '
+        Me.btnSetCurrent.Enabled = False
         Me.btnSetCurrent.Image = CType(resources.GetObject("btnSetCurrent.Image"), System.Drawing.Image)
+        Me.btnSetCurrent.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
         Me.btnSetCurrent.Location = New System.Drawing.Point(605, 12)
         Me.btnSetCurrent.MaximumSize = New System.Drawing.Size(42, 38)
         Me.btnSetCurrent.MinimumSize = New System.Drawing.Size(42, 38)
@@ -103,6 +105,7 @@ Partial Class CustomerList
         Me.btnSetCurrent.Size = New System.Drawing.Size(42, 38)
         Me.btnSetCurrent.StyleController = Me.LayoutControl1
         Me.btnSetCurrent.TabIndex = 5
+        Me.btnSetCurrent.Visible = False
         '
         'GridControl1
         '

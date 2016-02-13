@@ -1,6 +1,7 @@
 ﻿Imports DevExpress.LookAndFeel
 Imports DevExpress.XtraEditors
 Imports System.Globalization
+Imports DevExpress.Utils
 Imports DevExpress.Skins
 Imports DevExpress.Skins.Info
 Imports DevExpress.XtraBars.Docking2010.Customization
@@ -21,8 +22,6 @@ Friend NotInheritable Class Program
     Private Sub New()
     End Sub
 
-
-
     <STAThread>
     Shared Sub Main()
 
@@ -30,22 +29,31 @@ Friend NotInheritable Class Program
         UserLookAndFeel.Default.SetSkinStyle("Office 2013 Light Grey")
 
         Application.CurrentCulture = CultureInfo.GetCultureInfo("en-GB")
-
+        WindowsFormsSettings.SetDPIAware()
+        WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.True
         DevExpress.XtraEditors.WindowsFormsSettings.AllowPixelScrolling = DevExpress.Utils.DefaultBoolean.True
         DevExpress.XtraEditors.WindowsFormsSettings.ScrollUIMode = DevExpress.XtraEditors.ScrollUIMode.Touch
-
-        WindowsFormsSettings.DefaultFont = New Font("Segoe UI", 10.0)
-        WindowsFormsSettings.DefaultMenuFont = New Font("Segoe UI", 10.0)
-
-        '    UserLookAndFeel.Default.TouchScaleFactor = 1.5
-
+        Dim touchScaleFactor As Single, fontSize As Single
+        DeviceDetector.SuggestHybridDemoParameters(touchScaleFactor, fontSize)
+        WindowsFormsSettings.DefaultFont = New Font("Segoe UI", fontSize)
+        WindowsFormsSettings.DefaultMenuFont = New Font("Segoe UI", fontSize)
+        WindowsFormsSettings.TouchScaleFactor = touchScaleFactor
+        Application.EnableVisualStyles()
+        Application.SetCompatibleTextRenderingDefault(False)
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
 
-        currentADUser = System.DirectoryServices.AccountManagement.UserPrincipal.Current
 
-        ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly)
+        If Environment.MachineName = "JOHN-PC" Then
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8\SQL2012;integrated security=SSPI;initial catalog=evacremote"
+            ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
+        Else
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=JOHN-PC\SQLEXPRESS2008;integrated security=SSPI;initial catalog=evacremote"
+            ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists)
+        End If
 
         Application.Run(New frmMain())
+
     End Sub
+   
 End Class

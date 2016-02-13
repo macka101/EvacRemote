@@ -31,7 +31,7 @@
     <TargetCulture>en-GB</TargetCulture>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationRevision>45</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -66,7 +66,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v15.1" />
@@ -116,6 +116,18 @@
     <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Replication, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Microsoft.SqlServer.Replication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Rmo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Microsoft.SqlServer.Rmo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.TabletPC.InkSecureSignature">
       <HintPath>..\InkSecureSignature\bin\Microsoft.TabletPC.InkSecureSignature.dll</HintPath>
     </Reference>
@@ -130,6 +142,7 @@
     <Reference Include="System.Device" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -143,6 +156,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -190,6 +204,7 @@
     <Compile Include="Designers\XtraForm1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DeviceDetector.vb" />
     <Compile Include="Edits\frmSignature.Designer.vb">
       <DependentUpon>frmSignature.vb</DependentUpon>
     </Compile>
@@ -226,6 +241,12 @@
     <Compile Include="Edits\viewContactSwipe.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Edits\viewEscapeRouteSwipe.Designer.vb">
+      <DependentUpon>viewEscapeRouteSwipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Edits\viewEscapeRouteSwipe.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Edits\viewProductSwipePDF.Designer.vb">
       <DependentUpon>viewProductSwipePDF.vb</DependentUpon>
     </Compile>
@@ -253,16 +274,22 @@
     <Compile Include="Data\EvacBasket.vb" />
     <Compile Include="Data\EvacSurvey.vb" />
     <Compile Include="Data\EvacTask.vb" />
-    <Compile Include="Edits\viewStairwaySwipe.Designer.vb">
-      <DependentUpon>viewStairwaySwipe.vb</DependentUpon>
+    <Compile Include="Edits\viewFloorSwipe.Designer.vb">
+      <DependentUpon>viewFloorSwipe.vb</DependentUpon>
     </Compile>
-    <Compile Include="Edits\viewStairwaySwipe.vb">
+    <Compile Include="Edits\viewFloorSwipe.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSyncronize.Designer.vb">
+      <DependentUpon>FrmSyncronize.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSyncronize.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Misc.vb" />
@@ -388,6 +415,9 @@
     <EmbeddedResource Include="Edits\viewBuildingSwipe.resx">
       <DependentUpon>viewBuildingSwipe.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edits\viewEscapeRouteSwipe.resx">
+      <DependentUpon>viewEscapeRouteSwipe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edits\viewProductSwipePDF.resx">
       <DependentUpon>viewProductSwipePDF.vb</DependentUpon>
     </EmbeddedResource>
@@ -400,11 +430,14 @@
     <EmbeddedResource Include="Edits\viewProductSwipeWin.resx">
       <DependentUpon>viewProductSwipeWin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edits\viewStairwaySwipe.resx">
-      <DependentUpon>viewStairwaySwipe.vb</DependentUpon>
+    <EmbeddedResource Include="Edits\viewFloorSwipe.resx">
+      <DependentUpon>viewFloorSwipe.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSyncronize.resx">
+      <DependentUpon>FrmSyncronize.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
@@ -521,37 +554,9 @@
     <EmbeddedResource Include="Resources\Separator.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
     <Folder Include="Xtras\" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="ProspectSoftCRM">
-      <Guid>{B9CA9DA0-8F4B-4164-8351-C9BF14A62E76}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>19</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="ProspectSoftCRMUI">
-      <Guid>{A0A8EA72-9BFB-40F1-A467-882F88DE2A16}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>5</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="PSCRMLogin">
-      <Guid>{C7AC3502-8EC2-49EC-B639-6DC0991C6D73}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -640,6 +645,16 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+    <PublishFile Include="DevExpress.Data.v15.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
     <PublishFile Include="DevExpress.DataAccess.v15.1">
       <Visible>False</Visible>
       <Group>
@@ -700,6 +715,16 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+    <PublishFile Include="DevExpress.Printing.v15.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
     <PublishFile Include="DevExpress.RichEdit.v15.1.Core">
       <Visible>False</Visible>
       <Group>
@@ -751,6 +776,16 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.SpellChecker.v15.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Utils.v15.1">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -821,6 +856,16 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraCharts.v15.1.Wizard">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraEditors.v15.1">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -3855,10 +3900,14 @@
     <None Include="statementstyle.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Forms\spinner3-greenie.gif" />
     <Content Include="images\Missing.png" />
     <None Include="Resources\edittask_16x16.png" />
     <None Include="Resources\bookmark_16x16.png" />
     <None Include="Resources\bookmark_32x32.png" />
+    <Content Include="References\Microsoft.SqlServer.ConnectionInfo.dll" />
+    <Content Include="References\Microsoft.SqlServer.Replication.dll" />
+    <Content Include="References\Microsoft.SqlServer.Rmo.dll" />
     <Content Include="TEST.HTML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

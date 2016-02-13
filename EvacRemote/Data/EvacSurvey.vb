@@ -85,13 +85,13 @@ Public Class Building
             _heritage = value
         End Set
     End Property
-    Private _noescaperoutes As Integer
-    Public Property NoEscapeRoutes() As Integer
+    Private _escapeRoutesNo As Integer
+    Public Property EscapeRoutesNo() As Integer
         Get
-            Return _noescaperoutes
+            Return _escapeRoutesNo
         End Get
         Set(value As Integer)
-            _noescaperoutes = value
+            _escapeRoutesNo = value
         End Set
     End Property
     <Association("Building-EscapeRoute")> _
@@ -100,8 +100,23 @@ Public Class Building
             Return GetCollection(Of EscapeRoute)("EscapeRoutes")
         End Get
     End Property
+    Private _stairwellsNo As Integer
+    Public Property StairwellsNo() As Integer
+        Get
+            Return _stairwellsNo
+        End Get
+        Set(value As Integer)
+            _stairwellsNo = value
+        End Set
+    End Property
+    <Association("Building-Floor")> _
+    Public ReadOnly Property Floors() As XPCollection(Of Floor)
+        Get
+            Return GetCollection(Of Floor)("Floors")
+        End Get
+    End Property
     <Size(SizeAttribute.Unlimited)> _
-      Public Property Details() As String
+    Public Property Details() As String
         Get
             Return notes_Renamed
         End Get
@@ -109,6 +124,9 @@ Public Class Building
             notes_Renamed = value
         End Set
     End Property
+    Public Overrides Function ToString() As String
+        Return String.Format("{0}", Location)
+    End Function
 End Class
 Public Class EscapeRoute
     Inherits XPObject
@@ -118,7 +136,7 @@ Public Class EscapeRoute
     End Sub
     Private _building As Building
     <Association("Building-EscapeRoute")> _
-       Public Property Building() As Building
+    Public Property Building() As Building
         Get
             Return _building
         End Get
@@ -216,7 +234,7 @@ Public Class EscapeRoute
             _notes = value
         End Set
     End Property
-    <Association("EscapeRoute-Floors")> _
+    <Association("EscapeRoute-Floor")> _
     Public ReadOnly Property Floors() As XPCollection(Of Floor)
         Get
             Return GetCollection(Of Floor)("Floors")
@@ -226,7 +244,6 @@ End Class
 Public Class Floor
     Inherits XPObject
     Private ID_Renamed As Integer
-    Private _escaperoute As EscapeRoute
     Private _pitch As String
     Private _going As String
     Private _notes As String
@@ -234,13 +251,24 @@ Public Class Floor
     Public Sub New(ByVal session As Session)
         MyBase.New(session)
     End Sub
-    <Association("EscapeRoute-Floors")> _
+    Private _escaperoute As EscapeRoute
+    <Association("EscapeRoute-Floor")> _
     Public Property EscapeRoute() As EscapeRoute
         Get
             Return _escaperoute
         End Get
         Set(value As EscapeRoute)
             _escaperoute = value
+        End Set
+    End Property
+    Private _building As Building
+    <Association("Building-Floor")> _
+      Public Property Building() As Building
+        Get
+            Return _building
+        End Get
+        Set(value As Building)
+            _building = value
         End Set
     End Property
     Private _floor As String

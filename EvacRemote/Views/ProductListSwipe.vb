@@ -259,7 +259,7 @@ Public Class ProductListSwipe
             Dim oRow As Product = CurrentProduct
             If oRow IsNot Nothing Then
                 If hi.Column.Tag.ToString = "ORDER" Then
-                    ThisBasket.AddItem(oRow.productId, 1)
+                    '  ThisBasket.AddItem(oRow.productId, 1)
                 End If
                 If hi.Column.Tag.ToString = "DATASHEET" Then
                     filename = SupportFilesDirectory & Misc.PDF_FOLDER & oRow.datasheet

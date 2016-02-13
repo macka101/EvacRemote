@@ -66,19 +66,9 @@ Public Class Basket
         ParentFormMain.BasketEnabled(True)
     End Sub
 End Class
-<Persistent("vw_Products")> _
 Public Class Product
-    Inherits XPLiteObject
+    Inherits XPObject
     Dim fproductId As Integer
-    <Key, Persistent> _
-    Public Property productId() As Integer
-        Get
-            Return fproductId
-        End Get
-        Set(ByVal value As Integer)
-            SetPropertyValue(Of Integer)("productId", fproductId, value)
-        End Set
-    End Property
     Dim fmicrositeId As Integer
     Public Property micrositeId() As Integer
         Get
@@ -88,7 +78,7 @@ Public Class Product
             SetPropertyValue(Of Integer)("micrositeId", fmicrositeId, value)
         End Set
     End Property
-    Dim flanguageCode As String
+    Private flanguageCode As String
     <Size(10)> _
     Public Property languageCode() As String
         Get
@@ -98,7 +88,7 @@ Public Class Product
             SetPropertyValue(Of String)("languageCode", flanguageCode, value)
         End Set
     End Property
-    Dim fname As String
+    Private fname As String
     <Size(50)> _
     Public Property name() As String
         Get
@@ -108,7 +98,7 @@ Public Class Product
             SetPropertyValue(Of String)("name", fname, value)
         End Set
     End Property
-    Dim fshortDescription As String
+    Private fshortDescription As String
     <Size(250)> _
     Public Property shortDescription() As String
         Get
@@ -118,7 +108,7 @@ Public Class Product
             SetPropertyValue(Of String)("shortDescription", fshortDescription, value)
         End Set
     End Property
-    Dim fdescription As String
+    Private fdescription As String
     <Size(400)> _
     Public Property description() As String
         Get
@@ -128,7 +118,7 @@ Public Class Product
             SetPropertyValue(Of String)("description", fdescription, value)
         End Set
     End Property
-    Dim ffeatures As String
+    Private ffeatures As String
     <Size(2000)> _
     Public Property features() As String
         Get
@@ -138,7 +128,7 @@ Public Class Product
             SetPropertyValue(Of String)("features", ffeatures, value)
         End Set
     End Property
-    Dim fincludes As String
+    Private fincludes As String
     <Size(2000)> _
     Public Property includes() As String
         Get
@@ -148,7 +138,7 @@ Public Class Product
             SetPropertyValue(Of String)("includes", fincludes, value)
         End Set
     End Property
-    Dim fheight As String
+    Private fheight As String
     <Size(50)> _
     Public Property height() As String
         Get
@@ -158,7 +148,7 @@ Public Class Product
             SetPropertyValue(Of String)("height", fheight, value)
         End Set
     End Property
-    Dim fwidth As String
+    Private fwidth As String
     <Size(50)> _
     Public Property width() As String
         Get
@@ -168,7 +158,7 @@ Public Class Product
             SetPropertyValue(Of String)("width", fwidth, value)
         End Set
     End Property
-    Dim fdepth As String
+    Private fdepth As String
     <Size(50)> _
     Public Property depth() As String
         Get
@@ -178,7 +168,7 @@ Public Class Product
             SetPropertyValue(Of String)("depth", fdepth, value)
         End Set
     End Property
-    Dim fweight As String
+    Private fweight As String
     <Size(50)> _
     Public Property weight() As String
         Get
@@ -188,7 +178,7 @@ Public Class Product
             SetPropertyValue(Of String)("weight", fweight, value)
         End Set
     End Property
-    Dim floadCapacity As String
+    Private floadCapacity As String
     <Size(50)> _
     Public Property loadCapacity() As String
         Get
@@ -198,7 +188,7 @@ Public Class Product
             SetPropertyValue(Of String)("loadCapacity", floadCapacity, value)
         End Set
     End Property
-    Dim fvideo As String
+    Private fvideo As String
     <Size(255)> _
     Public Property video() As String
         Get
@@ -208,7 +198,7 @@ Public Class Product
             SetPropertyValue(Of String)("video", fvideo, value)
         End Set
     End Property
-    Dim fcertificate As String
+    Private fcertificate As String
     <Size(255)> _
     Public Property certificate() As String
         Get
@@ -218,7 +208,7 @@ Public Class Product
             SetPropertyValue(Of String)("certificate", fcertificate, value)
         End Set
     End Property
-    Dim fimage As String
+    Private fimage As String
     <Size(255)> _
     Public Property image() As String
         Get
@@ -228,7 +218,7 @@ Public Class Product
             SetPropertyValue(Of String)("image", fimage, value)
         End Set
     End Property
-    Dim faccessory As Boolean
+    Private faccessory As Boolean
     Public Property accessory() As Boolean
         Get
             Return faccessory
@@ -237,7 +227,7 @@ Public Class Product
             SetPropertyValue(Of Boolean)("accessory", faccessory, value)
         End Set
     End Property
-    Dim fvideoBase As String
+    Private fvideoBase As String
     <Size(255)> _
     Public Property videoBase() As String
         Get
@@ -247,7 +237,7 @@ Public Class Product
             SetPropertyValue(Of String)("videoBase", fvideoBase, value)
         End Set
     End Property
-    Dim fproductCode As String
+    Private fproductCode As String
     <Size(15)> _
     Public Property productCode() As String
         Get
@@ -257,7 +247,7 @@ Public Class Product
             SetPropertyValue(Of String)("productCode", fproductCode, value)
         End Set
     End Property
-    Dim fevacAid As Boolean
+    Private fevacAid As Boolean
     Public Property evacAid() As Boolean
         Get
             Return fevacAid
@@ -266,7 +256,7 @@ Public Class Product
             SetPropertyValue(Of Boolean)("evacAid", fevacAid, value)
         End Set
     End Property
-    Dim fdisplayOrder As Integer
+    Private fdisplayOrder As Integer
     Public Property displayOrder() As Integer
         Get
             Return fdisplayOrder
@@ -275,7 +265,7 @@ Public Class Product
             SetPropertyValue(Of Integer)("displayOrder", fdisplayOrder, value)
         End Set
     End Property
-    Dim fvisible As Boolean
+    Private fvisible As Boolean
     Public Property visible() As Boolean
         Get
             Return fvisible
@@ -284,7 +274,7 @@ Public Class Product
             SetPropertyValue(Of Boolean)("visible", fvisible, value)
         End Set
     End Property
-    Dim fstairclimber As Boolean
+    Private fstairclimber As Boolean
     Public Property stairclimber() As Boolean
         Get
             Return fstairclimber
@@ -293,7 +283,7 @@ Public Class Product
             SetPropertyValue(Of Boolean)("stairclimber", fstairclimber, value)
         End Set
     End Property
-    Dim fbuildingmanagement As Boolean
+    Private fbuildingmanagement As Boolean
     Public Property buildingmanagement() As Boolean
         Get
             Return fbuildingmanagement
@@ -302,7 +292,7 @@ Public Class Product
             SetPropertyValue(Of Boolean)("buildingmanagement", fbuildingmanagement, value)
         End Set
     End Property
-    Dim fdatasheet As String
+    Private fdatasheet As String
     <Size(50)> _
     Public Property datasheet() As String
         Get
