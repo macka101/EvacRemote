@@ -73,42 +73,42 @@ Public Class viewAssetSwipeChair
     End Sub
     Private Sub InitEditors()
         If xpOptions Is Nothing Then
-            xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[ID]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+            xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[Description]", DevExpress.Xpo.DB.SortingDirection.Ascending))
 
             For Each xOption As FieldOption In xpOptions
                 Select Case xOption.ServiceField
                     Case eServiceFields.SpringClips
-                        icbSpringClips.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbSpringClips.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.SeatRivets
-                        icbSeatRivets.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbSeatRivets.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.PaddingSeat
-                        icbPaddingSeat.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbPaddingSeat.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.FrontHandle
-                        icbFrontHandle.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbFrontHandle.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.RearHandle
-                        icbRearHandle.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbRearHandle.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.HammockCondition
-                        icbHammockCondition.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbHammockCondition.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.KickstandGasSpring
-                        icbKickstandGasSpring.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbKickstandGasSpring.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.RotationBelts
-                        icbRotationBelts.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbRotationBelts.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.SkiAssemblyRollers
-                        icbSkiAssemblyRollers.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbSkiAssemblyRollers.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.SpindlePosition
-                        icbSpindlePosition.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbSpindlePosition.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.SafetyBelt
-                        icbSafetyBelt.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbSafetyBelt.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.SeatFrame
-                        icbSeatFrame.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbSeatFrame.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.KickstandBolt
-                        icbKickstandBolt.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbKickstandBolt.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.KickstandGas
-                        icbKickstandGas.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbKickstandGas.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.StabiliserRivets
-                        icbStabiliserRivets.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbStabiliserRivets.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.Closure
-                        icbClosure.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbClosure.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                 End Select
             Next
         End If

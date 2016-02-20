@@ -65,24 +65,24 @@ Public Class viewAssetSwipeIbex
 
     Private Sub InitEditors()
         If xpOptions Is Nothing Then
-            xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[ID]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+            xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[Description]", DevExpress.Xpo.DB.SortingDirection.Ascending))
 
             For Each xOption As FieldOption In xpOptions
                 Select Case xOption.ServiceField
                     Case eServiceFields.BackRest
-                        icbBackRest.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbBackRest.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.BrakeMechanism
-                        icbBrakeMechanism.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbBrakeMechanism.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.BrakeMechanism
-                        icbFasteners.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbFasteners.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.HandGrips
-                        icbHandGrips.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbHandGrips.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.PatientStraps
-                        icbPatientStraps.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbPatientStraps.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.PlugsCaps
-                        icbPlugsCaps.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbPlugsCaps.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                     Case eServiceFields.WheelPulleys
-                        icbWheelPulleys.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.ID))
+                        icbWheelPulleys.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                 End Select
             Next
         End If

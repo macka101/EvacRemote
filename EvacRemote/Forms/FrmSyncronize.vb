@@ -15,7 +15,7 @@ Partial Public Class FrmSyncronize
     ' Define the server, subscription, publication, and database names.
     Private subscriberName As String = "JOHN-PC\SQLEXPRESS2008"
     Private subscriptionDbName As String = "EvacRemote"
-    Private publisherName As String = "EVAC2K8\SQL2012"
+    Private publisherName As String = "80.168.155.122"
     Private publicationName As String = "EvacRemotePub"
     Private publicationDbName As String = "EvacRemote"
 
@@ -86,8 +86,13 @@ Partial Public Class FrmSyncronize
 
                 ' Set the required properties that could not be returned
                 ' from the MSsubscription_properties table.
-                agent.PublisherSecurityMode = SecurityMode.Integrated
-                agent.DistributorSecurityMode = SecurityMode.Integrated
+                agent.PublisherSecurityMode = SecurityMode.Standard
+                agent.PublisherLogin = "EvacRemote"
+                agent.PublisherPassword = "6A33%7rq"
+
+                agent.DistributorSecurityMode = SecurityMode.Standard
+                agent.DistributorLogin = "EvacRemote"
+                agent.DistributorPassword = "6A33%7rq"
                 agent.Distributor = publisherName
 
                 ' Enable verbose merge agent output to file.

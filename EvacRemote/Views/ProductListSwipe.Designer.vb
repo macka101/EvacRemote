@@ -167,7 +167,7 @@ Partial Class ProductListSwipe
         'XpCollection1
         '
         Me.XpCollection1.LoadingEnabled = False
-        Me.XpCollection1.ObjectType = GetType(EvacRemote.Product)
+        Me.XpCollection1.ObjectType = GetType(Product)
         '
         'LayoutView1
         '

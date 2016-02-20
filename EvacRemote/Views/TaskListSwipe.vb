@@ -6,7 +6,6 @@ Imports DevExpress.XtraGrid.Views.Layout.ViewInfo
 
 Imports EvacRemote.GlobalVariables
 Imports DevExpress.Xpo
-Imports EvacRemote.EvacTask
 Imports DevExpress.Data.Filtering
 
 Public Class TaskListSwipe

@@ -69,49 +69,49 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v15.1" />
-    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeParser.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v15.1.UI, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Pdf.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Pdf.v15.1.Drawing, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.PivotGrid.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Snap.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Snap.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Snap.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v15.1.UI, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v15.1" />
-    <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v15.1.UI, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v15.1.Wizard, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGauges.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v15.1" />
-    <Reference Include="DevExpress.XtraNavBar.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPdfViewer.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPivotGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraRichEdit.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraRichEdit.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v15.1.Reporting, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v15.1.Reporting.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.BonusSkins.v15.2" />
+    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v15.2.Drawing, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v15.2" />
+    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.Wizard, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2" />
+    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPdfViewer.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2.Reporting, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2.Reporting.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.Ink, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -170,7 +170,6 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionHelper.vb" />
     <Compile Include="Controls\SignatureBox.Designer.vb">
       <DependentUpon>SignatureBox.vb</DependentUpon>
     </Compile>
@@ -188,8 +187,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Data\CrmData.vb" />
-    <Compile Include="Data\Enums.vb" />
     <Compile Include="Designers\frmEmailTemplates.Designer.vb" />
     <Compile Include="Designers\frmEmailTemplates.vb">
       <SubType>Form</SubType>
@@ -272,8 +269,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Data\EvacBasket.vb" />
-    <Compile Include="Data\EvacSurvey.vb" />
-    <Compile Include="Data\EvacTask.vb" />
     <Compile Include="Edits\viewFloorSwipe.Designer.vb">
       <DependentUpon>viewFloorSwipe.vb</DependentUpon>
     </Compile>
@@ -293,18 +288,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Misc.vb" />
-    <Compile Include="Reports\IBexSurvey.Designer.vb">
-      <DependentUpon>IBexSurvey.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\IBexSurvey.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\rptServiceReport.Designer.vb">
-      <DependentUpon>rptServiceReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\rptServiceReport.vb">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="RTFActions\1 RangeActions.vb" />
     <Compile Include="RTFActions\2 FormattingActions.vb" />
     <Compile Include="RTFActions\3 PageLayoutActions.vb" />
@@ -445,12 +428,6 @@
     <EmbeddedResource Include="frmSchedule.resx">
       <DependentUpon>frmSchedule.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\IBexSurvey.resx">
-      <DependentUpon>IBexSurvey.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rptServiceReport.resx">
-      <DependentUpon>rptServiceReport.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SwipeGrid\SwipeGridControl.resx" />
     <EmbeddedResource Include="Views\BasketList.resx">
       <DependentUpon>BasketList.vb</DependentUpon>
@@ -496,9 +473,6 @@
     </Content>
     <None Include="images\flags\Thumbs.db" />
     <None Include="images\prettyPhoto\light_square\.DS_Store" />
-    <None Include="images\Thumbs.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Resources\blank_32x32.png" />
     <None Include="Resources\Picture_32x32.png" />
     <None Include="Resources\Acrobat-red_32x32.png" />
@@ -554,6 +528,7 @@
     <EmbeddedResource Include="Resources\Separator.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Reports\" />
     <Folder Include="Xtras\" />
   </ItemGroup>
   <ItemGroup>
@@ -615,7 +590,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.BonusSkins.v15.1">
+    <PublishFile Include="DevExpress.BonusSkins.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -625,7 +600,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Charts.v15.1.Core">
+    <PublishFile Include="DevExpress.Charts.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -635,7 +610,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.CodeParser.v15.1">
+    <PublishFile Include="DevExpress.CodeParser.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -645,7 +620,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Data.v15.1">
+    <PublishFile Include="DevExpress.Data.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -655,7 +630,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.DataAccess.v15.1">
+    <PublishFile Include="DevExpress.DataAccess.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -665,7 +640,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.DataAccess.v15.1.UI">
+    <PublishFile Include="DevExpress.DataAccess.v15.2.UI">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -675,7 +650,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Office.v15.1.Core">
+    <PublishFile Include="DevExpress.Office.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -685,7 +660,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Pdf.v15.1.Core">
+    <PublishFile Include="DevExpress.Pdf.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -695,7 +670,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Pdf.v15.1.Drawing">
+    <PublishFile Include="DevExpress.Pdf.v15.2.Drawing">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -705,7 +680,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.PivotGrid.v15.1.Core">
+    <PublishFile Include="DevExpress.PivotGrid.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -715,7 +690,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Printing.v15.1.Core">
+    <PublishFile Include="DevExpress.Printing.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -725,7 +700,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.RichEdit.v15.1.Core">
+    <PublishFile Include="DevExpress.RichEdit.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -735,7 +710,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Snap.v15.1">
+    <PublishFile Include="DevExpress.Snap.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -745,7 +720,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Snap.v15.1.Core">
+    <PublishFile Include="DevExpress.Snap.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -755,7 +730,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Snap.v15.1.Extensions">
+    <PublishFile Include="DevExpress.Snap.v15.2.Extensions">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -765,7 +740,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Sparkline.v15.1.Core">
+    <PublishFile Include="DevExpress.Sparkline.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -775,7 +750,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.SpellChecker.v15.1.Core">
+    <PublishFile Include="DevExpress.SpellChecker.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -785,7 +760,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Utils.v15.1">
+    <PublishFile Include="DevExpress.Utils.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -795,7 +770,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Utils.v15.1.UI">
+    <PublishFile Include="DevExpress.Utils.v15.2.UI">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -805,7 +780,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Xpo.v15.1">
+    <PublishFile Include="DevExpress.Xpo.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -815,7 +790,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraBars.v15.1">
+    <PublishFile Include="DevExpress.XtraBars.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -825,7 +800,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraCharts.v15.1">
+    <PublishFile Include="DevExpress.XtraCharts.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -835,7 +810,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraCharts.v15.1.Extensions">
+    <PublishFile Include="DevExpress.XtraCharts.v15.2.Extensions">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -845,7 +820,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraCharts.v15.1.UI">
+    <PublishFile Include="DevExpress.XtraCharts.v15.2.UI">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -855,7 +830,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraCharts.v15.1.Wizard">
+    <PublishFile Include="DevExpress.XtraCharts.v15.2.Wizard">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -865,7 +840,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraEditors.v15.1">
+    <PublishFile Include="DevExpress.XtraEditors.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -875,7 +850,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraGauges.v15.1.Core">
+    <PublishFile Include="DevExpress.XtraGauges.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -885,7 +860,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraGrid.v15.1">
+    <PublishFile Include="DevExpress.XtraGrid.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -895,7 +870,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraLayout.v15.1">
+    <PublishFile Include="DevExpress.XtraLayout.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -905,7 +880,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraNavBar.v15.1">
+    <PublishFile Include="DevExpress.XtraNavBar.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -915,7 +890,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraPdfViewer.v15.1">
+    <PublishFile Include="DevExpress.XtraPdfViewer.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -925,7 +900,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraPivotGrid.v15.1">
+    <PublishFile Include="DevExpress.XtraPivotGrid.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -935,7 +910,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraPrinting.v15.1">
+    <PublishFile Include="DevExpress.XtraPrinting.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -945,7 +920,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraReports.v15.1">
+    <PublishFile Include="DevExpress.XtraReports.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -955,7 +930,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraReports.v15.1.Extensions">
+    <PublishFile Include="DevExpress.XtraReports.v15.2.Extensions">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -965,7 +940,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraRichEdit.v15.1">
+    <PublishFile Include="DevExpress.XtraRichEdit.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -975,7 +950,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraRichEdit.v15.1.Extensions">
+    <PublishFile Include="DevExpress.XtraRichEdit.v15.2.Extensions">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -985,7 +960,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraScheduler.v15.1">
+    <PublishFile Include="DevExpress.XtraScheduler.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -995,7 +970,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraScheduler.v15.1.Core">
+    <PublishFile Include="DevExpress.XtraScheduler.v15.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1005,7 +980,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraScheduler.v15.1.Extensions">
+    <PublishFile Include="DevExpress.XtraScheduler.v15.2.Extensions">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1015,7 +990,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraScheduler.v15.1.Reporting">
+    <PublishFile Include="DevExpress.XtraScheduler.v15.2.Reporting">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1025,7 +1000,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraScheduler.v15.1.Reporting.Extensions">
+    <PublishFile Include="DevExpress.XtraScheduler.v15.2.Reporting.Extensions">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1035,7 +1010,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraSpellChecker.v15.1">
+    <PublishFile Include="DevExpress.XtraSpellChecker.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1045,7 +1020,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraTreeList.v15.1">
+    <PublishFile Include="DevExpress.XtraTreeList.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1055,7 +1030,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraVerticalGrid.v15.1">
+    <PublishFile Include="DevExpress.XtraVerticalGrid.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1065,7 +1040,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraWizard.v15.1">
+    <PublishFile Include="DevExpress.XtraWizard.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -4136,6 +4111,12 @@
     <Content Include="Resources\Tasks\InProgress.png" />
     <Content Include="Resources\Tasks\NotStarted.png" />
     <Content Include="Resources\Tasks\Urgent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.vbproj">
+      <Project>{c33a4890-4e10-4251-af49-98c13eb80cea}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

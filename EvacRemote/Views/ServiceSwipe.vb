@@ -96,7 +96,7 @@ Public Class ServiceSwipe
         Cursor.Current = Cursors.WaitCursor
         Dim report As XtraReport = Nothing
 
-        report = New rptServiceReport(_session, 2)
+        '  report = New rptServiceReport(_session, 2)
 
         Cursor.Current = Cursors.Default
         Using printTool As New ReportPrintTool(report)

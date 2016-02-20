@@ -255,12 +255,12 @@ Public Class frmMain
         End If
 
         OpenConnection()
-        currentADUser = System.DirectoryServices.AccountManagement.UserPrincipal.Current
-        Dim domainAndUserName As String = Environment.UserDomainName & "\" & Environment.UserName
+        '        currentADUser = System.DirectoryServices.AccountManagement.UserPrincipal.Current
+        '       Dim domainAndUserName As String = Environment.UserDomainName & "\" & Environment.UserName
 
 
         dataSession = New UnitOfWork(XpoDefault.DataLayer)
-        Dim sSql As String = String.Format(" SELECT usercode FROM user_intlogin where winusername = '{0}' ", domainAndUserName)
+        '  Dim sSql As String = String.Format(" SELECT usercode FROM user_intlogin where winusername = '{0}' ", domainAndUserName)
         '_UserCode = dataSession.ExecuteScalar(sSql)
         If _UserCode Is Nothing Or Debugger.IsAttached Then
             _UserCode = "MH"

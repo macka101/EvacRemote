@@ -12,7 +12,6 @@ Imports DevExpress.Data.Filtering
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports DevExpress.XtraEditors
-Imports EvacRemote.EvacTask
 
 Public Class ConnectionHelper
     Public Shared ConnectionString As String = "XpoProvider=MSSqlServer;data source=EVAC2K8\SQL2012;integrated security=SSPI;initial catalog=evacremote"
@@ -51,14 +50,12 @@ Public Class ConnectionHelper
 
             If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 1)), Nothing))) Then
                 Dim EObj As New FieldOption(session)
-                EObj.ID = 1
                 EObj.ServiceField = eServiceFields.BackRest
                 EObj.Description = "Not Present"
                 EObj.Save()
             End If
             If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 2)), Nothing))) Then
                 Dim EObj As New FieldOption(session)
-                EObj.ID = 2
                 EObj.ServiceField = eServiceFields.Fasteners
                 EObj.Description = "Not Present"
                 EObj.Save()

@@ -11,6 +11,7 @@ Imports DevExpress.Xpo
 Imports DevExpress.Data.Filtering
 Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports System.Drawing
 
 
 Public Class FieldOption
@@ -234,7 +235,7 @@ Public Class EvacService
     End Property
 End Class
 Public Class ChairService
-      Inherits XPCustomObject
+    Inherits XPCustomObject
     Public Sub New(ByVal session As Session)
         MyBase.New(session)
     End Sub
@@ -493,7 +494,7 @@ Public Class ChairService
     End Property
 End Class
 Public Class IbexService
-     Inherits XPCustomObject
+    Inherits XPCustomObject
     Public Sub New(ByVal session As Session)
         MyBase.New(session)
     End Sub
@@ -513,7 +514,7 @@ Public Class IbexService
     End Sub
     Private _evacService As EvacService
     <Association("Service-IBEX")> _
-        Public Property EvacService() As EvacService
+    Public Property EvacService() As EvacService
         Get
             Return _evacService
         End Get

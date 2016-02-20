@@ -44,8 +44,11 @@ Friend NotInheritable Class Program
         Application.SetCompatibleTextRenderingDefault(False)
 
 
-        If Environment.MachineName = "JOHN-PC" Then
-            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8\SQL2012;integrated security=SSPI;initial catalog=evacremote"
+        If Environment.MachineName = "JOHN-PC2" Then
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;initial catalog=EvacRemote;User Id=jmolloy;Password=6A33%7rq;"
+            ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
+        ElseIf Environment.MachineName = "JOHN-PC" Then
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;integrated security=SSPI;initial catalog=evacremote"
             ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
         Else
             ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=JOHN-PC\SQLEXPRESS2008;integrated security=SSPI;initial catalog=evacremote"
