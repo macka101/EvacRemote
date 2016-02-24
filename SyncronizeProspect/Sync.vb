@@ -39,6 +39,10 @@ Module Sync
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("UserTable")
+        Dim iRecords As Integer = GetRecordCount("user")
+
+        Console.Write(String.Format("Users     ({0:D5}) ", iRecords))
+
         If Not String.IsNullOrWhiteSpace(_Sync) Then
             _lastSync = Convert.ToDateTime(_Sync)
         Else
@@ -54,9 +58,9 @@ Module Sync
 
         If dsUsers.Tables.Count > 0 Then
             If dsUsers.Tables(0).Rows.Count = 0 Then
-                Console.Write("Users UpTo Date. ")
+                Console.Write("UpTo Date. ")
             Else
-                Console.Write(String.Format("Users            ({0:D5}) ", dsUsers.Tables(0).Rows.Count))
+                Console.Write(String.Format("Changed ({0:D5}) ", dsUsers.Tables(0).Rows.Count))
                 iCounter = 0
                 iTop = Console.CursorTop
                 iLeft = Console.CursorLeft
@@ -74,10 +78,13 @@ Module Sync
                         xuser.Save()
                     End If
                     _session.CommitChanges()
+                    iCounter = iCounter + 1
+                    Console.SetCursorPosition(iLeft, iTop)
+                    Console.Write("{0:D5}", iCounter)
                 Next
             End If
             SetSetting("UserTable", DateTime.Now)
-            Console.WriteLine("")
+            Console.WriteLine(" Done.")
             SyncUsers = True
         Else
             Console.WriteLine("Cannot Access User table")
@@ -88,6 +95,10 @@ Module Sync
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("CompanyTable")
+        Dim iRecords As Integer = GetREcordCount("company")
+
+        Console.Write(String.Format("Companies ({0:D5})", iRecords))
+
         If Not String.IsNullOrWhiteSpace(_Sync) Then
             _lastSync = Convert.ToDateTime(_Sync)
         Else
@@ -102,7 +113,7 @@ Module Sync
         da.Fill(dsCompanies, "Results")
 
         If dsCompanies.Tables.Count > 0 Then
-            Console.Write(String.Format("Companies ({0:D5}) ", dsCompanies.Tables(0).Rows.Count))
+            Console.Write(String.Format(" Changed ({0:D5}) ", dsCompanies.Tables(0).Rows.Count))
             iCounter = 0
             iTop = Console.CursorTop
             iLeft = Console.CursorLeft
@@ -130,12 +141,16 @@ Module Sync
             Console.WriteLine("Cannot Access Company Table")
             SyncCompanies = False
         End If
-        Console.WriteLine("")
+        Console.WriteLine(" Done.")
     End Function
     Private Function SyncDivisions() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("DivisionTable")
+
+        Dim iRecords As Integer = GetREcordCount("division")
+        Console.Write(String.Format("Divisions ({0:D5}) ", iRecords))
+
         If Not String.IsNullOrWhiteSpace(_Sync) Then
             _lastSync = Convert.ToDateTime(_Sync)
         Else
@@ -150,7 +165,7 @@ Module Sync
         da.Fill(dsCompanies, "Results")
 
         If dsCompanies.Tables.Count > 0 Then
-            Console.Write(String.Format("Divisions ({0:D5}) ", dsCompanies.Tables(0).Rows.Count))
+            Console.Write(String.Format("Changed ({0:D5}) ", dsCompanies.Tables(0).Rows.Count))
             iCounter = 0
             iTop = Console.CursorTop
             iLeft = Console.CursorLeft
@@ -185,12 +200,16 @@ Module Sync
             Console.WriteLine("Cannot Access Division Table")
             SyncDivisions = False
         End If
-        Console.WriteLine("")
+        Console.WriteLine(" Done.")
     End Function
     Private Function SyncContacts() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("ContactTable")
+
+        Dim iRecords As Integer = GetREcordCount("Contact")
+        Console.Write(String.Format("Contacts  ({0:D5}) ", iRecords))
+
         If Not String.IsNullOrWhiteSpace(_Sync) Then
             _lastSync = Convert.ToDateTime(_Sync)
         Else
@@ -205,7 +224,7 @@ Module Sync
         da.Fill(dsContacts, "Results")
 
         If dsContacts.Tables.Count > 0 Then
-            Console.Write(String.Format("Contacts ({0:D5}) ", dsContacts.Tables(0).Rows.Count))
+            Console.Write(String.Format("Changed ({0:D5}) ", dsContacts.Tables(0).Rows.Count))
             iCounter = 0
             iTop = Console.CursorTop
             iLeft = Console.CursorLeft
@@ -250,7 +269,8 @@ Module Sync
             Console.WriteLine("Cannot Access Contacts Table")
             SyncContacts = False
         End If
-        Console.WriteLine("")
+        Console.WriteLine(" Done.")
+        Console.ReadKey()
     End Function
     Private Function GetValueorNull(ByRef dr As DataRow, ByRef _field As String) As Object
         If Not dr.IsNull(_field) Then
@@ -258,8 +278,14 @@ Module Sync
         Else
             Return Nothing
         End If
-
-
+    End Function
+    Private Function GetREcordCount(_table As String) As Integer
+        Dim recordcount As New OdbcCommand()
+        recordcount.CommandText = String.Format("select count(*) from [{0}]", _table)
+        recordcount.CommandType = CommandType.Text
+        recordcount.Connection = cn
+        Dim x = recordcount.ExecuteScalar
+        Return x
 
     End Function
 End Module
