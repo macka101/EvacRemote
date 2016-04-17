@@ -83,8 +83,6 @@ Partial Class ProductListSwipe
         Me.lciProducts = New DevExpress.XtraLayout.LayoutControlItem()
         Me.hideButton = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.DataSet1 = New EvacRemote.DataSet1()
-        Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RTFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,8 +117,6 @@ Partial Class ProductListSwipe
         CType(Me.lciProducts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.hideButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -783,16 +779,6 @@ Partial Class ProductListSwipe
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataSet1BindingSource
-        '
-        Me.DataSet1BindingSource.DataSource = Me.DataSet1
-        Me.DataSet1BindingSource.Position = 0
-        '
         'PopupMenu1
         '
         Me.PopupMenu1.Name = "PopupMenu1"
@@ -857,8 +843,6 @@ Partial Class ProductListSwipe
         CType(Me.lciProducts, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.hideButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -907,8 +891,6 @@ Partial Class ProductListSwipe
     Friend WithEvents riOrder As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
     Friend WithEvents RepositoryItemCalcEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents XpCollection1 As DevExpress.Xpo.XPCollection
-    Friend WithEvents DataSet1 As EvacRemote.DataSet1
-    Friend WithEvents DataSet1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ToolTipController1 As DevExpress.Utils.ToolTipController
     Friend WithEvents layoutViewField_LayoutViewColumn1 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
     Friend WithEvents layoutViewField_LayoutViewColumn2 As DevExpress.XtraGrid.Views.Layout.LayoutViewField

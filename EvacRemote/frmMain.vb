@@ -22,7 +22,6 @@ Public Class frmMain
     Dim _ViewProductWin As viewProductSwipeWin
 
     Dim _Tasks As TaskListSwipe
-    Dim _Schedule As ScheduleListSwipe
 
     Public dataSession As UnitOfWork = Nothing
 
@@ -42,9 +41,6 @@ Public Class frmMain
         If Not _Products Is Nothing Then
             _Products.Visible = False
         End If
-        If Not _Schedule Is Nothing Then
-            _Schedule.Visible = False
-        End If
         _Tasks.Parent = Me.MainPnl
         _Tasks.Dock = DockStyle.Fill
         If _Tasks.Loaded = False Then
@@ -54,7 +50,7 @@ Public Class frmMain
     End Sub
 
     Private Sub dashboardTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles dashboardTileBarItem.ItemClick
-        Using frmsysnc As New FrmSyncronize
+        Using frmsysnc As New FrmSyncronize(False)
             frmsysnc.ShowDialog()
         End Using
     End Sub
@@ -92,9 +88,6 @@ Public Class frmMain
         End If
         If Not _Tasks Is Nothing Then
             _Tasks.Visible = False
-        End If
-        If Not _Schedule Is Nothing Then
-            _Schedule.Visible = False
         End If
         _Products.Visible = True
     End Sub
@@ -242,9 +235,6 @@ Public Class frmMain
         If Not _Tasks Is Nothing Then
             _Tasks.Visible = False
         End If
-        If Not _Schedule Is Nothing Then
-            _Schedule.Visible = False
-        End If
         _Contacts.Visible = True
     End Sub
 
@@ -253,8 +243,28 @@ Public Class frmMain
             tbiSnapReports.Visible = False
             tbiEmailTemplates.Visible = False
         End If
+        'If SQLHelper.IsSQLExpressInstalled = False Then
+        '    ' Application.Exit()
+        'End If
+        If Environment.MachineName = "JOHN-PC2" Then
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;initial catalog=EvacRemote;User Id=jmolloy;Password=6A33%7rq;"
+            ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
+        ElseIf Environment.MachineName = "JOHN-PC2" Then
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;integrated security=SSPI;initial catalog=evacremote"
+            ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
+        Else
+            If SQLHelper.DBExists() = 0 Then
+                MsgBox("No DB", MsgBoxStyle.Critical)
+              
+                Using frmsysnc As New FrmSyncronize(True)
+                    frmsysnc.ShowDialog()
+                End Using
+            End If
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=evacremote"
+            ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists)
+        End If
 
-        OpenConnection()
+        'OpenConnection()
         '        currentADUser = System.DirectoryServices.AccountManagement.UserPrincipal.Current
         '       Dim domainAndUserName As String = Environment.UserDomainName & "\" & Environment.UserName
 
@@ -272,36 +282,6 @@ Public Class frmMain
         ServiceEnabled(False)
     End Sub
 
-
-    Private Sub scheduleTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles scheduleTileBarItem.ItemClick
-        If _Schedule Is Nothing Then
-            _Schedule = New ScheduleListSwipe(Me)
-        End If
-
-        _Schedule.Parent = Me.MainPnl
-        _Schedule.Dock = DockStyle.Fill
-        If _Schedule.Loaded = False Then
-            _Schedule.InitData()
-        End If
-        If Not _Survey Is Nothing Then
-            _Survey.Visible = False
-        End If
-
-        If Not _Basket Is Nothing Then
-            _Basket.Visible = False
-        End If
-        If Not _Products Is Nothing Then
-            _Products.Visible = False
-        End If
-        If Not _Tasks Is Nothing Then
-            _Tasks.Visible = False
-        End If
-        If Not _Contacts Is Nothing Then
-            _Contacts.Visible = False
-        End If
-        _Schedule.Visible = True
-    End Sub
-
     Private Sub mainTileBar_Click(sender As Object, e As EventArgs) Handles mainTileBar.Click
         Dim x = 1
     End Sub
@@ -316,9 +296,6 @@ Public Class frmMain
         _Basket.InitData()
         If Not _Survey Is Nothing Then
             _Survey.Visible = False
-        End If
-        If Not _Schedule Is Nothing Then
-            _Schedule.Visible = False
         End If
         If Not _Products Is Nothing Then
             _Products.Visible = False
@@ -345,9 +322,6 @@ Public Class frmMain
         If Not _Basket Is Nothing Then
             _Basket.Visible = False
         End If
-        If Not _Schedule Is Nothing Then
-            _Schedule.Visible = False
-        End If
         If Not _Products Is Nothing Then
             _Products.Visible = False
         End If
@@ -372,9 +346,6 @@ Public Class frmMain
         End If
         If Not _Basket Is Nothing Then
             _Basket.Visible = False
-        End If
-        If Not _Schedule Is Nothing Then
-            _Schedule.Visible = False
         End If
         If Not _Products Is Nothing Then
             _Products.Visible = False

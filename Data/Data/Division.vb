@@ -58,6 +58,16 @@ Public Class Company
             SetPropertyValue(Of String)("StatusFlag", _statusFlag, value)
         End Set
     End Property
+    Private _address As Address
+    Public Property Address() As Address
+        Get
+            Return _address
+        End Get
+        Set(ByVal value As Address)
+            SetPropertyValue(Of Address)("CreatedBy", _address, value)
+        End Set
+    End Property
+
     Private fcreatedBy As User
     Public Property CreatedBy() As User
         Get
@@ -150,13 +160,13 @@ Public Class Division
             SetPropertyValue(Of String)("Divname", _divname, value)
         End Set
     End Property
-    Private _addrno As Integer
-    Public Property Addrno() As Integer
+    Private _address As Address
+    Public Property Address() As Address
         Get
-            Return _addrno
+            Return _address
         End Get
-        Set(ByVal value As Integer)
-            SetPropertyValue(Of Integer)("Addrno", _addrno, value)
+        Set(ByVal value As Address)
+            SetPropertyValue(Of Address)("CreatedBy", _address, value)
         End Set
     End Property
     Private _oprano As String
@@ -321,15 +331,6 @@ Public Class Contact
             SetPropertyValue(Of String)("Salutation", _salutation, value)
         End Set
     End Property
-    Private _addrno As Integer
-    Public Property Addrno() As Integer
-        Get
-            Return _addrno
-        End Get
-        Set(ByVal value As Integer)
-            SetPropertyValue(Of Integer)("Addrno", _addrno, value)
-        End Set
-    End Property
     Private _jobTitle As String
     <Size(60)>
     Public Property JobTitle() As String
@@ -378,6 +379,15 @@ Public Class Contact
         End Get
         Set(ByVal value As String)
             SetPropertyValue(Of String)("StatusFlag", _statusFlag, value)
+        End Set
+    End Property
+    Private _address As Address
+    Public Property Address() As Address
+        Get
+            Return _address
+        End Get
+        Set(ByVal value As Address)
+            SetPropertyValue(Of Address)("CreatedBy", _address, value)
         End Set
     End Property
     Private fcreatedBy As User

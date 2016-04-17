@@ -2,7 +2,6 @@
 Imports System.IO
 Imports DevExpress.XtraEditors.Repository
 Imports DevExpress.Utils
-Imports EvacRemote.EvacTask
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.Data.Helpers
 Imports DevExpress.XtraEditors.DXErrorProvider

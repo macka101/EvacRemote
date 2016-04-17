@@ -5,12 +5,12 @@ Imports System.Runtime.InteropServices
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly: AssemblyTitle("Template")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyTitle("Evac Remote Application")> 
+<Assembly: AssemblyDescription("Evac Remote")> 
 <Assembly: AssemblyConfiguration("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyCompany("Evac Chair International")> 
 <Assembly: AssemblyProduct("Template")>
-<Assembly: AssemblyCopyright("Copyright ©  2013")>
+<Assembly: AssemblyCopyright("Copyright ©  2016")> 
 <Assembly: AssemblyTrademark("")>
 <Assembly: AssemblyCulture("")>
 

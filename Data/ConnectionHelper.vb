@@ -14,7 +14,7 @@ Imports System.ComponentModel
 Imports DevExpress.XtraEditors
 
 Public Class ConnectionHelper
-    Public Shared ConnectionString As String = "XpoProvider=MSSqlServer;data source=EVAC2K8\SQL2012;integrated security=SSPI;initial catalog=evacremote"
+    Public Shared ConnectionString As String = "XpoProvider=MSSqlServer;data source=EVAC-DATA;integrated security=SSPI;initial catalog=Willow"
     Public Shared _CurrentUser As User
     Public Shared Sub Connect(ByVal autoCreationOption As DB.AutoCreateOption)
 
