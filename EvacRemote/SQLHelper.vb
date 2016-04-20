@@ -4,9 +4,9 @@ Imports System.Data.SqlClient
 
 Module SQLHelper
 
-    Private _home As String = "Data Source=EVAC2K8;initial catalog=evacremote;User Id=EvacRemote;Password=fatbeam64;Connect Timeout=30"
+    Private _home As String = "data source=willow.evacchair.co.uk;initial catalog=willow;User Id=willow;Password=6A33%7rq;"
     Private _localConnection As String = "Data Source=.\SQLEXPRESS;Trusted_Connection=True;Connect Timeout=30"
-    Private _local As String = "Data Source=.\SQLEXPRESS;initial catalog=evacremote;Trusted_Connection=True;Connect Timeout=30"
+    Private _local As String = "Data Source=.\SQLEXPRESS;initial catalog=Willow;Trusted_Connection=True;Connect Timeout=30"
     Public Function IsSQLExpressInstalled() As Boolean
         Dim myServiceName As String = "MSSQL$SQLEXPRESS" 'service name of SQL Server Express
         Dim status As String  'service status (For example, Running or Stopped)
@@ -49,20 +49,20 @@ Module SQLHelper
 
     Public Function CreatePublication() As Boolean
 
-        ExecuteCommand(_home, String.Format("exec sp_addmergesubscription @publication = N'EvacRemotePub', @subscriber = N'{0}\SQLEXPRESS', @subscriber_db = N'EvacRemote', @subscription_type = N'pull', @subscriber_type = N'local', @subscription_priority = 0, @sync_type = N'Automatic'", Environment.MachineName))
+        ExecuteCommand(_home, String.Format("exec sp_addmergesubscription @publication = N'WillowPub', @subscriber = N'{0}\SQLEXPRESS', @subscriber_db = N'Willow', @subscription_type = N'pull', @subscriber_type = N'local', @subscription_priority = 0, @sync_type = N'Automatic'", Environment.MachineName))
 
     End Function
     Public Function CreateSubscription() As Boolean
 
-        ExecuteCommand(_local, "exec sp_addmergepullsubscription @publisher = N'EVAC2K8.evacchair.net', @publication = N'EvacRemotePub', @publisher_db = N'EvacRemote', @subscriber_type = N'Local', @subscription_priority = 0, @description = N'', @sync_type = N'Automatic'")
-        ExecuteCommand(_local, "exec sp_addmergepullsubscription_agent @publisher = N'EVAC2K8.evacchair.net', @publisher_db = N'EvacRemote', @publication = N'EvacRemotePub', @distributor = N'EVAC2K8.evacchair.net', @distributor_security_mode = 0, @distributor_login = N'EvacRemote', @distributor_password = N'fatbeam64', @enabled_for_syncmgr = N'True', @frequency_type = 4, @frequency_interval = 1, @frequency_relative_interval = 1, @frequency_recurrence_factor = 0, @frequency_subday = 8, @frequency_subday_interval = 1, @active_start_time_of_day = 0, @active_end_time_of_day = 235959, @active_start_date = 0, @active_end_date = 99991231, @alt_snapshot_folder = N'', @working_directory = N'', @use_ftp = N'False', @job_login = null, @job_password = null, @publisher_security_mode = 0, @publisher_login = N'EvacRemote', @publisher_password =  N'fatbeam64', @use_interactive_resolver = N'False', @dynamic_snapshot_location = null, @use_web_sync = 0")
+        ExecuteCommand(_local, "exec sp_addmergepullsubscription @publisher = N'willow.evacchair.co.uk', @publication = N'WillowPub', @publisher_db = N'Willow', @subscriber_type = N'Local', @subscription_priority = 0, @description = N'', @sync_type = N'Automatic'")
+        ExecuteCommand(_local, "exec sp_addmergepullsubscription_agent @publisher = N'willow.evacchair.co.uk', @publisher_db = N'Willow', @publication = N'WillowPub', @distributor = N'EVAC2K8.evacchair.net', @distributor_security_mode = 0, @distributor_login = N'EvacRemote', @distributor_password = N'fatbeam64', @enabled_for_syncmgr = N'True', @frequency_type = 4, @frequency_interval = 1, @frequency_relative_interval = 1, @frequency_recurrence_factor = 0, @frequency_subday = 8, @frequency_subday_interval = 1, @active_start_time_of_day = 0, @active_end_time_of_day = 235959, @active_start_date = 0, @active_end_date = 99991231, @alt_snapshot_folder = N'', @working_directory = N'', @use_ftp = N'False', @job_login = null, @job_password = null, @publisher_security_mode = 0, @publisher_login = N'EvacRemote', @publisher_password =  N'fatbeam64', @use_interactive_resolver = N'False', @dynamic_snapshot_location = null, @use_web_sync = 0")
 
     End Function
     Public Function DBExists() As Integer
         Dim con As SqlConnection = New SqlConnection(_localConnection)
         Dim x As Integer = 0
         Try
-            Dim cmd As SqlCommand = New SqlCommand("IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'EvacRemote') Select 1 else select 0", con)
+            Dim cmd As SqlCommand = New SqlCommand("IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'Willow') Select 1 else select 0", con)
             con.Open()
             x = cmd.ExecuteScalar()
         Catch ex As Exception
@@ -76,7 +76,7 @@ Module SQLHelper
         Dim con As SqlConnection = New SqlConnection(_localConnection)
         Dim x As Integer = 0
         Try
-            Dim cmd As SqlCommand = New SqlCommand("CREATE DATABASE EvacRemote;", con)
+            Dim cmd As SqlCommand = New SqlCommand("CREATE DATABASE Willow;", con)
             con.Open()
             x = cmd.ExecuteScalar()
         Catch ex As Exception

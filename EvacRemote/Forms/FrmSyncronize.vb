@@ -15,10 +15,10 @@ Partial Public Class FrmSyncronize
     Inherits Form
     ' Define the server, subscription, publication, and database names.
     Private subscriberName As String = ".\SQLEXPRESS"
-    Private subscriptionDbName As String = "EvacRemote"
-    Private publisherName As String = "EVAC2K8.evacchair.net"
-    Private publicationName As String = "EvacRemotePub"
-    Private publicationDbName As String = "EvacRemote"
+    Private subscriptionDbName As String = "Willow"
+    Private publisherName As String = "willow.evacchair.co.uk"
+    Private publicationName As String = "WillowPub"
+    Private publicationDbName As String = "Willow"
 
     ' Merge agent
     Private agent As MergeSynchronizationAgent
