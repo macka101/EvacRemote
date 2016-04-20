@@ -11,10 +11,10 @@ Module Sync
 
     Sub Main()
         If Environment.MachineName = "JOHN-PC2" Then
-            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;initial catalog=EvacRemote;User Id=jmolloy;Password=6A33%7rq;"
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=Willow;User Id=Willow;Password=6A33%7rq;"
             ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
         ElseIf Environment.MachineName = "JOHN-PC" Then
-            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;integrated security=SSPI;initial catalog=evacremote"
+            ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=Willow;User Id=Willow;Password=6A33%7rq;"
             ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
         Else
             ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=JOHN-PC\SQLEXPRESS2008;integrated security=SSPI;initial catalog=evacremote"
