@@ -54,8 +54,8 @@ Module SQLHelper
     End Function
     Public Function CreateSubscription() As Boolean
 
-        ExecuteCommand(_local, "exec sp_addmergepullsubscription @publisher = N'willow.evacchair.co.uk', @publication = N'WillowPub', @publisher_db = N'Willow', @subscriber_type = N'Local', @subscription_priority = 0, @description = N'', @sync_type = N'Automatic'")
-        ExecuteCommand(_local, "exec sp_addmergepullsubscription_agent @publisher = N'willow.evacchair.co.uk', @publisher_db = N'Willow', @publication = N'WillowPub', @distributor = N'EVAC2K8.evacchair.net', @distributor_security_mode = 0, @distributor_login = N'EvacRemote', @distributor_password = N'fatbeam64', @enabled_for_syncmgr = N'True', @frequency_type = 4, @frequency_interval = 1, @frequency_relative_interval = 1, @frequency_recurrence_factor = 0, @frequency_subday = 8, @frequency_subday_interval = 1, @active_start_time_of_day = 0, @active_end_time_of_day = 235959, @active_start_date = 0, @active_end_date = 99991231, @alt_snapshot_folder = N'', @working_directory = N'', @use_ftp = N'False', @job_login = null, @job_password = null, @publisher_security_mode = 0, @publisher_login = N'EvacRemote', @publisher_password =  N'fatbeam64', @use_interactive_resolver = N'False', @dynamic_snapshot_location = null, @use_web_sync = 0")
+        ExecuteCommand(_local, "EXEC sp_addmergepullsubscription @publisher = 'EVACSERVER1\WILLOW', 	@publication = 'WillowPub', @publisher_db = 'Willow';")
+        ExecuteCommand(_local, "EXEC sp_addmergepullsubscription_agent 	@publisher = 'EVACSERVER1\WILLOW', 	@publisher_db = 'Willow', 	@publication = 'WillowPub', 	@distributor = 'EVACSERVER1\WILLOW', 	@job_login = 'EvacRemote', 	@job_password = '6A33%7rq',	@use_web_sync = 1,	@internet_security_mode = 0,	@internet_url = 'https://willow.evacchair.co.uk/SQLReplication',	@internet_login = 'EvacRemote',	@internet_password ='6A33%7rq';")
 
     End Function
     Public Function DBExists() As Integer

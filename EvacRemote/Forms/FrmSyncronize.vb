@@ -14,9 +14,9 @@ Imports System.IO
 Partial Public Class FrmSyncronize
     Inherits Form
     ' Define the server, subscription, publication, and database names.
-    Private subscriberName As String = ".\SQLEXPRESS"
+    Private subscriberName As String = "JOHN-PC\SQLEXPRESS"
     Private subscriptionDbName As String = "Willow"
-    Private publisherName As String = "willow.evacchair.co.uk"
+    Private publisherName As String = "EVACSERVER1\WILLOW"
     Private publicationName As String = "WillowPub"
     Private publicationDbName As String = "Willow"
 
@@ -99,17 +99,21 @@ Partial Public Class FrmSyncronize
                 '                agent.PublisherSecurityMode = SecurityMode.Integrated
                 agent.PublisherSecurityMode = SecurityMode.Standard
                 agent.PublisherLogin = "EvacRemote"
-                agent.PublisherPassword = "fatbeam64"
+                agent.PublisherPassword = "6A33%7rq"
 
                 '               agent.DistributorSecurityMode = SecurityMode.Integrated
 
                 agent.DistributorSecurityMode = SecurityMode.Standard
                 agent.DistributorLogin = "EvacRemote"
-                agent.DistributorPassword = "fatbeam64"
+                agent.DistributorPassword = "6A33%7rq"
 
                 agent.Distributor = publisherName
 
+                agent.InternetSecurityMode = SecurityMode.Standard
 
+                agent.InternetLogin ="EvacRemote"
+                agent.InternetPassword = "6A33%7rq"
+                agent.InternetUrl = "https://willow.evacchair.co.uk/SQLReplication/replisapi.dll"
                 ' Enable verbose merge agent output to file.
                 agent.OutputVerboseLevel = 4
                 agent.Output = "C:\TEMP\mergeagent.log"
