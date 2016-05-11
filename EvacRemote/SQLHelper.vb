@@ -55,8 +55,8 @@ Module SQLHelper
     Public Function CreateSubscription() As Boolean
 
         ExecuteCommand(_local, "EXEC sp_addmergepullsubscription @publisher = 'EVACSERVER1\WILLOW', 	@publication = 'WillowPub', @publisher_db = 'Willow';")
-        ExecuteCommand(_local, "EXEC sp_addmergepullsubscription_agent 	@publisher = 'EVACSERVER1\WILLOW', 	@publisher_db = 'Willow', 	@publication = 'WillowPub', 	@distributor = 'EVACSERVER1\WILLOW', 	@job_login = 'EvacRemote', 	@job_password = '6A33%7rq',	@use_web_sync = 1,	@internet_security_mode = 0,	@internet_url = 'https://willow.evacchair.co.uk/SQLReplication',	@internet_login = 'EvacRemote',	@internet_password ='6A33%7rq';")
-
+        'ExecuteCommand(_local, "EXEC sp_addmergepullsubscription_agent 	@publisher = 'EVACSERVER1\WILLOW', 	@publisher_db = 'Willow', 	@publication = 'WillowPub', 	@distributor = 'EVACSERVER1\WILLOW', 	@job_login = 'EvacRemote', 	@job_password = '6A33%7rq',	@use_web_sync = 1,	@internet_security_mode = 0,	@internet_url = 'https://willow.evacchair.co.uk/SQLReplication',	@internet_login = 'EvacRemote',	@internet_password ='6A33%7rq';")
+        ExecuteCommand(_local, "EXEC sp_addmergepullsubscription_agent 	@publisher = 'EVACSERVER1\WILLOW', 	@publisher_db = 'Willow', 	@publication = 'WillowPub', 	@distributor = 'EVACSERVER1\WILLOW', @subscriber_security_mode = 1,	@use_web_sync = 1,	@internet_security_mode = 0,	@internet_url = 'https://willow.evacchair.co.uk/SQLReplication',	@internet_login = 'EvacRemote',	@internet_password ='6A33%7rq';")
     End Function
     Public Function DBExists() As Integer
         Dim con As SqlConnection = New SqlConnection(_localConnection)
