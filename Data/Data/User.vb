@@ -54,5 +54,14 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Email", _email, value)
             End Set
         End Property
+        Private _lastupdatedtimestamp As Date
+        Public Property lastupdatedtimestamp() As Date
+            Get
+                Return _lastupdatedtimestamp
+            End Get
+            Set(ByVal value As Date)
+                SetPropertyValue(Of Date)("lastupdatedtimestamp", _lastupdatedtimestamp, value)
+            End Set
+        End Property
     End Class
 End Namespace

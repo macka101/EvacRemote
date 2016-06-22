@@ -60,13 +60,14 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("StatusFlag", _statusFlag, value)
             End Set
         End Property
-        Private _addrno As Address
-        Public Property Address() As Address
+        Private _lastupdatedtimestamp As Date
+        <Indexed(Unique:=False)> _
+            Public Property lastupdatedtimestamp() As Date
             Get
-                Return _addrno
+                Return _lastupdatedtimestamp
             End Get
-            Set(ByVal value As Address)
-                SetPropertyValue(Of Address)("Address", _addrno, value)
+            Set(ByVal value As Date)
+                SetPropertyValue(Of Date)("lastupdatedtimestamp", _lastupdatedtimestamp, value)
             End Set
         End Property
         Private fcreatedBy As User

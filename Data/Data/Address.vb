@@ -89,6 +89,16 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("PostCode", _postcode, value)
             End Set
         End Property
+        Private _lastupdatedtimestamp As Date
+        <Indexed(Unique:=False)> _
+                Public Property lastupdatedtimestamp() As Date
+            Get
+                Return _lastupdatedtimestamp
+            End Get
+            Set(ByVal value As Date)
+                SetPropertyValue(Of Date)("lastupdatedtimestamp", _lastupdatedtimestamp, value)
+            End Set
+        End Property
         Private fcreatedBy As User
         Public Property CreatedBy() As User
             Get

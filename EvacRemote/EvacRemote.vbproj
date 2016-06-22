@@ -60,10 +60,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>D6373BEC90AFB900F8949F25BF158B89DAB81F81</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A8C07A74D3B2A14A5EA53357F353BAA3DABCB973</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>EvacRemote_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>EvacRemote_3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -406,6 +406,7 @@
     </Content>
     <None Include="EvacRemote_1_TemporaryKey.pfx" />
     <None Include="EvacRemote_2_TemporaryKey.pfx" />
+    <None Include="EvacRemote_3_TemporaryKey.pfx" />
     <None Include="images\flags\Thumbs.db" />
     <None Include="images\prettyPhoto\light_square\.DS_Store" />
     <None Include="My Project\app.manifest" />

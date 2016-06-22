@@ -249,8 +249,8 @@ Public Class frmMain
         'End If
         ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=willow;User Id=willow;Password=6A33%7rq;"
         ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
-        '  Dim uow As New UnitOfWork
-        ' uow.UpdateSchema()
+        Dim uow As New UnitOfWork
+        uow.UpdateSchema()
 
         'If Environment.MachineName = "JOHN-PC2" Then
         '    ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;initial catalog=EvacRemote;User Id=jmolloy;Password=6A33%7rq;"

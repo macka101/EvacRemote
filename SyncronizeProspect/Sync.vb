@@ -23,6 +23,7 @@ Module Sync
         End If
         Using _session As New UnitOfWork
             ConnectionHelper.Login(_session, "DBA")
+            _session.UpdateSchema()
         End Using
 
         cn = New OdbcConnection("DSN=PSCRM 6 Default;UID=DBA;PWD=prospect")
@@ -45,14 +46,16 @@ Module Sync
 
         Console.Write(String.Format("Users     ({0:D5}) ", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
-        Else
-            _lastSync = Convert.ToDateTime("1980-1-1")
-        End If
-        Str = String.Concat(Str, "SELECT usercode, username, emailaddr ")
+        'If Not String.IsNullOrWhiteSpace(_Sync) Then
+        '    _lastSync = Convert.ToDateTime(_Sync)
+        'Else
+        '    _lastSync = Convert.ToDateTime("1980-1-1")
+        'End If
+
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+        Str = String.Concat(Str, "SELECT usercode, username, emailaddr, lastupdatedtimestamp ")
         Str = String.Concat(Str, "FROM [user]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}'", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsUsers = New DataSet
@@ -73,13 +76,15 @@ Module Sync
                         xuser.UserCode = orow.Item("usercode")
                         xuser.Email = GetValueorNull(orow, "emailaddr")
                         xuser.username = GetValueorNull(orow, "username")
-                        xuser.Save()
+
                     Else
                         xuser.Email = GetValueorNull(orow, "emailaddr")
                         xuser.username = GetValueorNull(orow, "username")
-                        xuser.Save()
                     End If
+                    xuser.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
+                    xuser.Save()
                     _session.CommitChanges()
+
                     iCounter = iCounter + 1
                     Console.SetCursorPosition(iLeft, iTop)
                     Console.Write("{0:D5}", iCounter)
@@ -106,9 +111,12 @@ Module Sync
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT [addrno],[address1],[address2],[address3],[address4],[postcode] "
+
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+
+        Str = "SELECT [addrno],[address1],[address2],[address3],[address4],[postcode],lastupdatedtimestamp "
         Str = String.Concat(Str, "FROM [Address]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}'", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsAddress = New DataSet
@@ -131,7 +139,7 @@ Module Sync
                 xAddress.Address3 = GetValueorNull(orow, "address3")
                 xAddress.Address4 = GetValueorNull(orow, "address4")
                 xAddress.PostCode = GetValueorNull(orow, "PostCode")
-                xAddress.Save()
+                xAddress.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
                 xAddress.Save()
                 _session.CommitChanges()
                 iCounter = iCounter + 1
@@ -160,9 +168,12 @@ Module Sync
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag],[addrno]"
+
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+
+        Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag],[lastupdatedtimestamp]"
         Str = String.Concat(Str, "FROM [company]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}'", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsCompanies = New DataSet
@@ -180,13 +191,14 @@ Module Sync
                     xCompany.Compno = orow.Item("compno")
                     xCompany.Compname = GetValueorNull(orow, "compname")
                     xCompany.StatusFlag = GetValueorNull(orow, "StatusFlag")
-                    xCompany.Save()
+
                 Else
                     xCompany.Compname = GetValueorNull(orow, "compname")
                     xCompany.StatusFlag = GetValueorNull(orow, "StatusFlag")
-                    xCompany.Save()
+
                 End If
-                xCompany.Address = _session.FindObject(Of Address)(CriteriaOperator.Parse("addrno= ?", orow.Item("addrno")))
+                xCompany.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
+                xCompany.Save()
                 _session.CommitChanges()
                 iCounter = iCounter + 1
                 Console.SetCursorPosition(iLeft, iTop)
@@ -213,9 +225,11 @@ Module Sync
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT divno, compno, divname, addrno, division.oprano, phone, notepad, StatusFlag "
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+
+        Str = "SELECT divno, compno, divname, addrno, division.oprano, phone, notepad, StatusFlag,lastupdatedtimestamp "
         Str = String.Concat(Str, "FROM [division]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}'", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsCompanies = New DataSet
@@ -240,6 +254,7 @@ Module Sync
                 xDivision.oprano = orow.Item("oprano").ToString
                 xDivision.Notepad = orow.Item("notepad").ToString
                 xDivision.StatusFlag = orow.Item("StatusFlag")
+                xDivision.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
                 xDivision.Save()
                 _session.CommitChanges()
                 iCounter = iCounter + 1
@@ -267,9 +282,11 @@ Module Sync
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT [contno],[divno],[surname],[forename],[title],[salutation],[addrno],[email],[notepad],[jobtitle],[primephone],[StatusFlag] "
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+
+        Str = "SELECT [contno],[divno],[surname],[forename],[title],[salutation],[addrno],[email],[notepad],[jobtitle],[primephone],[StatusFlag],[lastupdatedtimestamp] "
         Str = String.Concat(Str, "FROM [Contact]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}'", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsContacts = New DataSet
@@ -299,6 +316,7 @@ Module Sync
                 xContact.Phone = GetValueorNull(orow, "primephone")
                 xContact.Notepad = GetValueorNull(orow, "notepad")
                 xContact.StatusFlag = GetValueorNull(orow, "StatusFlag")
+                xContact.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
                 xContact.Save()
                 _session.CommitChanges()
                 iCounter = iCounter + 1
