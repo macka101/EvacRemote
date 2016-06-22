@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CustomerList
+Partial Class CompanyList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -22,14 +22,21 @@ Partial Class CustomerList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomerList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CompanyList))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.btnFind = New DevExpress.XtraEditors.SimpleButton()
         Me.tePostCode = New DevExpress.XtraEditors.TextEdit()
         Me.teName = New DevExpress.XtraEditors.TextEdit()
         Me.btnSetCurrent = New DevExpress.XtraEditors.SimpleButton()
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.grdCompanies = New DevExpress.XtraGrid.GridControl()
+        Me.vw_Companies = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colCompname = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPostCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.SIContact = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
@@ -41,8 +48,8 @@ Partial Class CustomerList
         Me.LayoutControl1.SuspendLayout()
         CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdCompanies, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vw_Companies, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SIContact, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +65,7 @@ Partial Class CustomerList
         Me.LayoutControl1.Controls.Add(Me.tePostCode)
         Me.LayoutControl1.Controls.Add(Me.teName)
         Me.LayoutControl1.Controls.Add(Me.btnSetCurrent)
-        Me.LayoutControl1.Controls.Add(Me.GridControl1)
+        Me.LayoutControl1.Controls.Add(Me.grdCompanies)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
@@ -107,21 +114,79 @@ Partial Class CustomerList
         Me.btnSetCurrent.TabIndex = 5
         Me.btnSetCurrent.Visible = False
         '
-        'GridControl1
+        'grdCompanies
         '
-        Me.GridControl1.Location = New System.Drawing.Point(12, 80)
-        Me.GridControl1.MainView = Me.GridView1
-        Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(635, 327)
-        Me.GridControl1.TabIndex = 4
-        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        Me.grdCompanies.Location = New System.Drawing.Point(12, 80)
+        Me.grdCompanies.MainView = Me.vw_Companies
+        Me.grdCompanies.Name = "grdCompanies"
+        Me.grdCompanies.ShowOnlyPredefinedDetails = True
+        Me.grdCompanies.Size = New System.Drawing.Size(635, 327)
+        Me.grdCompanies.TabIndex = 4
+        Me.grdCompanies.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Companies})
         '
-        'GridView1
+        'vw_Companies
         '
-        Me.GridView1.GridControl = Me.GridControl1
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.vw_Companies.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colCompname, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
+        Me.vw_Companies.GridControl = Me.grdCompanies
+        Me.vw_Companies.Name = "vw_Companies"
+        Me.vw_Companies.OptionsBehavior.Editable = False
+        Me.vw_Companies.OptionsView.ShowGroupPanel = False
+        '
+        'colOid
+        '
+        Me.colOid.Caption = "Oid"
+        Me.colOid.FieldName = "Oid"
+        Me.colOid.Name = "colOid"
+        Me.colOid.Visible = True
+        Me.colOid.VisibleIndex = 0
+        '
+        'colCompname
+        '
+        Me.colCompname.Caption = "Company"
+        Me.colCompname.FieldName = "Compname"
+        Me.colCompname.Name = "colCompname"
+        Me.colCompname.Visible = True
+        Me.colCompname.VisibleIndex = 1
+        '
+        'colAddress1
+        '
+        Me.colAddress1.Caption = "Address1"
+        Me.colAddress1.FieldName = "Address1"
+        Me.colAddress1.Name = "colAddress1"
+        Me.colAddress1.Visible = True
+        Me.colAddress1.VisibleIndex = 2
+        '
+        'colAddress2
+        '
+        Me.colAddress2.Caption = "Address2"
+        Me.colAddress2.FieldName = "Address2"
+        Me.colAddress2.Name = "colAddress2"
+        Me.colAddress2.Visible = True
+        Me.colAddress2.VisibleIndex = 3
+        '
+        'colAddress3
+        '
+        Me.colAddress3.Caption = "Address3"
+        Me.colAddress3.FieldName = "Address3"
+        Me.colAddress3.Name = "colAddress3"
+        Me.colAddress3.Visible = True
+        Me.colAddress3.VisibleIndex = 4
+        '
+        'colAddress4
+        '
+        Me.colAddress4.Caption = "Address4"
+        Me.colAddress4.FieldName = "Address4"
+        Me.colAddress4.Name = "colAddress4"
+        Me.colAddress4.Visible = True
+        Me.colAddress4.VisibleIndex = 5
+        '
+        'colPostCode
+        '
+        Me.colPostCode.Caption = "PostCode"
+        Me.colPostCode.FieldName = "PostCode"
+        Me.colPostCode.Name = "colPostCode"
+        Me.colPostCode.Visible = True
+        Me.colPostCode.VisibleIndex = 6
         '
         'LayoutControlGroup1
         '
@@ -151,7 +216,7 @@ Partial Class CustomerList
         '
         'lciContacts
         '
-        Me.lciContacts.Control = Me.GridControl1
+        Me.lciContacts.Control = Me.grdCompanies
         Me.lciContacts.CustomizationFormText = "Contacts"
         Me.lciContacts.Location = New System.Drawing.Point(0, 68)
         Me.lciContacts.Name = "lciContacts"
@@ -206,19 +271,19 @@ Partial Class CustomerList
         Me.lciFind.TextToControlDistance = 0
         Me.lciFind.TextVisible = False
         '
-        'CustomerList
+        'CompanyList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "CustomerList"
+        Me.Name = "CompanyList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdCompanies, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vw_Companies, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SIContact, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).EndInit()
@@ -231,8 +296,8 @@ Partial Class CustomerList
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents btnSetCurrent As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents grdCompanies As DevExpress.XtraGrid.GridControl
+    Friend WithEvents vw_Companies As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents SIContact As DevExpress.XtraLayout.SimpleLabelItem
     Friend WithEvents lciContacts As DevExpress.XtraLayout.LayoutControlItem
@@ -243,5 +308,12 @@ Partial Class CustomerList
     Friend WithEvents lciName As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciPostCode As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciFind As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCompname As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPostCode As DevExpress.XtraGrid.Columns.GridColumn
 
 End Class

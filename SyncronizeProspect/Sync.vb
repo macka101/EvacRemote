@@ -1,6 +1,7 @@
 ﻿Imports System.Data.Odbc
 Imports DevExpress.Xpo
 Imports DevExpress.Data.Filtering
+Imports Esso.Data
 
 Module Sync
     Public cn As OdbcConnection
@@ -96,7 +97,7 @@ Module Sync
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("Addresses")
-        Dim iRecords As Integer = GetREcordCount("Address")
+        Dim iRecords As Integer = GetRecordCount("Address")
 
         Console.Write(String.Format("Addresses ({0:D5})", iRecords))
 
@@ -150,7 +151,7 @@ Module Sync
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("CompanyTable")
-        Dim iRecords As Integer = GetREcordCount("company")
+        Dim iRecords As Integer = GetRecordCount("company")
 
         Console.Write(String.Format("Companies ({0:D5})", iRecords))
 
@@ -159,7 +160,7 @@ Module Sync
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag] "
+        Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag],[addrno]"
         Str = String.Concat(Str, "FROM [company]")
         Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}'", _lastSync))
 
@@ -185,6 +186,7 @@ Module Sync
                     xCompany.StatusFlag = GetValueorNull(orow, "StatusFlag")
                     xCompany.Save()
                 End If
+                xCompany.Address = _session.FindObject(Of Address)(CriteriaOperator.Parse("addrno= ?", orow.Item("addrno")))
                 _session.CommitChanges()
                 iCounter = iCounter + 1
                 Console.SetCursorPosition(iLeft, iTop)
@@ -203,7 +205,7 @@ Module Sync
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("DivisionTable")
 
-        Dim iRecords As Integer = GetREcordCount("division")
+        Dim iRecords As Integer = GetRecordCount("division")
         Console.Write(String.Format("Divisions ({0:D5}) ", iRecords))
 
         If Not String.IsNullOrWhiteSpace(_Sync) Then
@@ -257,7 +259,7 @@ Module Sync
         Dim _session As New UnitOfWork
         Dim _Sync As String = GetSetting("ContactTable")
 
-        Dim iRecords As Integer = GetREcordCount("Contact")
+        Dim iRecords As Integer = GetRecordCount("Contact")
         Console.Write(String.Format("Contacts  ({0:D5}) ", iRecords))
 
         If Not String.IsNullOrWhiteSpace(_Sync) Then

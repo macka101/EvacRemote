@@ -4,6 +4,7 @@ Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraReports.UI
 Imports DevExpress.LookAndFeel
+Imports Esso.Data
 
 Public Class ServiceSwipe
     Private _Loaded As Boolean = False

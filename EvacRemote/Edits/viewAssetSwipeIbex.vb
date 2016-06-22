@@ -1,5 +1,6 @@
 ﻿Imports DevExpress.Xpo
 Imports DevExpress.XtraEditors.Controls
+Imports Esso.Data
 
 Public Class viewAssetSwipeIbex
     Private _parent As frmMain = Nothing

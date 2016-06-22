@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports Esso.Data
 
 Public Class frmSignature
     Private lastPT As Point
@@ -58,7 +59,7 @@ Public Class frmSignature
             Using p As New Pen(Color.Black)
                 p.Width = 2
                 e.Graphics.DrawPath(p, signature)
-            End Using      
+            End Using
         End If
     End Sub
 
@@ -67,7 +68,7 @@ Public Class frmSignature
         SignatureBox1.Refresh()
     End Sub
 
-   
+
     Private Sub txtSigner_Validated(sender As Object, e As EventArgs) Handles txtSigner.Validated
         If Len(txtSigner.Text.Trim) > 0 Then
             btnConfirm.Enabled = True
@@ -78,7 +79,7 @@ Public Class frmSignature
     End Sub
 
     Private Sub txtSigner_EditValueChanged(sender As Object, e As EventArgs) Handles txtSigner.EditValueChanged
-     EnabledConfirm
+        EnabledConfirm()
     End Sub
 
     Private Sub btCancel_Click(sender As Object, e As EventArgs) Handles btCancel.Click

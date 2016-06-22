@@ -13,713 +13,715 @@ Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Drawing
 
+Namespace Esso.Data
 
-Public Class FieldOption
-    Inherits XPCustomObject
-    Public Sub New(ByVal session As Session)
-        MyBase.New(session)
-    End Sub
-    <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)> _
-    Private _Oid As Guid = Guid.Empty
-    <PersistentAlias("_Oid"), Browsable(False)> _
-    Public ReadOnly Property Oid() As Guid
-        Get
-            Return _Oid
-        End Get
-    End Property
-    Protected Overrides Sub OnSaving()
-        MyBase.OnSaving()
-        If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
-            _Oid = XpoDefault.NewGuid()
-        End If
-    End Sub
-    Private _Id As Integer
-    Public Property ID() As Integer
-        Get
-            Return _Id
-        End Get
-        Set(ByVal value As Integer)
-            SetPropertyValue(Of Integer)("ID", _Id, value)
-        End Set
-    End Property
-    Private _serviceField As eServiceFields
-    Public Property ServiceField() As eServiceFields
-        Get
-            Return _serviceField
-        End Get
-        Set(ByVal value As eServiceFields)
-            SetPropertyValue(Of eServiceFields)("ServiceField", _serviceField, value)
-        End Set
-    End Property
-    Private _description As String
-    Public Property Description() As String
-        Get
-            Return _description
-        End Get
-        Set(value As String)
-            _description = value
-        End Set
-    End Property
-End Class
+    Public Class FieldOption
+        Inherits XPCustomObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)>
+        Private _Oid As Guid = Guid.Empty
+        <PersistentAlias("_Oid"), Browsable(False)>
+        Public ReadOnly Property Oid() As Guid
+            Get
+                Return _Oid
+            End Get
+        End Property
+        Protected Overrides Sub OnSaving()
+            MyBase.OnSaving()
+            If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
+                _Oid = XpoDefault.NewGuid()
+            End If
+        End Sub
+        Private _Id As Integer
+        Public Property ID() As Integer
+            Get
+                Return _Id
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("ID", _Id, value)
+            End Set
+        End Property
+        Private _serviceField As eServiceFields
+        Public Property ServiceField() As eServiceFields
+            Get
+                Return _serviceField
+            End Get
+            Set(ByVal value As eServiceFields)
+                SetPropertyValue(Of eServiceFields)("ServiceField", _serviceField, value)
+            End Set
+        End Property
+        Private _description As String
+        Public Property Description() As String
+            Get
+                Return _description
+            End Get
+            Set(value As String)
+                _description = value
+            End Set
+        End Property
+    End Class
 
-Public Class Asset
-    Inherits XPCustomObject
-    Public Sub New(ByVal session As Session)
-        MyBase.New(session)
-    End Sub
-    <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)> _
-    Private _Oid As Guid = Guid.Empty
-    <PersistentAlias("_Oid"), Browsable(False)> _
-    Public ReadOnly Property Oid() As Guid
-        Get
-            Return _Oid
-        End Get
-    End Property
-    Protected Overrides Sub OnSaving()
-        MyBase.OnSaving()
-        If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
-            _Oid = XpoDefault.NewGuid()
-        End If
-    End Sub
-    Private ID_Renamed As Integer
-    Private barcode_Renamed As String
-    Private product_Renamed As String
-    Private installed_Renamed As Date
-    Private notes_Renamed As String
-    Private building_Renamed As Integer
-    Private _productType As ProductType
-    Public Property ProductType() As ProductType
-        Get
-            Return _productType
-        End Get
-        Set(ByVal value As ProductType)
-            _productType = value
-        End Set
-    End Property
-    Private _division As Integer
-    Public Property Division() As Integer
-        Get
-            Return _division
-        End Get
-        Set(ByVal value As Integer)
-            _division = value
-        End Set
-    End Property
-    Public Property Building() As Integer
-        Get
-            Return building_Renamed
-        End Get
-        Set(value As Integer)
-            building_Renamed = value
-        End Set
-    End Property
-    Public Property BarCode() As String
-        Get
-            Return barcode_Renamed
-        End Get
-        Set(value As String)
-            barcode_Renamed = value
-        End Set
-    End Property
-    Public Property Product() As String
-        Get
-            Return product_Renamed
-        End Get
-        Set(value As String)
-            product_Renamed = value
-        End Set
-    End Property
-    Public Property Installed() As Date
-        Get
-            Return installed_Renamed
-        End Get
-        Set(value As Date)
-            installed_Renamed = value
-        End Set
-    End Property
-    Private fLastServiced As Date?
-    Public Property LastServiced() As Date?
-        Get
-            Return fLastServiced
-        End Get
-        Set(value As Date?)
-            fLastServiced = value
-        End Set
-    End Property
-    Public Property Notes() As String
-        Get
-            Return notes_Renamed
-        End Get
-        Set(value As String)
-            notes_Renamed = value
-        End Set
-    End Property
-End Class
-Public Class EvacService
-    Inherits XPCustomObject
-    Public Sub New(ByVal session As Session)
-        MyBase.New(session)
-    End Sub
-    <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)> _
-    Private _Oid As Guid = Guid.Empty
-    <PersistentAlias("_Oid"), Browsable(False)> _
-    Public ReadOnly Property Oid() As Guid
-        Get
-            Return _Oid
-        End Get
-    End Property
-    Protected Overrides Sub OnSaving()
-        MyBase.OnSaving()
-        If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
-            _Oid = XpoDefault.NewGuid()
-        End If
-    End Sub
-    Private _division As Division
-    Public Property Division() As Division
-        Get
-            Return _division
-        End Get
-        Set(ByVal value As Division)
-            _division = value
-        End Set
-    End Property
-    Private _serviceDate As Date
-    <DevExpress.Xpo.DisplayName("Service Date")> _
-    Public Property ServiceDate() As Date
-        Get
-            Return _serviceDate
-        End Get
-        Set(value As Date)
-            SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
-        End Set
-    End Property
-    Private _signature As Image
-    <DevExpress.Xpo.ValueConverter(GetType(DevExpress.Xpo.Metadata.ImageValueConverter))> _
-    Public Property Signature() As Image
-        Get
-            Return _signature
-        End Get
-        Set(ByVal value As Image)
-            SetPropertyValue(Of Image)("Signature", _signature, value)
-        End Set
-    End Property
-    Private _signer As String
-    Public Property Signer() As String
-        Get
-            Return _signer
-        End Get
-        Set(value As String)
-            SetPropertyValue(Of String)("Signer", _signer, value)
-        End Set
-    End Property
-    <Association("Service-IBEX")> _
-    Public ReadOnly Property IbexServices() As XPCollection(Of IbexService)
-        Get
-            Return GetCollection(Of IbexService)("IbexServices")
-        End Get
-    End Property
-    <Association("Service-CHAIRS")> _
-    Public ReadOnly Property ChairServices() As XPCollection(Of ChairService)
-        Get
-            Return GetCollection(Of ChairService)("ChairServices")
-        End Get
-    End Property
-    Private _notes As String
-    Public Property Notes() As String
-        Get
-            Return _notes
-        End Get
-        Set(value As String)
-            SetPropertyValue(Of String)("Notes", _notes, value)
-        End Set
-    End Property
-End Class
-Public Class ChairService
-    Inherits XPCustomObject
-    Public Sub New(ByVal session As Session)
-        MyBase.New(session)
-    End Sub
-    <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)> _
-    Private _Oid As Guid = Guid.Empty
-    <PersistentAlias("_Oid"), Browsable(False)> _
-    Public ReadOnly Property Oid() As Guid
-        Get
-            Return _Oid
-        End Get
-    End Property
-    Protected Overrides Sub OnSaving()
-        MyBase.OnSaving()
-        If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
-            _Oid = XpoDefault.NewGuid()
-        End If
-    End Sub
-    Private _evacService As EvacService
-    <Association("Service-CHAIRS")> _
-    Public Property EvacService() As EvacService
-        Get
-            Return _evacService
-        End Get
-        Set(ByVal value As EvacService)
-            _evacService = value
-        End Set
-    End Property
-    Private _building As Building
-    Public Property Building() As Building
-        Get
-            Return _building
-        End Get
-        Set(value As Building)
-            SetPropertyValue(Of Building)("Building", _building, value)
-        End Set
-    End Property
-    Private _asset As Asset
-    Public Property Asset() As Asset
-        Get
-            Return _asset
-        End Get
-        Set(value As Asset)
-            SetPropertyValue(Of Asset)("Asset", _asset, value)
-        End Set
-    End Property
-    Private _serviceDate As Date
-    Public Property ServiceDate() As Date
-        Get
-            Return _serviceDate
-        End Get
-        Set(value As Date)
-            SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
-        End Set
-    End Property
+    Public Class Asset
+        Inherits XPCustomObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)>
+        Private _Oid As Guid = Guid.Empty
+        <PersistentAlias("_Oid"), Browsable(False)>
+        Public ReadOnly Property Oid() As Guid
+            Get
+                Return _Oid
+            End Get
+        End Property
+        Protected Overrides Sub OnSaving()
+            MyBase.OnSaving()
+            If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
+                _Oid = XpoDefault.NewGuid()
+            End If
+        End Sub
+        Private ID_Renamed As Integer
+        Private barcode_Renamed As String
+        Private product_Renamed As String
+        Private installed_Renamed As Date
+        Private notes_Renamed As String
+        Private building_Renamed As Integer
+        Private _productType As ProductType
+        Public Property ProductType() As ProductType
+            Get
+                Return _productType
+            End Get
+            Set(ByVal value As ProductType)
+                _productType = value
+            End Set
+        End Property
+        Private _division As Integer
+        Public Property Division() As Integer
+            Get
+                Return _division
+            End Get
+            Set(ByVal value As Integer)
+                _division = value
+            End Set
+        End Property
+        Public Property Building() As Integer
+            Get
+                Return building_Renamed
+            End Get
+            Set(value As Integer)
+                building_Renamed = value
+            End Set
+        End Property
+        Public Property BarCode() As String
+            Get
+                Return barcode_Renamed
+            End Get
+            Set(value As String)
+                barcode_Renamed = value
+            End Set
+        End Property
+        Public Property Product() As String
+            Get
+                Return product_Renamed
+            End Get
+            Set(value As String)
+                product_Renamed = value
+            End Set
+        End Property
+        Public Property Installed() As Date
+            Get
+                Return installed_Renamed
+            End Get
+            Set(value As Date)
+                installed_Renamed = value
+            End Set
+        End Property
+        Private fLastServiced As Date?
+        Public Property LastServiced() As Date?
+            Get
+                Return fLastServiced
+            End Get
+            Set(value As Date?)
+                fLastServiced = value
+            End Set
+        End Property
+        Public Property Notes() As String
+            Get
+                Return notes_Renamed
+            End Get
+            Set(value As String)
+                notes_Renamed = value
+            End Set
+        End Property
+    End Class
+    Public Class EvacService
+        Inherits XPCustomObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)>
+        Private _Oid As Guid = Guid.Empty
+        <PersistentAlias("_Oid"), Browsable(False)>
+        Public ReadOnly Property Oid() As Guid
+            Get
+                Return _Oid
+            End Get
+        End Property
+        Protected Overrides Sub OnSaving()
+            MyBase.OnSaving()
+            If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
+                _Oid = XpoDefault.NewGuid()
+            End If
+        End Sub
+        Private _division As Division
+        Public Property Division() As Division
+            Get
+                Return _division
+            End Get
+            Set(ByVal value As Division)
+                _division = value
+            End Set
+        End Property
+        Private _serviceDate As Date
+        <DevExpress.Xpo.DisplayName("Service Date")>
+        Public Property ServiceDate() As Date
+            Get
+                Return _serviceDate
+            End Get
+            Set(value As Date)
+                SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
+            End Set
+        End Property
+        Private _signature As Image
+        <DevExpress.Xpo.ValueConverter(GetType(DevExpress.Xpo.Metadata.ImageValueConverter))>
+        Public Property Signature() As Image
+            Get
+                Return _signature
+            End Get
+            Set(ByVal value As Image)
+                SetPropertyValue(Of Image)("Signature", _signature, value)
+            End Set
+        End Property
+        Private _signer As String
+        Public Property Signer() As String
+            Get
+                Return _signer
+            End Get
+            Set(value As String)
+                SetPropertyValue(Of String)("Signer", _signer, value)
+            End Set
+        End Property
+        <Association("Service-IBEX")>
+        Public ReadOnly Property IbexServices() As XPCollection(Of IbexService)
+            Get
+                Return GetCollection(Of IbexService)("IbexServices")
+            End Get
+        End Property
+        <Association("Service-CHAIRS")>
+        Public ReadOnly Property ChairServices() As XPCollection(Of ChairService)
+            Get
+                Return GetCollection(Of ChairService)("ChairServices")
+            End Get
+        End Property
+        Private _notes As String
+        Public Property Notes() As String
+            Get
+                Return _notes
+            End Get
+            Set(value As String)
+                SetPropertyValue(Of String)("Notes", _notes, value)
+            End Set
+        End Property
+    End Class
+    Public Class ChairService
+        Inherits XPCustomObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)>
+        Private _Oid As Guid = Guid.Empty
+        <PersistentAlias("_Oid"), Browsable(False)>
+        Public ReadOnly Property Oid() As Guid
+            Get
+                Return _Oid
+            End Get
+        End Property
+        Protected Overrides Sub OnSaving()
+            MyBase.OnSaving()
+            If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
+                _Oid = XpoDefault.NewGuid()
+            End If
+        End Sub
+        Private _evacService As EvacService
+        <Association("Service-CHAIRS")>
+        Public Property EvacService() As EvacService
+            Get
+                Return _evacService
+            End Get
+            Set(ByVal value As EvacService)
+                _evacService = value
+            End Set
+        End Property
+        Private _building As Building
+        Public Property Building() As Building
+            Get
+                Return _building
+            End Get
+            Set(value As Building)
+                SetPropertyValue(Of Building)("Building", _building, value)
+            End Set
+        End Property
+        Private _asset As Asset
+        Public Property Asset() As Asset
+            Get
+                Return _asset
+            End Get
+            Set(value As Asset)
+                SetPropertyValue(Of Asset)("Asset", _asset, value)
+            End Set
+        End Property
+        Private _serviceDate As Date
+        Public Property ServiceDate() As Date
+            Get
+                Return _serviceDate
+            End Get
+            Set(value As Date)
+                SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
+            End Set
+        End Property
 
-    Private _PlasticBushes As Char
-    <DevExpress.Xpo.DisplayName("PlasticBushes")> _
-    Public Property PlasticBushes() As Char
-        Get
-            Return _PlasticBushes
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("PlasticBushes", _PlasticBushes, value)
-        End Set
-    End Property
-    Private _springClips As Char
-    <DevExpress.Xpo.DisplayName("SpringClips")> _
-    Public Property SpringClips() As Char
-        Get
-            Return _springClips
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("SpringClips", _springClips, value)
-        End Set
-    End Property
-    Private _passengerBelt As Char
-    <DevExpress.Xpo.DisplayName("PassengerBelt")> _
-    Public Property PassengerBelt() As Char
-        Get
-            Return PassengerBelt
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("PassengerBelt", _passengerBelt, value)
-        End Set
-    End Property
-    Private _hammockSeatPadding As Char
-    <DevExpress.Xpo.DisplayName("HammockSeatPadding")> _
-    Public Property HammockSeatPadding() As Char
-        Get
-            Return _hammockSeatPadding
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("HammockSeatPadding", _hammockSeatPadding, value)
-        End Set
-    End Property
-    Private _headRestraint As Char
-    <DevExpress.Xpo.DisplayName("HeadRestraint")> _
-    Public Property HeadRestraint() As Char
-        Get
-            Return _headRestraint
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("HeadRestraint", _headRestraint, value)
-        End Set
-    End Property
-    Private _trolleyAssemblyandClips As Char
-    <DevExpress.Xpo.DisplayName("TrolleyAssemblyandClips")> _
-    Public Property TrolleyAssemblyandClips() As Char
-        Get
-            Return _trolleyAssemblyandClips
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("TrolleyAssemblyandClips", _trolleyAssemblyandClips, value)
-        End Set
-    End Property
-    Private _skiAssemblyRollers As Char
-    <DevExpress.Xpo.DisplayName("SkiAssemblyRollers")> _
-    Public Property SkiAssemblyRollers() As Char
-        Get
-            Return _skiAssemblyRollers
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("SkiAssemblyRollers", _skiAssemblyRollers, value)
-        End Set
-    End Property
-    Private _beltsRotationTension As Char
-    <DevExpress.Xpo.DisplayName("Belts Rotation Tension")> _
-    Public Property BeltsRotationTension() As Char
-        Get
-            Return _beltsRotationTension
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("BeltsRotationTension", _beltsRotationTension, value)
-        End Set
-    End Property
-    Private _tractionBeltsHighChange As Char
-    <DevExpress.Xpo.DisplayName("TractionBeltsHighChange")> _
-    Public Property TractionBeltsHighChange() As Char
-        Get
-            Return _tractionBeltsHighChange
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("TractionBeltsHighChange", _tractionBeltsHighChange, value)
-        End Set
-    End Property
-    Private _mainWheelsMoveFreely As Char
-    <DevExpress.Xpo.DisplayName("Main Wheels Move Freely")> _
-    Public Property MainWheelsMoveFreely() As Char
-        Get
-            Return _mainWheelsMoveFreely
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("MainWheelsMoveFreely", _mainWheelsMoveFreely, value)
-        End Set
-    End Property
+        Private _PlasticBushes As Char
+        <DevExpress.Xpo.DisplayName("PlasticBushes")>
+        Public Property PlasticBushes() As Char
+            Get
+                Return _PlasticBushes
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("PlasticBushes", _PlasticBushes, value)
+            End Set
+        End Property
+        Private _springClips As Char
+        <DevExpress.Xpo.DisplayName("SpringClips")>
+        Public Property SpringClips() As Char
+            Get
+                Return _springClips
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("SpringClips", _springClips, value)
+            End Set
+        End Property
+        Private _passengerBelt As Char
+        <DevExpress.Xpo.DisplayName("PassengerBelt")>
+        Public Property PassengerBelt() As Char
+            Get
+                Return PassengerBelt
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("PassengerBelt", _passengerBelt, value)
+            End Set
+        End Property
+        Private _hammockSeatPadding As Char
+        <DevExpress.Xpo.DisplayName("HammockSeatPadding")>
+        Public Property HammockSeatPadding() As Char
+            Get
+                Return _hammockSeatPadding
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("HammockSeatPadding", _hammockSeatPadding, value)
+            End Set
+        End Property
+        Private _headRestraint As Char
+        <DevExpress.Xpo.DisplayName("HeadRestraint")>
+        Public Property HeadRestraint() As Char
+            Get
+                Return _headRestraint
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("HeadRestraint", _headRestraint, value)
+            End Set
+        End Property
+        Private _trolleyAssemblyandClips As Char
+        <DevExpress.Xpo.DisplayName("TrolleyAssemblyandClips")>
+        Public Property TrolleyAssemblyandClips() As Char
+            Get
+                Return _trolleyAssemblyandClips
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("TrolleyAssemblyandClips", _trolleyAssemblyandClips, value)
+            End Set
+        End Property
+        Private _skiAssemblyRollers As Char
+        <DevExpress.Xpo.DisplayName("SkiAssemblyRollers")>
+        Public Property SkiAssemblyRollers() As Char
+            Get
+                Return _skiAssemblyRollers
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("SkiAssemblyRollers", _skiAssemblyRollers, value)
+            End Set
+        End Property
+        Private _beltsRotationTension As Char
+        <DevExpress.Xpo.DisplayName("Belts Rotation Tension")>
+        Public Property BeltsRotationTension() As Char
+            Get
+                Return _beltsRotationTension
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("BeltsRotationTension", _beltsRotationTension, value)
+            End Set
+        End Property
+        Private _tractionBeltsHighChange As Char
+        <DevExpress.Xpo.DisplayName("TractionBeltsHighChange")>
+        Public Property TractionBeltsHighChange() As Char
+            Get
+                Return _tractionBeltsHighChange
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("TractionBeltsHighChange", _tractionBeltsHighChange, value)
+            End Set
+        End Property
+        Private _mainWheelsMoveFreely As Char
+        <DevExpress.Xpo.DisplayName("Main Wheels Move Freely")>
+        Public Property MainWheelsMoveFreely() As Char
+            Get
+                Return _mainWheelsMoveFreely
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("MainWheelsMoveFreely", _mainWheelsMoveFreely, value)
+            End Set
+        End Property
 
-    Private _CheckRivets As Char
-    <DevExpress.Xpo.DisplayName("CheckRivets")> _
-    Public Property CheckRivets() As Char
-        Get
-            Return _CheckRivets
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("CheckRivets", _CheckRivets, value)
-        End Set
-    End Property
+        Private _CheckRivets As Char
+        <DevExpress.Xpo.DisplayName("CheckRivets")>
+        Public Property CheckRivets() As Char
+            Get
+                Return _CheckRivets
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("CheckRivets", _CheckRivets, value)
+            End Set
+        End Property
 
-    Private _levelGroundMovement As Char
-    <DevExpress.Xpo.DisplayName("Level Ground Movement")> _
-    Public Property LevelGroundMovement() As Char
-        Get
-            Return _levelGroundMovement
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("LevelGroundMovement", _levelGroundMovement, value)
-        End Set
-    End Property
-    Private _dustCoverinPlace As Char
-    <DevExpress.Xpo.DisplayName("Dust Cover in Place")> _
-    Public Property DustCoverinPlace() As Char
-        Get
-            Return _dustCoverinPlace
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("DustCoverinPlace", _dustCoverinPlace, value)
-        End Set
-    End Property
-    Private _wallHooksFitted As Char
-    <DevExpress.Xpo.DisplayName("Wall Hooks Fitted")> _
-    Public Property WallHooksFitted() As Char
-        Get
-            Return _wallHooksFitted
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("WallHooksFitted", _wallHooksFitted, value)
-        End Set
-    End Property
-    Private _signageinPlace As Char
-    <DevExpress.Xpo.DisplayName("SignageinPlace")> _
-    Public Property SignageinPlace() As Char
-        Get
-            Return _signageinPlace
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("SignageinPlace", _signageinPlace, value)
-        End Set
-    End Property
-    Private _alarmFitted As Char
-    <DevExpress.Xpo.DisplayName("Alarm Fitted")> _
-    Public Property AlarmFitted() As Char
-        Get
-            Return _alarmFitted
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("AlarmFitted", _alarmFitted, value)
-        End Set
-    End Property
-    Private _ACOP As Char
-    <DevExpress.Xpo.DisplayName("ACOP")> _
-    Public Property ACOP() As Char
-        Get
-            Return _alarmFitted
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("ACOP", _ACOP, value)
-        End Set
-    End Property
-    Private _paddedWoodenSeat As Char
-    <DevExpress.Xpo.DisplayName("Padded Wooden Seat")> _
-    Public Property PaddedWoodenSeat() As Char
-        Get
-            Return _paddedWoodenSeat
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("PaddedWoodenSeat", _paddedWoodenSeat, value)
-        End Set
-    End Property
-    Private _dustedChair As Char
-    <DevExpress.Xpo.DisplayName("Dusted Chair")> _
-    Public Property DustedChair() As Char
-        Get
-            Return _dustedChair
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("DustedChair", _dustedChair, value)
-        End Set
-    End Property
-    Private _notes As String
-    Public Property Notes() As String
-        Get
-            Return _notes
-        End Get
-        Set(value As String)
-            SetPropertyValue(Of String)("Notes", _notes, value)
-        End Set
-    End Property
-End Class
-Public Class IbexService
-    Inherits XPCustomObject
-    Public Sub New(ByVal session As Session)
-        MyBase.New(session)
-    End Sub
-    <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)> _
-    Private _Oid As Guid = Guid.Empty
-    <PersistentAlias("_Oid"), Browsable(False)> _
-    Public ReadOnly Property Oid() As Guid
-        Get
-            Return _Oid
-        End Get
-    End Property
-    Protected Overrides Sub OnSaving()
-        MyBase.OnSaving()
-        If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
-            _Oid = XpoDefault.NewGuid()
-        End If
-    End Sub
-    Private _evacService As EvacService
-    <Association("Service-IBEX")> _
-    Public Property EvacService() As EvacService
-        Get
-            Return _evacService
-        End Get
-        Set(ByVal value As EvacService)
-            _evacService = value
-        End Set
-    End Property
-    Private _building As Building
-    Public Property Building() As Building
-        Get
-            Return _building
-        End Get
-        Set(value As Building)
-            SetPropertyValue(Of Building)("Building", _building, value)
-        End Set
-    End Property
-    Private _asset As Asset
-    Public Property Asset() As Asset
-        Get
-            Return _asset
-        End Get
-        Set(value As Asset)
-            SetPropertyValue(Of Asset)("Asset", _asset, value)
-        End Set
-    End Property
-    Private _serviceDate As Date
-    Public Property ServiceDate() As Date
-        Get
-            Return _serviceDate
-        End Get
-        Set(value As Date)
-            SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
-        End Set
-    End Property
-    Private _Fasteners As Char
-    <DevExpress.Xpo.DisplayName("Fasteners")> _
-    Public Property Fasteners() As Char
-        Get
-            Return _Fasteners
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("Fasteners", _Fasteners, value)
-        End Set
-    End Property
-    Private _fastenersOpt As FieldOption
-    <DevExpress.Xpo.DisplayName("Fasteners")> _
-    Public Property FastenersOpt() As FieldOption
-        Get
-            Return _fastenersOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("FastenersOpt", _fastenersOpt, value)
-        End Set
-    End Property
-    Private _BrakeMechanism As Char
-    <DevExpress.Xpo.DisplayName("BrakeMechanism")> _
-    Public Property BrakeMechanism() As Char
-        Get
-            Return _BrakeMechanism
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("BrakeMechanism", _BrakeMechanism, value)
-        End Set
-    End Property
-    Private _BrakeMechanismOpt As FieldOption
-    Public Property BrakeMechanismOpt() As FieldOption
-        Get
-            Return _BrakeMechanismOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("BrakeMechanismOpt", _BrakeMechanismOpt, value)
-        End Set
-    End Property
-    Private _handGrips As Char
-    <DevExpress.Xpo.DisplayName("HandGrips")> _
-    Public Property HandGrips() As Char
-        Get
-            Return _handGrips
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("HandGrips", _handGrips, value)
-        End Set
-    End Property
-    Private _HandGripsOpt As FieldOption
-    Public Property HandGripsOpt() As FieldOption
-        Get
-            Return _HandGripsOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("HandGripsOpt", _HandGripsOpt, value)
-        End Set
-    End Property
-    Private _PlugsCaps As Char
-    <DevExpress.Xpo.DisplayName("PlugsCaps")> _
-    Public Property PlugsCaps() As Char
-        Get
-            Return _PlugsCaps
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("PlugsCaps", _PlugsCaps, value)
-        End Set
-    End Property
-    Private _PlugsCapsOpt As FieldOption
-    Public Property PlugsCapsOpt() As FieldOption
-        Get
-            Return _PlugsCapsOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("PlugsCapsOpt", _PlugsCapsOpt, value)
-        End Set
-    End Property
-    Private _BackRest As Char
-    <DevExpress.Xpo.DisplayName("BackRest")> _
-    Public Property BackRest() As Char
-        Get
-            Return _BackRest
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("BackRest", _BackRest, value)
-        End Set
-    End Property
-    Private _BackRestOpt As FieldOption
-    Public Property BackRestOpt() As FieldOption
-        Get
-            Return _BackRestOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("BackRestOpt", _BackRestOpt, value)
-        End Set
-    End Property
-    Private _PatientStraps As Char
-    <DevExpress.Xpo.DisplayName("PatientStraps")> _
-    Public Property PatientStraps() As Char
-        Get
-            Return _PatientStraps
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("PatientStraps", _PatientStraps, value)
-        End Set
-    End Property
-    Private _patientStrapsOpt As FieldOption
-    Public Property PatientStrapsOpt() As FieldOption
-        Get
-            Return _patientStrapsOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("PatientStrapsOpt", _patientStrapsOpt, value)
-        End Set
-    End Property
-    Private _WheelPulleys As Char
-    <DevExpress.Xpo.DisplayName("WheelPulleys")> _
-    Public Property WheelPulleys() As Char
-        Get
-            Return _WheelPulleys
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("WheelPulleys", _WheelPulleys, value)
-        End Set
-    End Property
-    Private _WheelPulleysOpt As Char
-    Public Property WheelPulleysOpt() As Char
-        Get
-            Return _WheelPulleysOpt
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("WheelPulleysOpt", _WheelPulleysOpt, value)
-        End Set
-    End Property
-    Private _Telescopic As Char
-    Public Property Telescopic() As Char
-        Get
-            Return _Telescopic
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("Telescopic", _Telescopic, value)
-        End Set
-    End Property
-    Private _TelescopicOpt As FieldOption
-    Public Property TelescopicOpt() As FieldOption
-        Get
-            Return _TelescopicOpt
-        End Get
-        Set(value As FieldOption)
-            SetPropertyValue(Of FieldOption)("TelescopicOpt", _TelescopicOpt, value)
-        End Set
-    End Property
-    Private _pass As Char
-    <DevExpress.Xpo.DisplayName("Pass/Fail")> _
-    Public Property Pass() As Char
-        Get
-            Return _pass
-        End Get
-        Set(value As Char)
-            SetPropertyValue(Of Char)("Pass", _pass, value)
-        End Set
-    End Property
+        Private _levelGroundMovement As Char
+        <DevExpress.Xpo.DisplayName("Level Ground Movement")>
+        Public Property LevelGroundMovement() As Char
+            Get
+                Return _levelGroundMovement
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("LevelGroundMovement", _levelGroundMovement, value)
+            End Set
+        End Property
+        Private _dustCoverinPlace As Char
+        <DevExpress.Xpo.DisplayName("Dust Cover in Place")>
+        Public Property DustCoverinPlace() As Char
+            Get
+                Return _dustCoverinPlace
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("DustCoverinPlace", _dustCoverinPlace, value)
+            End Set
+        End Property
+        Private _wallHooksFitted As Char
+        <DevExpress.Xpo.DisplayName("Wall Hooks Fitted")>
+        Public Property WallHooksFitted() As Char
+            Get
+                Return _wallHooksFitted
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("WallHooksFitted", _wallHooksFitted, value)
+            End Set
+        End Property
+        Private _signageinPlace As Char
+        <DevExpress.Xpo.DisplayName("SignageinPlace")>
+        Public Property SignageinPlace() As Char
+            Get
+                Return _signageinPlace
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("SignageinPlace", _signageinPlace, value)
+            End Set
+        End Property
+        Private _alarmFitted As Char
+        <DevExpress.Xpo.DisplayName("Alarm Fitted")>
+        Public Property AlarmFitted() As Char
+            Get
+                Return _alarmFitted
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("AlarmFitted", _alarmFitted, value)
+            End Set
+        End Property
+        Private _ACOP As Char
+        <DevExpress.Xpo.DisplayName("ACOP")>
+        Public Property ACOP() As Char
+            Get
+                Return _alarmFitted
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("ACOP", _ACOP, value)
+            End Set
+        End Property
+        Private _paddedWoodenSeat As Char
+        <DevExpress.Xpo.DisplayName("Padded Wooden Seat")>
+        Public Property PaddedWoodenSeat() As Char
+            Get
+                Return _paddedWoodenSeat
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("PaddedWoodenSeat", _paddedWoodenSeat, value)
+            End Set
+        End Property
+        Private _dustedChair As Char
+        <DevExpress.Xpo.DisplayName("Dusted Chair")>
+        Public Property DustedChair() As Char
+            Get
+                Return _dustedChair
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("DustedChair", _dustedChair, value)
+            End Set
+        End Property
+        Private _notes As String
+        Public Property Notes() As String
+            Get
+                Return _notes
+            End Get
+            Set(value As String)
+                SetPropertyValue(Of String)("Notes", _notes, value)
+            End Set
+        End Property
+    End Class
+    Public Class IbexService
+        Inherits XPCustomObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        <Persistent("Oid"), Key(True), Browsable(False), MemberDesignTimeVisibility(False)>
+        Private _Oid As Guid = Guid.Empty
+        <PersistentAlias("_Oid"), Browsable(False)>
+        Public ReadOnly Property Oid() As Guid
+            Get
+                Return _Oid
+            End Get
+        End Property
+        Protected Overrides Sub OnSaving()
+            MyBase.OnSaving()
+            If Not (TypeOf Session Is NestedUnitOfWork) AndAlso Session.IsNewObject(Me) Then
+                _Oid = XpoDefault.NewGuid()
+            End If
+        End Sub
+        Private _evacService As EvacService
+        <Association("Service-IBEX")>
+        Public Property EvacService() As EvacService
+            Get
+                Return _evacService
+            End Get
+            Set(ByVal value As EvacService)
+                _evacService = value
+            End Set
+        End Property
+        Private _building As Building
+        Public Property Building() As Building
+            Get
+                Return _building
+            End Get
+            Set(value As Building)
+                SetPropertyValue(Of Building)("Building", _building, value)
+            End Set
+        End Property
+        Private _asset As Asset
+        Public Property Asset() As Asset
+            Get
+                Return _asset
+            End Get
+            Set(value As Asset)
+                SetPropertyValue(Of Asset)("Asset", _asset, value)
+            End Set
+        End Property
+        Private _serviceDate As Date
+        Public Property ServiceDate() As Date
+            Get
+                Return _serviceDate
+            End Get
+            Set(value As Date)
+                SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
+            End Set
+        End Property
+        Private _Fasteners As Char
+        <DevExpress.Xpo.DisplayName("Fasteners")>
+        Public Property Fasteners() As Char
+            Get
+                Return _Fasteners
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("Fasteners", _Fasteners, value)
+            End Set
+        End Property
+        Private _fastenersOpt As FieldOption
+        <DevExpress.Xpo.DisplayName("Fasteners")>
+        Public Property FastenersOpt() As FieldOption
+            Get
+                Return _fastenersOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("FastenersOpt", _fastenersOpt, value)
+            End Set
+        End Property
+        Private _BrakeMechanism As Char
+        <DevExpress.Xpo.DisplayName("BrakeMechanism")>
+        Public Property BrakeMechanism() As Char
+            Get
+                Return _BrakeMechanism
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("BrakeMechanism", _BrakeMechanism, value)
+            End Set
+        End Property
+        Private _BrakeMechanismOpt As FieldOption
+        Public Property BrakeMechanismOpt() As FieldOption
+            Get
+                Return _BrakeMechanismOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("BrakeMechanismOpt", _BrakeMechanismOpt, value)
+            End Set
+        End Property
+        Private _handGrips As Char
+        <DevExpress.Xpo.DisplayName("HandGrips")>
+        Public Property HandGrips() As Char
+            Get
+                Return _handGrips
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("HandGrips", _handGrips, value)
+            End Set
+        End Property
+        Private _HandGripsOpt As FieldOption
+        Public Property HandGripsOpt() As FieldOption
+            Get
+                Return _HandGripsOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("HandGripsOpt", _HandGripsOpt, value)
+            End Set
+        End Property
+        Private _PlugsCaps As Char
+        <DevExpress.Xpo.DisplayName("PlugsCaps")>
+        Public Property PlugsCaps() As Char
+            Get
+                Return _PlugsCaps
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("PlugsCaps", _PlugsCaps, value)
+            End Set
+        End Property
+        Private _PlugsCapsOpt As FieldOption
+        Public Property PlugsCapsOpt() As FieldOption
+            Get
+                Return _PlugsCapsOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("PlugsCapsOpt", _PlugsCapsOpt, value)
+            End Set
+        End Property
+        Private _BackRest As Char
+        <DevExpress.Xpo.DisplayName("BackRest")>
+        Public Property BackRest() As Char
+            Get
+                Return _BackRest
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("BackRest", _BackRest, value)
+            End Set
+        End Property
+        Private _BackRestOpt As FieldOption
+        Public Property BackRestOpt() As FieldOption
+            Get
+                Return _BackRestOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("BackRestOpt", _BackRestOpt, value)
+            End Set
+        End Property
+        Private _PatientStraps As Char
+        <DevExpress.Xpo.DisplayName("PatientStraps")>
+        Public Property PatientStraps() As Char
+            Get
+                Return _PatientStraps
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("PatientStraps", _PatientStraps, value)
+            End Set
+        End Property
+        Private _patientStrapsOpt As FieldOption
+        Public Property PatientStrapsOpt() As FieldOption
+            Get
+                Return _patientStrapsOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("PatientStrapsOpt", _patientStrapsOpt, value)
+            End Set
+        End Property
+        Private _WheelPulleys As Char
+        <DevExpress.Xpo.DisplayName("WheelPulleys")>
+        Public Property WheelPulleys() As Char
+            Get
+                Return _WheelPulleys
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("WheelPulleys", _WheelPulleys, value)
+            End Set
+        End Property
+        Private _WheelPulleysOpt As Char
+        Public Property WheelPulleysOpt() As Char
+            Get
+                Return _WheelPulleysOpt
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("WheelPulleysOpt", _WheelPulleysOpt, value)
+            End Set
+        End Property
+        Private _Telescopic As Char
+        Public Property Telescopic() As Char
+            Get
+                Return _Telescopic
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("Telescopic", _Telescopic, value)
+            End Set
+        End Property
+        Private _TelescopicOpt As FieldOption
+        Public Property TelescopicOpt() As FieldOption
+            Get
+                Return _TelescopicOpt
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("TelescopicOpt", _TelescopicOpt, value)
+            End Set
+        End Property
+        Private _pass As Char
+        <DevExpress.Xpo.DisplayName("Pass/Fail")>
+        Public Property Pass() As Char
+            Get
+                Return _pass
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("Pass", _pass, value)
+            End Set
+        End Property
 
-    Private _notes As String
-    Public Property Notes() As String
-        Get
-            Return _notes
-        End Get
-        Set(value As String)
-            SetPropertyValue(Of String)("Notes", _notes, value)
-        End Set
-    End Property
-End Class
+        Private _notes As String
+        Public Property Notes() As String
+            Get
+                Return _notes
+            End Get
+            Set(value As String)
+                SetPropertyValue(Of String)("Notes", _notes, value)
+            End Set
+        End Property
+    End Class
 
+End Namespace

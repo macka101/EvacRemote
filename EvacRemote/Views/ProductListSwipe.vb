@@ -13,6 +13,7 @@ Imports DevExpress.XtraGrid.Views.Card
 Imports System.Drawing.Drawing2D
 Imports DevExpress.XtraGrid.Views.Layout
 Imports DevExpress.Utils
+Imports Esso.Data
 
 Public Class ProductListSwipe
     Private _Loaded As Boolean = False

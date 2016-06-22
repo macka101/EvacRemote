@@ -3,6 +3,7 @@ Imports DevExpress.Data.Filtering
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraEditors
 Imports DevExpress.Utils
+Imports Esso.Data
 
 Public Class SurveySwipe
     Private _Loaded As Boolean = False
@@ -206,7 +207,7 @@ Public Class SurveySwipe
         'End If
     End Sub
 
-   
+
 
     Private Sub lueBuilding_ProcessNewValue(sender As Object, e As ProcessNewValueEventArgs) Handles lueBuilding.ProcessNewValue
         Dim _building As Building = TryCast(lueBuilding.EditValue, Building)

@@ -1,4 +1,5 @@
 ﻿Imports EvacRemote.GlobalVariables
+Imports Esso.Data
 
 
 Public Class viewProductSwipePDF

@@ -1,5 +1,6 @@
 ﻿Imports EvacRemote.GlobalVariables
 Imports DevExpress.XtraRichEdit
+Imports Esso.Data
 
 
 Public Class viewProductSwipeRTF

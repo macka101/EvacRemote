@@ -11,6 +11,7 @@ Imports DevExpress.Xpo
 Imports DevExpress.Data.Filtering
 Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports Esso.Data
 
 
 Public Class Basket

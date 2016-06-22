@@ -6,6 +6,7 @@ Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.Data.Helpers
 Imports DevExpress.XtraEditors.DXErrorProvider
 Imports DevExpress.Xpo
+Imports Esso.Data
 
 Public Class GlobalVariables
     Public Shared SupportFilesDirectory As String = Nothing

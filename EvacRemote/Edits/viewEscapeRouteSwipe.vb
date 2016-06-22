@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.Xpo
+Imports Esso.Data
 
 Public Class viewEscapeRouteSwipe
     Private _parent As frmMain = Nothing
@@ -126,7 +127,7 @@ Public Class viewEscapeRouteSwipe
 
     Private Sub InitFloors(ByVal required As Integer)
         If required > _EscapeRoute.Floors.Count Then
-            For i As Integer = _escaperoute.Floors.Count + 1 To required
+            For i As Integer = _EscapeRoute.Floors.Count + 1 To required
                 Dim _floor As New Floor(_session)
                 _floor.Building = _EscapeRoute.Building
                 _floor.Floor = String.Format("Floor {0}", i)

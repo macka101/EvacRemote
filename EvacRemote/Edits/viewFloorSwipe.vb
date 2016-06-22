@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.Xpo
+Imports Esso.Data
 
 Public Class viewFloorSwipe
     Private _parent As frmMain = Nothing

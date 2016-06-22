@@ -4,6 +4,7 @@ Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.Data.Helpers
 Imports DevExpress.XtraEditors.DXErrorProvider
 Imports DevExpress.XtraEditors
+Imports Esso.Data
 
 Public Class viewAssetSwipeChair
     Private _parent As frmMain = Nothing

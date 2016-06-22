@@ -7,12 +7,13 @@ Imports DevExpress.XtraGrid.Views.Layout.ViewInfo
 Imports EvacRemote.GlobalVariables
 Imports DevExpress.Xpo
 Imports DevExpress.Data.Filtering
+Imports Esso.Data
 
 Public Class TaskListSwipe
     Private _Loaded As Boolean = False
     Private _Category As eTaskStatus = Nothing
     Dim _session As New UnitOfWork
-    Dim xcTasks As XPCollection(Of UserTask)
+    Dim xcTasks As XPCollection(Of Task)
     Dim tMaxDate As Date = DateTime.Today.AddDays(30)
 
     Private _parent As frmMain = Nothing
@@ -66,7 +67,7 @@ Public Class TaskListSwipe
                 filter = CriteriaOperator.Parse("User = ? and StartDate < ? and TaskStatus = ? ", _UserCode, tMaxDate, pStatus)
         End Select
 
-        xcTasks = New XPCollection(Of UserTask)(_session, filter, New DevExpress.Xpo.SortProperty("[StartDate]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        xcTasks = New XPCollection(Of Task)(_session, filter, New DevExpress.Xpo.SortProperty("[StartDate]", DevExpress.Xpo.DB.SortingDirection.Ascending))
         GridControl1.BeginUpdate()
         GridControl1.DataSource = xcTasks
         GridControl1.EndUpdate()
@@ -96,7 +97,7 @@ Public Class TaskListSwipe
 
 
         Dim filename As String = ""
-     
+
     End Sub
 
     Private Sub tilHighPriority_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tilHighPriority.ItemClick
@@ -124,7 +125,7 @@ Public Class TaskListSwipe
     End Sub
 
     Private Sub GridView1_DoubleClick(sender As Object, e As EventArgs) Handles GridView1.DoubleClick
-        Dim thisTask As UserTask = TryCast(GridView1.GetFocusedRow, UserTask)
+        Dim thisTask As Task = TryCast(GridView1.GetFocusedRow, Task)
         If Not thisTask Is Nothing Then
             iCont = thisTask.Contact
             iDivison = thisTask.Division

@@ -13,66 +13,70 @@ Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports DevExpress.XtraEditors
 
-Public Class ConnectionHelper
-    Public Shared ConnectionString As String = "XpoProvider=MSSqlServer;data source=EVAC-DATA;integrated security=SSPI;initial catalog=Willow"
-    Public Shared _CurrentUser As User
-    Public Shared Sub Connect(ByVal autoCreationOption As DB.AutoCreateOption)
-
-        'Dim ds As DevExpress.Xpo.DB.InMemoryDataStore = New DevExpress.Xpo.DB.InMemoryDataStore()
-        'XpoDefault.DataLayer = New SimpleDataLayer(ds)
-
-        XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
-        XpoDefault.Session = Nothing
+Namespace Esso.Data
 
 
+    Public Class ConnectionHelper
+        Public Shared ConnectionString As String = "XpoProvider=MSSqlServer;data source=EVAC-DATA;integrated security=SSPI;initial catalog=Willow"
+        Public Shared _CurrentUser As User
+        Public Shared Sub Connect(ByVal autoCreationOption As DB.AutoCreateOption)
 
-    End Sub
-    Public Shared Function GetConnectionProvider(ByVal autoCreationOption As DB.AutoCreateOption) As DB.IDataStore
-        Return XpoDefault.GetConnectionProvider(ConnectionString, autoCreationOption)
-    End Function
-    Public Shared Function GetConnectionProvider(ByVal autoCreationOption As DB.AutoCreateOption, ByRef objectsToDisposeOnDisconnect() As IDisposable) As DB.IDataStore
-        Return XpoDefault.GetConnectionProvider(ConnectionString, autoCreationOption, objectsToDisposeOnDisconnect)
-    End Function
-    Public Shared Function GetDataLayer(ByVal autoCreationOption As DB.AutoCreateOption) As IDataLayer
-        Return XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
-    End Function
-    Public Shared Function Login(_session As UnitOfWork, ByRef _code As String) As User
-        _CurrentUser = _session.FindObject(Of User)(CriteriaOperator.Parse("UserCode= ?", _code))
-    End Function
-    Public Shared Function GetCurrentUser(_session As UnitOfWork) As User
-        Return _session.GetObjectByKey(Of User)(_CurrentUser.Oid)
-    End Function
-    Public Shared Sub CheckForInitialRecords(ByVal session As Session)
-        Using saver As New UnitOfWork(session.DataLayer)
-            saver.UpdateSchema()
-            CheckForTables(saver)
+            'Dim ds As DevExpress.Xpo.DB.InMemoryDataStore = New DevExpress.Xpo.DB.InMemoryDataStore()
+            'XpoDefault.DataLayer = New SimpleDataLayer(ds)
+
+            XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
+            XpoDefault.Session = Nothing
+
+
+
+        End Sub
+        Public Shared Function GetConnectionProvider(ByVal autoCreationOption As DB.AutoCreateOption) As DB.IDataStore
+            Return XpoDefault.GetConnectionProvider(ConnectionString, autoCreationOption)
+        End Function
+        Public Shared Function GetConnectionProvider(ByVal autoCreationOption As DB.AutoCreateOption, ByRef objectsToDisposeOnDisconnect() As IDisposable) As DB.IDataStore
+            Return XpoDefault.GetConnectionProvider(ConnectionString, autoCreationOption, objectsToDisposeOnDisconnect)
+        End Function
+        Public Shared Function GetDataLayer(ByVal autoCreationOption As DB.AutoCreateOption) As IDataLayer
+            Return XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
+        End Function
+        Public Shared Function Login(_session As UnitOfWork, ByRef _code As String) As User
+            _CurrentUser = _session.FindObject(Of User)(CriteriaOperator.Parse("UserCode= ?", _code))
+        End Function
+        Public Shared Function GetCurrentUser(_session As UnitOfWork) As User
+            Return _session.GetObjectByKey(Of User)(_CurrentUser.Oid)
+        End Function
+        Public Shared Sub CheckForInitialRecords(ByVal session As Session)
+            Using saver As New UnitOfWork(session.DataLayer)
+                saver.UpdateSchema()
+                CheckForTables(saver)
+                Try
+                    saver.CommitChanges()
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                End Try
+
+            End Using
+        End Sub
+        Private Shared Sub CheckForTables(ByVal session As Session)
             Try
-                saver.CommitChanges()
+
+                'If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("Oid =  ?", 1)), Nothing))) Then
+                '    Dim EObj As New FieldOption(session)
+                '    EObj.ServiceField = eServiceFields.BackRest
+                '    EObj.Description = "Not Present"
+                '    EObj.Save()
+                'End If
+                'If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("Oid =  ?", 2)), Nothing))) Then
+                '    Dim EObj As New FieldOption(session)
+                '    EObj.ServiceField = eServiceFields.Fasteners
+                '    EObj.Description = "Not Present"
+                '    EObj.Save()
+                'End If
+
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical)
             End Try
+        End Sub
+    End Class
 
-        End Using
-    End Sub
-    Private Shared Sub CheckForTables(ByVal session As Session)
-        Try
-
-            If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 1)), Nothing))) Then
-                Dim EObj As New FieldOption(session)
-                EObj.ServiceField = eServiceFields.BackRest
-                EObj.Description = "Not Present"
-                EObj.Save()
-            End If
-            If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 2)), Nothing))) Then
-                Dim EObj As New FieldOption(session)
-                EObj.ServiceField = eServiceFields.Fasteners
-                EObj.Description = "Not Present"
-                EObj.Save()
-            End If
-
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
-End Class
-
+End Namespace

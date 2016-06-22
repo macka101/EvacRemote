@@ -14,7 +14,7 @@ Imports System.IO
 Partial Public Class FrmSyncronize
     Inherits Form
     ' Define the server, subscription, publication, and database names.
-    Private subscriberName As String = "JOHN-PC\SQLEXPRESS"
+    Private subscriberName As String = Environment.MachineName + "\SQLEXPRESS"
     Private subscriptionDbName As String = "Willow"
     Private publisherName As String = "EVACSERVER1\WILLOW"
     Private publicationName As String = "WillowPub"
@@ -232,7 +232,7 @@ Partial Public Class FrmSyncronize
 
                 ' Specify the Windows login credentials for the Merge Agent job.
                 subscription.SynchronizationAgentProcessSecurity.Login = "EvacRemote"
-                subscription.SynchronizationAgentProcessSecurity.Password = "fatbeam64"
+                subscription.SynchronizationAgentProcessSecurity.Password = "6A33%7rq"
 
                 ' Create the push subscription.
                 subscription.Create()

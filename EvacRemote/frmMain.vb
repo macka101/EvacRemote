@@ -2,10 +2,11 @@
 Imports EvacRemote.GlobalVariables
 Imports DevExpress.Xpo
 Imports DevExpress.Xpo.DB
+Imports Esso.Data
 
 Public Class frmMain
 
-    Dim _Contacts As CustomerList
+    Dim _Contacts As CompanyList
     Dim _ViewContact As viewContactSwipe
 
     Dim _Basket As BasketList
@@ -214,7 +215,7 @@ Public Class frmMain
     End Sub
     Private Sub customersTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles customersTileBarItem.ItemClick
         If _Contacts Is Nothing Then
-            _Contacts = New CustomerList(dataSession, Me)
+            _Contacts = New CompanyList(dataSession, Me)
         End If
 
         _Contacts.Parent = Me.MainPnl
@@ -264,7 +265,7 @@ Public Class frmMain
                 frmsysnc.ShowDialog()
             End Using
         End If
-        ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=evacremote"
+        ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=Willow"
         ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists)
         'End If
 

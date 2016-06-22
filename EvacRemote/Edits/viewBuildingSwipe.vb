@@ -1,4 +1,5 @@
-﻿
+﻿Imports Esso.Data
+
 Public Class viewBuildingSwipe
     Private _parent As frmMain = Nothing
     Private _building As Building
