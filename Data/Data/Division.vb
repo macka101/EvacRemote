@@ -184,13 +184,13 @@ Namespace Esso.Data
             ModifiedBy = ConnectionHelper.GetCurrentUser(Session)
             ModifiedAt = DateTime.Now
         End Sub
-        Private _contno As Integer
-        Public Property Contno() As Integer
+        Private _company As Company
+        Public Property Company() As Company
             Get
-                Return _contno
+                Return _company
             End Get
-            Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("Contno", _contno, value)
+            Set(ByVal value As Company)
+                SetPropertyValue(Of Company)("Company", _company, value)
             End Set
         End Property
         Private _divno As Integer
