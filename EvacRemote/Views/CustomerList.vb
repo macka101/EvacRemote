@@ -37,9 +37,9 @@ Public Class CompanyList
     Private Sub FetchData()
 
         Dim current As Integer = vw_Companies.FocusedRowHandle
-        Dim _companyView As XPView = New XPView(_session, GetType(Company))
+        Dim _companyView As XPView = New XPView(_session, GetType(Contact))
         _companyView.AddProperty("Oid", "Oid")
-        _companyView.AddProperty("Compname", "Compname")
+        _companyView.AddProperty("Compname", "Company.Compname")
         _companyView.AddProperty("Address1", "Address.Address1")
         _companyView.AddProperty("Address2", "Address.Address2")
         _companyView.AddProperty("Address3", "Address.Address3")

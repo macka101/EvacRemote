@@ -245,7 +245,7 @@ Public Class frmMain
             tbiEmailTemplates.Visible = False
         End If
         'If SQLHelper.IsSQLExpressInstalled = False Then
-        '    ' Application.Exit()
+        '    Application.Exit()
         'End If
         ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=willow;User Id=willow;Password=6A33%7rq;"
         ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
