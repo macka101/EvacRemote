@@ -32,12 +32,12 @@ Namespace Esso.Data
         End Sub
         Private _compno As Integer
         <Association("Division-Company")>
-           Public Property Compno() As Integer
+        Public Property compno() As Integer
             Get
                 Return _compno
             End Get
             Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("Compno", _compno, value)
+                SetPropertyValue(Of Integer)("compno", _compno, value)
             End Set
         End Property
         Private _compname As String
