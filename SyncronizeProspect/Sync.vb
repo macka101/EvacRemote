@@ -10,6 +10,7 @@ Module Sync
     Dim iTop As Integer = 0
     Dim iLeft As Integer = 0
 
+    Dim _CompleteSync As Boolean = True
     Sub Main()
         If Environment.MachineName = "JOHN-PC2" Then
             ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=Willow;User Id=Willow;Password=6A33%7rq;"
@@ -51,8 +52,12 @@ Module Sync
         'Else
         '    _lastSync = Convert.ToDateTime("1980-1-1")
         'End If
+        If _CompleteSync = False Then
+            _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[user]")
+        Else
+            _lastSync = Convert.ToDateTime("1980-1-1")
+        End If
 
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
         Str = String.Concat(Str, "SELECT usercode, username, emailaddr, lastupdatedtimestamp ")
         Str = String.Concat(Str, "FROM [user]")
         Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
@@ -106,13 +111,12 @@ Module Sync
 
         Console.Write(String.Format("Addresses ({0:D5})", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
+        If _CompleteSync = False Then
+            _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
         Str = "SELECT [addrno],[address1],[address2],[address3],[address4],[postcode],lastupdatedtimestamp "
         Str = String.Concat(Str, "FROM [Address]")
@@ -169,9 +173,9 @@ Module Sync
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[company]")
 
-        Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag],[lastupdatedtimestamp]"
+        Str = "SELECT [compno],[compname], [comptypecd],[StatusFlag],[lastupdatedtimestamp]"
         Str = String.Concat(Str, "FROM [company]")
         Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
@@ -185,18 +189,14 @@ Module Sync
             iTop = Console.CursorTop
             iLeft = Console.CursorLeft
             For Each orow As DataRow In dsCompanies.Tables(0).Rows
-                Dim xCompany As Company = _session.FindObject(Of Company)(CriteriaOperator.Parse("Compno= ?", orow.Item("compno")))
+                Dim xCompany As Company = _session.FindObject(Of Company)(CriteriaOperator.Parse("compno= ?", orow.Item("compno")))
                 If xCompany Is Nothing Then
                     xCompany = New Company(_session)
-                    xCompany.Compno = orow.Item("compno")
-                    xCompany.Compname = GetValueorNull(orow, "compname")
-                    xCompany.StatusFlag = GetValueorNull(orow, "StatusFlag")
-
-                Else
-                    xCompany.Compname = GetValueorNull(orow, "compname")
-                    xCompany.StatusFlag = GetValueorNull(orow, "StatusFlag")
-
+                    xCompany.compno = orow.Item("compno")
                 End If
+                xCompany.Compname = GetValueorNull(orow, "compname")
+                xCompany.StatusFlag = GetValueorNull(orow, "StatusFlag")
+
                 xCompany.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
                 xCompany.Save()
                 _session.CommitChanges()
@@ -219,36 +219,34 @@ Module Sync
 
         Dim iRecords As Integer = GetRecordCount("division")
         Console.Write(String.Format("Divisions ({0:D5}) ", iRecords))
-
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
+   If _CompleteSync = False Then
+            _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[division]")
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
         Str = "SELECT divno, compno, divname, addrno, division.oprano, phone, notepad, StatusFlag,lastupdatedtimestamp "
         Str = String.Concat(Str, "FROM [division]")
         Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
-        Dim dsCompanies = New DataSet
-        da.Fill(dsCompanies, "Results")
+        Dim dsDivisions = New DataSet
+        da.Fill(dsDivisions, "Results")
 
-        If dsCompanies.Tables.Count > 0 Then
-            Console.Write(String.Format("Changed ({0:D5}) ", dsCompanies.Tables(0).Rows.Count))
+        If dsDivisions.Tables.Count > 0 Then
+            Console.Write(String.Format("Changed ({0:D5}) ", dsDivisions.Tables(0).Rows.Count))
             iCounter = 0
             iTop = Console.CursorTop
             iLeft = Console.CursorLeft
             Dim xDivision As Division
-            For Each orow As DataRow In dsCompanies.Tables(0).Rows
-                xDivision = _session.FindObject(Of Division)(CriteriaOperator.Parse("Divno= ?", orow.Item("divno")))
+            For Each orow As DataRow In dsDivisions.Tables(0).Rows
+                xDivision = _session.FindObject(Of Division)(CriteriaOperator.Parse("divno= ?", orow.Item("divno")))
                 If xDivision Is Nothing Then
                     xDivision = New Division(_session)
-                    xDivision.Divno = orow.Item("divno")
-                    xDivision.Compno = orow.Item("compno")
+                    xDivision.divno = orow.Item("divno")
                 End If
-                'xDivision.a.address = _session.FindObject(Of Address)(CriteriaOperator.Parse("addrno= ?", GetValueorNull(orow, "addrno")))
+                xDivision.compno = orow.Item("compno")
+                xDivision.Address = _session.FindObject(Of Address)(CriteriaOperator.Parse("addrno= ?", GetValueorNull(orow, "addrno")))
                 xDivision.Divname = orow.Item("divname").ToString
                 xDivision.Phone = orow.Item("phone").ToString
                 xDivision.oprano = orow.Item("oprano").ToString
@@ -277,12 +275,11 @@ Module Sync
         Dim iRecords As Integer = GetRecordCount("Contact")
         Console.Write(String.Format("Contacts  ({0:D5}) ", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
+         If _CompleteSync = False Then
+            _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Contact]")
         Else
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
         Str = "SELECT [contno],[divno],[surname],[forename],[title],[salutation],[addrno],[email],[notepad],[jobtitle],[primephone],[StatusFlag],[lastupdatedtimestamp] "
         Str = String.Concat(Str, "FROM [Contact]")
@@ -299,13 +296,13 @@ Module Sync
             iLeft = Console.CursorLeft
             Dim xContact As Contact
             For Each orow As DataRow In dsContacts.Tables(0).Rows
-                xContact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("Contno= ?", orow.Item("divno")))
+                xContact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("contno= ?", orow.Item("divno")))
                 If xContact Is Nothing Then
                     xContact = New Contact(_session)
-                    xContact.Contno = orow.Item("contno")
-                    xContact.Divno = orow.Item("divno")
+                  
                 End If
-
+                xContact.Company = _session.FindObject(Of Company)(CriteriaOperator.Parse("compno= ?", orow.Item("Contno")))
+                xContact.Division = _session.FindObject(Of Division)(CriteriaOperator.Parse("divno= ?", orow.Item("divno")))
                 xContact.Surname = GetValueorNull(orow, "surname")
                 xContact.forename = GetValueorNull(orow, "forename")
                 xContact.Title = GetValueorNull(orow, "title")

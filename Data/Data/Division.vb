@@ -33,22 +33,22 @@ Namespace Esso.Data
             ModifiedAt = DateTime.Now
         End Sub
         Private _divno As Integer
-        Public Property Divno() As Integer
+        Public Property divno() As Integer
             Get
                 Return _divno
             End Get
             Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("Divno", _divno, value)
+                SetPropertyValue(Of Integer)("divno", _divno, value)
             End Set
         End Property
         Private _compno As Integer
         <Association("Division-Company")>
-        Public Property Compno() As Integer
+        Public Property compno() As Integer
             Get
                 Return _compno
             End Get
             Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("Compno", _compno, value)
+                SetPropertyValue(Of Integer)("compno", _compno, value)
             End Set
         End Property
         Private _divname As String
@@ -61,13 +61,13 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Divname", _divname, value)
             End Set
         End Property
-        Private _addrno As Integer
-        Public Property AddrNo() As Integer
+        Private _address As Address
+        Public Property Address() As Address
             Get
-                Return _addrno
+                Return _address
             End Get
-            Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("Addrno", _addrno, value)
+            Set(ByVal value As Address)
+                SetPropertyValue(Of Address)("CreatedBy", _address, value)
             End Set
         End Property
         Private _oprano As String
@@ -184,6 +184,15 @@ Namespace Esso.Data
             ModifiedBy = ConnectionHelper.GetCurrentUser(Session)
             ModifiedAt = DateTime.Now
         End Sub
+        Private _contno As Integer
+        Public Property contno() As Integer
+            Get
+                Return _contno
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("contno", _contno, value)
+            End Set
+        End Property
         Private _company As Company
         Public Property Company() As Company
             Get
@@ -194,12 +203,21 @@ Namespace Esso.Data
             End Set
         End Property
         Private _divno As Integer
-        Public Property Divno() As Integer
+        Public Property divno() As Integer
             Get
                 Return _divno
             End Get
             Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("Divno", _divno, value)
+                SetPropertyValue(Of Integer)("divno", _divno, value)
+            End Set
+        End Property
+        Private _division As Division
+        Public Property Division() As Division
+            Get
+                Return _Division
+            End Get
+            Set(ByVal value As Division)
+                SetPropertyValue(Of Division)("Divno", _Division, value)
             End Set
         End Property
         Private _surname As String
