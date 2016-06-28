@@ -36,7 +36,7 @@ Partial Class frmMain
         Me.tasksTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.scheduleTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.tileBarService = New DevExpress.XtraBars.Navigation.TileBarGroup()
-        Me.customersTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
+        Me.contactsTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.productsTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.surveyTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.basketTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
@@ -63,7 +63,6 @@ Partial Class frmMain
         Me.mainTileBar.MaxId = 10
         Me.mainTileBar.Name = "mainTileBar"
         Me.mainTileBar.Padding = New System.Windows.Forms.Padding(26, 3, 26, 3)
-        Me.mainTileBar.Position = 90
         Me.mainTileBar.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons
         Me.mainTileBar.SelectedItem = Me.basketTileBarItem
         Me.mainTileBar.SelectionBorderWidth = 2
@@ -118,7 +117,7 @@ Partial Class frmMain
         '
         'tileBarService
         '
-        Me.tileBarService.Items.Add(Me.customersTileBarItem)
+        Me.tileBarService.Items.Add(Me.contactsTileBarItem)
         Me.tileBarService.Items.Add(Me.productsTileBarItem)
         Me.tileBarService.Items.Add(Me.surveyTileBarItem)
         Me.tileBarService.Items.Add(Me.basketTileBarItem)
@@ -128,16 +127,16 @@ Partial Class frmMain
         Me.tileBarService.Name = "tileBarService"
         Me.tileBarService.Text = "Service"
         '
-        'customersTileBarItem
+        'contactsTileBarItem
         '
-        Me.customersTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
-        Me.customersTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
+        Me.contactsTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
+        Me.contactsTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         TileItemElement4.Image = CType(resources.GetObject("TileItemElement4.Image"), System.Drawing.Image)
-        TileItemElement4.Text = "Customers"
-        Me.customersTileBarItem.Elements.Add(TileItemElement4)
-        Me.customersTileBarItem.Id = 4
-        Me.customersTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
-        Me.customersTileBarItem.Name = "customersTileBarItem"
+        TileItemElement4.Text = "Contacts"
+        Me.contactsTileBarItem.Elements.Add(TileItemElement4)
+        Me.contactsTileBarItem.Id = 4
+        Me.contactsTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
+        Me.contactsTileBarItem.Name = "contactsTileBarItem"
         '
         'productsTileBarItem
         '
@@ -238,7 +237,7 @@ Partial Class frmMain
     Private WithEvents scheduleTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
     Private WithEvents tileBarService As DevExpress.XtraBars.Navigation.TileBarGroup
     Private WithEvents productsTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
-    Private WithEvents customersTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
+    Private WithEvents contactsTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
     Private WithEvents surveyTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
     Friend WithEvents MainPnl As DevExpress.XtraEditors.PanelControl
     Public WithEvents basketTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem

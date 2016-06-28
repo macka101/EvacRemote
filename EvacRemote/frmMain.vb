@@ -6,7 +6,7 @@ Imports Esso.Data
 
 Public Class frmMain
 
-    Dim _Contacts As CompanyList
+    Dim _Contacts As ContactModule
     Dim _ViewContact As viewContactSwipe
 
     Dim _Basket As BasketList
@@ -92,20 +92,20 @@ Public Class frmMain
         End If
         _Products.Visible = True
     End Sub
-    Public Sub ViewContact(Preference As String)
+    Public Sub ViewContact(_contact As Contact)
         If _ViewContact Is Nothing Then
             _ViewContact = New viewContactSwipe(Me)
         End If
 
         _ViewContact.Parent = Me.MainPnl
         _ViewContact.Dock = DockStyle.Fill
-        _ViewContact.Initdata()
+        _ViewContact.Initdata(dataSession, _contact)
         _Contacts.Visible = False
         _ViewContact.Visible = True
     End Sub
     Public Sub HideContact()
-        _ViewProductWeb.Visible = False
-        _Products.Visible = True
+        '_ViewProductWeb.Visible = False
+        '_Products.Visible = True
     End Sub
     Public Sub ViewProductRTF(ByRef oRow As Product)
         If _ViewProductRTF Is Nothing Then
@@ -213,9 +213,13 @@ Public Class frmMain
         _ViewServiceIbex.Visible = False
         _Service.Visible = True
     End Sub
-    Private Sub customersTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles customersTileBarItem.ItemClick
+    Private Sub customersTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles contactsTileBarItem.ItemClick
+        ShowContacts()
+    End Sub
+    Private Sub ShowContacts()
+
         If _Contacts Is Nothing Then
-            _Contacts = New CompanyList(dataSession, Me)
+            _Contacts = New ContactModule(dataSession, Me)
         End If
 
         _Contacts.Parent = Me.MainPnl
@@ -285,6 +289,8 @@ Public Class frmMain
         BasketEnabled(False)
         SurveyEnabled(False)
         ServiceEnabled(False)
+        ShowContacts()
+
     End Sub
 
     Private Sub mainTileBar_Click(sender As Object, e As EventArgs) Handles mainTileBar.Click

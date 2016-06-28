@@ -202,6 +202,15 @@ Namespace Esso.Data
                 SetPropertyValue(Of Integer)("Divno", _divno, value)
             End Set
         End Property
+        Private _division As Division
+        Public Property Division() As Division
+            Get
+                Return _division
+            End Get
+            Set(ByVal value As Division)
+                SetPropertyValue(Of Division)("Division", _division, value)
+            End Set
+        End Property
         Private _surname As String
         <Size(30)>
         Public Property Surname() As String
@@ -214,7 +223,7 @@ Namespace Esso.Data
         End Property
         Private _forename As String
         <Size(20)>
-        Public Property forename() As String
+        Public Property Forename() As String
             Get
                 Return _forename
             End Get

@@ -8,8 +8,9 @@ Imports EvacRemote.GlobalVariables
 Imports DevExpress.Xpo
 Imports Esso.Data
 Imports DevExpress.Xpo.DB
+Imports DevExpress.Data.Filtering
 
-Public Class CompanyList
+Public Class ContactModule
     Private _Loaded As Boolean = False
     Private _Category As String = "Evac"
     Private _session As UnitOfWork
@@ -20,7 +21,6 @@ Public Class CompanyList
         End Get
     End Property
     Public Sub InitData()
-        teName.Focus()
         FetchData()
     End Sub
     Public Property ParentFormMain() As frmMain
@@ -39,7 +39,8 @@ Public Class CompanyList
         Dim current As Integer = vw_Companies.FocusedRowHandle
         Dim _companyView As XPView = New XPView(_session, GetType(Contact))
         _companyView.AddProperty("Oid", "Oid")
-        _companyView.AddProperty("Compname", "Company.Compname")
+        _companyView.AddProperty("Divname", "Division.Divname")
+        '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
         _companyView.AddProperty("Address1", "Address.Address1")
         _companyView.AddProperty("Address2", "Address.Address2")
         _companyView.AddProperty("Address3", "Address.Address3")
@@ -48,7 +49,9 @@ Public Class CompanyList
 
         '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
         Dim sortCollection As SortingCollection = New SortingCollection()
-        sortCollection.Add(New SortProperty("Oid", SortingDirection.Ascending))
+        '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
+        sortCollection.Add(New SortProperty("Contact", SortingDirection.Ascending))
+
         _companyView.Sorting = sortCollection
         grdCompanies.DataSource = _companyView
         If current >= 0 Then
@@ -57,8 +60,6 @@ Public Class CompanyList
             End If
         End If
 
-        Dim xpCompanies As XPCollection(Of Company) = New XPCollection(Of Company)(_session, Nothing, New DevExpress.Xpo.SortProperty("[Compname]", DevExpress.Xpo.DB.SortingDirection.Ascending))
-        grdCompanies.DataSource = xpCompanies
         _Loaded = True
     End Sub
 
@@ -72,17 +73,37 @@ Public Class CompanyList
 
     End Sub
 
-    Private Sub GridControl1_Click(sender As Object, e As EventArgs)
-        ParentFormMain.ViewContact("300")
-    End Sub
-
+   
     Private Sub GridView1_Click(sender As Object, e As EventArgs)
-
-        Dim oRow As DataRowView = vw_Companies.GetFocusedRow
-        ParentFormMain.ViewContact(oRow.Item("contno"))
+        ViewContact()
+    End Sub
+    Private Sub ViewContact()
+        If CurrentContact IsNot Nothing Then
+            ParentFormMain.ViewContact(CurrentContact)
+        End If
 
     End Sub
+    Private ReadOnly Property CurrentContact() As Contact
+        Get
+            If vw_Companies.FocusedRowHandle < 0 Then
+                Return Nothing
+            End If
+            Return _session.FindObject(Of Contact)(CriteriaOperator.Parse("Oid = ?", CurrentOid))
+        End Get
 
+    End Property
+    Private ReadOnly Property CurrentOid() As Guid
+        Get
+            If vw_Companies.FocusedRowHandle < 0 Then
+                Return Nothing
+            End If
+            If vw_Companies.Columns("OID") IsNot Nothing Then
+                Return DirectCast(vw_Companies.GetRowCellValue(vw_Companies.FocusedRowHandle, "OID"), Guid)
+            Else
+                Return DirectCast(vw_Companies.GetRowCellValue(vw_Companies.FocusedRowHandle, "Oid"), Guid)
+            End If
+        End Get
+    End Property
     Private Sub btnSetCurrent_Click(sender As Object, e As EventArgs) Handles btnSetCurrent.Click
         Dim oRow As DataRowView = vw_Companies.GetFocusedRow
         If oRow IsNot Nothing Then
@@ -96,7 +117,7 @@ Public Class CompanyList
     End Sub
 
 
-    Private Sub btnFind_Click(sender As Object, e As EventArgs) Handles btnFind.Click
+    Private Sub btnFind_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Try
             btnSetCurrent.Enabled = False
@@ -112,10 +133,8 @@ Public Class CompanyList
 
     End Sub
 
-    Private Sub teName_KeyDown(sender As Object, e As KeyEventArgs) Handles teName.KeyDown
-        If e.KeyCode = Keys.Return Then
-            FetchData()
-        End If
 
+    Private Sub vw_Companies_DoubleClick(sender As Object, e As EventArgs) Handles vw_Companies.DoubleClick
+        ViewContact()
     End Sub
 End Class

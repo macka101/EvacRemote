@@ -287,10 +287,10 @@
     <Compile Include="Views\BasketList.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CustomerList.Designer.vb">
-      <DependentUpon>CustomerList.vb</DependentUpon>
+    <Compile Include="Views\ContactList.Designer.vb">
+      <DependentUpon>ContactList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\CustomerList.vb">
+    <Compile Include="Views\ContactList.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\ProductListSwipe.Designer.vb">
@@ -379,8 +379,8 @@
     <EmbeddedResource Include="Views\BasketList.resx">
       <DependentUpon>BasketList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CustomerList.resx">
-      <DependentUpon>CustomerList.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ContactList.resx">
+      <DependentUpon>ContactList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductListSwipe.resx">
       <DependentUpon>ProductListSwipe.vb</DependentUpon>

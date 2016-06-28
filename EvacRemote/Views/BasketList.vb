@@ -48,7 +48,7 @@ Public Class BasketList
     End Sub
 
     Private Sub GridControl1_Click(sender As Object, e As EventArgs)
-        ParentFormMain.ViewContact("300")
+        '  ParentFormMain.ViewContact("300")
     End Sub
 
     Private Sub GridView1_Click(sender As Object, e As EventArgs)

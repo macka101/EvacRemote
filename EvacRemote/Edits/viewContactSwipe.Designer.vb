@@ -23,58 +23,67 @@ Partial Class viewContactSwipe
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
-        Me.pciCurrent = New System.Windows.Forms.PictureBox()
-        Me.TextEdit4 = New DevExpress.XtraEditors.TextEdit()
-        Me.TextEdit3 = New DevExpress.XtraEditors.TextEdit()
-        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
-        Me.peImage = New DevExpress.XtraEditors.PictureEdit()
-        Me.teDescription = New DevExpress.XtraEditors.TextEdit()
-        Me.teReference = New DevExpress.XtraEditors.TextEdit()
+        Me.teAddress4 = New DevExpress.XtraEditors.TextEdit()
+        Me.teAddress3 = New DevExpress.XtraEditors.TextEdit()
+        Me.teAddress2 = New DevExpress.XtraEditors.TextEdit()
+        Me.teAddress1 = New DevExpress.XtraEditors.TextEdit()
+        Me.teSurname = New DevExpress.XtraEditors.TextEdit()
+        Me.teForename = New DevExpress.XtraEditors.TextEdit()
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciFirstName = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciPicture = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciLastName = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciCurrent = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciAddress1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciAddress2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciAddress3 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciAddress4 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.tePostCode = New DevExpress.XtraEditors.TextEdit()
+        Me.lciPostCode = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.teEmail = New DevExpress.XtraEditors.TextEdit()
+        Me.lciEmail = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.tePhone = New DevExpress.XtraEditors.TextEdit()
+        Me.lciPhoneNo = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.pciCurrent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.peImage.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.teReference.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teAddress4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teAddress3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teAddress2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teAddress1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teSurname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teForename.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFirstName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciLastName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciCurrent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciAddress1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciAddress2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciAddress3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciAddress4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciPostCode, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teEmail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciEmail, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tePhone.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciPhoneNo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.pciCurrent)
-        Me.LayoutControl1.Controls.Add(Me.TextEdit4)
-        Me.LayoutControl1.Controls.Add(Me.TextEdit3)
-        Me.LayoutControl1.Controls.Add(Me.TextEdit2)
-        Me.LayoutControl1.Controls.Add(Me.TextEdit1)
-        Me.LayoutControl1.Controls.Add(Me.peImage)
-        Me.LayoutControl1.Controls.Add(Me.teDescription)
-        Me.LayoutControl1.Controls.Add(Me.teReference)
+        Me.LayoutControl1.Controls.Add(Me.tePhone)
+        Me.LayoutControl1.Controls.Add(Me.teEmail)
+        Me.LayoutControl1.Controls.Add(Me.tePostCode)
+        Me.LayoutControl1.Controls.Add(Me.teAddress4)
+        Me.LayoutControl1.Controls.Add(Me.teAddress3)
+        Me.LayoutControl1.Controls.Add(Me.teAddress2)
+        Me.LayoutControl1.Controls.Add(Me.teAddress1)
+        Me.LayoutControl1.Controls.Add(Me.teSurname)
+        Me.LayoutControl1.Controls.Add(Me.teForename)
         Me.LayoutControl1.Controls.Add(Me.picBack)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
@@ -84,69 +93,53 @@ Partial Class viewContactSwipe
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'pciCurrent
+        'teAddress4
         '
-        Me.pciCurrent.Location = New System.Drawing.Point(795, 12)
-        Me.pciCurrent.Name = "pciCurrent"
-        Me.pciCurrent.Size = New System.Drawing.Size(109, 20)
-        Me.pciCurrent.TabIndex = 14
-        Me.pciCurrent.TabStop = False
+        Me.teAddress4.Location = New System.Drawing.Point(538, 60)
+        Me.teAddress4.Name = "teAddress4"
+        Me.teAddress4.Size = New System.Drawing.Size(366, 20)
+        Me.teAddress4.StyleController = Me.LayoutControl1
+        Me.teAddress4.TabIndex = 13
         '
-        'TextEdit4
+        'teAddress3
         '
-        Me.TextEdit4.Location = New System.Drawing.Point(161, 108)
-        Me.TextEdit4.Name = "TextEdit4"
-        Me.TextEdit4.Size = New System.Drawing.Size(743, 20)
-        Me.TextEdit4.StyleController = Me.LayoutControl1
-        Me.TextEdit4.TabIndex = 13
+        Me.teAddress3.Location = New System.Drawing.Point(115, 60)
+        Me.teAddress3.Name = "teAddress3"
+        Me.teAddress3.Size = New System.Drawing.Size(366, 20)
+        Me.teAddress3.StyleController = Me.LayoutControl1
+        Me.teAddress3.TabIndex = 12
         '
-        'TextEdit3
+        'teAddress2
         '
-        Me.TextEdit3.Location = New System.Drawing.Point(161, 84)
-        Me.TextEdit3.Name = "TextEdit3"
-        Me.TextEdit3.Size = New System.Drawing.Size(743, 20)
-        Me.TextEdit3.StyleController = Me.LayoutControl1
-        Me.TextEdit3.TabIndex = 12
+        Me.teAddress2.Location = New System.Drawing.Point(538, 36)
+        Me.teAddress2.Name = "teAddress2"
+        Me.teAddress2.Size = New System.Drawing.Size(366, 20)
+        Me.teAddress2.StyleController = Me.LayoutControl1
+        Me.teAddress2.TabIndex = 11
         '
-        'TextEdit2
+        'teAddress1
         '
-        Me.TextEdit2.Location = New System.Drawing.Point(161, 60)
-        Me.TextEdit2.Name = "TextEdit2"
-        Me.TextEdit2.Size = New System.Drawing.Size(743, 20)
-        Me.TextEdit2.StyleController = Me.LayoutControl1
-        Me.TextEdit2.TabIndex = 11
+        Me.teAddress1.Location = New System.Drawing.Point(115, 36)
+        Me.teAddress1.Name = "teAddress1"
+        Me.teAddress1.Size = New System.Drawing.Size(366, 20)
+        Me.teAddress1.StyleController = Me.LayoutControl1
+        Me.teAddress1.TabIndex = 10
         '
-        'TextEdit1
+        'teLastName
         '
-        Me.TextEdit1.Location = New System.Drawing.Point(161, 36)
-        Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(743, 20)
-        Me.TextEdit1.StyleController = Me.LayoutControl1
-        Me.TextEdit1.TabIndex = 10
+        Me.teSurname.Location = New System.Drawing.Point(538, 12)
+        Me.teSurname.Name = "teLastName"
+        Me.teSurname.Size = New System.Drawing.Size(366, 20)
+        Me.teSurname.StyleController = Me.LayoutControl1
+        Me.teSurname.TabIndex = 6
         '
-        'peImage
+        'teFirstname
         '
-        Me.peImage.Location = New System.Drawing.Point(62, 132)
-        Me.peImage.Name = "peImage"
-        Me.peImage.Size = New System.Drawing.Size(842, 342)
-        Me.peImage.StyleController = Me.LayoutControl1
-        Me.peImage.TabIndex = 9
-        '
-        'teDescription
-        '
-        Me.teDescription.Location = New System.Drawing.Point(488, 12)
-        Me.teDescription.Name = "teDescription"
-        Me.teDescription.Size = New System.Drawing.Size(204, 20)
-        Me.teDescription.StyleController = Me.LayoutControl1
-        Me.teDescription.TabIndex = 6
-        '
-        'teReference
-        '
-        Me.teReference.Location = New System.Drawing.Point(161, 12)
-        Me.teReference.Name = "teReference"
-        Me.teReference.Size = New System.Drawing.Size(224, 20)
-        Me.teReference.StyleController = Me.LayoutControl1
-        Me.teReference.TabIndex = 5
+        Me.teForename.Location = New System.Drawing.Point(115, 12)
+        Me.teForename.Name = "teFirstname"
+        Me.teForename.Size = New System.Drawing.Size(366, 20)
+        Me.teForename.StyleController = Me.LayoutControl1
+        Me.teForename.TabIndex = 5
         '
         'picBack
         '
@@ -162,9 +155,9 @@ Partial Class viewContactSwipe
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciFirstName, Me.lciPicture, Me.lciLastName, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.lciCurrent})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciFirstName, Me.lciLastName, Me.lciAddress1, Me.lciAddress3, Me.lciPostCode, Me.lciAddress2, Me.lciAddress4, Me.lciEmail, Me.lciPhoneNo, Me.EmptySpaceItem1, Me.EmptySpaceItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
+        Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -183,79 +176,130 @@ Partial Class viewContactSwipe
         '
         'lciFirstName
         '
-        Me.lciFirstName.Control = Me.teReference
+        Me.lciFirstName.Control = Me.teForename
         Me.lciFirstName.CustomizationFormText = "Reference"
         Me.lciFirstName.Location = New System.Drawing.Point(50, 0)
         Me.lciFirstName.Name = "lciFirstName"
-        Me.lciFirstName.Size = New System.Drawing.Size(327, 24)
+        Me.lciFirstName.Size = New System.Drawing.Size(423, 24)
         Me.lciFirstName.Text = "FirstName"
-        Me.lciFirstName.TextSize = New System.Drawing.Size(96, 13)
-        '
-        'lciPicture
-        '
-        Me.lciPicture.Control = Me.peImage
-        Me.lciPicture.CustomizationFormText = "lciPicture"
-        Me.lciPicture.Location = New System.Drawing.Point(50, 120)
-        Me.lciPicture.Name = "lciPicture"
-        Me.lciPicture.Size = New System.Drawing.Size(846, 346)
-        Me.lciPicture.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciPicture.TextVisible = False
+        Me.lciFirstName.TextSize = New System.Drawing.Size(50, 13)
         '
         'lciLastName
         '
-        Me.lciLastName.Control = Me.teDescription
+        Me.lciLastName.Control = Me.teSurname
         Me.lciLastName.CustomizationFormText = "Last Name"
-        Me.lciLastName.Location = New System.Drawing.Point(377, 0)
+        Me.lciLastName.Location = New System.Drawing.Point(473, 0)
         Me.lciLastName.Name = "lciLastName"
-        Me.lciLastName.Size = New System.Drawing.Size(307, 24)
+        Me.lciLastName.Size = New System.Drawing.Size(423, 24)
         Me.lciLastName.Text = "Last Name"
-        Me.lciLastName.TextSize = New System.Drawing.Size(96, 13)
+        Me.lciLastName.TextSize = New System.Drawing.Size(50, 13)
         '
-        'LayoutControlItem1
+        'lciAddress1
         '
-        Me.LayoutControlItem1.Control = Me.TextEdit1
-        Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(50, 24)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(846, 24)
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(96, 13)
+        Me.lciAddress1.Control = Me.teAddress1
+        Me.lciAddress1.CustomizationFormText = "LayoutControlItem1"
+        Me.lciAddress1.Location = New System.Drawing.Point(50, 24)
+        Me.lciAddress1.Name = "lciAddress1"
+        Me.lciAddress1.Size = New System.Drawing.Size(423, 24)
+        Me.lciAddress1.Text = "Address1"
+        Me.lciAddress1.TextSize = New System.Drawing.Size(50, 13)
         '
-        'LayoutControlItem2
+        'lciAddress2
         '
-        Me.LayoutControlItem2.Control = Me.TextEdit2
-        Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(50, 48)
-        Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(846, 24)
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(96, 13)
+        Me.lciAddress2.Control = Me.teAddress2
+        Me.lciAddress2.CustomizationFormText = "LayoutControlItem2"
+        Me.lciAddress2.Location = New System.Drawing.Point(473, 24)
+        Me.lciAddress2.Name = "lciAddress2"
+        Me.lciAddress2.Size = New System.Drawing.Size(423, 24)
+        Me.lciAddress2.Text = "Address2"
+        Me.lciAddress2.TextSize = New System.Drawing.Size(50, 13)
         '
-        'LayoutControlItem3
+        'lciAddress3
         '
-        Me.LayoutControlItem3.Control = Me.TextEdit3
-        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(50, 72)
-        Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(846, 24)
-        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(96, 13)
+        Me.lciAddress3.Control = Me.teAddress3
+        Me.lciAddress3.CustomizationFormText = "LayoutControlItem3"
+        Me.lciAddress3.Location = New System.Drawing.Point(50, 48)
+        Me.lciAddress3.Name = "lciAddress3"
+        Me.lciAddress3.Size = New System.Drawing.Size(423, 24)
+        Me.lciAddress3.Text = "Address3"
+        Me.lciAddress3.TextSize = New System.Drawing.Size(50, 13)
         '
-        'LayoutControlItem4
+        'lciAddress4
         '
-        Me.LayoutControlItem4.Control = Me.TextEdit4
-        Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(50, 96)
-        Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(846, 24)
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(96, 13)
+        Me.lciAddress4.Control = Me.teAddress4
+        Me.lciAddress4.CustomizationFormText = "LayoutControlItem4"
+        Me.lciAddress4.Location = New System.Drawing.Point(473, 48)
+        Me.lciAddress4.Name = "lciAddress4"
+        Me.lciAddress4.Size = New System.Drawing.Size(423, 24)
+        Me.lciAddress4.Text = "Address4"
+        Me.lciAddress4.TextSize = New System.Drawing.Size(50, 13)
         '
-        'lciCurrent
+        'tePostCode
         '
-        Me.lciCurrent.Control = Me.pciCurrent
-        Me.lciCurrent.CustomizationFormText = "Set as Current"
-        Me.lciCurrent.Location = New System.Drawing.Point(684, 0)
-        Me.lciCurrent.Name = "lciCurrent"
-        Me.lciCurrent.Size = New System.Drawing.Size(212, 24)
-        Me.lciCurrent.Text = "Set as Current"
-        Me.lciCurrent.TextSize = New System.Drawing.Size(96, 13)
+        Me.tePostCode.Location = New System.Drawing.Point(115, 84)
+        Me.tePostCode.Name = "tePostCode"
+        Me.tePostCode.Size = New System.Drawing.Size(154, 20)
+        Me.tePostCode.StyleController = Me.LayoutControl1
+        Me.tePostCode.TabIndex = 14
+        '
+        'lciPostCode
+        '
+        Me.lciPostCode.Control = Me.tePostCode
+        Me.lciPostCode.Location = New System.Drawing.Point(50, 72)
+        Me.lciPostCode.Name = "lciPostCode"
+        Me.lciPostCode.Size = New System.Drawing.Size(211, 24)
+        Me.lciPostCode.Text = "PostCode"
+        Me.lciPostCode.TextSize = New System.Drawing.Size(50, 13)
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(261, 72)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(212, 24)
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'teEmail
+        '
+        Me.teEmail.Location = New System.Drawing.Point(115, 108)
+        Me.teEmail.Name = "teEmail"
+        Me.teEmail.Size = New System.Drawing.Size(789, 20)
+        Me.teEmail.StyleController = Me.LayoutControl1
+        Me.teEmail.TabIndex = 15
+        '
+        'lciEmail
+        '
+        Me.lciEmail.Control = Me.teEmail
+        Me.lciEmail.Location = New System.Drawing.Point(50, 96)
+        Me.lciEmail.Name = "lciEmail"
+        Me.lciEmail.Size = New System.Drawing.Size(846, 24)
+        Me.lciEmail.Text = "Email"
+        Me.lciEmail.TextSize = New System.Drawing.Size(50, 13)
+        '
+        'tePhoneNo
+        '
+        Me.tePhone.Location = New System.Drawing.Point(538, 84)
+        Me.tePhone.Name = "tePhoneNo"
+        Me.tePhone.Size = New System.Drawing.Size(366, 20)
+        Me.tePhone.StyleController = Me.LayoutControl1
+        Me.tePhone.TabIndex = 16
+        '
+        'lciPhoneNo
+        '
+        Me.lciPhoneNo.Control = Me.tePhone
+        Me.lciPhoneNo.Location = New System.Drawing.Point(473, 72)
+        Me.lciPhoneNo.Name = "lciPhoneNo"
+        Me.lciPhoneNo.Size = New System.Drawing.Size(423, 24)
+        Me.lciPhoneNo.Text = "PhoneNo"
+        Me.lciPhoneNo.TextSize = New System.Drawing.Size(50, 13)
+        '
+        'EmptySpaceItem2
+        '
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(50, 120)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(846, 346)
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'viewContactSwipe
         '
@@ -266,47 +310,55 @@ Partial Class viewContactSwipe
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.pciCurrent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.peImage.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.teReference.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teAddress4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teAddress3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teAddress2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teAddress1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teSurname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teForename.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFirstName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciPicture, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciLastName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciCurrent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciAddress1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciAddress2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciAddress3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciAddress4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciPostCode, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teEmail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciEmail, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tePhone.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciPhoneNo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
-    Friend WithEvents teDescription As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents teReference As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents teSurname As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents teForename As DevExpress.XtraEditors.TextEdit
     Friend WithEvents picBack As System.Windows.Forms.PictureBox
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents lciBack As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciFirstName As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciLastName As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents peImage As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents lciPicture As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents pciCurrent As System.Windows.Forms.PictureBox
-    Friend WithEvents TextEdit4 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit3 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents lciCurrent As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents teAddress4 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents teAddress3 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents teAddress2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents teAddress1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lciAddress1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciAddress2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciAddress3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciAddress4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents teEmail As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents tePostCode As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lciPostCode As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents lciEmail As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents tePhone As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lciPhoneNo As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
 
 End Class
