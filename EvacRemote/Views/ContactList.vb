@@ -79,7 +79,8 @@ Public Class ContactModule
     End Sub
     Private Sub ViewContact()
         If CurrentContact IsNot Nothing Then
-            ParentFormMain.ViewContact(CurrentContact)
+            ParentFormMain._currentContact = CurrentContact
+            ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
         End If
 
     End Sub

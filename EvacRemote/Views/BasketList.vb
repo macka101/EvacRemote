@@ -54,7 +54,7 @@ Public Class BasketList
     Private Sub GridView1_Click(sender As Object, e As EventArgs)
 
         Dim oRow As DataRowView = GridView1.GetFocusedRow
-        ParentFormMain.ViewContact(oRow.Item("contno"))
+        ParentFormMain.ViewContactDetail(oRow.Item("contno"))
 
     End Sub
 

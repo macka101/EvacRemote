@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class viewContactSwipe
+Partial Class ContactDetail
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -23,6 +23,9 @@ Partial Class viewContactSwipe
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.tePhone = New DevExpress.XtraEditors.TextEdit()
+        Me.teEmail = New DevExpress.XtraEditors.TextEdit()
+        Me.tePostCode = New DevExpress.XtraEditors.TextEdit()
         Me.teAddress4 = New DevExpress.XtraEditors.TextEdit()
         Me.teAddress3 = New DevExpress.XtraEditors.TextEdit()
         Me.teAddress2 = New DevExpress.XtraEditors.TextEdit()
@@ -35,19 +38,21 @@ Partial Class viewContactSwipe
         Me.lciFirstName = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciLastName = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciAddress1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciAddress2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciAddress3 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciAddress4 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.tePostCode = New DevExpress.XtraEditors.TextEdit()
         Me.lciPostCode = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
-        Me.teEmail = New DevExpress.XtraEditors.TextEdit()
+        Me.lciAddress2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciAddress4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciEmail = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.tePhone = New DevExpress.XtraEditors.TextEdit()
         Me.lciPhoneNo = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.grdSurveys = New DevExpress.XtraGrid.GridControl()
+        Me.vw_Surverys = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.lciSurveys = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.tePhone.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teEmail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teAddress4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teAddress3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teAddress2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,21 +65,21 @@ Partial Class viewContactSwipe
         CType(Me.lciFirstName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciLastName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciAddress1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciAddress2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciAddress3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciAddress4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPostCode, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.teEmail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciAddress2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciAddress4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciEmail, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tePhone.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPhoneNo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vw_Surverys, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.grdSurveys)
         Me.LayoutControl1.Controls.Add(Me.tePhone)
         Me.LayoutControl1.Controls.Add(Me.teEmail)
         Me.LayoutControl1.Controls.Add(Me.tePostCode)
@@ -92,6 +97,30 @@ Partial Class viewContactSwipe
         Me.LayoutControl1.Size = New System.Drawing.Size(916, 486)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'tePhone
+        '
+        Me.tePhone.Location = New System.Drawing.Point(538, 84)
+        Me.tePhone.Name = "tePhone"
+        Me.tePhone.Size = New System.Drawing.Size(366, 20)
+        Me.tePhone.StyleController = Me.LayoutControl1
+        Me.tePhone.TabIndex = 16
+        '
+        'teEmail
+        '
+        Me.teEmail.Location = New System.Drawing.Point(115, 108)
+        Me.teEmail.Name = "teEmail"
+        Me.teEmail.Size = New System.Drawing.Size(789, 20)
+        Me.teEmail.StyleController = Me.LayoutControl1
+        Me.teEmail.TabIndex = 15
+        '
+        'tePostCode
+        '
+        Me.tePostCode.Location = New System.Drawing.Point(115, 84)
+        Me.tePostCode.Name = "tePostCode"
+        Me.tePostCode.Size = New System.Drawing.Size(154, 20)
+        Me.tePostCode.StyleController = Me.LayoutControl1
+        Me.tePostCode.TabIndex = 14
         '
         'teAddress4
         '
@@ -125,18 +154,18 @@ Partial Class viewContactSwipe
         Me.teAddress1.StyleController = Me.LayoutControl1
         Me.teAddress1.TabIndex = 10
         '
-        'teLastName
+        'teSurname
         '
         Me.teSurname.Location = New System.Drawing.Point(538, 12)
-        Me.teSurname.Name = "teLastName"
+        Me.teSurname.Name = "teSurname"
         Me.teSurname.Size = New System.Drawing.Size(366, 20)
         Me.teSurname.StyleController = Me.LayoutControl1
         Me.teSurname.TabIndex = 6
         '
-        'teFirstname
+        'teForename
         '
         Me.teForename.Location = New System.Drawing.Point(115, 12)
-        Me.teForename.Name = "teFirstname"
+        Me.teForename.Name = "teForename"
         Me.teForename.Size = New System.Drawing.Size(366, 20)
         Me.teForename.StyleController = Me.LayoutControl1
         Me.teForename.TabIndex = 5
@@ -155,7 +184,7 @@ Partial Class viewContactSwipe
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciFirstName, Me.lciLastName, Me.lciAddress1, Me.lciAddress3, Me.lciPostCode, Me.lciAddress2, Me.lciAddress4, Me.lciEmail, Me.lciPhoneNo, Me.EmptySpaceItem1, Me.EmptySpaceItem2})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciFirstName, Me.lciLastName, Me.lciAddress1, Me.lciAddress3, Me.lciPostCode, Me.lciAddress2, Me.lciAddress4, Me.lciEmail, Me.lciPhoneNo, Me.EmptySpaceItem1, Me.lciSurveys})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -204,16 +233,6 @@ Partial Class viewContactSwipe
         Me.lciAddress1.Text = "Address1"
         Me.lciAddress1.TextSize = New System.Drawing.Size(50, 13)
         '
-        'lciAddress2
-        '
-        Me.lciAddress2.Control = Me.teAddress2
-        Me.lciAddress2.CustomizationFormText = "LayoutControlItem2"
-        Me.lciAddress2.Location = New System.Drawing.Point(473, 24)
-        Me.lciAddress2.Name = "lciAddress2"
-        Me.lciAddress2.Size = New System.Drawing.Size(423, 24)
-        Me.lciAddress2.Text = "Address2"
-        Me.lciAddress2.TextSize = New System.Drawing.Size(50, 13)
-        '
         'lciAddress3
         '
         Me.lciAddress3.Control = Me.teAddress3
@@ -223,6 +242,25 @@ Partial Class viewContactSwipe
         Me.lciAddress3.Size = New System.Drawing.Size(423, 24)
         Me.lciAddress3.Text = "Address3"
         Me.lciAddress3.TextSize = New System.Drawing.Size(50, 13)
+        '
+        'lciPostCode
+        '
+        Me.lciPostCode.Control = Me.tePostCode
+        Me.lciPostCode.Location = New System.Drawing.Point(50, 72)
+        Me.lciPostCode.Name = "lciPostCode"
+        Me.lciPostCode.Size = New System.Drawing.Size(211, 24)
+        Me.lciPostCode.Text = "PostCode"
+        Me.lciPostCode.TextSize = New System.Drawing.Size(50, 13)
+        '
+        'lciAddress2
+        '
+        Me.lciAddress2.Control = Me.teAddress2
+        Me.lciAddress2.CustomizationFormText = "LayoutControlItem2"
+        Me.lciAddress2.Location = New System.Drawing.Point(473, 24)
+        Me.lciAddress2.Name = "lciAddress2"
+        Me.lciAddress2.Size = New System.Drawing.Size(423, 24)
+        Me.lciAddress2.Text = "Address2"
+        Me.lciAddress2.TextSize = New System.Drawing.Size(50, 13)
         '
         'lciAddress4
         '
@@ -234,39 +272,6 @@ Partial Class viewContactSwipe
         Me.lciAddress4.Text = "Address4"
         Me.lciAddress4.TextSize = New System.Drawing.Size(50, 13)
         '
-        'tePostCode
-        '
-        Me.tePostCode.Location = New System.Drawing.Point(115, 84)
-        Me.tePostCode.Name = "tePostCode"
-        Me.tePostCode.Size = New System.Drawing.Size(154, 20)
-        Me.tePostCode.StyleController = Me.LayoutControl1
-        Me.tePostCode.TabIndex = 14
-        '
-        'lciPostCode
-        '
-        Me.lciPostCode.Control = Me.tePostCode
-        Me.lciPostCode.Location = New System.Drawing.Point(50, 72)
-        Me.lciPostCode.Name = "lciPostCode"
-        Me.lciPostCode.Size = New System.Drawing.Size(211, 24)
-        Me.lciPostCode.Text = "PostCode"
-        Me.lciPostCode.TextSize = New System.Drawing.Size(50, 13)
-        '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(261, 72)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(212, 24)
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'teEmail
-        '
-        Me.teEmail.Location = New System.Drawing.Point(115, 108)
-        Me.teEmail.Name = "teEmail"
-        Me.teEmail.Size = New System.Drawing.Size(789, 20)
-        Me.teEmail.StyleController = Me.LayoutControl1
-        Me.teEmail.TabIndex = 15
-        '
         'lciEmail
         '
         Me.lciEmail.Control = Me.teEmail
@@ -275,14 +280,6 @@ Partial Class viewContactSwipe
         Me.lciEmail.Size = New System.Drawing.Size(846, 24)
         Me.lciEmail.Text = "Email"
         Me.lciEmail.TextSize = New System.Drawing.Size(50, 13)
-        '
-        'tePhoneNo
-        '
-        Me.tePhone.Location = New System.Drawing.Point(538, 84)
-        Me.tePhone.Name = "tePhoneNo"
-        Me.tePhone.Size = New System.Drawing.Size(366, 20)
-        Me.tePhone.StyleController = Me.LayoutControl1
-        Me.tePhone.TabIndex = 16
         '
         'lciPhoneNo
         '
@@ -293,13 +290,36 @@ Partial Class viewContactSwipe
         Me.lciPhoneNo.Text = "PhoneNo"
         Me.lciPhoneNo.TextSize = New System.Drawing.Size(50, 13)
         '
-        'EmptySpaceItem2
+        'EmptySpaceItem1
         '
-        Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(50, 120)
-        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(846, 346)
-        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(261, 72)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(212, 24)
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'grdSurveys
+        '
+        Me.grdSurveys.Location = New System.Drawing.Point(62, 132)
+        Me.grdSurveys.MainView = Me.vw_Surverys
+        Me.grdSurveys.Name = "grdSurveys"
+        Me.grdSurveys.Size = New System.Drawing.Size(842, 342)
+        Me.grdSurveys.TabIndex = 17
+        Me.grdSurveys.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Surverys})
+        '
+        'vw_Surverys
+        '
+        Me.vw_Surverys.GridControl = Me.grdSurveys
+        Me.vw_Surverys.Name = "vw_Surverys"
+        '
+        'lciSurveys
+        '
+        Me.lciSurveys.Control = Me.grdSurveys
+        Me.lciSurveys.Location = New System.Drawing.Point(50, 120)
+        Me.lciSurveys.Name = "lciSurveys"
+        Me.lciSurveys.Size = New System.Drawing.Size(846, 346)
+        Me.lciSurveys.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciSurveys.TextVisible = False
         '
         'viewContactSwipe
         '
@@ -310,6 +330,9 @@ Partial Class viewContactSwipe
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.tePhone.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teEmail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teAddress4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teAddress3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teAddress2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -322,17 +345,16 @@ Partial Class viewContactSwipe
         CType(Me.lciFirstName, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciLastName, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciAddress1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciAddress2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciAddress3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciAddress4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tePostCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPostCode, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.teEmail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciAddress2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciAddress4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciEmail, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tePhone.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPhoneNo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vw_Surverys, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciSurveys, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -359,6 +381,8 @@ Partial Class viewContactSwipe
     Friend WithEvents lciEmail As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents tePhone As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lciPhoneNo As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents grdSurveys As DevExpress.XtraGrid.GridControl
+    Friend WithEvents vw_Surverys As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents lciSurveys As DevExpress.XtraLayout.LayoutControlItem
 
 End Class

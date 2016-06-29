@@ -6,8 +6,8 @@ Imports Esso.Data
 
 Public Class frmMain
 
-    Dim _Contacts As ContactModule
-    Dim _ViewContact As viewContactSwipe
+    Dim _ContactList As ContactModule
+    Dim _ContactDetail As ContactDetail
 
     Dim _Basket As BasketList
     Dim _Survey As SurveySwipe
@@ -25,6 +25,18 @@ Public Class frmMain
     Dim _Tasks As TaskListSwipe
 
     Public dataSession As UnitOfWork = Nothing
+    Public _currentContact As Contact
+
+    Public Enum ePage
+        None = 0
+        ContactList = 1
+        ContactDetail = 2
+        SurveyList = 3
+        SurveyDetail = 4
+    End Enum
+
+    Public _CurrentPage As ePage = ePage.None
+    Public _PreviousPage As ePage = ePage.None
 
     Private Sub tasksTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tasksTileBarItem.ItemClick
         If _Tasks Is Nothing Then
@@ -36,8 +48,8 @@ Public Class frmMain
         If Not _Survey Is Nothing Then
             _Survey.Visible = False
         End If
-        If Not _Contacts Is Nothing Then
-            _Contacts.Visible = False
+        If Not _ContactList Is Nothing Then
+            _ContactList.Visible = False
         End If
         If Not _Products Is Nothing Then
             _Products.Visible = False
@@ -84,27 +96,69 @@ Public Class frmMain
         If Not _Basket Is Nothing Then
             _Basket.Visible = False
         End If
-        If Not _Contacts Is Nothing Then
-            _Contacts.Visible = False
+        If Not _ContactList Is Nothing Then
+            _ContactList.Visible = False
         End If
         If Not _Tasks Is Nothing Then
             _Tasks.Visible = False
         End If
         _Products.Visible = True
     End Sub
-    Public Sub ViewContact(_contact As Contact)
-        If _ViewContact Is Nothing Then
-            _ViewContact = New viewContactSwipe(Me)
+    Public Sub ViewContactDetail(_contact As Contact)
+        If _ContactDetail Is Nothing Then
+            _ContactDetail = New ContactDetail(Me)
         End If
 
-        _ViewContact.Parent = Me.MainPnl
-        _ViewContact.Dock = DockStyle.Fill
-        _ViewContact.Initdata(dataSession, _contact)
-        _Contacts.Visible = False
-        _ViewContact.Visible = True
+        _ContactDetail.Parent = Me.MainPnl
+        _ContactDetail.Dock = DockStyle.Fill
+        _ContactDetail.Initdata(dataSession, _contact)
+
+        SelectPage(ePage.ContactDetail)
+        _ContactList.Visible = False
+        _ContactDetail.Visible = True
+    End Sub
+    Public Sub SelectPage(_page As ePage)
+        Select Case _CurrentPage
+            Case ePage.ContactList
+                _ContactList.Visible = False
+            Case ePage.ContactDetail
+                _ContactDetail.Visible = False
+
+        End Select
+
+        Select Case _page
+            Case ePage.ContactList
+                If _ContactList Is Nothing Then
+                    _ContactList = New ContactModule(dataSession, Me)
+                End If
+                _ContactList.Parent = Me.MainPnl
+                _ContactList.Dock = DockStyle.Fill
+                If _ContactList.Loaded = False Then
+                    _ContactList.InitData()
+                End If
+                BasketEnabled(False)
+                SurveyEnabled(False)
+                ServiceEnabled(False)
+                _ContactList.Visible = True
+            Case ePage.ContactDetail
+                If _ContactDetail Is Nothing Then
+                    _ContactDetail = New ContactDetail(Me)
+                End If
+                _ContactDetail.Initdata(dataSession, _currentContact)
+                _ContactDetail.Parent = Me.MainPnl
+                _ContactDetail.Dock = DockStyle.Fill
+                _ContactDetail.Visible = True
+                BasketEnabled(True)
+                SurveyEnabled(True)
+                ServiceEnabled(True)
+        End Select
+
+        _PreviousPage = _CurrentPage
+        _CurrentPage = _page
     End Sub
     Public Sub HideContact()
-        '_ViewProductWeb.Visible = False
+        _ContactDetail.Visible = False
+        _ContactList.Visible = True
         '_Products.Visible = True
     End Sub
     Public Sub ViewProductRTF(ByRef oRow As Product)
@@ -214,33 +268,7 @@ Public Class frmMain
         _Service.Visible = True
     End Sub
     Private Sub customersTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles contactsTileBarItem.ItemClick
-        ShowContacts()
-    End Sub
-    Private Sub ShowContacts()
-
-        If _Contacts Is Nothing Then
-            _Contacts = New ContactModule(dataSession, Me)
-        End If
-
-        _Contacts.Parent = Me.MainPnl
-        _Contacts.Dock = DockStyle.Fill
-        If _Contacts.Loaded = False Then
-            _Contacts.InitData()
-        End If
-        If Not _Survey Is Nothing Then
-            _Survey.Visible = False
-        End If
-
-        If Not _Basket Is Nothing Then
-            _Basket.Visible = False
-        End If
-        If Not _Products Is Nothing Then
-            _Products.Visible = False
-        End If
-        If Not _Tasks Is Nothing Then
-            _Tasks.Visible = False
-        End If
-        _Contacts.Visible = True
+        SelectPage(ePage.ContactList)
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -289,7 +317,7 @@ Public Class frmMain
         BasketEnabled(False)
         SurveyEnabled(False)
         ServiceEnabled(False)
-        ShowContacts()
+        SelectPage(ePage.ContactList)
 
     End Sub
 
@@ -314,8 +342,8 @@ Public Class frmMain
         If Not _Tasks Is Nothing Then
             _Tasks.Visible = False
         End If
-        If Not _Contacts Is Nothing Then
-            _Contacts.Visible = False
+        If Not _ContactList Is Nothing Then
+            _ContactList.Visible = False
         End If
         _Basket.Visible = True
     End Sub
@@ -339,8 +367,8 @@ Public Class frmMain
         If Not _Tasks Is Nothing Then
             _Tasks.Visible = False
         End If
-        If Not _Contacts Is Nothing Then
-            _Contacts.Visible = False
+        If Not _ContactList Is Nothing Then
+            _ContactList.Visible = False
         End If
         _Survey.Visible = True
     End Sub
@@ -364,8 +392,8 @@ Public Class frmMain
         If Not _Tasks Is Nothing Then
             _Tasks.Visible = False
         End If
-        If Not _Contacts Is Nothing Then
-            _Contacts.Visible = False
+        If Not _ContactList Is Nothing Then
+            _ContactList.Visible = False
         End If
         If Not _Survey Is Nothing Then
             _Survey.Visible = False

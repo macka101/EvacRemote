@@ -10,9 +10,9 @@ Public Class SwipeGridViewInfo
         MyBase.New(gridView)
     End Sub
 
-    Public Overrides Function CalcRowHeight(ByVal graphics As Graphics, ByVal rowHandle As Integer, ByVal min As Integer, ByVal level As Integer, ByVal useCache As Boolean, ByVal columns As GridColumnsInfo) As Integer
-        Return MyBase.CalcRowHeight(graphics, rowHandle, MinRowHeight, level, useCache, columns)
-    End Function
+    'Public Overrides Function CalcRowHeight(ByVal graphics As Graphics, ByVal rowHandle As Integer, ByVal min As Integer, ByVal level As Integer, ByVal useCache As Boolean, ByVal columns As GridColumnsInfo) As Integer
+    '    Return MyBase.CalcRowHeight(graphics, rowHandle, MinRowHeight, level, useCache, columns)
+    'End Function
 
     Public Overrides ReadOnly Property MinRowHeight() As Integer
         Get

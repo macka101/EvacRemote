@@ -4,7 +4,7 @@ Imports DevExpress.Xpo
 Imports DevExpress.XtraEditors
 
 
-Public Class viewContactSwipe
+Public Class ContactDetail
     Private _parent As frmMain = Nothing
     Private _session As UnitOfWork
     Private _contact As Contact
@@ -50,16 +50,14 @@ Public Class viewContactSwipe
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
         If _changed = True Then
             Dim b_save As DialogResult = XtraMessageBox.Show("Save Changes", "Save", MessageBoxButtons.YesNoCancel)
-            If b_save = DialogResult.Yes Then
-                SaveData()
-                ParentFormMain.HideContact()
-            ElseIf b_save = DialogResult.No Then
-                ParentFormMain.HideContact()
-            Else
+            If b_save = DialogResult.Cancel Then
                 Exit Sub
             End If
+            If b_save = DialogResult.Yes Then
+                SaveData()
+            End If
         End If
-        ParentFormMain.HideContact()
+        ParentFormMain.SelectPage(frmMain.ePage.ContactList)
     End Sub
     Private Sub InitData()
         _binding = True
