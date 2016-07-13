@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ContactList
+Partial Class ServiceList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -22,11 +22,11 @@ Partial Class ContactList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContactList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SurveyList))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.btnSetCurrent = New DevExpress.XtraEditors.SimpleButton()
-        Me.grdCompanies = New DevExpress.XtraGrid.GridControl()
-        Me.vw_Companies = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.grdService = New DevExpress.XtraGrid.GridControl()
+        Me.vw_Service = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colDivname = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xolContact = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -41,8 +41,8 @@ Partial Class ContactList
         Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.grdCompanies, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.vw_Companies, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdService, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vw_Service, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SIContact, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,7 +52,7 @@ Partial Class ContactList
         'LayoutControl1
         '
         Me.LayoutControl1.Controls.Add(Me.btnSetCurrent)
-        Me.LayoutControl1.Controls.Add(Me.grdCompanies)
+        Me.LayoutControl1.Controls.Add(Me.grdService)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
@@ -78,24 +78,24 @@ Partial Class ContactList
         '
         'grdCompanies
         '
-        Me.grdCompanies.Location = New System.Drawing.Point(12, 54)
-        Me.grdCompanies.MainView = Me.vw_Companies
-        Me.grdCompanies.Name = "grdCompanies"
-        Me.grdCompanies.ShowOnlyPredefinedDetails = True
-        Me.grdCompanies.Size = New System.Drawing.Size(635, 353)
-        Me.grdCompanies.TabIndex = 4
-        Me.grdCompanies.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Companies})
+        Me.grdService.Location = New System.Drawing.Point(12, 54)
+        Me.grdService.MainView = Me.vw_Service
+        Me.grdService.Name = "grdCompanies"
+        Me.grdService.ShowOnlyPredefinedDetails = True
+        Me.grdService.Size = New System.Drawing.Size(635, 353)
+        Me.grdService.TabIndex = 4
+        Me.grdService.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Service})
         '
         'vw_Companies
         '
-        Me.vw_Companies.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
-        Me.vw_Companies.GridControl = Me.grdCompanies
-        Me.vw_Companies.Name = "vw_Companies"
-        Me.vw_Companies.OptionsBehavior.AllowIncrementalSearch = True
-        Me.vw_Companies.OptionsBehavior.Editable = False
-        Me.vw_Companies.OptionsFind.AlwaysVisible = True
-        Me.vw_Companies.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always
-        Me.vw_Companies.OptionsView.ShowGroupPanel = False
+        Me.vw_Service.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
+        Me.vw_Service.GridControl = Me.grdService
+        Me.vw_Service.Name = "vw_Companies"
+        Me.vw_Service.OptionsBehavior.AllowIncrementalSearch = True
+        Me.vw_Service.OptionsBehavior.Editable = False
+        Me.vw_Service.OptionsFind.AlwaysVisible = True
+        Me.vw_Service.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always
+        Me.vw_Service.OptionsView.ShowGroupPanel = False
         '
         'colOid
         '
@@ -187,7 +187,7 @@ Partial Class ContactList
         '
         'lciContacts
         '
-        Me.lciContacts.Control = Me.grdCompanies
+        Me.lciContacts.Control = Me.grdService
         Me.lciContacts.CustomizationFormText = "Contacts"
         Me.lciContacts.Location = New System.Drawing.Point(0, 42)
         Me.lciContacts.Name = "lciContacts"
@@ -215,8 +215,8 @@ Partial Class ContactList
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.grdCompanies, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.vw_Companies, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdService, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vw_Service, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SIContact, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).EndInit()
@@ -226,8 +226,8 @@ Partial Class ContactList
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents btnSetCurrent As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents grdCompanies As DevExpress.XtraGrid.GridControl
-    Friend WithEvents vw_Companies As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents grdService As DevExpress.XtraGrid.GridControl
+    Friend WithEvents vw_Service As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents SIContact As DevExpress.XtraLayout.SimpleLabelItem
     Friend WithEvents lciContacts As DevExpress.XtraLayout.LayoutControlItem

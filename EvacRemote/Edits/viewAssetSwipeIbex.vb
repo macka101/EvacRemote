@@ -4,7 +4,7 @@ Imports Esso.Data
 
 Public Class viewAssetSwipeIbex
     Private _parent As frmMain = Nothing
-    Private _viewServiceSwipe As ServiceSwipe = Nothing
+    Private _viewServiceSwipe As ServiceList = Nothing
     Private _Asset As Asset
     Private _session As UnitOfWork
     Private xpOptions As XPCollection(Of FieldOption)
@@ -19,11 +19,11 @@ Public Class viewAssetSwipeIbex
             _parent = value
         End Set
     End Property
-    Public Property ParentService() As ServiceSwipe
+    Public Property ParentService() As ServiceList
         Get
             Return _viewServiceSwipe
         End Get
-        Set(ByVal value As ServiceSwipe)
+        Set(ByVal value As ServiceList)
             If (Not Object.Equals(_viewServiceSwipe, Nothing)) Then
                 Return
             End If
@@ -34,7 +34,7 @@ Public Class viewAssetSwipeIbex
 
     End Sub
 
-    Public Sub New(ByVal parent As frmMain, ByRef pForm As ServiceSwipe, ByRef pAsset As Asset)
+    Public Sub New(ByVal parent As frmMain, ByRef pForm As ServiceList, ByRef pAsset As Asset)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -99,7 +99,7 @@ Public Class viewAssetSwipeIbex
         _Asset.Notes = teNotes.Text
         _Asset.Save()
         _Asset.Session.CommitTransaction()
-        ParentService.RefreshAsset()
+        'ParentService.RefreshAsset()
         ParentMain.HideServiceIbex()
     End Sub
 

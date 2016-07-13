@@ -3,29 +3,36 @@ Imports EvacRemote.GlobalVariables
 Imports DevExpress.Xpo
 Imports DevExpress.Xpo.DB
 Imports Esso.Data
+Imports DevExpress.XtraEditors
 
 Public Class frmMain
 
-    Dim _ContactList As ContactModule
+    Dim _ContactList As ContactList
     Dim _ContactDetail As ContactDetail
 
+    Dim _ProductList As ProductList
+    Dim _ProductDetail As ProductDetail
+
     Dim _Basket As BasketList
-    Dim _Survey As SurveySwipe
-    Dim _Service As ServiceSwipe
+
+    Dim _SurveyList As SurveyList
+    Dim _SurveyDetail As SurveyDetail
+
+    Dim _ServiceList As ServiceList
+    ' Dim _ServiceDetail As ServiceDetail
     Dim _ViewEscapeRoute As viewEscapeRouteSwipe
     Dim _ViewFloor As viewFloorSwipe
     Dim _ViewServiceChair As viewAssetSwipeChair
     Dim _ViewServiceIbex As viewAssetSwipeIbex
 
-    Dim _Products As ProductListSwipe
+
     Dim _ViewProductWeb As viewProductSwipeWeb
     Dim _ViewProductRTF As viewProductSwipeRTF
-    Dim _ViewProductWin As viewProductSwipeWin
 
     Dim _Tasks As TaskListSwipe
 
     Public dataSession As UnitOfWork = Nothing
-    Public _currentContact As Contact
+  
 
     Public Enum ePage
         None = 0
@@ -33,33 +40,18 @@ Public Class frmMain
         ContactDetail = 2
         SurveyList = 3
         SurveyDetail = 4
+        ProductList = 5
+        ProductDetail = 6
+        ServiceList = 7
+        ServiceDetail = 8
     End Enum
 
     Public _CurrentPage As ePage = ePage.None
     Public _PreviousPage As ePage = ePage.None
 
     Private Sub tasksTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tasksTileBarItem.ItemClick
-        If _Tasks Is Nothing Then
-            _Tasks = New TaskListSwipe(Me)
-        End If
-        If Not _Basket Is Nothing Then
-            _Basket.Visible = False
-        End If
-        If Not _Survey Is Nothing Then
-            _Survey.Visible = False
-        End If
-        If Not _ContactList Is Nothing Then
-            _ContactList.Visible = False
-        End If
-        If Not _Products Is Nothing Then
-            _Products.Visible = False
-        End If
-        _Tasks.Parent = Me.MainPnl
-        _Tasks.Dock = DockStyle.Fill
-        If _Tasks.Loaded = False Then
-            _Tasks.InitData()
-        End If
-        _Tasks.Visible = True
+        XtraMessageBox.Show("Not Yet Impletmented", "Warning", MessageBoxButtons.OK)
+
     End Sub
 
     Private Sub dashboardTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles dashboardTileBarItem.ItemClick
@@ -81,28 +73,7 @@ Public Class frmMain
     End Sub
 
     Private Sub productsTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles productsTileBarItem.ItemClick
-        If _Products Is Nothing Then
-            _Products = New ProductListSwipe(Me)
-        End If
-        _Products.Parent = Me.MainPnl
-        _Products.Dock = DockStyle.Fill
-        If _Products.Loaded = False Then
-            _Products.InitData()
-        End If
-        If Not _Survey Is Nothing Then
-            _Survey.Visible = False
-        End If
-
-        If Not _Basket Is Nothing Then
-            _Basket.Visible = False
-        End If
-        If Not _ContactList Is Nothing Then
-            _ContactList.Visible = False
-        End If
-        If Not _Tasks Is Nothing Then
-            _Tasks.Visible = False
-        End If
-        _Products.Visible = True
+        SelectPage(ePage.ProductList)
     End Sub
     Public Sub ViewContactDetail(_contact As Contact)
         If _ContactDetail Is Nothing Then
@@ -123,13 +94,16 @@ Public Class frmMain
                 _ContactList.Visible = False
             Case ePage.ContactDetail
                 _ContactDetail.Visible = False
-
+            Case ePage.ProductList
+                _ProductList.Visible = False
+            Case ePage.SurveyList
+                _SurveyList.Visible = False
         End Select
 
         Select Case _page
             Case ePage.ContactList
                 If _ContactList Is Nothing Then
-                    _ContactList = New ContactModule(dataSession, Me)
+                    _ContactList = New ContactList(dataSession, Me)
                 End If
                 _ContactList.Parent = Me.MainPnl
                 _ContactList.Dock = DockStyle.Fill
@@ -151,6 +125,42 @@ Public Class frmMain
                 BasketEnabled(True)
                 SurveyEnabled(True)
                 ServiceEnabled(True)
+            Case ePage.ProductList
+                If _ProductList Is Nothing Then
+                    _ProductList = New ProductList(dataSession, Me)
+                End If
+                _ProductList.Parent = Me.MainPnl
+                _ProductList.Dock = DockStyle.Fill
+                If _ProductList.Loaded = False Then
+                    _ProductList.InitData()
+                End If
+                BasketEnabled(False)
+                SurveyEnabled(False)
+                ServiceEnabled(False)
+                _ProductList.Visible = True
+            Case ePage.SurveyList
+                If _SurveyList Is Nothing Then
+                    _SurveyList = New SurveyList(dataSession, Me)
+                End If
+                _SurveyList.Parent = Me.MainPnl
+                _SurveyList.Dock = DockStyle.Fill
+                If _SurveyList.Loaded = False Then
+                    _SurveyList.InitData()
+                End If
+                BasketEnabled(False)
+                SurveyEnabled(False)
+                ServiceEnabled(False)
+                _SurveyList.Visible = True
+            Case ePage.SurveyDetail
+                If _SurveyDetail Is Nothing Then
+                    _SurveyDetail = New SurveyDetail(dataSession, Me)
+                End If
+                _SurveyDetail.Parent = Me.MainPnl
+                _SurveyDetail.Dock = DockStyle.Fill
+                If _SurveyDetail.Loaded = False Then
+                    _SurveyDetail.Initdata()
+                End If
+                _SurveyDetail.Visible = True
         End Select
 
         _PreviousPage = _CurrentPage
@@ -169,7 +179,7 @@ Public Class frmMain
         _ViewProductRTF.Parent = Me.MainPnl
         _ViewProductRTF.Dock = DockStyle.Fill
         _ViewProductRTF.Initdata()
-        _Products.Visible = False
+        _ProductList.Visible = False
         _ViewProductRTF.Visible = True
     End Sub
     Public Sub ViewProductWeb(ByRef oRow As Product)
@@ -180,19 +190,19 @@ Public Class frmMain
         _ViewProductWeb.Parent = Me.MainPnl
         _ViewProductWeb.Dock = DockStyle.Fill
         _ViewProductWeb.Initdata()
-        _Products.Visible = False
+        _ProductList.Visible = False
         _ViewProductWeb.Visible = True
     End Sub
     Public Sub ViewProductWin(ByRef oRow As Product)
-        If _ViewProductWin Is Nothing Then
-            _ViewProductWin = New viewProductSwipeWin(Me, oRow)
+        If _ProductDetail Is Nothing Then
+            _ProductDetail = New ProductDetail(Me, oRow)
         End If
 
-        _ViewProductWin.Parent = Me.MainPnl
-        _ViewProductWin.Dock = DockStyle.Fill
-        _ViewProductWin.Initdata()
-        _Products.Visible = False
-        _ViewProductWin.Visible = True
+        _ProductDetail.Parent = Me.MainPnl
+        _ProductDetail.Dock = DockStyle.Fill
+        _ProductDetail.Initdata()
+        _ProductList.Visible = False
+        _ProductDetail.Visible = True
     End Sub
     Public Sub HideProduct()
         If _ViewProductWeb IsNot Nothing Then
@@ -201,13 +211,13 @@ Public Class frmMain
         If _ViewProductRTF IsNot Nothing Then
             _ViewProductRTF.Visible = False
         End If
-        If _ViewProductWin IsNot Nothing Then
-            _ViewProductWin.Visible = False
+        If _ProductDetail IsNot Nothing Then
+            _ProductDetail.Visible = False
         End If
 
-        _Products.Visible = True
+        _ProductList.Visible = True
     End Sub
-    Public Sub ViewEscapeRoute(ByRef pForm As SurveySwipe, ByRef pEscapeRoute As EscapeRoute)
+    Public Sub ViewEscapeRoute(ByRef pForm As ServiceDetail, ByRef pEscapeRoute As EscapeRoute)
         If _ViewEscapeRoute Is Nothing Then
             _ViewEscapeRoute = New viewEscapeRouteSwipe(Me, pForm, pEscapeRoute)
         End If
@@ -215,12 +225,12 @@ Public Class frmMain
         _ViewEscapeRoute.Parent = Me.MainPnl
         _ViewEscapeRoute.Dock = DockStyle.Fill
         _ViewEscapeRoute.Initdata()
-        _Survey.Visible = False
+        '  _Survey.Visible = False
         _ViewEscapeRoute.Visible = True
     End Sub
     Public Sub HideStairCase()
         _ViewEscapeRoute.Visible = False
-        _Survey.Visible = True
+        '_Survey.Visible = True
     End Sub
     Public Sub ViewFloor(ByRef pForm As viewEscapeRouteSwipe, ByRef pFloor As Floor)
         If _ViewFloor Is Nothing Then
@@ -237,52 +247,49 @@ Public Class frmMain
         _ViewFloor.Visible = False
         _ViewEscapeRoute.Visible = True
     End Sub
-    Public Sub ViewServiceChair(pForm As ServiceSwipe, pAsset As Asset)
-        If _ViewServiceChair Is Nothing Then
-            _ViewServiceChair = New viewAssetSwipeChair(dataSession, Me, pForm, pAsset)
-        End If
+    Public Sub ViewServiceChair(pForm As ServiceList, pAsset As Asset)
+        'If _ViewServiceChair Is Nothing Then
+        '    _ViewServiceChair = New viewAssetSwipeChair(dataSession, Me, pForm, pAsset)
+        'End If
 
-        _ViewServiceChair.Parent = Me.MainPnl
-        _ViewServiceChair.Dock = DockStyle.Fill
-        _ViewServiceChair.Initdata()
-        _Service.Visible = False
-        _ViewServiceChair.Visible = True
+        '_ViewServiceChair.Parent = Me.MainPnl
+        '_ViewServiceChair.Dock = DockStyle.Fill
+        '_ViewServiceChair.Initdata()
+        '_Service.Visible = False
+        '_ViewServiceChair.Visible = True
     End Sub
-    Public Sub ViewServiceIbex(pForm As ServiceSwipe, pAsset As Asset)
-        If _ViewServiceIbex Is Nothing Then
-            _ViewServiceIbex = New viewAssetSwipeIbex(Me, pForm, pAsset)
-        End If
+    Public Sub ViewServiceIbex(pForm As ServiceList, pAsset As Asset)
+        'If _ViewServiceIbex Is Nothing Then
+        '    _ViewServiceIbex = New viewAssetSwipeIbex(Me, pForm, pAsset)
+        'End If
 
-        _ViewServiceIbex.Parent = Me.MainPnl
-        _ViewServiceIbex.Dock = DockStyle.Fill
-        _ViewServiceIbex.Initdata()
-        _Service.Visible = False
-        _ViewServiceIbex.Visible = True
+        '_ViewServiceIbex.Parent = Me.MainPnl
+        '_ViewServiceIbex.Dock = DockStyle.Fill
+        '_ViewServiceIbex.Initdata()
+        '_Service.Visible = False
+        '_ViewServiceIbex.Visible = True
     End Sub
     Public Sub HideServiceChair()
         _ViewServiceChair.Visible = False
-        _Service.Visible = True
+        ' _Service.Visible = True
     End Sub
     Public Sub HideServiceIbex()
         _ViewServiceIbex.Visible = False
-        _Service.Visible = True
+        ' _Service.Visible = True
     End Sub
     Private Sub customersTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles contactsTileBarItem.ItemClick
         SelectPage(ePage.ContactList)
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Debugger.IsAttached = False Then
-            tbiSnapReports.Visible = False
-            tbiEmailTemplates.Visible = False
-        End If
+
         'If SQLHelper.IsSQLExpressInstalled = False Then
         '    Application.Exit()
         'End If
-        ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=willow;User Id=willow;Password=6A33%7rq;"
-        ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
-        Dim uow As New UnitOfWork
-        uow.UpdateSchema()
+        'ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=willow.evacchair.co.uk;initial catalog=willow;User Id=willow;Password=6A33%7rq;"
+        'ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
+        'Dim uow As New UnitOfWork
+        'uow.UpdateSchema()
 
         'If Environment.MachineName = "JOHN-PC2" Then
         '    ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;initial catalog=EvacRemote;User Id=jmolloy;Password=6A33%7rq;"
@@ -314,6 +321,7 @@ Public Class frmMain
         End If
         SupportFilesDirectory = FindsSupportDirectory()
         ConnectionHelper.CheckForInitialRecords(dataSession)
+        ConnectionHelper.Login(dataSession, _UserCode)
         BasketEnabled(False)
         SurveyEnabled(False)
         ServiceEnabled(False)
@@ -326,79 +334,34 @@ Public Class frmMain
     End Sub
 
     Private Sub basketTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles basketTileBarItem.ItemClick
-        If _Basket Is Nothing Then
-            _Basket = New BasketList(Me)
-        End If
+        'If _Basket Is Nothing Then
+        '    _Basket = New BasketList(Me)
+        'End If
 
-        _Basket.Parent = Me.MainPnl
-        _Basket.Dock = DockStyle.Fill
-        _Basket.InitData()
-        If Not _Survey Is Nothing Then
-            _Survey.Visible = False
-        End If
-        If Not _Products Is Nothing Then
-            _Products.Visible = False
-        End If
-        If Not _Tasks Is Nothing Then
-            _Tasks.Visible = False
-        End If
-        If Not _ContactList Is Nothing Then
-            _ContactList.Visible = False
-        End If
-        _Basket.Visible = True
+        '_Basket.Parent = Me.MainPnl
+        '_Basket.Dock = DockStyle.Fill
+        '_Basket.InitData()
+        'If Not _Survey Is Nothing Then
+        '    _Survey.Visible = False
+        'End If
+        'If Not _ProductList Is Nothing Then
+        '    _ProductList.Visible = False
+        'End If
+        'If Not _Tasks Is Nothing Then
+        '    _Tasks.Visible = False
+        'End If
+        'If Not _ContactList Is Nothing Then
+        '    _ContactList.Visible = False
+        'End If
+        '_Basket.Visible = True
     End Sub
 
     Private Sub surveyTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles surveyTileBarItem.ItemClick
-        If _Survey Is Nothing Then
-            _Survey = New SurveySwipe(Me, dataSession)
-        End If
-
-        _Survey.Parent = Me.MainPnl
-        _Survey.Dock = DockStyle.Fill
-        If _Survey.Loaded = False Then
-            _Survey.Initdata()
-        End If
-        If Not _Basket Is Nothing Then
-            _Basket.Visible = False
-        End If
-        If Not _Products Is Nothing Then
-            _Products.Visible = False
-        End If
-        If Not _Tasks Is Nothing Then
-            _Tasks.Visible = False
-        End If
-        If Not _ContactList Is Nothing Then
-            _ContactList.Visible = False
-        End If
-        _Survey.Visible = True
+        SelectPage(ePage.SurveyList)
     End Sub
 
     Private Sub ServiceTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles ServiceTileBarItem.ItemClick
-        If _Service Is Nothing Then
-            _Service = New ServiceSwipe(Me, dataSession)
-        End If
-
-        _Service.Parent = Me.MainPnl
-        _Service.Dock = DockStyle.Fill
-        If _Service.Loaded = False Then
-            _Service.Initdata()
-        End If
-        If Not _Basket Is Nothing Then
-            _Basket.Visible = False
-        End If
-        If Not _Products Is Nothing Then
-            _Products.Visible = False
-        End If
-        If Not _Tasks Is Nothing Then
-            _Tasks.Visible = False
-        End If
-        If Not _ContactList Is Nothing Then
-            _ContactList.Visible = False
-        End If
-        If Not _Survey Is Nothing Then
-            _Survey.Visible = False
-        End If
-        _Service.Visible = True
+        SelectPage(ePage.SurveyList)
     End Sub
 
     'Private Sub tbiSnapReports_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tbiSnapReports.ItemClick
@@ -408,10 +371,13 @@ Public Class frmMain
 
     'End Sub
 
-    Private Sub tbiEmailTemplates_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tbiEmailTemplates.ItemClick
+    Private Sub tbiEmailTemplates_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs)
         Using frmEmail As New frmEmailTemplates(dataSession)
             frmEmail.ShowDialog()
         End Using
     End Sub
 
+    Private Sub scheduleTileBarItem_ItemClick(sender As Object, e As TileItemEventArgs) Handles scheduleTileBarItem.ItemClick
+        XtraMessageBox.Show("Not Yet Impletmented", "Warning", MessageBoxButtons.OK)
+    End Sub
 End Class

@@ -5,13 +5,16 @@ Imports DevExpress.XtraEditors
 Imports DevExpress.Utils
 Imports Esso.Data
 
-Public Class SurveySwipe
+Public Class SurveyDetail
     Private _Loaded As Boolean = False
 
     Private _parent As frmMain = Nothing
     Private _session As UnitOfWork
-    Private _currentbuilding As Building
+    ' Private _currentbuilding As Building
     Private bNewBuilding As Boolean = False
+    Private _binding As Boolean = False
+    Private _changed As Boolean = False
+
     Public ReadOnly Property Loaded As Boolean
         Get
             Return _Loaded
@@ -40,8 +43,17 @@ Public Class SurveySwipe
         lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
         lueBuilding.Properties.AllowDropDownWhenReadOnly = DefaultBoolean.False
 
+        AddHandler lueBuilding.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler icbAccess.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler icbHeritage.EditValueChanged, AddressOf edit_EditValueChanged
+
     End Sub
     Public Sub Initdata()
+
+        If _currentSurvey Is Nothing Then
+            _currentSurvey = New EvacSurvey(_session)
+            _currentSurvey.Division = _currentContact.Division
+        End If
 
         xpBuildings = New XPCollection(Of Building)(_session)
         xpEscapeRoutes = New XPCollection(Of EscapeRoute)(_session)
@@ -66,7 +78,7 @@ Public Class SurveySwipe
         _Loaded = True
     End Sub
 
-    Public Sub New(ByVal parent As frmMain, ByVal session As UnitOfWork)
+    Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -122,7 +134,7 @@ Public Class SurveySwipe
     Private Sub btnNewStairWell_Click(sender As Object, e As EventArgs)
         Dim nStairWell As New EscapeRoute(_session)
         nStairWell.Building = CurrentBuilding
-        ParentFormMain.ViewEscapeRoute(Me, nStairWell)
+        '    ParentFormMain.ViewEscapeRoute(Me, nStairWell)
     End Sub
 
     Private Sub teEscapeRoutes_Validated(sender As Object, e As EventArgs) Handles teEscapeRoutes.Validated
@@ -199,20 +211,34 @@ Public Class SurveySwipe
 
     Private Sub GrdEscapeRoutes_Click(sender As Object, e As EventArgs) Handles GrdEscapeRoutes.Click
         System.Threading.Thread.Sleep(50)
-        ParentFormMain.ViewEscapeRoute(Me, CurrentEscapeRoute)
+        '   ParentFormMain.ViewEscapeRoute(Me, CurrentEscapeRoute)
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
-        'If _Loaded = False Then
-        '    _changed = True
-        'End If
+        If _binding = False Then
+            _changed = True
+        End If
     End Sub
-
-
 
     Private Sub lueBuilding_ProcessNewValue(sender As Object, e As ProcessNewValueEventArgs) Handles lueBuilding.ProcessNewValue
         Dim _building As Building = TryCast(lueBuilding.EditValue, Building)
         _building.Location = lueBuilding.Text
         _building.Save()
+
+    End Sub
+    Private Sub SaveData()
         _session.CommitChanges()
     End Sub
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If _changed = True Then
+            Dim b_save As DialogResult = XtraMessageBox.Show("Save Changes", "Save", MessageBoxButtons.YesNoCancel)
+            If b_save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If b_save = DialogResult.Yes Then
+                SaveData()
+            End If
+        End If
+        ParentFormMain.SelectPage(frmMain.ePage.SurveyList)
+    End Sub
+
 End Class

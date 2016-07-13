@@ -3,7 +3,7 @@ Imports DevExpress.XtraRichEdit
 Imports Esso.Data
 
 
-Public Class viewProductSwipeWin
+Public Class ProductDetail
     Private _parent As frmMain = Nothing
     Private _product As Product = Nothing
     Public Property ParentFormMain() As frmMain

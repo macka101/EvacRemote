@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ContactList
+Partial Class SurveyList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -22,11 +22,11 @@ Partial Class ContactList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContactList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SurveyList))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
-        Me.btnSetCurrent = New DevExpress.XtraEditors.SimpleButton()
-        Me.grdCompanies = New DevExpress.XtraGrid.GridControl()
-        Me.vw_Companies = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.btnNew = New DevExpress.XtraEditors.SimpleButton()
+        Me.grdSurveys = New DevExpress.XtraGrid.GridControl()
+        Me.vw_Surveys = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colDivname = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xolContact = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -36,23 +36,23 @@ Partial Class ContactList
         Me.colAddress4 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colPostCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.SIContact = New DevExpress.XtraLayout.SimpleLabelItem()
+        Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.grdCompanies, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.vw_Companies, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vw_Surveys, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SIContact, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SIService, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciSetCurrent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.btnSetCurrent)
-        Me.LayoutControl1.Controls.Add(Me.grdCompanies)
+        Me.LayoutControl1.Controls.Add(Me.btnNew)
+        Me.LayoutControl1.Controls.Add(Me.grdSurveys)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
@@ -62,40 +62,39 @@ Partial Class ContactList
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'btnSetCurrent
+        'btnNew
         '
-        Me.btnSetCurrent.Enabled = False
-        Me.btnSetCurrent.Image = CType(resources.GetObject("btnSetCurrent.Image"), System.Drawing.Image)
-        Me.btnSetCurrent.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnSetCurrent.Location = New System.Drawing.Point(605, 12)
-        Me.btnSetCurrent.MaximumSize = New System.Drawing.Size(42, 38)
-        Me.btnSetCurrent.MinimumSize = New System.Drawing.Size(42, 38)
-        Me.btnSetCurrent.Name = "btnSetCurrent"
-        Me.btnSetCurrent.Size = New System.Drawing.Size(42, 38)
-        Me.btnSetCurrent.StyleController = Me.LayoutControl1
-        Me.btnSetCurrent.TabIndex = 5
-        Me.btnSetCurrent.Visible = False
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnNew.Location = New System.Drawing.Point(605, 12)
+        Me.btnNew.MaximumSize = New System.Drawing.Size(42, 38)
+        Me.btnNew.MinimumSize = New System.Drawing.Size(42, 38)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(42, 38)
+        Me.btnNew.StyleController = Me.LayoutControl1
+        Me.btnNew.TabIndex = 5
+        Me.btnNew.Visible = False
         '
-        'grdCompanies
+        'grdSurveys
         '
-        Me.grdCompanies.Location = New System.Drawing.Point(12, 54)
-        Me.grdCompanies.MainView = Me.vw_Companies
-        Me.grdCompanies.Name = "grdCompanies"
-        Me.grdCompanies.ShowOnlyPredefinedDetails = True
-        Me.grdCompanies.Size = New System.Drawing.Size(635, 353)
-        Me.grdCompanies.TabIndex = 4
-        Me.grdCompanies.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Companies})
+        Me.grdSurveys.Location = New System.Drawing.Point(12, 54)
+        Me.grdSurveys.MainView = Me.vw_Surveys
+        Me.grdSurveys.Name = "grdSurveys"
+        Me.grdSurveys.ShowOnlyPredefinedDetails = True
+        Me.grdSurveys.Size = New System.Drawing.Size(635, 353)
+        Me.grdSurveys.TabIndex = 4
+        Me.grdSurveys.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Surveys})
         '
-        'vw_Companies
+        'vw_Surveys
         '
-        Me.vw_Companies.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
-        Me.vw_Companies.GridControl = Me.grdCompanies
-        Me.vw_Companies.Name = "vw_Companies"
-        Me.vw_Companies.OptionsBehavior.AllowIncrementalSearch = True
-        Me.vw_Companies.OptionsBehavior.Editable = False
-        Me.vw_Companies.OptionsFind.AlwaysVisible = True
-        Me.vw_Companies.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always
-        Me.vw_Companies.OptionsView.ShowGroupPanel = False
+        Me.vw_Surveys.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
+        Me.vw_Surveys.GridControl = Me.grdSurveys
+        Me.vw_Surveys.Name = "vw_Surveys"
+        Me.vw_Surveys.OptionsBehavior.AllowIncrementalSearch = True
+        Me.vw_Surveys.OptionsBehavior.Editable = False
+        Me.vw_Surveys.OptionsFind.AlwaysVisible = True
+        Me.vw_Surveys.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always
+        Me.vw_Surveys.OptionsView.ShowGroupPanel = False
         '
         'colOid
         '
@@ -164,30 +163,30 @@ Partial Class ContactList
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.SIContact, Me.lciContacts, Me.lciSetCurrent})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.SIService, Me.lciContacts, Me.lciSetCurrent})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(659, 419)
         Me.LayoutControlGroup1.TextVisible = False
         '
-        'SIContact
+        'SIService
         '
-        Me.SIContact.AllowHotTrack = False
-        Me.SIContact.AllowHtmlStringInCaption = True
-        Me.SIContact.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SIContact.AppearanceItemCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.SIContact.AppearanceItemCaption.Options.UseFont = True
-        Me.SIContact.AppearanceItemCaption.Options.UseForeColor = True
-        Me.SIContact.CustomizationFormText = "CURRENT CONTACT <color=47, 81, 165>"
-        Me.SIContact.Location = New System.Drawing.Point(0, 0)
-        Me.SIContact.Name = "SimpleLabelItem1"
-        Me.SIContact.Size = New System.Drawing.Size(593, 42)
-        Me.SIContact.Text = "Contacts"
-        Me.SIContact.TextSize = New System.Drawing.Size(73, 25)
+        Me.SIService.AllowHotTrack = False
+        Me.SIService.AllowHtmlStringInCaption = True
+        Me.SIService.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SIService.AppearanceItemCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.SIService.AppearanceItemCaption.Options.UseFont = True
+        Me.SIService.AppearanceItemCaption.Options.UseForeColor = True
+        Me.SIService.CustomizationFormText = "CURRENT CONTACT <color=47, 81, 165>"
+        Me.SIService.Location = New System.Drawing.Point(0, 0)
+        Me.SIService.Name = "SIService"
+        Me.SIService.Size = New System.Drawing.Size(593, 42)
+        Me.SIService.Text = "Surveys"
+        Me.SIService.TextSize = New System.Drawing.Size(64, 25)
         '
         'lciContacts
         '
-        Me.lciContacts.Control = Me.grdCompanies
+        Me.lciContacts.Control = Me.grdSurveys
         Me.lciContacts.CustomizationFormText = "Contacts"
         Me.lciContacts.Location = New System.Drawing.Point(0, 42)
         Me.lciContacts.Name = "lciContacts"
@@ -198,7 +197,7 @@ Partial Class ContactList
         '
         'lciSetCurrent
         '
-        Me.lciSetCurrent.Control = Me.btnSetCurrent
+        Me.lciSetCurrent.Control = Me.btnNew
         Me.lciSetCurrent.CustomizationFormText = "lciSetCurrent"
         Me.lciSetCurrent.Location = New System.Drawing.Point(593, 0)
         Me.lciSetCurrent.Name = "lciSetCurrent"
@@ -206,30 +205,30 @@ Partial Class ContactList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'ContactModule
+        'SurveyList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "ContactModule"
+        Me.Name = "SurveyList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.grdCompanies, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.vw_Companies, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vw_Surveys, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SIContact, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SIService, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciSetCurrent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
-    Friend WithEvents btnSetCurrent As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents grdCompanies As DevExpress.XtraGrid.GridControl
-    Friend WithEvents vw_Companies As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents btnNew As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents grdSurveys As DevExpress.XtraGrid.GridControl
+    Friend WithEvents vw_Surveys As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents SIContact As DevExpress.XtraLayout.SimpleLabelItem
+    Friend WithEvents SIService As DevExpress.XtraLayout.SimpleLabelItem
     Friend WithEvents lciContacts As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciSetCurrent As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn

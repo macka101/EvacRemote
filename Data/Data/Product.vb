@@ -56,7 +56,7 @@ Namespace Esso.Data
         End Property
         Private fshortDescription As String
         <Size(250)>
-        Public Property shortDescription() As String
+        Public Property ShortDescription() As String
             Get
                 Return fshortDescription
             End Get
@@ -195,7 +195,7 @@ Namespace Esso.Data
         End Property
         Private fproductCode As String
         <Size(15)>
-        Public Property productCode() As String
+        Public Property ProductCode() As String
             Get
                 Return fproductCode
             End Get

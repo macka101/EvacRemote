@@ -3,7 +3,7 @@ Imports Esso.Data
 
 Public Class viewEscapeRouteSwipe
     Private _parent As frmMain = Nothing
-    Private _viewStairwaySwipe As SurveySwipe = Nothing
+    Private _viewStairwaySwipe As EvacSurvey = Nothing
     Private _EscapeRoute As EscapeRoute
     Private _session As UnitOfWork
 
@@ -24,11 +24,11 @@ Public Class viewEscapeRouteSwipe
             _parent = value
         End Set
     End Property
-    Public Property ParentSurvey() As SurveySwipe
+    Public Property ParentSurvey() As EvacSurvey
         Get
             Return _viewStairwaySwipe
         End Get
-        Set(ByVal value As SurveySwipe)
+        Set(ByVal value As EvacSurvey)
             If (Not Object.Equals(_viewStairwaySwipe, Nothing)) Then
                 Return
             End If
@@ -39,12 +39,12 @@ Public Class viewEscapeRouteSwipe
 
     End Sub
 
-    Public Sub New(ByVal parent As frmMain, ByRef pForm As SurveySwipe, ByRef pStairCase As EscapeRoute)
+    Public Sub New(ByVal parent As frmMain, ByRef pForm As ServiceDetail, ByRef pStairCase As EscapeRoute)
 
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
-        _viewStairwaySwipe = pForm
+        ' _viewStairwaySwipe = pForm
         _session = pStairCase.Session
         _EscapeRoute = pStairCase
         ' Add any initialization after the InitializeComponent() call.
@@ -94,7 +94,7 @@ Public Class viewEscapeRouteSwipe
         _EscapeRoute.Going = CBEGoing.EditValue
         _EscapeRoute.Save()
         _EscapeRoute.Session.CommitTransaction()
-        ParentSurvey.RefreshStairWell()
+        'ParentSurvey.RefreshStairWell()
         ParentMain.HideStairCase()
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)

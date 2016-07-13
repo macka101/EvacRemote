@@ -3,7 +3,7 @@ Imports Esso.Data
 
 Public Class viewFloorSwipe
     Private _parent As frmMain = Nothing
-    Private _viewStairwaySwipe As SurveySwipe = Nothing
+    Private _viewStairwaySwipe As ServiceDetail = Nothing
     Private _Floor As Floor
     Private _session As UnitOfWork
 

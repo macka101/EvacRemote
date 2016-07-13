@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SurveySwipe
+Partial Class SurveyDetail
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -303,12 +303,12 @@ Partial Class SurveySwipe
         Me.colFloors.Visible = True
         Me.colFloors.VisibleIndex = 3
         '
-        'SurveySwipe
+        'SurveyDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "SurveySwipe"
+        Me.Name = "SurveyDetail"
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

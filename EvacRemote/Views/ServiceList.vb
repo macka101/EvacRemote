@@ -10,7 +10,7 @@ Imports Esso.Data
 Imports DevExpress.Xpo.DB
 Imports DevExpress.Data.Filtering
 
-Public Class ProductList
+Public Class ServiceList
     Private _Loaded As Boolean = False
     Private _session As UnitOfWork
     Private _parent As frmMain = Nothing
@@ -35,20 +35,22 @@ Public Class ProductList
     End Property
     Private Sub FetchData()
 
-        Dim current As Integer = vw_Products.FocusedRowHandle
-        Dim _ProductView As XPView = New XPView(_session, GetType(Product))
-        _ProductView.AddProperty("Oid", "Oid")
-        _ProductView.AddProperty("ProductCode", "ProductCode")
-        _ProductView.AddProperty("ShortDescription", "ShortDescription")
+        Dim current As Integer = vw_Service.FocusedRowHandle
+        Dim _surveyView As XPView = New XPView(_session, GetType(EvacService))
+        _surveyView.AddProperty("Oid", "Oid")
+        _surveyView.AddProperty("ServiceDate", "ServiceDate")
+        '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
 
+        '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
         Dim sortCollection As SortingCollection = New SortingCollection()
-        sortCollection.Add(New SortProperty("ProductCode", SortingDirection.Ascending))
+        '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
+        sortCollection.Add(New SortProperty("ServiceDate", SortingDirection.Descending))
 
-        _ProductView.Sorting = sortCollection
-        grdProducts.DataSource = _ProductView
+        _surveyView.Sorting = sortCollection
+        grdService.DataSource = _surveyView
         If current >= 0 Then
-            If current < vw_Products.RowCount Then
-                vw_Products.FocusedRowHandle = current
+            If current < vw_Service.RowCount Then
+                vw_Service.FocusedRowHandle = current
             End If
         End If
 
@@ -67,52 +69,38 @@ Public Class ProductList
 
 
     Private Sub GridView1_Click(sender As Object, e As EventArgs)
-        ViewProduct()
+        ViewService()
     End Sub
-    Private Sub ViewProduct()
-        If CurrentProduct IsNot Nothing Then
-            _currentProduct = CurrentProduct
-            ParentFormMain.SelectPage(frmMain.ePage.ProductDetail)
+    Private Sub ViewService()
+        If CurrentService IsNot Nothing Then
+            _currentService = CurrentService
+            ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
         End If
 
     End Sub
-    Private ReadOnly Property CurrentProduct() As Product
+    Private ReadOnly Property CurrentService() As EvacService
         Get
-            If vw_Products.FocusedRowHandle < 0 Then
+            If vw_Service.FocusedRowHandle < 0 Then
                 Return Nothing
             End If
-            Return _session.FindObject(Of Product)(CriteriaOperator.Parse("Oid = ?", CurrentOid))
+            Return _session.FindObject(Of EvacService)(CriteriaOperator.Parse("Oid = ?", CurrentOid))
         End Get
 
     End Property
     Private ReadOnly Property CurrentOid() As Guid
         Get
-            If vw_Products.FocusedRowHandle < 0 Then
+            If vw_Service.FocusedRowHandle < 0 Then
                 Return Nothing
             End If
-            If vw_Products.Columns("OID") IsNot Nothing Then
-                Return DirectCast(vw_Products.GetRowCellValue(vw_Products.FocusedRowHandle, "OID"), Guid)
+            If vw_Service.Columns("OID") IsNot Nothing Then
+                Return DirectCast(vw_Service.GetRowCellValue(vw_Service.FocusedRowHandle, "OID"), Guid)
             Else
-                Return DirectCast(vw_Products.GetRowCellValue(vw_Products.FocusedRowHandle, "Oid"), Guid)
+                Return DirectCast(vw_Service.GetRowCellValue(vw_Service.FocusedRowHandle, "Oid"), Guid)
             End If
         End Get
     End Property
 
-    Private Sub btnFind_Click(sender As Object, e As EventArgs)
-        Me.Cursor = Cursors.WaitCursor
-        Try
-            FetchData()
-        Catch ex As Exception
-
-        Finally
-            Me.Cursor = Cursors.Default
-        End Try
-
-
-    End Sub
-
-
-    Private Sub vw_Products_DoubleClick(sender As Object, e As EventArgs) Handles vw_Products.DoubleClick
-        ViewProduct()
+    Private Sub vw_Companies_DoubleClick(sender As Object, e As EventArgs) Handles vw_Service.DoubleClick
+        ViewService()
     End Sub
 End Class

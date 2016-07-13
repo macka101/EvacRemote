@@ -22,10 +22,15 @@ Module Misc
     Public iCont As Integer = 0
     Public iDivison As Integer = 0
 
-    Public gCurrentDivision As Division
-    Public gCurrentBuilding As Building
-    Public gCurrentStairwell As EscapeRoute
-    Public gCurrentAsset As Asset
+    Public _currentContact As Contact
+    Public _currentProduct As Product
+    Public _currentSurvey As EvacSurvey
+    Public _currentService As EvacService
+
+
+    Public _currentBuilding As Building
+    Public _currentStairwell As EscapeRoute
+    Public _currentAsset As Asset
 
     Public sContactName As String = ""
 

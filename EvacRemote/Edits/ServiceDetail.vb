@@ -6,7 +6,7 @@ Imports DevExpress.XtraReports.UI
 Imports DevExpress.LookAndFeel
 Imports Esso.Data
 
-Public Class ServiceSwipe
+Public Class ServiceDetail
     Private _Loaded As Boolean = False
 
     Private xpBuildings As XPCollection(Of Building)
@@ -46,7 +46,7 @@ Public Class ServiceSwipe
         _Loaded = True
     End Sub
 
-    Public Sub New(ByVal parent As frmMain, ByVal session As UnitOfWork)
+    Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -74,11 +74,11 @@ Public Class ServiceSwipe
 
     Private Sub view_Assets_Click(sender As Object, e As EventArgs) Handles view_Assets.Click
         If CurrentAsset IsNot Nothing Then
-            gCurrentAsset = CurrentAsset
+            _currentAsset = CurrentAsset
             If CurrentAsset.ProductType = ProductType.Chair Then
-                ParentFormMain.ViewServiceChair(Me, gCurrentAsset)
+                '  ParentFormMain.ViewServiceChair(Me, gCurrentAsset)
             Else
-                ParentFormMain.ViewServiceIbex(Me, gCurrentAsset)
+                ' ParentFormMain.ViewServiceIbex(Me, gCurrentAsset)
             End If
             _session.CommitChanges()
             view_Assets.RefreshData()

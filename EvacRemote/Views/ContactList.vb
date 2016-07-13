@@ -10,7 +10,7 @@ Imports Esso.Data
 Imports DevExpress.Xpo.DB
 Imports DevExpress.Data.Filtering
 
-Public Class ContactModule
+Public Class ContactList
     Private _Loaded As Boolean = False
     Private _Category As String = "Evac"
     Private _session As UnitOfWork
@@ -73,13 +73,13 @@ Public Class ContactModule
 
     End Sub
 
-   
+
     Private Sub GridView1_Click(sender As Object, e As EventArgs)
         ViewContact()
     End Sub
     Private Sub ViewContact()
         If CurrentContact IsNot Nothing Then
-            ParentFormMain._currentContact = CurrentContact
+            _currentContact = CurrentContact
             ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
         End If
 
