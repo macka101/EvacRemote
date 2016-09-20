@@ -22,7 +22,7 @@ Partial Class ServiceDetail
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceDetail))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.SignatureBox1 = New EvacRemote.SignatureBox()
         Me.btnConfirm = New DevExpress.XtraEditors.SimpleButton()
@@ -89,20 +89,21 @@ Partial Class ServiceDetail
         '
         'btnNewStairWell
         '
-        Me.btnNewStairWell.Location = New System.Drawing.Point(828, 12)
+        Me.btnNewStairWell.Image = CType(resources.GetObject("btnNewStairWell.Image"), System.Drawing.Image)
+        Me.btnNewStairWell.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnNewStairWell.Location = New System.Drawing.Point(858, 12)
         Me.btnNewStairWell.Name = "btnNewStairWell"
-        Me.btnNewStairWell.Size = New System.Drawing.Size(76, 22)
+        Me.btnNewStairWell.Size = New System.Drawing.Size(46, 38)
         Me.btnNewStairWell.StyleController = Me.LayoutControl1
         Me.btnNewStairWell.TabIndex = 14
-        Me.btnNewStairWell.Text = "New"
         '
         'grid_assets
         '
         Me.grid_assets.Cursor = System.Windows.Forms.Cursors.Default
-        Me.grid_assets.Location = New System.Drawing.Point(52, 38)
+        Me.grid_assets.Location = New System.Drawing.Point(52, 54)
         Me.grid_assets.MainView = Me.view_Assets
         Me.grid_assets.Name = "grid_assets"
-        Me.grid_assets.Size = New System.Drawing.Size(852, 386)
+        Me.grid_assets.Size = New System.Drawing.Size(852, 370)
         Me.grid_assets.TabIndex = 13
         Me.grid_assets.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.view_Assets})
         '
@@ -175,9 +176,9 @@ Partial Class ServiceDetail
         '
         Me.lciAssets.Control = Me.grid_assets
         Me.lciAssets.CustomizationFormText = "lciAssets"
-        Me.lciAssets.Location = New System.Drawing.Point(40, 26)
+        Me.lciAssets.Location = New System.Drawing.Point(40, 42)
         Me.lciAssets.Name = "lciAssets"
-        Me.lciAssets.Size = New System.Drawing.Size(856, 390)
+        Me.lciAssets.Size = New System.Drawing.Size(856, 374)
         Me.lciAssets.TextSize = New System.Drawing.Size(0, 0)
         Me.lciAssets.TextVisible = False
         '
@@ -187,7 +188,7 @@ Partial Class ServiceDetail
         Me.SimpleLabelItem3.CustomizationFormText = "LabelSimpleLabelItem3"
         Me.SimpleLabelItem3.Location = New System.Drawing.Point(40, 0)
         Me.SimpleLabelItem3.Name = "SimpleLabelItem3"
-        Me.SimpleLabelItem3.Size = New System.Drawing.Size(776, 26)
+        Me.SimpleLabelItem3.Size = New System.Drawing.Size(806, 42)
         Me.SimpleLabelItem3.Text = "Service Details"
         Me.SimpleLabelItem3.TextSize = New System.Drawing.Size(96, 13)
         '
@@ -195,9 +196,9 @@ Partial Class ServiceDetail
         '
         Me.lciAddAsset.Control = Me.btnNewStairWell
         Me.lciAddAsset.CustomizationFormText = "LayoutControlItem3"
-        Me.lciAddAsset.Location = New System.Drawing.Point(816, 0)
+        Me.lciAddAsset.Location = New System.Drawing.Point(846, 0)
         Me.lciAddAsset.Name = "lciAddAsset"
-        Me.lciAddAsset.Size = New System.Drawing.Size(80, 26)
+        Me.lciAddAsset.Size = New System.Drawing.Size(50, 42)
         Me.lciAddAsset.TextSize = New System.Drawing.Size(0, 0)
         Me.lciAddAsset.TextVisible = False
         '
@@ -228,12 +229,12 @@ Partial Class ServiceDetail
         Me.LayoutControlItem2.Size = New System.Drawing.Size(896, 24)
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(96, 13)
         '
-        'ServiceSwipe
+        'ServiceDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "ServiceSwipe"
+        Me.Name = "ServiceDetail"
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

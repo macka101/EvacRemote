@@ -19,7 +19,9 @@ Public Class frmMain
     Dim _SurveyDetail As SurveyDetail
 
     Dim _ServiceList As ServiceList
-    ' Dim _ServiceDetail As ServiceDetail
+    Dim _ServiceDetail As ServiceDetail
+
+    Dim _StairwellDetail As viewStairWellDetail
     Dim _ViewEscapeRoute As viewEscapeRouteSwipe
     Dim _ViewFloor As viewFloorSwipe
     Dim _ViewServiceChair As viewAssetSwipeChair
@@ -44,6 +46,8 @@ Public Class frmMain
         ProductDetail = 6
         ServiceList = 7
         ServiceDetail = 8
+        StairWell = 9
+
     End Enum
 
     Public _CurrentPage As ePage = ePage.None
@@ -98,6 +102,10 @@ Public Class frmMain
                 _ProductList.Visible = False
             Case ePage.SurveyList
                 _SurveyList.Visible = False
+            Case ePage.ServiceList
+                _ServiceList.Visible = False
+            Case ePage.ServiceDetail
+                _ServiceDetail.Visible = False
         End Select
 
         Select Case _page
@@ -161,9 +169,42 @@ Public Class frmMain
                     _SurveyDetail.Initdata()
                 End If
                 _SurveyDetail.Visible = True
+            Case ePage.ServiceList
+                If _ServiceList Is Nothing Then
+                    _ServiceList = New ServiceList(dataSession, Me)
+                End If
+                _ServiceList.Parent = Me.MainPnl
+                _ServiceList.Dock = DockStyle.Fill
+                If _ServiceList.Loaded = False Then
+                    _ServiceList.InitData()
+                End If
+                BasketEnabled(False)
+                SurveyEnabled(False)
+                ServiceEnabled(False)
+                _ServiceList.Visible = True
+            Case ePage.ServiceDetail
+                If _ServiceDetail Is Nothing Then
+                    _ServiceDetail = New ServiceDetail(dataSession, Me)
+                End If
+                _ServiceDetail.Parent = Me.MainPnl
+                _ServiceDetail.Dock = DockStyle.Fill
+                If _ServiceDetail.Loaded = False Then
+                    _ServiceDetail.Initdata()
+                End If
+                _ServiceDetail.Visible = True
+            Case ePage.StairWell
+                If _StairwellDetail Is Nothing Then
+                    _StairwellDetail = New viewStairWellDetail(dataSession, Me)
+                End If
+                _StairwellDetail.Parent = Me.MainPnl
+                _StairwellDetail.Dock = DockStyle.Fill
+                If _StairwellDetail.Loaded = False Then
+                    _StairwellDetail.Initdata()
+                End If
+                _StairwellDetail.Visible = True
         End Select
 
-        _PreviousPage = _CurrentPage
+
         _CurrentPage = _page
     End Sub
     Public Sub HideContact()
@@ -361,7 +402,7 @@ Public Class frmMain
     End Sub
 
     Private Sub ServiceTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles ServiceTileBarItem.ItemClick
-        SelectPage(ePage.SurveyList)
+        SelectPage(ePage.ServiceList)
     End Sub
 
     'Private Sub tbiSnapReports_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tbiSnapReports.ItemClick

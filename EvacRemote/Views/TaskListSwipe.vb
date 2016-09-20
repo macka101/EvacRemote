@@ -12,7 +12,7 @@ Imports Esso.Data
 Public Class TaskListSwipe
     Private _Loaded As Boolean = False
     Private _Category As eTaskStatus = Nothing
-    Dim _session As New UnitOfWork
+    Dim _session As UnitOfWork
     Dim xcTasks As XPCollection(Of Task)
     Dim tMaxDate As Date = DateTime.Today.AddDays(30)
 

@@ -105,4 +105,8 @@ Public Class ServiceDetail
             printTool.ShowRibbonPreview(UserLookAndFeel.Default)
         End Using
     End Sub
+
+    Private Sub btnNewStairWell_Click(sender As Object, e As EventArgs) Handles btnNewStairWell.Click
+        ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
+    End Sub
 End Class

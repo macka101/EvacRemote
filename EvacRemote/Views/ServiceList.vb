@@ -36,9 +36,9 @@ Public Class ServiceList
     Private Sub FetchData()
 
         Dim current As Integer = vw_Service.FocusedRowHandle
-        Dim _surveyView As XPView = New XPView(_session, GetType(EvacService))
-        _surveyView.AddProperty("Oid", "Oid")
-        _surveyView.AddProperty("ServiceDate", "ServiceDate")
+        Dim _serviceView As XPView = New XPView(_session, GetType(EvacService))
+        _serviceView.AddProperty("Oid", "Oid")
+        _serviceView.AddProperty("ServiceDate", "ServiceDate")
         '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
 
         '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
@@ -46,8 +46,8 @@ Public Class ServiceList
         '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
         sortCollection.Add(New SortProperty("ServiceDate", SortingDirection.Descending))
 
-        _surveyView.Sorting = sortCollection
-        grdService.DataSource = _surveyView
+        _serviceView.Sorting = sortCollection
+        grdService.DataSource = _serviceView
         If current >= 0 Then
             If current < vw_Service.RowCount Then
                 vw_Service.FocusedRowHandle = current
@@ -62,7 +62,7 @@ Public Class ServiceList
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
-        _session = New UnitOfWork
+        _session = session
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
@@ -102,5 +102,11 @@ Public Class ServiceList
 
     Private Sub vw_Companies_DoubleClick(sender As Object, e As EventArgs) Handles vw_Service.DoubleClick
         ViewService()
+    End Sub
+
+  
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        _currentService = Nothing
+        ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
 End Class

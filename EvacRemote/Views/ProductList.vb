@@ -60,7 +60,7 @@ Public Class ProductList
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
-        _session = New UnitOfWork
+        _session = session
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub

@@ -62,7 +62,7 @@ Public Class SurveyList
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
-        _session = New UnitOfWork
+        _session = session
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
@@ -100,7 +100,7 @@ Public Class SurveyList
         End Get
     End Property
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
-        _currentSurvey = Nothing
+        _currentSurvey = New EvacSurvey(_session)
         ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
     End Sub
 

@@ -26,10 +26,10 @@ Module Misc
     Public _currentProduct As Product
     Public _currentSurvey As EvacSurvey
     Public _currentService As EvacService
-
+    Public _currentStairwell As Stairwell
 
     Public _currentBuilding As Building
-    Public _currentStairwell As EscapeRoute
+    Public _currentEscapeRoute As EscapeRoute
     Public _currentAsset As Asset
 
     Public sContactName As String = ""
