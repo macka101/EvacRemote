@@ -87,12 +87,12 @@ Public Class ServiceDetail
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
 
-        Dim pservice = _session.GetObjectByKey(Of EvacService)(2)
-        Using frmSig As New frmSignature(pservice)
+        '     Dim pservice = _session.GetObjectByKey(Of EvacService)(2)
+        Using frmSig As New frmSignature(_currentService)
             frmSig.ShowDialog()
         End Using
 
-        pservice.Save()
+        _currentService.Save()
         _session.CommitChanges()
         Cursor.Current = Cursors.WaitCursor
         Dim report As XtraReport = Nothing
