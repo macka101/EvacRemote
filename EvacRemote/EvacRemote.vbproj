@@ -80,6 +80,9 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>evac +.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -109,6 +112,8 @@
     <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
@@ -313,6 +318,12 @@
     <Compile Include="Views\ContactList.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\DiarySchedule.Designer.vb">
+      <DependentUpon>DiarySchedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiarySchedule.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\ProductList.Designer.vb">
       <DependentUpon>ProductList.vb</DependentUpon>
     </Compile>
@@ -413,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ContactList.resx">
       <DependentUpon>ContactList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DiarySchedule.resx">
+      <DependentUpon>DiarySchedule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductList.resx">
       <DependentUpon>ProductList.vb</DependentUpon>
@@ -2551,6 +2565,8 @@
     <None Include="statementstyle.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="evac +.ico" />
+    <Content Include="evac.ico" />
     <Content Include="Forms\spinner3-greenie.gif" />
     <Content Include="images\Missing.png" />
     <None Include="Resources\edittask_16x16.png" />

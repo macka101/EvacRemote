@@ -42,6 +42,11 @@ Friend NotInheritable Class Program
         Application.SetCompatibleTextRenderingDefault(False)
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
+        If XtraMessageBox.Show("Syncronise Data First", "Syncronise", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Using frmsysnc As New FrmSyncronize(False)
+                frmsysnc.ShowDialog()
+            End Using
+        End If
 
         Application.Run(New frmMain())
 

@@ -29,33 +29,33 @@ Module Sync
         cn = New OdbcConnection("DSN=PSCRM 6 Default;UID=DBA;PWD=prospect")
         cn.Open()
         If SyncUsers() = True Then
+            SyncEngineers()
             SyncAddresses()
             SyncCompanies()
             SyncDivisions()
             SyncContacts()
+            SyncDiary()
         End If
         cn.Close()
 
     End Sub
-
+ 
     Private Function SyncUsers() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
-        Dim _Sync As String = GetSetting("UserTable")
         Dim iRecords As Integer = GetRecordCount("user")
 
         Console.Write(String.Format("Users     ({0:D5}) ", iRecords))
 
-        'If Not String.IsNullOrWhiteSpace(_Sync) Then
-        '    _lastSync = Convert.ToDateTime(_Sync)
-        'Else
-        '    _lastSync = Convert.ToDateTime("1980-1-1")
-        'End If
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[User]")
 
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+        If _lastSync = DateTime.MinValue Then
+            _lastSync = Convert.ToDateTime("1980-1-1")
+        End If
+
         Str = String.Concat(Str, "SELECT usercode, username, emailaddr, lastupdatedtimestamp ")
-        Str = String.Concat(Str, "FROM [user]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
+        Str = String.Concat(Str, "FROM [user] ")
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsUsers = New DataSet
@@ -90,7 +90,6 @@ Module Sync
                     Console.Write("{0:D5}", iCounter)
                 Next
             End If
-            SetSetting("UserTable", DateTime.Now)
             Console.WriteLine(" Done.")
             SyncUsers = True
         Else
@@ -98,25 +97,72 @@ Module Sync
             SyncUsers = False
         End If
     End Function
+    Private Function SyncEngineers() As Boolean
+        Dim Str As String = Nothing
+        Dim _session As New UnitOfWork
+        Dim iRecords As Integer = GetRecordCount("engineer_locations")
+
+        Console.Write(String.Format("Engineers ({0:D5}) ", iRecords))
+
+        Str = String.Concat(Str, "SELECT * ")
+        Str = String.Concat(Str, "FROM [engineer_locations] ")
+
+        Dim da As New OdbcDataAdapter(Str, cn)
+        Dim dsEngineers = New DataSet
+        da.Fill(dsEngineers, "Results")
+
+        If dsEngineers.Tables.Count > 0 Then
+            If dsEngineers.Tables(0).Rows.Count = 0 Then
+                Console.Write("UpTo Date. ")
+            Else
+                Console.Write(String.Format("Changed ({0:D5}) ", dsEngineers.Tables(0).Rows.Count))
+                iCounter = 0
+                iTop = Console.CursorTop
+                iLeft = Console.CursorLeft
+                For Each orow As DataRow In dsEngineers.Tables(0).Rows
+                    Dim xEngineer As Engineer = _session.FindObject(Of Engineer)(CriteriaOperator.Parse("EngineerNo= ?", orow.Item("engineerno")))
+                    If xEngineer Is Nothing Then
+                        xEngineer = New Engineer(_session)
+                        xEngineer.EngineerNo = orow.Item("engineerno")
+                        xEngineer.EngineerCode = GetValueorNull(orow, "engineer")
+                        xEngineer.EngineerName = GetValueorNull(orow, "engineer_name")
+
+                    Else
+                        xEngineer.EngineerCode = GetValueorNull(orow, "engineer")
+                        xEngineer.EngineerName = GetValueorNull(orow, "engineer_name")
+                    End If
+                    xEngineer.Save()
+                    _session.CommitChanges()
+
+                    iCounter = iCounter + 1
+                    Console.SetCursorPosition(iLeft, iTop)
+                    Console.Write("{0:D5}", iCounter)
+                Next
+            End If
+            Console.WriteLine(" Done.")
+            SyncEngineers = True
+        Else
+            Console.WriteLine("Cannot Access User table")
+            SyncEngineers = False
+        End If
+    End Function
     Private Function SyncAddresses() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
-        Dim _Sync As String = GetSetting("Addresses")
+
         Dim iRecords As Integer = GetRecordCount("Address")
 
         Console.Write(String.Format("Addresses ({0:D5})", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
-        Else
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
+
+        If _lastSync = DateTime.MinValue Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
-
         Str = "SELECT [addrno],[address1],[address2],[address3],[address4],[postcode],lastupdatedtimestamp "
         Str = String.Concat(Str, "FROM [Address]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsAddress = New DataSet
@@ -146,7 +192,6 @@ Module Sync
                 Console.SetCursorPosition(iLeft, iTop)
                 Console.Write("{0:D5}", iCounter)
             Next
-            SetSetting("Addresses", DateTime.Now)
             SyncAddresses = True
         Else
             Console.WriteLine("Cannot Access Address Table")
@@ -158,22 +203,21 @@ Module Sync
     Private Function SyncCompanies() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
-        Dim _Sync As String = GetSetting("CompanyTable")
+
         Dim iRecords As Integer = GetRecordCount("company")
 
         Console.Write(String.Format("Companies ({0:D5})", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
-        Else
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Company]")
+
+        If _lastSync = DateTime.MinValue Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
         Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag],[lastupdatedtimestamp]"
         Str = String.Concat(Str, "FROM [company]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsCompanies = New DataSet
@@ -204,7 +248,6 @@ Module Sync
                 Console.SetCursorPosition(iLeft, iTop)
                 Console.Write("{0:D5}", iCounter)
             Next
-            SetSetting("CompanyTable", DateTime.Now)
             SyncCompanies = True
         Else
             Console.WriteLine("Cannot Access Company Table")
@@ -215,21 +258,19 @@ Module Sync
     Private Function SyncDivisions() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
-        Dim _Sync As String = GetSetting("DivisionTable")
 
         Dim iRecords As Integer = GetRecordCount("division")
         Console.Write(String.Format("Divisions ({0:D5}) ", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
-        Else
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Division]")
+
+        If _lastSync = DateTime.MinValue Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
         Str = "SELECT divno, compno, divname, addrno, division.oprano, phone, notepad, StatusFlag,lastupdatedtimestamp "
         Str = String.Concat(Str, "FROM [division]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsCompanies = New DataSet
@@ -261,7 +302,6 @@ Module Sync
                 Console.SetCursorPosition(iLeft, iTop)
                 Console.Write("{0:D5}", iCounter)
             Next
-            SetSetting("DivisionTable", DateTime.Now)
             SyncDivisions = True
         Else
             Console.WriteLine("Cannot Access Division Table")
@@ -272,21 +312,19 @@ Module Sync
     Private Function SyncContacts() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
-        Dim _Sync As String = GetSetting("ContactTable")
 
         Dim iRecords As Integer = GetRecordCount("Contact")
         Console.Write(String.Format("Contacts  ({0:D5}) ", iRecords))
 
-        If Not String.IsNullOrWhiteSpace(_Sync) Then
-            _lastSync = Convert.ToDateTime(_Sync)
-        Else
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Contact]")
+
+        If _lastSync = DateTime.MinValue Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
         Str = "SELECT [contno],[divno],[surname],[forename],[title],[salutation],[addrno],[email],[notepad],[jobtitle],[primephone],[StatusFlag],[lastupdatedtimestamp] "
         Str = String.Concat(Str, "FROM [Contact]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd hh:mm}' order by lastupdatedtimestamp", _lastSync))
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsContacts = New DataSet
@@ -323,11 +361,69 @@ Module Sync
                 Console.SetCursorPosition(iLeft, iTop)
                 Console.Write("{0:D5}", iCounter)
             Next
-            SetSetting("ContactTable", DateTime.Now)
             SyncContacts = True
         Else
             Console.WriteLine("Cannot Access Contacts Table")
             SyncContacts = False
+        End If
+        Console.WriteLine(" Done.")
+    End Function
+    Private Function SyncDiary() As Boolean
+        Dim Str As String = Nothing
+        Dim _session As New UnitOfWork
+
+        Dim iRecords As Integer = GetRecordCount("central_diary")
+        Console.Write(String.Format("Diary     ({0:D5}) ", iRecords))
+
+        _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[CentralDiary]")
+
+        If _lastSync = DateTime.MinValue Then
+            _lastSync = Convert.ToDateTime("1980-1-1")
+        End If
+        Str = "SELECT * "
+        Str = String.Concat(Str, "FROM [central_diary]")
+        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
+
+        Dim da As New OdbcDataAdapter(Str, cn)
+        Dim dsDiary = New DataSet
+        da.Fill(dsDiary, "Results")
+
+        If dsDiary.Tables.Count > 0 Then
+            Console.Write(String.Format("Changed ({0:D5}) ", dsDiary.Tables(0).Rows.Count))
+            iCounter = 0
+            iTop = Console.CursorTop
+            iLeft = Console.CursorLeft
+            Dim xDiary As CentralDiary
+            For Each orow As DataRow In dsDiary.Tables(0).Rows
+                xDiary = _session.FindObject(Of CentralDiary)(CriteriaOperator.Parse("CentralDiaryNo= ?", orow.Item("central_diaryno")))
+                If xDiary Is Nothing Then
+                    xDiary = New CentralDiary(_session)
+                    xDiary.CentralDiaryNo = orow.Item("central_diaryno")
+                End If
+
+                xDiary.AllDay = GetValueorNull(orow, "AllDay")
+                xDiary.AppDescription = GetValueorNull(orow, "AppDescription")
+                xDiary.AppLocation = Left(GetValueorNull(orow, "AppLocation"), 8)
+                xDiary.BookedDate = GetValueorNull(orow, "BookedDate")
+                xDiary.EndDate = GetValueorNull(orow, "EndDate")
+                xDiary.Label = GetValueorNull(orow, "Label")
+                xDiary.Leadno = GetValueorNull(orow, "Leadno")
+                xDiary.NoOfChairs = GetValueorNull(orow, "no_of_chairs")
+                xDiary.Note = GetValueorNull(orow, "Note")
+                xDiary.OutlookEntryID = GetValueorNull(orow, "OutlookEntryID")
+                xDiary.Subject = GetValueorNull(orow, "Subject")
+                xDiary.UserId = GetValueorNull(orow, "UserId")
+                xDiary.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
+                xDiary.Save()
+                _session.CommitChanges()
+                iCounter = iCounter + 1
+                Console.SetCursorPosition(iLeft, iTop)
+                Console.Write("{0:D5}", iCounter)
+            Next
+            SyncDiary = True
+        Else
+            Console.WriteLine("Cannot Access Diary Table")
+            SyncDiary = False
         End If
         Console.WriteLine(" Done.")
     End Function

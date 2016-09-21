@@ -19,24 +19,22 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim TileItemElement1 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement16 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement17 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement18 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement19 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement20 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement15 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim TileItemElement3 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement4 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement2 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement6 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement5 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement7 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement8 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement21 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
         Me.mainTileBar = New DevExpress.XtraBars.Navigation.TileBar()
         Me.tileBarGroup2 = New DevExpress.XtraBars.Navigation.TileBarGroup()
         Me.contactsTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
-        Me.tasksTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
-        Me.scheduleTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
-        Me.tileBarService = New DevExpress.XtraBars.Navigation.TileBarGroup()
         Me.productsTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
-        Me.ServiceTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
+        Me.DiaryTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
+        Me.tileBarService = New DevExpress.XtraBars.Navigation.TileBarGroup()
         Me.surveyTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
+        Me.ServiceTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.basketTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
         Me.TileBarGroup1 = New DevExpress.XtraBars.Navigation.TileBarGroup()
         Me.dashboardTileBarItem = New DevExpress.XtraBars.Navigation.TileBarItem()
@@ -51,6 +49,7 @@ Partial Class frmMain
         Me.mainTileBar.AppearanceGroupText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.mainTileBar.AppearanceGroupText.Options.UseForeColor = True
         Me.mainTileBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.mainTileBar.Cursor = System.Windows.Forms.Cursors.Default
         Me.mainTileBar.Dock = System.Windows.Forms.DockStyle.Top
         Me.mainTileBar.DropDownOptions.BeakColor = System.Drawing.Color.Empty
         Me.mainTileBar.Groups.Add(Me.tileBarGroup2)
@@ -73,44 +72,43 @@ Partial Class frmMain
         '
         Me.tileBarGroup2.Items.Add(Me.contactsTileBarItem)
         Me.tileBarGroup2.Items.Add(Me.productsTileBarItem)
-        Me.tileBarGroup2.Items.Add(Me.tasksTileBarItem)
-        Me.tileBarGroup2.Items.Add(Me.scheduleTileBarItem)
+        Me.tileBarGroup2.Items.Add(Me.DiaryTileBarItem)
         Me.tileBarGroup2.Name = "tileBarGroup2"
         '
         'contactsTileBarItem
         '
         Me.contactsTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.contactsTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement1.Image = CType(resources.GetObject("TileItemElement1.Image"), System.Drawing.Image)
-        TileItemElement1.Text = "Contacts"
-        Me.contactsTileBarItem.Elements.Add(TileItemElement1)
+        TileItemElement16.Image = CType(resources.GetObject("TileItemElement16.Image"), System.Drawing.Image)
+        TileItemElement16.Text = "Contacts"
+        Me.contactsTileBarItem.Elements.Add(TileItemElement16)
         Me.contactsTileBarItem.Id = 4
         Me.contactsTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
         Me.contactsTileBarItem.Name = "contactsTileBarItem"
         '
-        'tasksTileBarItem
+        'productsTileBarItem
         '
-        Me.tasksTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
-        Me.tasksTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement3.Image = CType(resources.GetObject("TileItemElement3.Image"), System.Drawing.Image)
-        TileItemElement3.Text = "Tasks"
-        Me.tasksTileBarItem.Elements.Add(TileItemElement3)
-        Me.tasksTileBarItem.Id = 1
-        Me.tasksTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
-        Me.tasksTileBarItem.Name = "tasksTileBarItem"
+        Me.productsTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
+        Me.productsTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.productsTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
+        Me.productsTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
+        TileItemElement17.Image = CType(resources.GetObject("TileItemElement17.Image"), System.Drawing.Image)
+        TileItemElement17.Text = "Products"
+        Me.productsTileBarItem.Elements.Add(TileItemElement17)
+        Me.productsTileBarItem.Id = 3
+        Me.productsTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
+        Me.productsTileBarItem.Name = "productsTileBarItem"
         '
-        'scheduleTileBarItem
+        'DiaryTileBarItem
         '
-        Me.scheduleTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
-        Me.scheduleTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.scheduleTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
-        Me.scheduleTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement4.Image = Global.EvacRemote.My.Resources.Resources.Calendar
-        TileItemElement4.Text = "Schedule"
-        Me.scheduleTileBarItem.Elements.Add(TileItemElement4)
-        Me.scheduleTileBarItem.Id = 2
-        Me.scheduleTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
-        Me.scheduleTileBarItem.Name = "scheduleTileBarItem"
+        Me.DiaryTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
+        Me.DiaryTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
+        TileItemElement18.Image = CType(resources.GetObject("TileItemElement18.Image"), System.Drawing.Image)
+        TileItemElement18.Text = "Diary"
+        Me.DiaryTileBarItem.Elements.Add(TileItemElement18)
+        Me.DiaryTileBarItem.Id = 1
+        Me.DiaryTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
+        Me.DiaryTileBarItem.Name = "DiaryTileBarItem"
         '
         'tileBarService
         '
@@ -120,40 +118,27 @@ Partial Class frmMain
         Me.tileBarService.Name = "tileBarService"
         Me.tileBarService.Text = "Service"
         '
-        'productsTileBarItem
+        'surveyTileBarItem
         '
-        Me.productsTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
-        Me.productsTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(196, Byte), Integer))
-        Me.productsTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
-        Me.productsTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement2.Image = CType(resources.GetObject("TileItemElement2.Image"), System.Drawing.Image)
-        TileItemElement2.Text = "Products"
-        Me.productsTileBarItem.Elements.Add(TileItemElement2)
-        Me.productsTileBarItem.Id = 3
-        Me.productsTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
-        Me.productsTileBarItem.Name = "productsTileBarItem"
+        Me.surveyTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
+        Me.surveyTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
+        TileItemElement19.Image = CType(resources.GetObject("TileItemElement19.Image"), System.Drawing.Image)
+        TileItemElement19.Text = "Survey"
+        Me.surveyTileBarItem.Elements.Add(TileItemElement19)
+        Me.surveyTileBarItem.Id = 6
+        Me.surveyTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
+        Me.surveyTileBarItem.Name = "surveyTileBarItem"
         '
         'ServiceTileBarItem
         '
         Me.ServiceTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.ServiceTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement6.Image = Global.EvacRemote.My.Resources.Resources.bookmark_32x32
-        TileItemElement6.Text = "Service"
-        Me.ServiceTileBarItem.Elements.Add(TileItemElement6)
+        TileItemElement20.Image = Global.EvacRemote.My.Resources.Resources.bookmark_32x32
+        TileItemElement20.Text = "Service"
+        Me.ServiceTileBarItem.Elements.Add(TileItemElement20)
         Me.ServiceTileBarItem.Id = 7
         Me.ServiceTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
         Me.ServiceTileBarItem.Name = "ServiceTileBarItem"
-        '
-        'surveyTileBarItem
-        '
-        Me.surveyTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
-        Me.surveyTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement5.Image = CType(resources.GetObject("TileItemElement5.Image"), System.Drawing.Image)
-        TileItemElement5.Text = "Survey"
-        Me.surveyTileBarItem.Elements.Add(TileItemElement5)
-        Me.surveyTileBarItem.Id = 6
-        Me.surveyTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
-        Me.surveyTileBarItem.Name = "surveyTileBarItem"
         '
         'basketTileBarItem
         '
@@ -161,9 +146,9 @@ Partial Class frmMain
         Me.basketTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(56, Byte), Integer))
         Me.basketTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
         Me.basketTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement7.Image = CType(resources.GetObject("TileItemElement7.Image"), System.Drawing.Image)
-        TileItemElement7.Text = "Basket"
-        Me.basketTileBarItem.Elements.Add(TileItemElement7)
+        TileItemElement15.Image = CType(resources.GetObject("TileItemElement15.Image"), System.Drawing.Image)
+        TileItemElement15.Text = "Basket"
+        Me.basketTileBarItem.Elements.Add(TileItemElement15)
         Me.basketTileBarItem.Id = 5
         Me.basketTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
         Me.basketTileBarItem.Name = "basketTileBarItem"
@@ -179,9 +164,9 @@ Partial Class frmMain
         Me.dashboardTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(156, Byte), Integer))
         Me.dashboardTileBarItem.AppearanceItem.Normal.Options.UseBackColor = True
         Me.dashboardTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty
-        TileItemElement8.Image = CType(resources.GetObject("TileItemElement8.Image"), System.Drawing.Image)
-        TileItemElement8.Text = "Synchronize"
-        Me.dashboardTileBarItem.Elements.Add(TileItemElement8)
+        TileItemElement21.Image = CType(resources.GetObject("TileItemElement21.Image"), System.Drawing.Image)
+        TileItemElement21.Text = "Synchronize"
+        Me.dashboardTileBarItem.Elements.Add(TileItemElement21)
         Me.dashboardTileBarItem.Id = 0
         Me.dashboardTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide
         Me.dashboardTileBarItem.Name = "dashboardTileBarItem"
@@ -215,8 +200,7 @@ Partial Class frmMain
     Public WithEvents mainTileBar As DevExpress.XtraBars.Navigation.TileBar
     Private WithEvents tileBarGroup2 As DevExpress.XtraBars.Navigation.TileBarGroup
     Private WithEvents dashboardTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
-    Private WithEvents tasksTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
-    Private WithEvents scheduleTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
+    Private WithEvents DiaryTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
     Private WithEvents tileBarService As DevExpress.XtraBars.Navigation.TileBarGroup
     Private WithEvents productsTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem
     Private WithEvents contactsTileBarItem As DevExpress.XtraBars.Navigation.TileBarItem

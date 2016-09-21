@@ -7,6 +7,7 @@ Imports DevExpress.XtraEditors
 
 Public Class frmMain
 
+    Dim _DiarySchedule As DiarySchedule
     Dim _ContactList As ContactList
     Dim _ContactDetail As ContactDetail
 
@@ -47,15 +48,14 @@ Public Class frmMain
         ServiceList = 7
         ServiceDetail = 8
         StairWell = 9
-
+        DiarySchedule = 10
     End Enum
 
     Public _CurrentPage As ePage = ePage.None
     Public _PreviousPage As ePage = ePage.None
 
-    Private Sub tasksTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles tasksTileBarItem.ItemClick
-        XtraMessageBox.Show("Not Yet Impletmented", "Warning", MessageBoxButtons.OK)
-
+    Private Sub tasksTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles DiaryTileBarItem.ItemClick
+        SelectPage(ePage.DiarySchedule)
     End Sub
 
     Private Sub dashboardTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles dashboardTileBarItem.ItemClick
@@ -96,6 +96,8 @@ Public Class frmMain
         Select Case _CurrentPage
             Case ePage.ContactList
                 _ContactList.Visible = False
+            Case ePage.DiarySchedule
+                _DiarySchedule.Visible = False
             Case ePage.ContactDetail
                 _ContactDetail.Visible = False
             Case ePage.ProductList
@@ -122,6 +124,16 @@ Public Class frmMain
                 SurveyEnabled(False)
                 ServiceEnabled(False)
                 _ContactList.Visible = True
+            Case ePage.DiarySchedule
+                If _DiarySchedule Is Nothing Then
+                    _DiarySchedule = New DiarySchedule(dataSession, Me)
+                End If
+                _DiarySchedule.Parent = Me.MainPnl
+                _DiarySchedule.Dock = DockStyle.Fill
+                If _DiarySchedule.Loaded = False Then
+                    _DiarySchedule.InitData()
+                End If
+                _DiarySchedule.Visible = True
             Case ePage.ContactDetail
                 If _ContactDetail Is Nothing Then
                     _ContactDetail = New ContactDetail(Me)
@@ -345,7 +357,9 @@ Public Class frmMain
                 frmsysnc.ShowDialog()
             End Using
         End If
+
         ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=Willow"
+
         ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists)
         'End If
 
@@ -418,7 +432,7 @@ Public Class frmMain
         End Using
     End Sub
 
-    Private Sub scheduleTileBarItem_ItemClick(sender As Object, e As TileItemEventArgs) Handles scheduleTileBarItem.ItemClick
+    Private Sub scheduleTileBarItem_ItemClick(sender As Object, e As TileItemEventArgs)
         XtraMessageBox.Show("Not Yet Impletmented", "Warning", MessageBoxButtons.OK)
     End Sub
 End Class

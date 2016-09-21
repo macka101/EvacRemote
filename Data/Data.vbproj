@@ -67,8 +67,10 @@
   <ItemGroup>
     <Compile Include="ConnectionHelper.vb" />
     <Compile Include="Data\Address.vb" />
+    <Compile Include="Data\CentralDiary.vb" />
     <Compile Include="Data\Company.vb" />
     <Compile Include="Data\Division.vb" />
+    <Compile Include="Data\Engineer.vb" />
     <Compile Include="Data\Enums.vb" />
     <Compile Include="Data\EvacSurvey.vb" />
     <Compile Include="Data\EvacTask.vb" />
