@@ -6,12 +6,20 @@ Imports DevExpress.XtraEditors.DXErrorProvider
 Imports DevExpress.XtraEditors
 Imports Esso.Data
 
-Public Class viewAssetSwipeChair
+Public Class AssetServiceChair
     Private _parent As frmMain = Nothing
-    Private _viewServiceSwipe As ServiceList = Nothing
-    Private _Asset As Asset
+    Private _Loaded As Boolean = False
+
+    'Private _viewServiceSwipe As ServiceList = Nothing
+    'Private _Asset As Asset
     Private _session As UnitOfWork
     Private xpOptions As XPCollection(Of FieldOption)
+    Public ReadOnly Property Loaded As Boolean
+        Get
+            Return _Loaded
+        End Get
+    End Property
+
     Public Property ParentMain() As frmMain
         Get
             Return _parent
@@ -23,39 +31,22 @@ Public Class viewAssetSwipeChair
             _parent = value
         End Set
     End Property
-    Public Property ParentService() As ServiceList
-        Get
-            Return _viewServiceSwipe
-        End Get
-        Set(ByVal value As ServiceList)
-            If (Not Object.Equals(_viewServiceSwipe, Nothing)) Then
-                Return
-            End If
-            _viewServiceSwipe = value
-        End Set
-    End Property
     Public Sub Initdata()
         InitEditors()
-        teDescription.Text = _Asset.Product
-        cbeBuilding.EditValue = _Asset.Building
-        cbeLocation.EditValue = _Asset.Division
-        teNotes.Text = _Asset.Notes
+        teDescription.Text = _currentAsset.Product
+        cbeBuilding.EditValue = _currentAsset.Building
+        cbeLocation.EditValue = _currentAsset.Division
+        teNotes.Text = _currentAsset.Notes
     End Sub
 
-    Public Sub New(ByRef session As UnitOfWork, ByVal parent As frmMain, ByRef pForm As ServiceList, ByRef pAsset As Asset)
+    Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
 
         ' This call is required by the designer.
         InitializeComponent()
-        _session = session
         _parent = parent
-        _viewServiceSwipe = pForm
+        _session = session
+        ' Add any initialization after the InitializeComponent() call.
 
-        If pAsset Is Nothing Then
-            _Asset = New Asset(_session)
-        Else
-            _Asset = pAsset
-        End If
-        Initdata()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
@@ -63,14 +54,14 @@ Public Class viewAssetSwipeChair
             XtraMessageBox.Show("Please supply missing information.", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End If
-        _Asset.Product = teDescription.Text
-        _Asset.Building = cbeBuilding.EditValue
-        _Asset.Division = cbeLocation.EditValue
-        _Asset.Notes = teNotes.Text
-        _Asset.Save()
-        _Asset.Session.CommitTransaction()
+        _currentAsset.Product = teDescription.Text
+        _currentAsset.Building = cbeBuilding.EditValue
+        _currentAsset.Division = cbeLocation.EditValue
+        _currentAsset.Notes = teNotes.Text
+        _currentAsset.Save()
+        _currentAsset.Session.CommitTransaction()
         '    ParentService.RefreshAsset()
-        ParentMain.HideServiceChair()
+        _parent.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
     Private Sub InitEditors()
         If xpOptions Is Nothing Then

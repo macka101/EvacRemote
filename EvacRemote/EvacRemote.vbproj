@@ -195,10 +195,10 @@
     <Compile Include="Edits\ServiceDetail.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Edits\viewAssetSwipeChair.Designer.vb">
-      <DependentUpon>viewAssetSwipeChair.vb</DependentUpon>
+    <Compile Include="Edits\AssetServiceChair.Designer.vb">
+      <DependentUpon>AssetServiceChair.vb</DependentUpon>
     </Compile>
-    <Compile Include="Edits\viewAssetSwipeChair.vb">
+    <Compile Include="Edits\AssetServiceChair.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Edits\viewAssetSwipeIbex.Designer.vb">
@@ -379,8 +379,8 @@
     <EmbeddedResource Include="Edits\ServiceDetail.resx">
       <DependentUpon>ServiceDetail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edits\viewAssetSwipeChair.resx">
-      <DependentUpon>viewAssetSwipeChair.vb</DependentUpon>
+    <EmbeddedResource Include="Edits\AssetServiceChair.resx">
+      <DependentUpon>AssetServiceChair.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edits\viewAssetSwipeIbex.resx">
       <DependentUpon>viewAssetSwipeIbex.vb</DependentUpon>

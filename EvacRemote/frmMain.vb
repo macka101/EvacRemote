@@ -21,11 +21,12 @@ Public Class frmMain
 
     Dim _ServiceList As ServiceList
     Dim _ServiceDetail As ServiceDetail
+    Dim _AssetServiceChair As AssetServiceChair
 
     Dim _StairwellDetail As viewStairWellDetail
     Dim _ViewEscapeRoute As viewEscapeRouteSwipe
     Dim _ViewFloor As viewFloorSwipe
-    Dim _ViewServiceChair As viewAssetSwipeChair
+    '    Dim _ViewServiceChair As AssetServiceChair
     Dim _ViewServiceIbex As viewAssetSwipeIbex
 
 
@@ -49,6 +50,7 @@ Public Class frmMain
         ServiceDetail = 8
         StairWell = 9
         DiarySchedule = 10
+        AssetServiceChair = 11
     End Enum
 
     Public _CurrentPage As ePage = ePage.None
@@ -204,6 +206,16 @@ Public Class frmMain
                     _ServiceDetail.Initdata()
                 End If
                 _ServiceDetail.Visible = True
+            Case ePage.AssetServiceChair
+                If _AssetServiceChair Is Nothing Then
+                    _AssetServiceChair = New AssetServiceChair(dataSession, Me)
+                End If
+                _AssetServiceChair.Parent = Me.MainPnl
+                _AssetServiceChair.Dock = DockStyle.Fill
+                If _AssetServiceChair.Loaded = False Then
+                    _AssetServiceChair.Initdata()
+                End If
+                _AssetServiceChair.Visible = True
             Case ePage.StairWell
                 If _StairwellDetail Is Nothing Then
                     _StairwellDetail = New viewStairWellDetail(dataSession, Me)
@@ -322,14 +334,7 @@ Public Class frmMain
         '_Service.Visible = False
         '_ViewServiceIbex.Visible = True
     End Sub
-    Public Sub HideServiceChair()
-        _ViewServiceChair.Visible = False
-        ' _Service.Visible = True
-    End Sub
-    Public Sub HideServiceIbex()
-        _ViewServiceIbex.Visible = False
-        ' _Service.Visible = True
-    End Sub
+
     Private Sub customersTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles contactsTileBarItem.ItemClick
         SelectPage(ePage.ContactList)
     End Sub

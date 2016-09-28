@@ -28,6 +28,7 @@ Module Misc
     Public _currentService As EvacService
     Public _currentStairwell As Stairwell
 
+
     Public _currentBuilding As Building
     Public _currentEscapeRoute As EscapeRoute
     Public _currentAsset As Asset

@@ -107,6 +107,7 @@ Public Class ServiceDetail
     End Sub
 
     Private Sub btnNewStairWell_Click(sender As Object, e As EventArgs) Handles btnNewStairWell.Click
-        ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
+        _currentAsset = New Asset(_session)
+        ParentFormMain.SelectPage(frmMain.ePage.AssetServiceChair)
     End Sub
 End Class

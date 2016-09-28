@@ -100,7 +100,7 @@ Public Class viewAssetSwipeIbex
         _Asset.Save()
         _Asset.Session.CommitTransaction()
         'ParentService.RefreshAsset()
-        ParentMain.HideServiceIbex()
+        _parent.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
 
     Private Sub tsFasteners_Toggled(sender As Object, e As EventArgs) Handles tsFasteners.Toggled
