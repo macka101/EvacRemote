@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <link rel="stylesheet" type="text/css" href="css1.css">
+</head>
+<body>
+<h1>Evac+Chair 300H MK4</h1>
+
+        <table border="0" cellspacing="1" cellpadding="1">
+            <tbody>
+                <tr>
+                    <td valign="top" style="width: 317px;">
+                        <img id="contentHolder_ctl00_imgProduct" alt="" src="C:\EvacFiles\Images\Medium\EC300H.jpg" alt="Image of Evac+Chair 300H MK4" style="height:376px;width:305px;border-width:0px;" />
+                    </td>
+                    <td width="20">&nbsp;</td>
+                    <td valign="top">
+                        <h4>Description</h4>
+                        <div class="noPIndent" style="margin-bottom: 10px;">
+                            The standard model Evac+Chair featuring 182kg payload capacity and a blue textured finish with contrasting yellow hammock. Also available in AMB format which has larger rear wheels for prolonged/external use.
+<br />
+<br />(REF: 1-300H-MK4)
+<br />
+<br />Also available in
+                        </div>
+                        <div id="contentHolder_ctl00_panFeatures">
+	
+                            <h4>Features & Benefits </h4>
+                            
+                                    <ul class="plus">
+                                        
+                                    <li>Easy to use
+</li>
+                                
+                                    <li>One person operation
+</li>
+                                
+                                    <li>Lightweight
+</li>
+                                
+                                    <li>No heavy lifting required
+</li>
+                                
+                                    <li>Made in the UK</li>
+                                
+                                    </ul>
+                                
+                        
+</div>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="dimensions">
+                            <h4>Dimensions</h4>
+                            <table>
+                                <tr>
+                                    <th>Height</th>
+                                    <td>1050mm (folded)</td>
+                                </tr>
+                                <tr>
+                                    <th>Width</th>
+                                    <td>520mm (folded)</td>
+                                </tr>
+                                <tr>
+                                    <th>Depth</th>
+                                    <td>200mm (folded)</td>
+                                </tr>
+                                <tr>
+                                    <th>Weight</th>
+                                    <td>9.5kg</td>
+                                </tr>
+                                <tr>
+                                    <th>Payload Capacity</th>
+                                    <td>182kg</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td width="20">&nbsp;</td>
+                    <td style="vertical-align: top;">
+                        <div id="contentHolder_ctl00_panIncludes">
+	
+                            <h4 style="margin-top: 10px;">Includes</h4>
+                            
+                                    <ul class="includes">
+                                        
+                                    <li>Patient Restraints
+</li>
+                                
+                                    <li>Photo Luminescent Signage
+</li>
+                                
+                                    <li>Wall Mounted Hooks
+</li>
+                                
+                                    <li>Dust Cover
+</li>
+                                
+                                    <li>User Guide</li>
+                                
+                                    </ul>
+                                
+                        
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;">
+                        <p>
+                            <a id="contentHolder_ctl00_lnkContactUs" class="button" href="Contact-Us.aspx" style="display:inline-block;height:31px;width:129px;">Enquire Now</a>
+                            <a id="contentHolder_ctl00_lnkAccessories" class="button" href="Evac-Chair-Accessories.aspx?productId=1" style="display:inline-block;height:31px;width:129px;">Accessories</a>
+                            <a id="contentHolder_ctl00_lnkDatasheet" class="button" href="uploads/file/300H-MK4.pdf" target="_blank" style="display:inline-block;height:31px;width:129px;">Download PDF</a>
+                                                        
+                        </p>
+                    </td>
+                    <td width="20">&nbsp;</td>
+                    <td style="vertical-align: top;">
+                        <a id="contentHolder_ctl00_lnkBack" class="backLink" href="javascript: history.go(-1)"><img src="images/back-button.jpg" alt="back arrow image" style="border-width:0px;" />Back to Products</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>

@@ -40,7 +40,7 @@ Partial Class viewEscapeRouteSwipe
         Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciStairwayType = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciPitch = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciThread = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciTread = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciGoing = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
@@ -64,7 +64,7 @@ Partial Class viewEscapeRouteSwipe
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciStairwayType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPitch, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciThread, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciTread, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciGoing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,7 +170,7 @@ Partial Class viewEscapeRouteSwipe
         Me.cbeThread.Location = New System.Drawing.Point(202, 84)
         Me.cbeThread.Name = "cbeThread"
         Me.cbeThread.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbeThread.Properties.Items.AddRange(New Object() {"Glass", "Granite", "Marble", "Stainless Steel", "Stone", "Tile", "Terrazzo", "Wooden"})
+        Me.cbeThread.Properties.Items.AddRange(New Object() {"Carpet", "Glass", "Granite", "Marble", "Stainless Steel", "Stone", "Tile", "Terrazzo", "Wooden"})
         Me.cbeThread.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbeThread.Size = New System.Drawing.Size(527, 20)
         Me.cbeThread.StyleController = Me.LayoutControl1
@@ -223,7 +223,7 @@ Partial Class viewEscapeRouteSwipe
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciThread, Me.lciGoing, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciFloor, Me.lciNosing, Me.lciLocation, Me.lciFloors})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciTread, Me.lciGoing, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciFloor, Me.lciNosing, Me.lciLocation, Me.lciFloors})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -262,15 +262,15 @@ Partial Class viewEscapeRouteSwipe
         Me.lciPitch.Text = "Pitch (degrees)"
         Me.lciPitch.TextSize = New System.Drawing.Size(73, 13)
         '
-        'lciThread
+        'lciTread
         '
-        Me.lciThread.Control = Me.cbeThread
-        Me.lciThread.CustomizationFormText = "Thread"
-        Me.lciThread.Location = New System.Drawing.Point(114, 72)
-        Me.lciThread.Name = "lciThread"
-        Me.lciThread.Size = New System.Drawing.Size(607, 24)
-        Me.lciThread.Text = "Thread"
-        Me.lciThread.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciTread.Control = Me.cbeThread
+        Me.lciTread.CustomizationFormText = "Thread"
+        Me.lciTread.Location = New System.Drawing.Point(114, 72)
+        Me.lciTread.Name = "lciTread"
+        Me.lciTread.Size = New System.Drawing.Size(607, 24)
+        Me.lciTread.Text = "Tread"
+        Me.lciTread.TextSize = New System.Drawing.Size(73, 13)
         '
         'lciGoing
         '
@@ -360,7 +360,7 @@ Partial Class viewEscapeRouteSwipe
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciStairwayType, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPitch, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciThread, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciTread, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciGoing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -383,7 +383,7 @@ Partial Class viewEscapeRouteSwipe
     Friend WithEvents cbeStairwayType As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents lciStairwayType As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciPitch As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents lciThread As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciTread As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciGoing As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem

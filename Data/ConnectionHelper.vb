@@ -60,18 +60,20 @@ Namespace Esso.Data
         Private Shared Sub CheckForTables(ByVal session As Session)
             Try
 
-                'If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("Oid =  ?", 1)), Nothing))) Then
-                '    Dim EObj As New FieldOption(session)
-                '    EObj.ServiceField = eServiceFields.BackRest
-                '    EObj.Description = "Not Present"
-                '    EObj.Save()
-                'End If
-                'If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("Oid =  ?", 2)), Nothing))) Then
-                '    Dim EObj As New FieldOption(session)
-                '    EObj.ServiceField = eServiceFields.Fasteners
-                '    EObj.Description = "Not Present"
-                '    EObj.Save()
-                'End If
+                If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 1)), Nothing))) Then
+                    Dim EObj As New FieldOption(session)
+                    EObj.ID = 1
+                    EObj.ServiceField = eServiceFields.BackRest
+                    EObj.Description = "Not Present"
+                    EObj.Save()
+                End If
+                If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 2)), Nothing))) Then
+                    Dim EObj As New FieldOption(session)
+                    EObj.ID = 2
+                    EObj.ServiceField = eServiceFields.Fasteners
+                    EObj.Description = "Not Present"
+                    EObj.Save()
+                End If
 
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical)
