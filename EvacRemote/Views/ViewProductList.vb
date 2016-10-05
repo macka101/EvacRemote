@@ -10,7 +10,7 @@ Imports Esso.Data
 Imports DevExpress.Xpo.DB
 Imports DevExpress.Data.Filtering
 
-Public Class ProductList
+Public Class ViewProductList
     Private _Loaded As Boolean = False
     Private _session As UnitOfWork
     Private _parent As frmMain = Nothing
@@ -39,7 +39,7 @@ Public Class ProductList
         Dim _ProductView As XPView = New XPView(_session, GetType(Product))
         _ProductView.AddProperty("Oid", "Oid")
         _ProductView.AddProperty("ProductCode", "ProductCode")
-        _ProductView.AddProperty("ShortDescription", "ShortDescription")
+        _ProductView.AddProperty("Description", "Description")
 
         Dim sortCollection As SortingCollection = New SortingCollection()
         sortCollection.Add(New SortProperty("ProductCode", SortingDirection.Ascending))
@@ -71,8 +71,16 @@ Public Class ProductList
     End Sub
     Private Sub ViewProduct()
         If CurrentProduct IsNot Nothing Then
-            _currentProduct = CurrentProduct
-            ParentFormMain.SelectPage(frmMain.ePage.ProductDetail)
+            Using frmProduct As New ProductDetail(CurrentProduct)
+                Me.Hide()
+                frmProduct.Parent = frmMain.MainPnl
+                frmProduct.Dock = DockStyle.Fill
+                frmProduct.Initdata()
+                '  _Survey.Visible = False
+                frmProduct.Visible = True
+            End Using
+
+            '            ParentFormMain.SelectPage(frmMain.ePage.ProductDetail)
         End If
 
     End Sub
@@ -114,5 +122,11 @@ Public Class ProductList
 
     Private Sub vw_Products_DoubleClick(sender As Object, e As EventArgs) Handles vw_Products.DoubleClick
         ViewProduct()
+    End Sub
+
+    Private Sub btnImport_Click(sender As Object, e As EventArgs) Handles btnImport.Click
+        Using frmimport As New frmImportProducts(_session)
+            frmimport.ShowDialog()
+        End Using
     End Sub
 End Class

@@ -40,7 +40,12 @@ Public Class SurveyDetail
         lueBuilding.Properties.Columns.Clear()
         lueBuilding.Properties.Columns.Add(New LookUpColumnInfo("Location"))
         lueBuilding.Properties.ShowHeader = False
-        lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
+        If xpBuildings Is Nothing Then
+            lueBuilding.Properties.DropDownRows = 9
+        Else
+            lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
+        End If
+
         lueBuilding.Properties.AllowDropDownWhenReadOnly = DefaultBoolean.False
 
         AddHandler lueBuilding.EditValueChanged, AddressOf edit_EditValueChanged
@@ -49,13 +54,9 @@ Public Class SurveyDetail
 
     End Sub
     Public Sub Initdata()
+        InitEditors()
 
-        If _currentSurvey Is Nothing Then
-            _currentSurvey = New EvacSurvey(_session)
-            _currentSurvey.Division = _currentContact.Division
-        End If
-
-        xpBuildings = New XPCollection(Of Building)(_session)
+        xpBuildings = _currentDivision.Buildings
         xpEscapeRoutes = New XPCollection(Of EscapeRoute)(_session)
         xpFloors = New XPCollection(Of Asset)(_session)
 
@@ -66,10 +67,10 @@ Public Class SurveyDetail
             nBuilding.Access = "Private"
             nBuilding.Save()
             _session.CommitChanges()
-            xpBuildings.Add(nBuilding)
+            _currentDivision.Buildings.Add(nBuilding)
 
         End If
-        InitEditors()
+
         lueBuilding.EditValue = xpBuildings.First
 
         ' colClient.ColumnEdit = Misc.CreateAccessTypeImageComboBox(grid_Buildings.RepositoryItems, True, True)
@@ -89,7 +90,7 @@ Public Class SurveyDetail
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs)
-        ParentFormMain.HideProduct()
+        ' ParentFormMain.HideProduct()
     End Sub
 
     Public Sub RefreshStairWell()
@@ -184,6 +185,7 @@ Public Class SurveyDetail
         icbAccess.EditValue = CurrentBuilding.Access
         icbHeritage.EditValue = CurrentBuilding.Heritage
         teEscapeRoutes.EditValue = CurrentBuilding.EscapeRoutesNo
+        GrdEscapeRoutes.DataSource = CurrentBuilding.EscapeRoutes
     End Sub
 
     'Private Sub teStairwells_EditValueChanged(sender As Object, e As EventArgs)
@@ -228,17 +230,14 @@ Public Class SurveyDetail
     Private Sub SaveData()
         _session.CommitChanges()
     End Sub
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If _changed = True Then
-            Dim b_save As DialogResult = XtraMessageBox.Show("Save Changes", "Save", MessageBoxButtons.YesNoCancel)
-            If b_save = DialogResult.Cancel Then
-                Exit Sub
-            End If
-            If b_save = DialogResult.Yes Then
+
+    Private Sub vw_EscapeRoute_Click(sender As Object, e As EventArgs) Handles vw_EscapeRoute.Click
+        If CurrentEscapeRoute IsNot Nothing Then
+            If _changed = True Then
                 SaveData()
             End If
+            _currentEscapeRoute = CurrentEscapeRoute
+            ParentFormMain.SelectPage(frmMain.ePage.EscapeRoute)
         End If
-        ParentFormMain.SelectPage(frmMain.ePage.SurveyList)
     End Sub
-
 End Class

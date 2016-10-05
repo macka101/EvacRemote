@@ -7,28 +7,28 @@ Imports DevExpress.XtraEditors
 
 Public Class frmMain
 
-    Dim _DiarySchedule As DiarySchedule
-    Dim _ContactList As ContactList
+    Dim _DiarySchedule As ViewDiarySchedule
+    Dim _ContactList As ViewContactList
     Dim _ContactDetail As ContactDetail
 
-    Dim _ProductList As ProductList
+    Dim _ProductList As ViewProductList
     Dim _ProductDetail As ProductDetail
 
-    Dim _Basket As BasketList
+    Dim _Basket As ViewBasketList
 
-    Dim _SurveyList As SurveyList
+    Dim _SurveyList As ViewSurveyList
     Dim _SurveyDetail As SurveyDetail
+    Dim _EscapeRoute As viewEscapeRoute
+    Dim _FloorDetail As viewFloor
 
-    Dim _ServiceList As ServiceList
+    Dim _ServiceList As ViewServiceList
     Dim _ServiceDetail As ServiceDetail
     Dim _AssetServiceChair As AssetServiceChair
 
-    Dim _StairwellDetail As viewStairWellDetail
-    Dim _ViewEscapeRoute As viewEscapeRouteSwipe
-    Dim _ViewFloor As viewFloorSwipe
+    Dim _ViewEscapeRoute As viewEscapeRoute
+    Dim _ViewFloor As viewFloor
     '    Dim _ViewServiceChair As AssetServiceChair
     Dim _ViewServiceIbex As viewAssetSwipeIbex
-
 
     Dim _ViewProductWeb As viewProductSwipeWeb
     Dim _ViewProductRTF As viewProductSwipeRTF
@@ -36,7 +36,7 @@ Public Class frmMain
     Dim _Tasks As TaskListSwipe
 
     Public dataSession As UnitOfWork = Nothing
-  
+
 
     Public Enum ePage
         None = 0
@@ -44,13 +44,14 @@ Public Class frmMain
         ContactDetail = 2
         SurveyList = 3
         SurveyDetail = 4
-        ProductList = 5
-        ProductDetail = 6
-        ServiceList = 7
-        ServiceDetail = 8
-        StairWell = 9
-        DiarySchedule = 10
-        AssetServiceChair = 11
+        FloorDetail = 5
+        ProductList = 6
+        ProductDetail = 7
+        ServiceList = 8
+        ServiceDetail = 9
+        EscapeRoute = 10
+        DiarySchedule = 11
+        AssetServiceChair = 12
     End Enum
 
     Public _CurrentPage As ePage = ePage.None
@@ -106,16 +107,20 @@ Public Class frmMain
                 _ProductList.Visible = False
             Case ePage.SurveyList
                 _SurveyList.Visible = False
+            Case ePage.SurveyDetail
+                _SurveyDetail.Visible = False
             Case ePage.ServiceList
                 _ServiceList.Visible = False
             Case ePage.ServiceDetail
                 _ServiceDetail.Visible = False
+            Case ePage.EscapeRoute
+                _EscapeRoute.Visible = False
         End Select
 
         Select Case _page
             Case ePage.ContactList
                 If _ContactList Is Nothing Then
-                    _ContactList = New ContactList(dataSession, Me)
+                    _ContactList = New ViewContactList(dataSession, Me)
                 End If
                 _ContactList.Parent = Me.MainPnl
                 _ContactList.Dock = DockStyle.Fill
@@ -128,7 +133,7 @@ Public Class frmMain
                 _ContactList.Visible = True
             Case ePage.DiarySchedule
                 If _DiarySchedule Is Nothing Then
-                    _DiarySchedule = New DiarySchedule(dataSession, Me)
+                    _DiarySchedule = New ViewDiarySchedule(dataSession, Me)
                 End If
                 _DiarySchedule.Parent = Me.MainPnl
                 _DiarySchedule.Dock = DockStyle.Fill
@@ -149,7 +154,7 @@ Public Class frmMain
                 ServiceEnabled(True)
             Case ePage.ProductList
                 If _ProductList Is Nothing Then
-                    _ProductList = New ProductList(dataSession, Me)
+                    _ProductList = New ViewProductList(dataSession, Me)
                 End If
                 _ProductList.Parent = Me.MainPnl
                 _ProductList.Dock = DockStyle.Fill
@@ -162,7 +167,7 @@ Public Class frmMain
                 _ProductList.Visible = True
             Case ePage.SurveyList
                 If _SurveyList Is Nothing Then
-                    _SurveyList = New SurveyList(dataSession, Me)
+                    _SurveyList = New ViewSurveyList(dataSession, Me)
                 End If
                 _SurveyList.Parent = Me.MainPnl
                 _SurveyList.Dock = DockStyle.Fill
@@ -183,9 +188,30 @@ Public Class frmMain
                     _SurveyDetail.Initdata()
                 End If
                 _SurveyDetail.Visible = True
+            Case ePage.EscapeRoute
+                If _EscapeRoute Is Nothing Then
+                    _EscapeRoute = New viewEscapeRoute(dataSession, Me)
+                End If
+                _EscapeRoute.Parent = Me.MainPnl
+                _EscapeRoute.Dock = DockStyle.Fill
+                If _EscapeRoute.Loaded = False Then
+                    _EscapeRoute.Initdata()
+                End If
+                _EscapeRoute.Visible = True
+            Case ePage.FloorDetail
+                If _FloorDetail Is Nothing Then
+                    _FloorDetail = New viewFloor(dataSession, Me)
+                End If
+                _FloorDetail.Parent = Me.MainPnl
+                _FloorDetail.Dock = DockStyle.Fill
+                If _FloorDetail.Loaded = False Then
+                    _FloorDetail.Initdata()
+                End If
+                _FloorDetail.Visible = True
+
             Case ePage.ServiceList
                 If _ServiceList Is Nothing Then
-                    _ServiceList = New ServiceList(dataSession, Me)
+                    _ServiceList = New ViewServiceList(dataSession, Me)
                 End If
                 _ServiceList.Parent = Me.MainPnl
                 _ServiceList.Dock = DockStyle.Fill
@@ -216,16 +242,16 @@ Public Class frmMain
                     _AssetServiceChair.Initdata()
                 End If
                 _AssetServiceChair.Visible = True
-            Case ePage.StairWell
-                If _StairwellDetail Is Nothing Then
-                    _StairwellDetail = New viewStairWellDetail(dataSession, Me)
-                End If
-                _StairwellDetail.Parent = Me.MainPnl
-                _StairwellDetail.Dock = DockStyle.Fill
-                If _StairwellDetail.Loaded = False Then
-                    _StairwellDetail.Initdata()
-                End If
-                _StairwellDetail.Visible = True
+                'Case ePage.StairWell
+                '    If _StairwellDetail Is Nothing Then
+                '        _StairwellDetail = New viewStairWellDetail(dataSession, Me)
+                '    End If
+                '    _StairwellDetail.Parent = Me.MainPnl
+                '    _StairwellDetail.Dock = DockStyle.Fill
+                '    If _StairwellDetail.Loaded = False Then
+                '        _StairwellDetail.Initdata()
+                '    End If
+                '    _StairwellDetail.Visible = True
         End Select
 
 
@@ -258,61 +284,14 @@ Public Class frmMain
         _ProductList.Visible = False
         _ViewProductWeb.Visible = True
     End Sub
-    Public Sub ViewProductWin(ByRef oRow As Product)
-        If _ProductDetail Is Nothing Then
-            _ProductDetail = New ProductDetail(Me, oRow)
-        End If
-
-        _ProductDetail.Parent = Me.MainPnl
-        _ProductDetail.Dock = DockStyle.Fill
-        _ProductDetail.Initdata()
-        _ProductList.Visible = False
-        _ProductDetail.Visible = True
-    End Sub
-    Public Sub HideProduct()
-        If _ViewProductWeb IsNot Nothing Then
-            _ViewProductWeb.Visible = False
-        End If
-        If _ViewProductRTF IsNot Nothing Then
-            _ViewProductRTF.Visible = False
-        End If
-        If _ProductDetail IsNot Nothing Then
-            _ProductDetail.Visible = False
-        End If
-
-        _ProductList.Visible = True
-    End Sub
-    Public Sub ViewEscapeRoute(ByRef pForm As ServiceDetail, ByRef pEscapeRoute As EscapeRoute)
-        If _ViewEscapeRoute Is Nothing Then
-            _ViewEscapeRoute = New viewEscapeRouteSwipe(Me, pForm, pEscapeRoute)
-        End If
-
-        _ViewEscapeRoute.Parent = Me.MainPnl
-        _ViewEscapeRoute.Dock = DockStyle.Fill
-        _ViewEscapeRoute.Initdata()
-        '  _Survey.Visible = False
-        _ViewEscapeRoute.Visible = True
-    End Sub
+ 
     Public Sub HideStairCase()
         _ViewEscapeRoute.Visible = False
         '_Survey.Visible = True
     End Sub
-    Public Sub ViewFloor(ByRef pForm As viewEscapeRouteSwipe, ByRef pFloor As Floor)
-        If _ViewFloor Is Nothing Then
-            _ViewFloor = New viewFloorSwipe(Me, pForm, pFloor)
-        End If
 
-        _ViewFloor.Parent = Me.MainPnl
-        _ViewFloor.Dock = DockStyle.Fill
-        _ViewFloor.Initdata()
-        pForm.Visible = False
-        _ViewFloor.Visible = True
-    End Sub
-    Public Sub HideFloor()
-        _ViewFloor.Visible = False
-        _ViewEscapeRoute.Visible = True
-    End Sub
-    Public Sub ViewServiceChair(pForm As ServiceList, pAsset As Asset)
+
+    Public Sub ViewServiceChair(pForm As ViewServiceList, pAsset As Asset)
         'If _ViewServiceChair Is Nothing Then
         '    _ViewServiceChair = New viewAssetSwipeChair(dataSession, Me, pForm, pAsset)
         'End If
@@ -323,7 +302,7 @@ Public Class frmMain
         '_Service.Visible = False
         '_ViewServiceChair.Visible = True
     End Sub
-    Public Sub ViewServiceIbex(pForm As ServiceList, pAsset As Asset)
+    Public Sub ViewServiceIbex(pForm As ViewServiceList, pAsset As Asset)
         'If _ViewServiceIbex Is Nothing Then
         '    _ViewServiceIbex = New viewAssetSwipeIbex(Me, pForm, pAsset)
         'End If

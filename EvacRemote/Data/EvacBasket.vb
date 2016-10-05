@@ -59,8 +59,8 @@ Public Class Basket
             Dim oProduct = _session.FindObject(Of Product)(CriteriaOperator.Parse("productId = ?", iProduct))
             Dim oLine As New BasketItem(_session)
             oLine.Product = iProduct
-            oLine.Reference = oProduct.name
-            oLine.Description = oProduct.description
+            oLine.Reference = oProduct.ProductCode
+            oLine.Description = oProduct.Description
             oLine.Qty = iQty
             _Basket.Items.Add(oLine)
         End If

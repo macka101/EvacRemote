@@ -22,12 +22,12 @@ Module Misc
     Public iCont As Integer = 0
     Public iDivison As Integer = 0
 
+    Public _currentDivision As Division
     Public _currentContact As Contact
     Public _currentProduct As Product
     Public _currentSurvey As EvacSurvey
     Public _currentService As EvacService
-    Public _currentStairwell As Stairwell
-
+    Public _currentFloor As Floor
 
     Public _currentBuilding As Building
     Public _currentEscapeRoute As EscapeRoute

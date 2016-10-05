@@ -1,10 +1,8 @@
 ﻿Imports DevExpress.Xpo
 Imports Esso.Data
 
-Public Class viewEscapeRouteSwipe
+Public Class viewEscapeRoute
     Private _parent As frmMain = Nothing
-    Private _viewStairwaySwipe As EvacSurvey = Nothing
-    Private _EscapeRoute As EscapeRoute
     Private _session As UnitOfWork
 
     Private editValueChangedDelegate As EventHandler
@@ -12,8 +10,14 @@ Public Class viewEscapeRouteSwipe
     Private freadOnly As Boolean = False
     Private _binding As Boolean = False
     Private _changed As Boolean = False
+    Private _loaded As Boolean = False
+    Public ReadOnly Property Loaded As Boolean
+        Get
+            Return _Loaded
+        End Get
+    End Property
 
-    Public Property ParentMain() As frmMain
+    Public Property ParentFormMain() As frmMain
         Get
             Return _parent
         End Get
@@ -24,37 +28,8 @@ Public Class viewEscapeRouteSwipe
             _parent = value
         End Set
     End Property
-    Public Property ParentSurvey() As EvacSurvey
-        Get
-            Return _viewStairwaySwipe
-        End Get
-        Set(ByVal value As EvacSurvey)
-            If (Not Object.Equals(_viewStairwaySwipe, Nothing)) Then
-                Return
-            End If
-            _viewStairwaySwipe = value
-        End Set
-    End Property
-    Public Sub Initdata()
 
-    End Sub
-
-    Public Sub New(ByVal parent As frmMain, ByRef pForm As ServiceDetail, ByRef pStairCase As EscapeRoute)
-
-        ' This call is required by the designer.
-        InitializeComponent()
-        _parent = parent
-        ' _viewStairwaySwipe = pForm
-        _session = pStairCase.Session
-        _EscapeRoute = pStairCase
-        ' Add any initialization after the InitializeComponent() call.
-        teLocation.Text = _EscapeRoute.Location
-        teFloors.Text = _EscapeRoute.NoFloors
-        cbeStairwayType.EditValue = _EscapeRoute.Type
-        icbNosing.EditValue = _EscapeRoute.Nosing
-        cbePitch.EditValue = _EscapeRoute.Angle
-        CBEGoing.EditValue = _EscapeRoute.Going
-
+    Public Sub InitEditors()
         Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
 
         AddHandler teLocation.EditValueChanged, AddressOf edit_EditValueChanged
@@ -64,9 +39,28 @@ Public Class viewEscapeRouteSwipe
         AddHandler cbeThread.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler cbePitch.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler CBEGoing.EditValueChanged, AddressOf edit_EditValueChanged
-
+    End Sub
+    Public Sub Initdata()
+        teLocation.Text = _currentEscapeRoute.Location
+        teFloors.Text = _currentEscapeRoute.NoFloors
+        cbeStairwayType.EditValue = _currentEscapeRoute.Type
+        icbNosing.EditValue = _currentEscapeRoute.Nosing
+        cbePitch.EditValue = _currentEscapeRoute.Angle
+        CBEGoing.EditValue = _currentEscapeRoute.Going
+        _loaded = True
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, True)
     End Sub
+
+    Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        _parent = parent
+        _session = session
+        ' Add any initialization after the InitializeComponent() call.
+        LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, True)
+    End Sub
+
     Public Property [ReadOnly]() As Boolean
         Get
             Return freadOnly
@@ -86,16 +80,14 @@ Public Class viewEscapeRouteSwipe
 
     End Sub
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        _EscapeRoute.Location = teLocation.Text
-        _EscapeRoute.NoFloors = teFloors.Text
-        _EscapeRoute.Type = cbeStairwayType.EditValue
-        _EscapeRoute.Nosing = icbNosing.EditValue
-        _EscapeRoute.Angle = cbePitch.EditValue
-        _EscapeRoute.Going = CBEGoing.EditValue
-        _EscapeRoute.Save()
-        _EscapeRoute.Session.CommitTransaction()
-        'ParentSurvey.RefreshStairWell()
-        ParentMain.HideStairCase()
+        _currentEscapeRoute.Location = teLocation.Text
+        _currentEscapeRoute.NoFloors = teFloors.Text
+        _currentEscapeRoute.Type = cbeStairwayType.EditValue
+        _currentEscapeRoute.Nosing = icbNosing.EditValue
+        _currentEscapeRoute.Angle = cbePitch.EditValue
+        _currentEscapeRoute.Going = CBEGoing.EditValue
+        _currentEscapeRoute.Save()
+        _session.CommitTransaction()
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then
@@ -111,37 +103,29 @@ Public Class viewEscapeRouteSwipe
         End Get
     End Property
     Private Sub gridFloors_Click(sender As Object, e As EventArgs) Handles gridFloors.Click
-        ParentMain.ViewFloor(Me, CurrentFloor)
-
-        'If CurrentFloor IsNot Nothing Then
-        '    Using frmFloor As New viewFloorSwipe(_session, CurrentFloor)
-        '        frmFloor.Parent = frmMain.MainPnl
-        '        frmFloor.Dock = DockStyle.Fill
-        '        frmFloor.Initdata()
-        '        Me.Visible = False
-        '        frmFloor.Visible = True
-        '    End Using
-        '    Me.Visible = True
-        'End If
+        If CurrentFloor IsNot Nothing Then
+            _currentFloor = CurrentFloor
+            ParentFormMain.SelectPage(frmMain.ePage.FloorDetail)
+        End If
     End Sub
 
     Private Sub InitFloors(ByVal required As Integer)
-        If required > _EscapeRoute.Floors.Count Then
-            For i As Integer = _EscapeRoute.Floors.Count + 1 To required
+        If required > _currentEscapeRoute.Floors.Count Then
+            For i As Integer = _currentEscapeRoute.Floors.Count + 1 To required
                 Dim _floor As New Floor(_session)
-                _floor.Building = _EscapeRoute.Building
+                _floor.Building = _currentEscapeRoute.Building
                 _floor.Floor = String.Format("Floor {0}", i)
                 _floor.Type = "Fire Exit"
                 _floor.Save()
-                _EscapeRoute.Floors.Add(_floor)
+                _currentEscapeRoute.Floors.Add(_floor)
             Next
-        ElseIf required < _EscapeRoute.Floors.Count Then
-            While required < _EscapeRoute.Floors.Count
-                Dim dfloor = _EscapeRoute.Floors(_EscapeRoute.Floors.Count - 1)
+        ElseIf required < _currentEscapeRoute.Floors.Count Then
+            While required < _currentEscapeRoute.Floors.Count
+                Dim dfloor = _currentEscapeRoute.Floors(_currentEscapeRoute.Floors.Count - 1)
                 dfloor.Delete()
             End While
         End If
-        Me.gridFloors.DataSource = _EscapeRoute.Floors
+        Me.gridFloors.DataSource = _currentEscapeRoute.Floors
     End Sub
 
     Private Sub teFloors_Validated(sender As Object, e As EventArgs) Handles teFloors.Validated

@@ -57,7 +57,7 @@ Public Class ServiceDetail
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs)
-        ParentFormMain.HideProduct()
+        'ParentFormMain.HideProduct()
     End Sub
 
     Private ReadOnly Property CurrentAsset() As Asset

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class viewEscapeRouteSwipe
+Partial Class viewEscapeRoute
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -48,6 +48,16 @@ Partial Class viewEscapeRouteSwipe
         Me.lciNosing = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciLocation = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciFloors = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.ToggleSwitch1 = New DevExpress.XtraEditors.ToggleSwitch()
+        Me.ToggleSwitch2 = New DevExpress.XtraEditors.ToggleSwitch()
+        Me.ToggleSwitch3 = New DevExpress.XtraEditors.ToggleSwitch()
+        Me.ToggleSwitch4 = New DevExpress.XtraEditors.ToggleSwitch()
+        Me.lcgOptions = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.lciUnEvenGround = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciHorizontal = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciMisuse = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciUpstairs = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lcgDetails = New DevExpress.XtraLayout.LayoutControlGroup()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.gridFloors, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +82,16 @@ Partial Class viewEscapeRouteSwipe
         CType(Me.lciNosing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciLocation, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFloors, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToggleSwitch1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToggleSwitch2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToggleSwitch3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToggleSwitch4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lcgOptions, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciUnEvenGround, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciHorizontal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciMisuse, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciUpstairs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lcgDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -85,10 +105,14 @@ Partial Class viewEscapeRouteSwipe
         Me.LayoutControl1.Controls.Add(Me.cbeStairwayType)
         Me.LayoutControl1.Controls.Add(Me.teFloors)
         Me.LayoutControl1.Controls.Add(Me.picBack)
+        Me.LayoutControl1.Controls.Add(Me.ToggleSwitch4)
+        Me.LayoutControl1.Controls.Add(Me.ToggleSwitch1)
+        Me.LayoutControl1.Controls.Add(Me.ToggleSwitch3)
+        Me.LayoutControl1.Controls.Add(Me.ToggleSwitch2)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
-        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(971, 156, 250, 350)
+        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(684, 156, 608, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
         Me.LayoutControl1.Size = New System.Drawing.Size(916, 486)
         Me.LayoutControl1.TabIndex = 0
@@ -96,11 +120,11 @@ Partial Class viewEscapeRouteSwipe
         '
         'gridFloors
         '
-        Me.gridFloors.Location = New System.Drawing.Point(126, 180)
+        Me.gridFloors.Location = New System.Drawing.Point(126, 232)
         Me.gridFloors.MainView = Me.vw_floors
         Me.gridFloors.Name = "gridFloors"
         Me.gridFloors.ShowOnlyPredefinedDetails = True
-        Me.gridFloors.Size = New System.Drawing.Size(603, 294)
+        Me.gridFloors.Size = New System.Drawing.Size(720, 242)
         Me.gridFloors.TabIndex = 16
         Me.gridFloors.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_floors})
         '
@@ -110,6 +134,7 @@ Partial Class viewEscapeRouteSwipe
         Me.vw_floors.GridControl = Me.gridFloors
         Me.vw_floors.Name = "vw_floors"
         Me.vw_floors.OptionsBehavior.Editable = False
+        Me.vw_floors.OptionsView.ShowGroupPanel = False
         '
         'colOid
         '
@@ -136,76 +161,76 @@ Partial Class viewEscapeRouteSwipe
         'teLocation
         '
         Me.teLocation.EnterMoveNextControl = True
-        Me.teLocation.Location = New System.Drawing.Point(202, 12)
+        Me.teLocation.Location = New System.Drawing.Point(219, 24)
         Me.teLocation.Name = "teLocation"
-        Me.teLocation.Size = New System.Drawing.Size(527, 20)
+        Me.teLocation.Size = New System.Drawing.Size(388, 20)
         Me.teLocation.StyleController = Me.LayoutControl1
         Me.teLocation.TabIndex = 15
         '
         'icbNosing
         '
         Me.icbNosing.EnterMoveNextControl = True
-        Me.icbNosing.Location = New System.Drawing.Point(202, 60)
+        Me.icbNosing.Location = New System.Drawing.Point(219, 72)
         Me.icbNosing.Name = "icbNosing"
         Me.icbNosing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.icbNosing.Size = New System.Drawing.Size(527, 20)
+        Me.icbNosing.Size = New System.Drawing.Size(615, 20)
         Me.icbNosing.StyleController = Me.LayoutControl1
         Me.icbNosing.TabIndex = 14
         '
         'CBEGoing
         '
         Me.CBEGoing.EnterMoveNextControl = True
-        Me.CBEGoing.Location = New System.Drawing.Point(202, 132)
+        Me.CBEGoing.Location = New System.Drawing.Point(219, 144)
         Me.CBEGoing.Name = "CBEGoing"
         Me.CBEGoing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CBEGoing.Properties.Items.AddRange(New Object() {"220", "230", "240", "250", "260", "270", "280", "290", "300"})
         Me.CBEGoing.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.CBEGoing.Size = New System.Drawing.Size(527, 20)
+        Me.CBEGoing.Size = New System.Drawing.Size(615, 20)
         Me.CBEGoing.StyleController = Me.LayoutControl1
         Me.CBEGoing.TabIndex = 12
         '
         'cbeThread
         '
         Me.cbeThread.EnterMoveNextControl = True
-        Me.cbeThread.Location = New System.Drawing.Point(202, 84)
+        Me.cbeThread.Location = New System.Drawing.Point(219, 96)
         Me.cbeThread.Name = "cbeThread"
         Me.cbeThread.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbeThread.Properties.Items.AddRange(New Object() {"Carpet", "Glass", "Granite", "Marble", "Stainless Steel", "Stone", "Tile", "Terrazzo", "Wooden"})
         Me.cbeThread.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbeThread.Size = New System.Drawing.Size(527, 20)
+        Me.cbeThread.Size = New System.Drawing.Size(615, 20)
         Me.cbeThread.StyleController = Me.LayoutControl1
         Me.cbeThread.TabIndex = 11
         '
         'cbePitch
         '
         Me.cbePitch.EnterMoveNextControl = True
-        Me.cbePitch.Location = New System.Drawing.Point(202, 108)
+        Me.cbePitch.Location = New System.Drawing.Point(219, 120)
         Me.cbePitch.Name = "cbePitch"
         Me.cbePitch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbePitch.Properties.Items.AddRange(New Object() {"20", "22", "24", "26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50"})
         Me.cbePitch.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbePitch.Size = New System.Drawing.Size(527, 20)
+        Me.cbePitch.Size = New System.Drawing.Size(615, 20)
         Me.cbePitch.StyleController = Me.LayoutControl1
         Me.cbePitch.TabIndex = 9
         '
         'cbeStairwayType
         '
         Me.cbeStairwayType.EnterMoveNextControl = True
-        Me.cbeStairwayType.Location = New System.Drawing.Point(202, 36)
+        Me.cbeStairwayType.Location = New System.Drawing.Point(219, 48)
         Me.cbeStairwayType.Name = "cbeStairwayType"
         Me.cbeStairwayType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbeStairwayType.Properties.Items.AddRange(New Object() {"Closed Riser", "Kite", "Open Riser", "Helical", "Winder", "Short Straight", "Spiral with no Landing", "Straight with Landing", "Straight with no landing"})
         Me.cbeStairwayType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbeStairwayType.Size = New System.Drawing.Size(527, 20)
+        Me.cbeStairwayType.Size = New System.Drawing.Size(615, 20)
         Me.cbeStairwayType.StyleController = Me.LayoutControl1
         Me.cbeStairwayType.TabIndex = 8
         '
         'teFloors
         '
         Me.teFloors.EnterMoveNextControl = True
-        Me.teFloors.Location = New System.Drawing.Point(202, 156)
+        Me.teFloors.Location = New System.Drawing.Point(692, 24)
         Me.teFloors.Name = "teFloors"
-        Me.teFloors.Size = New System.Drawing.Size(527, 20)
+        Me.teFloors.Size = New System.Drawing.Size(142, 20)
         Me.teFloors.StyleController = Me.LayoutControl1
         Me.teFloors.TabIndex = 5
         '
@@ -223,7 +248,7 @@ Partial Class viewEscapeRouteSwipe
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciTread, Me.lciGoing, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciFloor, Me.lciNosing, Me.lciLocation, Me.lciFloors})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciFloors, Me.lcgOptions, Me.lcgDetails})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -246,41 +271,41 @@ Partial Class viewEscapeRouteSwipe
         '
         Me.lciStairwayType.Control = Me.cbeStairwayType
         Me.lciStairwayType.CustomizationFormText = "Stairway Type"
-        Me.lciStairwayType.Location = New System.Drawing.Point(114, 24)
+        Me.lciStairwayType.Location = New System.Drawing.Point(0, 24)
         Me.lciStairwayType.Name = "lciStairwayType"
-        Me.lciStairwayType.Size = New System.Drawing.Size(607, 24)
+        Me.lciStairwayType.Size = New System.Drawing.Size(700, 24)
         Me.lciStairwayType.Text = "Stairway Type"
-        Me.lciStairwayType.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciStairwayType.TextSize = New System.Drawing.Size(78, 13)
         '
         'lciPitch
         '
         Me.lciPitch.Control = Me.cbePitch
         Me.lciPitch.CustomizationFormText = "Pitch (degrees)"
-        Me.lciPitch.Location = New System.Drawing.Point(114, 96)
+        Me.lciPitch.Location = New System.Drawing.Point(0, 96)
         Me.lciPitch.Name = "lciPitch"
-        Me.lciPitch.Size = New System.Drawing.Size(607, 24)
+        Me.lciPitch.Size = New System.Drawing.Size(700, 24)
         Me.lciPitch.Text = "Pitch (degrees)"
-        Me.lciPitch.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciPitch.TextSize = New System.Drawing.Size(78, 13)
         '
         'lciTread
         '
         Me.lciTread.Control = Me.cbeThread
         Me.lciTread.CustomizationFormText = "Thread"
-        Me.lciTread.Location = New System.Drawing.Point(114, 72)
+        Me.lciTread.Location = New System.Drawing.Point(0, 72)
         Me.lciTread.Name = "lciTread"
-        Me.lciTread.Size = New System.Drawing.Size(607, 24)
+        Me.lciTread.Size = New System.Drawing.Size(700, 24)
         Me.lciTread.Text = "Tread"
-        Me.lciTread.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciTread.TextSize = New System.Drawing.Size(78, 13)
         '
         'lciGoing
         '
         Me.lciGoing.Control = Me.CBEGoing
         Me.lciGoing.CustomizationFormText = "Going"
-        Me.lciGoing.Location = New System.Drawing.Point(114, 120)
+        Me.lciGoing.Location = New System.Drawing.Point(0, 120)
         Me.lciGoing.Name = "lciGoing"
-        Me.lciGoing.Size = New System.Drawing.Size(607, 24)
+        Me.lciGoing.Size = New System.Drawing.Size(700, 24)
         Me.lciGoing.Text = "Going"
-        Me.lciGoing.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciGoing.TextSize = New System.Drawing.Size(78, 13)
         '
         'EmptySpaceItem1
         '
@@ -295,47 +320,145 @@ Partial Class viewEscapeRouteSwipe
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(721, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(838, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(175, 466)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(58, 466)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciFloor
         '
         Me.lciFloor.Control = Me.teFloors
         Me.lciFloor.CustomizationFormText = "Reference"
-        Me.lciFloor.Location = New System.Drawing.Point(114, 144)
+        Me.lciFloor.Location = New System.Drawing.Point(473, 0)
         Me.lciFloor.Name = "lciFloor"
-        Me.lciFloor.Size = New System.Drawing.Size(607, 24)
+        Me.lciFloor.Size = New System.Drawing.Size(227, 24)
         Me.lciFloor.Text = "Floors"
-        Me.lciFloor.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciFloor.TextSize = New System.Drawing.Size(78, 13)
         '
         'lciNosing
         '
         Me.lciNosing.Control = Me.icbNosing
-        Me.lciNosing.Location = New System.Drawing.Point(114, 48)
+        Me.lciNosing.Location = New System.Drawing.Point(0, 48)
         Me.lciNosing.Name = "lciNosing"
-        Me.lciNosing.Size = New System.Drawing.Size(607, 24)
+        Me.lciNosing.Size = New System.Drawing.Size(700, 24)
         Me.lciNosing.Text = "Nosing"
-        Me.lciNosing.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciNosing.TextSize = New System.Drawing.Size(78, 13)
         '
         'lciLocation
         '
         Me.lciLocation.Control = Me.teLocation
-        Me.lciLocation.Location = New System.Drawing.Point(114, 0)
+        Me.lciLocation.Location = New System.Drawing.Point(0, 0)
         Me.lciLocation.Name = "lciLocation"
-        Me.lciLocation.Size = New System.Drawing.Size(607, 24)
+        Me.lciLocation.Size = New System.Drawing.Size(473, 24)
         Me.lciLocation.Text = "Location"
-        Me.lciLocation.TextSize = New System.Drawing.Size(73, 13)
+        Me.lciLocation.TextSize = New System.Drawing.Size(78, 13)
         '
         'lciFloors
         '
         Me.lciFloors.Control = Me.gridFloors
-        Me.lciFloors.Location = New System.Drawing.Point(114, 168)
+        Me.lciFloors.Location = New System.Drawing.Point(114, 220)
         Me.lciFloors.Name = "lciFloors"
-        Me.lciFloors.Size = New System.Drawing.Size(607, 298)
+        Me.lciFloors.Size = New System.Drawing.Size(724, 246)
         Me.lciFloors.TextSize = New System.Drawing.Size(0, 0)
         Me.lciFloors.TextVisible = False
+        '
+        'ToggleSwitch1
+        '
+        Me.ToggleSwitch1.Location = New System.Drawing.Point(394, 192)
+        Me.ToggleSwitch1.Name = "ToggleSwitch1"
+        Me.ToggleSwitch1.Properties.OffText = "No"
+        Me.ToggleSwitch1.Properties.OnText = "Yes"
+        Me.ToggleSwitch1.Size = New System.Drawing.Size(90, 24)
+        Me.ToggleSwitch1.StyleController = Me.LayoutControl1
+        Me.ToggleSwitch1.TabIndex = 20
+        '
+        'ToggleSwitch2
+        '
+        Me.ToggleSwitch2.Location = New System.Drawing.Point(744, 192)
+        Me.ToggleSwitch2.Name = "ToggleSwitch2"
+        Me.ToggleSwitch2.Properties.OffText = "No"
+        Me.ToggleSwitch2.Properties.OnText = "Yes"
+        Me.ToggleSwitch2.Size = New System.Drawing.Size(90, 24)
+        Me.ToggleSwitch2.StyleController = Me.LayoutControl1
+        Me.ToggleSwitch2.TabIndex = 24
+        '
+        'ToggleSwitch3
+        '
+        Me.ToggleSwitch3.Location = New System.Drawing.Point(569, 192)
+        Me.ToggleSwitch3.Name = "ToggleSwitch3"
+        Me.ToggleSwitch3.Properties.OffText = "No"
+        Me.ToggleSwitch3.Properties.OnText = "Yes"
+        Me.ToggleSwitch3.Size = New System.Drawing.Size(90, 24)
+        Me.ToggleSwitch3.StyleController = Me.LayoutControl1
+        Me.ToggleSwitch3.TabIndex = 22
+        '
+        'ToggleSwitch4
+        '
+        Me.ToggleSwitch4.Location = New System.Drawing.Point(219, 192)
+        Me.ToggleSwitch4.Name = "ToggleSwitch4"
+        Me.ToggleSwitch4.Properties.OffText = "No"
+        Me.ToggleSwitch4.Properties.OnText = "Yes"
+        Me.ToggleSwitch4.Size = New System.Drawing.Size(90, 24)
+        Me.ToggleSwitch4.StyleController = Me.LayoutControl1
+        Me.ToggleSwitch4.TabIndex = 16
+        '
+        'lcgOptions
+        '
+        Me.lcgOptions.CustomizationFormText = "lcgOptions"
+        Me.lcgOptions.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciUnEvenGround, Me.lciHorizontal, Me.lciMisuse, Me.lciUpstairs})
+        Me.lcgOptions.Location = New System.Drawing.Point(114, 168)
+        Me.lcgOptions.Name = "lcgOptions"
+        Me.lcgOptions.Size = New System.Drawing.Size(724, 52)
+        Me.lcgOptions.Text = "lcgOptions"
+        Me.lcgOptions.TextVisible = False
+        '
+        'lciUnEvenGround
+        '
+        Me.lciUnEvenGround.Control = Me.ToggleSwitch4
+        Me.lciUnEvenGround.CustomizationFormText = "Un Even Ground"
+        Me.lciUnEvenGround.Location = New System.Drawing.Point(0, 0)
+        Me.lciUnEvenGround.Name = "lciUnEvenGround"
+        Me.lciUnEvenGround.Size = New System.Drawing.Size(175, 28)
+        Me.lciUnEvenGround.Text = "Un Even Ground"
+        Me.lciUnEvenGround.TextSize = New System.Drawing.Size(78, 13)
+        '
+        'lciHorizontal
+        '
+        Me.lciHorizontal.Control = Me.ToggleSwitch1
+        Me.lciHorizontal.CustomizationFormText = "Horizontal"
+        Me.lciHorizontal.Location = New System.Drawing.Point(175, 0)
+        Me.lciHorizontal.Name = "lciHorizontal"
+        Me.lciHorizontal.Size = New System.Drawing.Size(175, 28)
+        Me.lciHorizontal.Text = "Horizontal"
+        Me.lciHorizontal.TextSize = New System.Drawing.Size(78, 13)
+        '
+        'lciMisuse
+        '
+        Me.lciMisuse.Control = Me.ToggleSwitch3
+        Me.lciMisuse.CustomizationFormText = "Mis-use"
+        Me.lciMisuse.Location = New System.Drawing.Point(350, 0)
+        Me.lciMisuse.Name = "lciMisuse"
+        Me.lciMisuse.Size = New System.Drawing.Size(175, 28)
+        Me.lciMisuse.Text = "Mis-use"
+        Me.lciMisuse.TextSize = New System.Drawing.Size(78, 13)
+        '
+        'lciUpstairs
+        '
+        Me.lciUpstairs.Control = Me.ToggleSwitch2
+        Me.lciUpstairs.CustomizationFormText = "Upstairs"
+        Me.lciUpstairs.Location = New System.Drawing.Point(525, 0)
+        Me.lciUpstairs.Name = "lciUpstairs"
+        Me.lciUpstairs.Size = New System.Drawing.Size(175, 28)
+        Me.lciUpstairs.Text = "Upstairs"
+        Me.lciUpstairs.TextSize = New System.Drawing.Size(78, 13)
+        '
+        'lcgDetails
+        '
+        Me.lcgDetails.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciLocation, Me.lciStairwayType, Me.lciNosing, Me.lciTread, Me.lciPitch, Me.lciGoing, Me.lciFloor})
+        Me.lcgDetails.Location = New System.Drawing.Point(114, 0)
+        Me.lcgDetails.Name = "lcgDetails"
+        Me.lcgDetails.Size = New System.Drawing.Size(724, 168)
+        Me.lcgDetails.TextVisible = False
         '
         'viewEscapeRouteSwipe
         '
@@ -368,6 +491,16 @@ Partial Class viewEscapeRouteSwipe
         CType(Me.lciNosing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciLocation, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFloors, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToggleSwitch1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToggleSwitch2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToggleSwitch3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToggleSwitch4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lcgOptions, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciUnEvenGround, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciHorizontal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciMisuse, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciUpstairs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lcgDetails, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -397,5 +530,15 @@ Partial Class viewEscapeRouteSwipe
     Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFloor As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ToggleSwitch4 As DevExpress.XtraEditors.ToggleSwitch
+    Friend WithEvents ToggleSwitch1 As DevExpress.XtraEditors.ToggleSwitch
+    Friend WithEvents ToggleSwitch3 As DevExpress.XtraEditors.ToggleSwitch
+    Friend WithEvents ToggleSwitch2 As DevExpress.XtraEditors.ToggleSwitch
+    Friend WithEvents lcgOptions As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents lciUnEvenGround As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciHorizontal As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciMisuse As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciUpstairs As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lcgDetails As DevExpress.XtraLayout.LayoutControlGroup
 
 End Class

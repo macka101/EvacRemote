@@ -11,7 +11,7 @@ Imports Esso.Data
 Imports DevExpress.Data.Filtering
 
 
-Public Class DiarySchedule
+Public Class ViewDiarySchedule
     Private _Loaded As Boolean = False
     Private _session As UnitOfWork
 

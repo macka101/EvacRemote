@@ -86,7 +86,10 @@
     <ApplicationIcon>evac2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v16.1.UI, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -94,6 +97,7 @@
     <Reference Include="DevExpress.Snap.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Snap.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Snap.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Spreadsheet.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v16.1" />
@@ -101,7 +105,9 @@
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.1" />
     <Reference Include="DevExpress.Pdf.v16.1.Drawing, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPdfViewer.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -116,6 +122,8 @@
     <Reference Include="DevExpress.XtraRichEdit.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
@@ -133,10 +141,18 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -221,22 +237,16 @@
     <Compile Include="Edits\ContactDetail.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Edits\viewEscapeRouteSwipe.Designer.vb">
-      <DependentUpon>viewEscapeRouteSwipe.vb</DependentUpon>
+    <Compile Include="Edits\viewEscapeRoute.Designer.vb">
+      <DependentUpon>viewEscapeRoute.vb</DependentUpon>
     </Compile>
-    <Compile Include="Edits\viewEscapeRouteSwipe.vb">
+    <Compile Include="Edits\viewEscapeRoute.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Edits\viewStairwellDetail.Designer.vb">
-      <DependentUpon>viewStairwellDetail.vb</DependentUpon>
+    <Compile Include="Edits\viewFloor.Designer.vb">
+      <DependentUpon>viewFloor.vb</DependentUpon>
     </Compile>
-    <Compile Include="Edits\viewStairwellDetail.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Edits\viewFloorSwipe.Designer.vb">
-      <DependentUpon>viewFloorSwipe.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Edits\viewFloorSwipe.vb">
+    <Compile Include="Edits\viewFloor.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Edits\viewProductSwipePDF.Designer.vb">
@@ -270,12 +280,26 @@
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmImportProducts.designer.vb">
+      <DependentUpon>frmImportProducts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmImportProducts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmSyncronize.Designer.vb">
       <DependentUpon>FrmSyncronize.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmSyncronize.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\XtraForm2.Designer.vb">
+      <DependentUpon>XtraForm2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\XtraForm2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Misc.vb" />
+    <Compile Include="Helpers\RichTextHelper.vb" />
     <Compile Include="Misc.vb" />
     <Compile Include="RTFActions\1 RangeActions.vb" />
     <Compile Include="RTFActions\2 FormattingActions.vb" />
@@ -308,40 +332,40 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SwipeGrid\SwipeGridViewInfo.vb" />
-    <Compile Include="Views\BasketList.Designer.vb">
-      <DependentUpon>BasketList.vb</DependentUpon>
+    <Compile Include="Views\ViewBasketList.Designer.vb">
+      <DependentUpon>ViewBasketList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\BasketList.vb">
+    <Compile Include="Views\ViewBasketList.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ContactList.Designer.vb">
-      <DependentUpon>ContactList.vb</DependentUpon>
+    <Compile Include="Views\ViewContactList.Designer.vb">
+      <DependentUpon>ViewContactList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\ContactList.vb">
+    <Compile Include="Views\ViewContactList.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\DiarySchedule.Designer.vb">
-      <DependentUpon>DiarySchedule.vb</DependentUpon>
+    <Compile Include="Views\ViewDiarySchedule.Designer.vb">
+      <DependentUpon>ViewDiarySchedule.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\DiarySchedule.vb">
+    <Compile Include="Views\ViewDiarySchedule.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ProductList.Designer.vb">
-      <DependentUpon>ProductList.vb</DependentUpon>
+    <Compile Include="Views\ViewProductList.Designer.vb">
+      <DependentUpon>ViewProductList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductList.vb">
+    <Compile Include="Views\ViewProductList.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ServiceList.Designer.vb">
-      <DependentUpon>ServiceList.vb</DependentUpon>
+    <Compile Include="Views\ViewServiceList.Designer.vb">
+      <DependentUpon>ViewServiceList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\ServiceList.vb">
+    <Compile Include="Views\ViewServiceList.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SurveyList.Designer.vb">
-      <DependentUpon>SurveyList.vb</DependentUpon>
+    <Compile Include="Views\ViewSurveyList.Designer.vb">
+      <DependentUpon>ViewSurveyList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SurveyList.vb">
+    <Compile Include="Views\ViewSurveyList.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Edits\SurveyDetail.Designer.vb">
@@ -390,14 +414,11 @@
     <EmbeddedResource Include="Edits\viewBuildingSwipe.resx">
       <DependentUpon>viewBuildingSwipe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edits\viewEscapeRouteSwipe.resx">
-      <DependentUpon>viewEscapeRouteSwipe.vb</DependentUpon>
+    <EmbeddedResource Include="Edits\viewEscapeRoute.resx">
+      <DependentUpon>viewEscapeRoute.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edits\viewStairwellDetail.resx">
-      <DependentUpon>viewStairwellDetail.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Edits\viewFloorSwipe.resx">
-      <DependentUpon>viewFloorSwipe.vb</DependentUpon>
+    <EmbeddedResource Include="Edits\viewFloor.resx">
+      <DependentUpon>viewFloor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edits\viewProductSwipePDF.resx">
       <DependentUpon>viewProductSwipePDF.vb</DependentUpon>
@@ -414,30 +435,36 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmImportProducts.resx">
+      <DependentUpon>frmImportProducts.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSyncronize.resx">
       <DependentUpon>FrmSyncronize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\XtraForm2.resx">
+      <DependentUpon>XtraForm2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SwipeGrid\SwipeGridControl.resx" />
-    <EmbeddedResource Include="Views\BasketList.resx">
-      <DependentUpon>BasketList.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ViewBasketList.resx">
+      <DependentUpon>ViewBasketList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ContactList.resx">
-      <DependentUpon>ContactList.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ViewContactList.resx">
+      <DependentUpon>ViewContactList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DiarySchedule.resx">
-      <DependentUpon>DiarySchedule.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ViewDiarySchedule.resx">
+      <DependentUpon>ViewDiarySchedule.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProductList.resx">
-      <DependentUpon>ProductList.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ViewProductList.resx">
+      <DependentUpon>ViewProductList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ServiceList.resx">
-      <DependentUpon>ServiceList.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ViewServiceList.resx">
+      <DependentUpon>ViewServiceList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SurveyList.resx">
-      <DependentUpon>SurveyList.vb</DependentUpon>
+    <EmbeddedResource Include="Views\ViewSurveyList.resx">
+      <DependentUpon>ViewSurveyList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edits\SurveyDetail.resx">
       <DependentUpon>SurveyDetail.vb</DependentUpon>

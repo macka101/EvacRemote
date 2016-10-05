@@ -623,7 +623,6 @@ Partial Class AssetServiceChair
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(922, 452)
-        Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
         'lciBack
@@ -636,7 +635,6 @@ Partial Class AssetServiceChair
         Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
         Me.lciBack.Size = New System.Drawing.Size(50, 432)
         Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.lciBack.Text = "lciBack"
         Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
         Me.lciBack.TextVisible = False
         '
@@ -659,7 +657,6 @@ Partial Class AssetServiceChair
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(50, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(10, 432)
-        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
@@ -669,7 +666,6 @@ Partial Class AssetServiceChair
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(892, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(10, 432)
-        Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciRearHandle
@@ -751,7 +747,6 @@ Partial Class AssetServiceChair
         Me.EmptySpaceItem4.Location = New System.Drawing.Point(60, 0)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
         Me.EmptySpaceItem4.Size = New System.Drawing.Size(832, 10)
-        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem5
@@ -761,7 +756,6 @@ Partial Class AssetServiceChair
         Me.EmptySpaceItem5.Location = New System.Drawing.Point(60, 390)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
         Me.EmptySpaceItem5.Size = New System.Drawing.Size(832, 42)
-        Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciSeatRivetsOpt
@@ -771,7 +765,6 @@ Partial Class AssetServiceChair
         Me.lciSeatRivetsOpt.Location = New System.Drawing.Point(837, 58)
         Me.lciSeatRivetsOpt.Name = "lciSeatRivetsOpt"
         Me.lciSeatRivetsOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciSeatRivetsOpt.Text = "lciSeatRivetsOpt"
         Me.lciSeatRivetsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSeatRivetsOpt.TextVisible = False
         '
@@ -782,7 +775,6 @@ Partial Class AssetServiceChair
         Me.lciFrontHandleOpt.Location = New System.Drawing.Point(837, 86)
         Me.lciFrontHandleOpt.Name = "lciFrontHandleOpt"
         Me.lciFrontHandleOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciFrontHandleOpt.Text = "lciFrontHandleOpt"
         Me.lciFrontHandleOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciFrontHandleOpt.TextVisible = False
         '
@@ -793,7 +785,6 @@ Partial Class AssetServiceChair
         Me.lciTrolleyAssemblyandClipsOpt.Location = New System.Drawing.Point(421, 114)
         Me.lciTrolleyAssemblyandClipsOpt.Name = "lciTrolleyAssemblyandClipsOpt"
         Me.lciTrolleyAssemblyandClipsOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciTrolleyAssemblyandClipsOpt.Text = "lciTrolleyAssemblyandClipsOpt"
         Me.lciTrolleyAssemblyandClipsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciTrolleyAssemblyandClipsOpt.TextVisible = False
         '
@@ -804,7 +795,6 @@ Partial Class AssetServiceChair
         Me.lciRotationBeltsOpt.Location = New System.Drawing.Point(837, 142)
         Me.lciRotationBeltsOpt.Name = "lciRotationBeltsOpt"
         Me.lciRotationBeltsOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciRotationBeltsOpt.Text = "lciRotationBeltsOpt"
         Me.lciRotationBeltsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciRotationBeltsOpt.TextVisible = False
         '
@@ -815,7 +805,6 @@ Partial Class AssetServiceChair
         Me.lciPlasticBushesOpt.Location = New System.Drawing.Point(421, 58)
         Me.lciPlasticBushesOpt.Name = "lciPlasticBushesOpt"
         Me.lciPlasticBushesOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciPlasticBushesOpt.Text = "lciPlasticBushesOpt"
         Me.lciPlasticBushesOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciPlasticBushesOpt.TextVisible = False
         '
@@ -826,7 +815,6 @@ Partial Class AssetServiceChair
         Me.lciPassengerBeltOpt.Location = New System.Drawing.Point(421, 86)
         Me.lciPassengerBeltOpt.Name = "lciPassengerBeltOpt"
         Me.lciPassengerBeltOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciPassengerBeltOpt.Text = "lciPassengerBeltOpt"
         Me.lciPassengerBeltOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciPassengerBeltOpt.TextVisible = False
         '
@@ -837,7 +825,6 @@ Partial Class AssetServiceChair
         Me.LayoutControlItem1.Location = New System.Drawing.Point(794, 282)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
         Me.LayoutControlItem1.Size = New System.Drawing.Size(98, 26)
-        Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
@@ -848,7 +835,6 @@ Partial Class AssetServiceChair
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(60, 282)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(734, 26)
-        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciSkiAssemblyRollersOpt
@@ -858,7 +844,6 @@ Partial Class AssetServiceChair
         Me.lciSkiAssemblyRollersOpt.Location = New System.Drawing.Point(421, 142)
         Me.lciSkiAssemblyRollersOpt.Name = "lciSkiAssemblyRollersOpt"
         Me.lciSkiAssemblyRollersOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciSkiAssemblyRollersOpt.Text = "lciSkiAssemblyRollersOpt"
         Me.lciSkiAssemblyRollersOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSkiAssemblyRollersOpt.TextVisible = False
         '
@@ -869,7 +854,6 @@ Partial Class AssetServiceChair
         Me.lciSpindlePositionOpt.Location = New System.Drawing.Point(837, 170)
         Me.lciSpindlePositionOpt.Name = "lciSpindlePositionOpt"
         Me.lciSpindlePositionOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciSpindlePositionOpt.Text = "lciSpindlePositionOpt"
         Me.lciSpindlePositionOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSpindlePositionOpt.TextVisible = False
         '
@@ -940,7 +924,6 @@ Partial Class AssetServiceChair
         Me.lciHammockConditionOpt.Location = New System.Drawing.Point(837, 114)
         Me.lciHammockConditionOpt.Name = "lciHammockConditionOpt"
         Me.lciHammockConditionOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciHammockConditionOpt.Text = "lciHammockConditionOpt"
         Me.lciHammockConditionOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciHammockConditionOpt.TextVisible = False
         '
@@ -981,7 +964,6 @@ Partial Class AssetServiceChair
         Me.licSkiAssemblyRollersOpt.Location = New System.Drawing.Point(421, 170)
         Me.licSkiAssemblyRollersOpt.Name = "licSkiAssemblyRollersOpt"
         Me.licSkiAssemblyRollersOpt.Size = New System.Drawing.Size(55, 28)
-        Me.licSkiAssemblyRollersOpt.Text = "licSkiAssemblyRollersOpt"
         Me.licSkiAssemblyRollersOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.licSkiAssemblyRollersOpt.TextVisible = False
         '
@@ -992,7 +974,6 @@ Partial Class AssetServiceChair
         Me.lciiSafetyBeltOpt.Location = New System.Drawing.Point(421, 198)
         Me.lciiSafetyBeltOpt.Name = "lciiSafetyBeltOpt"
         Me.lciiSafetyBeltOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciiSafetyBeltOpt.Text = "lciiSafetyBeltOpt"
         Me.lciiSafetyBeltOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciiSafetyBeltOpt.TextVisible = False
         '
@@ -1013,7 +994,6 @@ Partial Class AssetServiceChair
         Me.lciSeatFrameOpt.Location = New System.Drawing.Point(837, 198)
         Me.lciSeatFrameOpt.Name = "lciSeatFrameOpt"
         Me.lciSeatFrameOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciSeatFrameOpt.Text = "lciSeatFrameOpt"
         Me.lciSeatFrameOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSeatFrameOpt.TextVisible = False
         '
@@ -1034,7 +1014,6 @@ Partial Class AssetServiceChair
         Me.lciKickstandGasOpt.Location = New System.Drawing.Point(837, 226)
         Me.lciKickstandGasOpt.Name = "lciKickstandGasOpt"
         Me.lciKickstandGasOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciKickstandGasOpt.Text = "lciKickstandGasOpt"
         Me.lciKickstandGasOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciKickstandGasOpt.TextVisible = False
         '
@@ -1045,7 +1024,6 @@ Partial Class AssetServiceChair
         Me.lciStabiliserRivetsOpt.Location = New System.Drawing.Point(421, 254)
         Me.lciStabiliserRivetsOpt.Name = "lciStabiliserRivetsOpt"
         Me.lciStabiliserRivetsOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciStabiliserRivetsOpt.Text = "lciStabiliserRivetsOpt"
         Me.lciStabiliserRivetsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciStabiliserRivetsOpt.TextVisible = False
         '
@@ -1066,7 +1044,6 @@ Partial Class AssetServiceChair
         Me.lciClosureOpt.Location = New System.Drawing.Point(837, 254)
         Me.lciClosureOpt.Name = "lciClosureOpt"
         Me.lciClosureOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciClosureOpt.Text = "lciClosureOpt"
         Me.lciClosureOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciClosureOpt.TextVisible = False
         '
@@ -1077,17 +1054,16 @@ Partial Class AssetServiceChair
         Me.lciKickstandBoltOpt.Location = New System.Drawing.Point(421, 226)
         Me.lciKickstandBoltOpt.Name = "lciKickstandBoltOpt"
         Me.lciKickstandBoltOpt.Size = New System.Drawing.Size(55, 28)
-        Me.lciKickstandBoltOpt.Text = "lciKickstandBoltOpt"
         Me.lciKickstandBoltOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciKickstandBoltOpt.TextVisible = False
         '
-        'viewAssetSwipeChair
+        'AssetServiceChair
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "viewAssetSwipeChair"
+        Me.Name = "AssetServiceChair"
         Me.Size = New System.Drawing.Size(922, 452)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

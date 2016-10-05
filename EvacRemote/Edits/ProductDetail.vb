@@ -17,8 +17,12 @@ Public Class ProductDetail
             _parent = value
         End Set
     End Property
-
+    Private Sub InitEditors()
+        RichTextControlHelper.PlainSetup(rtcFullDetails, False)
+    End Sub
     Public Sub Initdata()
+        InitEditors()
+
         'InitializeRichEditControl()
         ''        RichEditControl1.Document.Replace(uploads/image/products/EC300H.jpg
         ''        If _product.features IsNot String.Empty Then
@@ -28,21 +32,21 @@ Public Class ProductDetail
         'RichEditControl1.Document.GetHtmlText(RichEditControl1.Document.Range, )
         'Dim objReader As New System.IO.StreamReader("Test.html")
         'WebBrowser1.DocumentText = objReader.ReadToEnd
-
-        WebBrowser1.Navigate(Application.StartupPath & "\test.html")
+        teProductCode.Text = _product.ProductCode
+        teDescription.Text = _product.Description
+        rtcFullDetails.RtfText = _product.Datasheet
     End Sub
 
-    Public Sub New(ByVal parent As frmMain, ByRef oRow As Product)
+    Public Sub New(ByRef Product As Product)
 
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
-        _product = oRow
+        _product = Product
         ' Add any initialization after the InitializeComponent() call.
-
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        ParentFormMain.HideProduct()
+
     End Sub
 End Class

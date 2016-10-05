@@ -48,6 +48,6 @@ Public Class viewProductSwipeRTF
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        ParentFormMain.HideProduct()
+        ' ParentFormMain.HideProduct()
     End Sub
 End Class

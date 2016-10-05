@@ -24,34 +24,23 @@ Namespace Esso.Data
                 _Oid = XpoDefault.NewGuid()
             End If
         End Sub
-        Dim fproductId As Integer
-        Dim fmicrositeId As Integer
-        Public Property micrositeId() As Integer
+        Private fproductCode As String
+        <Size(15)>
+        Public Property ProductCode() As String
             Get
-                Return fmicrositeId
-            End Get
-            Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("micrositeId", fmicrositeId, value)
-            End Set
-        End Property
-        Private flanguageCode As String
-        <Size(10)>
-        Public Property languageCode() As String
-            Get
-                Return flanguageCode
+                Return fproductCode
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("languageCode", flanguageCode, value)
+                SetPropertyValue(Of String)("productCode", fproductCode, value)
             End Set
         End Property
-        Private fname As String
-        <Size(50)>
-        Public Property name() As String
+        Private faccessory As Boolean
+        Public Property accessory() As Boolean
             Get
-                Return fname
+                Return faccessory
             End Get
-            Set(ByVal value As String)
-                SetPropertyValue(Of String)("name", fname, value)
+            Set(ByVal value As Boolean)
+                SetPropertyValue(Of Boolean)("accessory", faccessory, value)
             End Set
         End Property
         Private fshortDescription As String
@@ -66,196 +55,367 @@ Namespace Esso.Data
         End Property
         Private fdescription As String
         <Size(400)>
-        Public Property description() As String
+        Public Property Description() As String
             Get
                 Return fdescription
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("description", fdescription, value)
+                SetPropertyValue(Of String)("Description", fdescription, value)
             End Set
         End Property
         Private ffeatures As String
         <Size(2000)>
-        Public Property features() As String
+        Public Property Features() As String
             Get
                 Return ffeatures
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("features", ffeatures, value)
+                SetPropertyValue(Of String)("Features", ffeatures, value)
             End Set
         End Property
         Private fincludes As String
         <Size(2000)>
-        Public Property includes() As String
+        Public Property Includes() As String
             Get
                 Return fincludes
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("includes", fincludes, value)
+                SetPropertyValue(Of String)("Includes", fincludes, value)
             End Set
         End Property
         Private fheight As String
         <Size(50)>
-        Public Property height() As String
+        Public Property Height() As String
             Get
                 Return fheight
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("height", fheight, value)
+                SetPropertyValue(Of String)("Height", fheight, value)
             End Set
         End Property
         Private fwidth As String
         <Size(50)>
-        Public Property width() As String
+        Public Property Width() As String
             Get
                 Return fwidth
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("width", fwidth, value)
+                SetPropertyValue(Of String)("Width", fwidth, value)
             End Set
         End Property
         Private fdepth As String
         <Size(50)>
-        Public Property depth() As String
+        Public Property Depth() As String
             Get
                 Return fdepth
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("depth", fdepth, value)
+                SetPropertyValue(Of String)("Depth", fdepth, value)
             End Set
         End Property
         Private fweight As String
         <Size(50)>
-        Public Property weight() As String
+        Public Property Weight() As String
             Get
                 Return fweight
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("weight", fweight, value)
+                SetPropertyValue(Of String)("Weight", fweight, value)
             End Set
         End Property
         Private floadCapacity As String
         <Size(50)>
-        Public Property loadCapacity() As String
+        Public Property LoadCapacity() As String
             Get
                 Return floadCapacity
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("loadCapacity", floadCapacity, value)
+                SetPropertyValue(Of String)("LoadCapacity", floadCapacity, value)
             End Set
         End Property
         Private fvideo As String
         <Size(255)>
-        Public Property video() As String
+        Public Property Video() As String
             Get
                 Return fvideo
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("video", fvideo, value)
+                SetPropertyValue(Of String)("Video", fvideo, value)
             End Set
         End Property
         Private fcertificate As String
         <Size(255)>
-        Public Property certificate() As String
+        Public Property Certificate() As String
             Get
                 Return fcertificate
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("certificate", fcertificate, value)
+                SetPropertyValue(Of String)("Certificate", fcertificate, value)
             End Set
         End Property
         Private fimage As String
         <Size(255)>
-        Public Property image() As String
+        Public Property Image() As String
             Get
                 Return fimage
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("image", fimage, value)
-            End Set
-        End Property
-        Private faccessory As Boolean
-        Public Property accessory() As Boolean
-            Get
-                Return faccessory
-            End Get
-            Set(ByVal value As Boolean)
-                SetPropertyValue(Of Boolean)("accessory", faccessory, value)
+                SetPropertyValue(Of String)("Image", fimage, value)
             End Set
         End Property
         Private fvideoBase As String
         <Size(255)>
-        Public Property videoBase() As String
+        Public Property VideoBase() As String
             Get
                 Return fvideoBase
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("videoBase", fvideoBase, value)
+                SetPropertyValue(Of String)("VideoBase", fvideoBase, value)
             End Set
         End Property
-        Private fproductCode As String
-        <Size(15)>
-        Public Property ProductCode() As String
-            Get
-                Return fproductCode
-            End Get
-            Set(ByVal value As String)
-                SetPropertyValue(Of String)("productCode", fproductCode, value)
-            End Set
-        End Property
+   
         Private fevacAid As Boolean
-        Public Property evacAid() As Boolean
+        Public Property EvacAid() As Boolean
             Get
                 Return fevacAid
             End Get
             Set(ByVal value As Boolean)
-                SetPropertyValue(Of Boolean)("evacAid", fevacAid, value)
+                SetPropertyValue(Of Boolean)("EvacAid", fevacAid, value)
             End Set
         End Property
         Private fdisplayOrder As Integer
-        Public Property displayOrder() As Integer
+        Public Property DisplayOrder() As Integer
             Get
                 Return fdisplayOrder
             End Get
             Set(ByVal value As Integer)
-                SetPropertyValue(Of Integer)("displayOrder", fdisplayOrder, value)
+                SetPropertyValue(Of Integer)("DisplayOrder", fdisplayOrder, value)
             End Set
         End Property
         Private fvisible As Boolean
-        Public Property visible() As Boolean
+        Public Property Visible() As Boolean
             Get
                 Return fvisible
             End Get
             Set(ByVal value As Boolean)
-                SetPropertyValue(Of Boolean)("visible", fvisible, value)
+                SetPropertyValue(Of Boolean)("Visible", fvisible, value)
             End Set
         End Property
         Private fstairclimber As Boolean
-        Public Property stairclimber() As Boolean
+        Public Property StairClimber() As Boolean
             Get
                 Return fstairclimber
             End Get
             Set(ByVal value As Boolean)
-                SetPropertyValue(Of Boolean)("stairclimber", fstairclimber, value)
+                SetPropertyValue(Of Boolean)("StairClimber", fstairclimber, value)
             End Set
         End Property
         Private fbuildingmanagement As Boolean
-        Public Property buildingmanagement() As Boolean
+        Public Property BuildingManagement() As Boolean
             Get
                 Return fbuildingmanagement
             End Get
             Set(ByVal value As Boolean)
-                SetPropertyValue(Of Boolean)("buildingmanagement", fbuildingmanagement, value)
+                SetPropertyValue(Of Boolean)("BuildingManagement", fbuildingmanagement, value)
             End Set
         End Property
         Private fdatasheet As String
         <Size(50)>
-        Public Property datasheet() As String
+        Public Property Datasheet() As String
             Get
                 Return fdatasheet
             End Get
             Set(ByVal value As String)
-                SetPropertyValue(Of String)("datasheet", fdatasheet, value)
+                SetPropertyValue(Of String)("Datasheet", fdatasheet, value)
+            End Set
+        End Property
+        Private _ratingDefault As Integer
+        Public Property RatingDefault() As Integer
+            Get
+                Return _ratingDefault
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingDefault", _ratingDefault, value)
+            End Set
+        End Property
+        Private _ratingHeritage As Integer
+        Public Property RatingHeritage() As Integer
+            Get
+                Return _ratingHeritage
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingHeritage", _ratingHeritage, value)
+            End Set
+        End Property
+        Private _ratingBedBound As Integer
+        Public Property RatingBedBound() As Integer
+            Get
+                Return _ratingBedBound
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingBedBound", _ratingBedBound, value)
+            End Set
+        End Property
+        Private _ratingPublic As Integer
+        Public Property RatingPublic() As Integer
+            Get
+                Return _ratingPublic
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingPublic", _ratingPublic, value)
+            End Set
+        End Property
+        Private _ratingBarriatric As Integer
+        Public Property RatingBarriatric() As Integer
+            Get
+                Return _ratingBarriatric
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingBarriatric", _ratingBarriatric, value)
+            End Set
+        End Property
+        Private _ratingNarrowStairs As Integer
+        Public Property RatingNarrowStairs() As Integer
+            Get
+                Return _ratingNarrowStairs
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingNarrowStairs", _ratingNarrowStairs, value)
+            End Set
+        End Property
+        Private _ratingSteepStairs As Integer
+        Public Property RatingSteepStairs() As Integer
+            Get
+                Return _ratingSteepStairs
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingSteepStairs", _ratingSteepStairs, value)
+            End Set
+        End Property
+        Private _ratingSchool As Integer
+        Public Property RatingSchool() As Integer
+            Get
+                Return _ratingSchool
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingSchool", _ratingSchool, value)
+            End Set
+        End Property
+        Private _ratingCollegeUniversity As Integer
+        Public Property RatingCollegeUniversity() As Integer
+            Get
+                Return _ratingCollegeUniversity
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingCollegeUniversity", _ratingCollegeUniversity, value)
+            End Set
+        End Property
+        Private _ratingShallowStairs As Integer
+        Public Property RatingShallowStairs() As Integer
+            Get
+                Return _ratingShallowStairs
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingShallowStairs", _ratingShallowStairs, value)
+            End Set
+        End Property
+        Private _ratingTightTurning As Integer
+        Public Property RatingTightTurning() As Integer
+            Get
+                Return _ratingTightTurning
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingTightTurning", _ratingTightTurning, value)
+            End Set
+        End Property
+        Private _ratingUnevenGround As Integer
+        Public Property RatingUnevenGround() As Integer
+            Get
+                Return _ratingUnevenGround
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingUnevenGround", _ratingUnevenGround, value)
+            End Set
+        End Property
+        Private _ratingComplexDisability As Integer
+        Public Property RatingComplexDisability() As Integer
+            Get
+                Return _ratingComplexDisability
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingComplexDisability", _ratingComplexDisability, value)
+            End Set
+        End Property
+        Private _ratingHorizontal As Integer
+        Public Property RatingHorizontal() As Integer
+            Get
+                Return _ratingHorizontal
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingHorizontal", _ratingHorizontal, value)
+            End Set
+        End Property
+        Private _ratingSmallStorage As Integer
+        Public Property RatingSmallStorage() As Integer
+            Get
+                Return _ratingSmallStorage
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingSmallStorage", _ratingSmallStorage, value)
+            End Set
+        End Property
+        Private _ratingBedAccess As Integer
+        Public Property RatingBedAccess() As Integer
+            Get
+                Return _ratingBedAccess
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingBedAccess", _ratingBedAccess, value)
+            End Set
+        End Property
+        Private _ratingMisuse As Integer
+        Public Property RatingMisuse() As Integer
+            Get
+                Return _ratingMisuse
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingMisuse", _ratingMisuse, value)
+            End Set
+        End Property
+        Private _ratingUpstairs As Integer
+        Public Property RatingUpstairs() As Integer
+            Get
+                Return _ratingUpstairs
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingUpstairs", _ratingUpstairs, value)
+            End Set
+        End Property
+        Private _ratingSpiral As Integer
+        Public Property RatingSpiral() As Integer
+            Get
+                Return _ratingSpiral
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingSpiral", _ratingSpiral, value)
+            End Set
+        End Property
+        Private _ratingPlastic As Integer
+        Public Property RatingPlastic() As Integer
+            Get
+                Return _ratingPlastic
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingPlastic", _ratingPlastic, value)
+            End Set
+        End Property
+        Private _ratingMovingHangling As Integer
+        Public Property RatingMovingHangling() As Integer
+            Get
+                Return _ratingMovingHangling
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("RatingMovingHangling", _ratingMovingHangling, value)
             End Set
         End Property
     End Class

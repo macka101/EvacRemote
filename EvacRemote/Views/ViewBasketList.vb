@@ -6,7 +6,7 @@ Imports DevExpress.XtraGrid.Views.Layout.ViewInfo
 
 Imports EvacRemote.GlobalVariables
 
-Public Class BasketList
+Public Class ViewBasketList
     Private _Loaded As Boolean = False
     Private _Category As String = "Evac"
     Dim dsContacts As New DataSet

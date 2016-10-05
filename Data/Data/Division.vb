@@ -110,6 +110,19 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("StatusFlag", _statusFlag, value)
             End Set
         End Property
+        <Association("Division-Buildings")>
+        Public ReadOnly Property Buildings() As XPCollection(Of Building)
+            Get
+                Return GetCollection(Of Building)("Buildings")
+            End Get
+        End Property
+
+        <Association("Division-Survey")>
+        Public ReadOnly Property Surveys() As XPCollection(Of EvacSurvey)
+            Get
+                Return GetCollection(Of EvacSurvey)("Surveys")
+            End Get
+        End Property
         Private _lastupdatedtimestamp As Date
         <Indexed(Unique:=False)> _
              Public Property lastupdatedtimestamp() As Date

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ServiceList
+Partial Class ViewSurveyList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -22,28 +22,27 @@ Partial Class ServiceList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewSurveyList))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.btnNew = New DevExpress.XtraEditors.SimpleButton()
-        Me.grdService = New DevExpress.XtraGrid.GridControl()
-        Me.XpCollection1 = New DevExpress.Xpo.XPCollection(Me.components)
-        Me.vw_Service = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.ColDivision = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colServiceDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colSignature = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colSigner = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colNotes = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.grdSurveys = New DevExpress.XtraGrid.GridControl()
+        Me.vw_Surveys = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colDivname = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xolContact = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAddress4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPostCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.grdService, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.vw_Service, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vw_Surveys, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +52,7 @@ Partial Class ServiceList
         'LayoutControl1
         '
         Me.LayoutControl1.Controls.Add(Me.btnNew)
-        Me.LayoutControl1.Controls.Add(Me.grdService)
+        Me.LayoutControl1.Controls.Add(Me.grdSurveys)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
@@ -76,73 +75,88 @@ Partial Class ServiceList
         Me.btnNew.TabIndex = 5
         Me.btnNew.Visible = False
         '
-        'grdService
+        'grdSurveys
         '
-        Me.grdService.DataSource = Me.XpCollection1
-        Me.grdService.Location = New System.Drawing.Point(12, 54)
-        Me.grdService.MainView = Me.vw_Service
-        Me.grdService.Name = "grdService"
-        Me.grdService.ShowOnlyPredefinedDetails = True
-        Me.grdService.Size = New System.Drawing.Size(635, 353)
-        Me.grdService.TabIndex = 4
-        Me.grdService.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Service})
+        Me.grdSurveys.Location = New System.Drawing.Point(12, 54)
+        Me.grdSurveys.MainView = Me.vw_Surveys
+        Me.grdSurveys.Name = "grdSurveys"
+        Me.grdSurveys.ShowOnlyPredefinedDetails = True
+        Me.grdSurveys.Size = New System.Drawing.Size(635, 353)
+        Me.grdSurveys.TabIndex = 4
+        Me.grdSurveys.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Surveys})
         '
-        'XpCollection1
+        'vw_Surveys
         '
-        Me.XpCollection1.ObjectType = GetType(Esso.Data.EvacService)
+        Me.vw_Surveys.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
+        Me.vw_Surveys.GridControl = Me.grdSurveys
+        Me.vw_Surveys.Name = "vw_Surveys"
+        Me.vw_Surveys.OptionsBehavior.AllowIncrementalSearch = True
+        Me.vw_Surveys.OptionsBehavior.Editable = False
+        Me.vw_Surveys.OptionsFind.AlwaysVisible = True
+        Me.vw_Surveys.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always
+        Me.vw_Surveys.OptionsView.ShowGroupPanel = False
         '
-        'vw_Service
+        'colOid
         '
-        Me.vw_Service.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColDivision, Me.GridColumn2, Me.colServiceDate, Me.colSignature, Me.colSigner, Me.colNotes})
-        Me.vw_Service.GridControl = Me.grdService
-        Me.vw_Service.Name = "vw_Service"
-        Me.vw_Service.OptionsBehavior.AllowIncrementalSearch = True
-        Me.vw_Service.OptionsBehavior.Editable = False
-        Me.vw_Service.OptionsFind.AlwaysVisible = True
-        Me.vw_Service.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always
-        Me.vw_Service.OptionsView.ShowGroupPanel = False
+        Me.colOid.Caption = "Oid"
+        Me.colOid.FieldName = "Oid"
+        Me.colOid.Name = "colOid"
         '
-        'ColDivision
+        'colDivname
         '
-        Me.ColDivision.FieldName = "Division!"
-        Me.ColDivision.Name = "ColDivision"
-        Me.ColDivision.Visible = True
-        Me.ColDivision.VisibleIndex = 0
+        Me.colDivname.Caption = "Division"
+        Me.colDivname.FieldName = "Divname"
+        Me.colDivname.Name = "colDivname"
+        Me.colDivname.Visible = True
+        Me.colDivname.VisibleIndex = 0
         '
-        'GridColumn2
+        'xolContact
         '
-        Me.GridColumn2.FieldName = "Division!Key"
-        Me.GridColumn2.Name = "GridColumn2"
-        Me.GridColumn2.Visible = True
-        Me.GridColumn2.VisibleIndex = 1
+        Me.xolContact.Caption = "Contact"
+        Me.xolContact.FieldName = "Contact"
+        Me.xolContact.Name = "xolContact"
+        Me.xolContact.Visible = True
+        Me.xolContact.VisibleIndex = 1
         '
-        'colServiceDate
+        'colAddress1
         '
-        Me.colServiceDate.FieldName = "ServiceDate"
-        Me.colServiceDate.Name = "colServiceDate"
-        Me.colServiceDate.Visible = True
-        Me.colServiceDate.VisibleIndex = 2
+        Me.colAddress1.Caption = "Address1"
+        Me.colAddress1.FieldName = "Address1"
+        Me.colAddress1.Name = "colAddress1"
+        Me.colAddress1.Visible = True
+        Me.colAddress1.VisibleIndex = 2
         '
-        'colSignature
+        'colAddress2
         '
-        Me.colSignature.FieldName = "Signature"
-        Me.colSignature.Name = "colSignature"
-        Me.colSignature.Visible = True
-        Me.colSignature.VisibleIndex = 3
+        Me.colAddress2.Caption = "Address2"
+        Me.colAddress2.FieldName = "Address2"
+        Me.colAddress2.Name = "colAddress2"
+        Me.colAddress2.Visible = True
+        Me.colAddress2.VisibleIndex = 3
         '
-        'colSigner
+        'colAddress3
         '
-        Me.colSigner.FieldName = "Signer"
-        Me.colSigner.Name = "colSigner"
-        Me.colSigner.Visible = True
-        Me.colSigner.VisibleIndex = 4
+        Me.colAddress3.Caption = "Address3"
+        Me.colAddress3.FieldName = "Address3"
+        Me.colAddress3.Name = "colAddress3"
+        Me.colAddress3.Visible = True
+        Me.colAddress3.VisibleIndex = 4
         '
-        'colNotes
+        'colAddress4
         '
-        Me.colNotes.FieldName = "Notes"
-        Me.colNotes.Name = "colNotes"
-        Me.colNotes.Visible = True
-        Me.colNotes.VisibleIndex = 5
+        Me.colAddress4.Caption = "Address4"
+        Me.colAddress4.FieldName = "Address4"
+        Me.colAddress4.Name = "colAddress4"
+        Me.colAddress4.Visible = True
+        Me.colAddress4.VisibleIndex = 5
+        '
+        'colPostCode
+        '
+        Me.colPostCode.Caption = "PostCode"
+        Me.colPostCode.FieldName = "PostCode"
+        Me.colPostCode.Name = "colPostCode"
+        Me.colPostCode.Visible = True
+        Me.colPostCode.VisibleIndex = 6
         '
         'LayoutControlGroup1
         '
@@ -163,16 +177,16 @@ Partial Class ServiceList
         Me.SIService.AppearanceItemCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.SIService.AppearanceItemCaption.Options.UseFont = True
         Me.SIService.AppearanceItemCaption.Options.UseForeColor = True
-        Me.SIService.CustomizationFormText = "CURRENT Service <color=47, 81, 165>"
+        Me.SIService.CustomizationFormText = "CURRENT CONTACT <color=47, 81, 165>"
         Me.SIService.Location = New System.Drawing.Point(0, 0)
         Me.SIService.Name = "SIService"
         Me.SIService.Size = New System.Drawing.Size(593, 42)
-        Me.SIService.Text = "Services"
-        Me.SIService.TextSize = New System.Drawing.Size(68, 25)
+        Me.SIService.Text = "Surveys"
+        Me.SIService.TextSize = New System.Drawing.Size(64, 25)
         '
         'lciContacts
         '
-        Me.lciContacts.Control = Me.grdService
+        Me.lciContacts.Control = Me.grdSurveys
         Me.lciContacts.CustomizationFormText = "Contacts"
         Me.lciContacts.Location = New System.Drawing.Point(0, 42)
         Me.lciContacts.Name = "lciContacts"
@@ -191,18 +205,17 @@ Partial Class ServiceList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'ServiceList
+        'SurveyList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "ServiceList"
+        Me.Name = "SurveyList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.grdService, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.vw_Service, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vw_Surveys, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).EndInit()
@@ -212,18 +225,19 @@ Partial Class ServiceList
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents btnNew As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents grdService As DevExpress.XtraGrid.GridControl
-    Friend WithEvents vw_Service As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents grdSurveys As DevExpress.XtraGrid.GridControl
+    Friend WithEvents vw_Surveys As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents SIService As DevExpress.XtraLayout.SimpleLabelItem
     Friend WithEvents lciContacts As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciSetCurrent As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents XpCollection1 As DevExpress.Xpo.XPCollection
-    Friend WithEvents ColDivision As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colServiceDate As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSignature As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSigner As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNotes As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colDivname As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAddress4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPostCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xolContact As DevExpress.XtraGrid.Columns.GridColumn
 
 End Class

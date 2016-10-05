@@ -10,7 +10,7 @@ Imports Esso.Data
 Imports DevExpress.Xpo.DB
 Imports DevExpress.Data.Filtering
 
-Public Class ContactList
+Public Class ViewContactList
     Private _Loaded As Boolean = False
     Private _Category As String = "Evac"
     Private _session As UnitOfWork
@@ -80,6 +80,7 @@ Public Class ContactList
     Private Sub ViewContact()
         If CurrentContact IsNot Nothing Then
             _currentContact = CurrentContact
+            _currentDivision = CurrentContact.Division
             ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
         End If
 
@@ -133,7 +134,6 @@ Public Class ContactList
 
 
     End Sub
-
 
     Private Sub vw_Companies_DoubleClick(sender As Object, e As EventArgs) Handles vw_Companies.DoubleClick
         ViewContact()

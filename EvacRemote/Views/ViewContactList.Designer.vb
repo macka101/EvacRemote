@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ContactList
+Partial Class ViewContactList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class ContactList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContactList))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewContactList))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.btnSetCurrent = New DevExpress.XtraEditors.SimpleButton()
         Me.grdCompanies = New DevExpress.XtraGrid.GridControl()
@@ -206,12 +206,12 @@ Partial Class ContactList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'ContactModule
+        'ContactList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "ContactModule"
+        Me.Name = "ContactList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

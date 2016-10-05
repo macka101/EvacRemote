@@ -10,7 +10,7 @@ Imports Esso.Data
 Imports DevExpress.Xpo.DB
 Imports DevExpress.Data.Filtering
 
-Public Class ServiceList
+Public Class ViewSurveyList
     Private _Loaded As Boolean = False
     Private _session As UnitOfWork
     Private _parent As frmMain = Nothing
@@ -35,10 +35,10 @@ Public Class ServiceList
     End Property
     Private Sub FetchData()
 
-        Dim current As Integer = vw_Service.FocusedRowHandle
-        Dim _serviceView As XPView = New XPView(_session, GetType(EvacService))
-        _serviceView.AddProperty("Oid", "Oid")
-        _serviceView.AddProperty("ServiceDate", "ServiceDate")
+        Dim current As Integer = vw_Surveys.FocusedRowHandle
+        Dim _surveyView As XPView = New XPView(_session, GetType(EvacService))
+        _surveyView.AddProperty("Oid", "Oid")
+        _surveyView.AddProperty("ServiceDate", "ServiceDate")
         '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
 
         '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
@@ -46,11 +46,11 @@ Public Class ServiceList
         '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
         sortCollection.Add(New SortProperty("ServiceDate", SortingDirection.Descending))
 
-        _serviceView.Sorting = sortCollection
-        grdService.DataSource = _serviceView
+        _surveyView.Sorting = sortCollection
+        grdSurveys.DataSource = _surveyView
         If current >= 0 Then
-            If current < vw_Service.RowCount Then
-                vw_Service.FocusedRowHandle = current
+            If current < vw_Surveys.RowCount Then
+                vw_Surveys.FocusedRowHandle = current
             End If
         End If
 
@@ -69,44 +69,44 @@ Public Class ServiceList
 
 
     Private Sub GridView1_Click(sender As Object, e As EventArgs)
-        ViewService()
+        ViewSurvey()
     End Sub
-    Private Sub ViewService()
-        If CurrentService IsNot Nothing Then
-            _currentService = CurrentService
-            ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
+    Private Sub ViewSurvey()
+        If CurrentSurvey IsNot Nothing Then
+            _currentSurvey = CurrentSurvey
+            ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
         End If
 
     End Sub
-    Private ReadOnly Property CurrentService() As EvacService
+    Private ReadOnly Property CurrentSurvey() As EvacSurvey
         Get
-            If vw_Service.FocusedRowHandle < 0 Then
+            If vw_Surveys.FocusedRowHandle < 0 Then
                 Return Nothing
             End If
-            Return _session.FindObject(Of EvacService)(CriteriaOperator.Parse("Oid = ?", CurrentOid))
+            Return _session.FindObject(Of EvacSurvey)(CriteriaOperator.Parse("Oid = ?", CurrentOid))
         End Get
 
     End Property
     Private ReadOnly Property CurrentOid() As Guid
         Get
-            If vw_Service.FocusedRowHandle < 0 Then
+            If vw_Surveys.FocusedRowHandle < 0 Then
                 Return Nothing
             End If
-            If vw_Service.Columns("OID") IsNot Nothing Then
-                Return DirectCast(vw_Service.GetRowCellValue(vw_Service.FocusedRowHandle, "OID"), Guid)
+            If vw_Surveys.Columns("OID") IsNot Nothing Then
+                Return DirectCast(vw_Surveys.GetRowCellValue(vw_Surveys.FocusedRowHandle, "OID"), Guid)
             Else
-                Return DirectCast(vw_Service.GetRowCellValue(vw_Service.FocusedRowHandle, "Oid"), Guid)
+                Return DirectCast(vw_Surveys.GetRowCellValue(vw_Surveys.FocusedRowHandle, "Oid"), Guid)
             End If
         End Get
     End Property
-
-    Private Sub vw_Companies_DoubleClick(sender As Object, e As EventArgs) Handles vw_Service.DoubleClick
-        ViewService()
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        _currentSurvey = New EvacSurvey(_session)
+        _currentSurvey.Division = _currentDivision
+        _currentSurvey.Contact = _currentContact
+        ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
     End Sub
 
-  
-    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
-        _currentService = Nothing
-        ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
+    Private Sub vw_Surveys_DoubleClick(sender As Object, e As EventArgs) Handles vw_Surveys.DoubleClick
+        ViewSurvey()
     End Sub
 End Class
