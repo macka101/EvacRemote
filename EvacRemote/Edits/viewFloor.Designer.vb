@@ -23,6 +23,7 @@ Partial Class viewFloor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.lueChair = New DevExpress.XtraEditors.LookUpEdit()
         Me.teNotes = New DevExpress.XtraEditors.MemoEdit()
         Me.teFloor = New DevExpress.XtraEditors.TextEdit()
         Me.icbNosing = New DevExpress.XtraEditors.ImageComboBoxEdit()
@@ -42,10 +43,12 @@ Partial Class viewFloor
         Me.lciNosing = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciFloor = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciNotes = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lueChair = New DevExpress.XtraEditors.LookUpEdit()
         Me.lciChair = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lueRecomended = New DevExpress.XtraEditors.LookUpEdit()
+        Me.lciRecomended = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.lueChair.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teFloor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.icbNosing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,12 +68,14 @@ Partial Class viewFloor
         CType(Me.lciNosing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciNotes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lueChair.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciChair, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lueRecomended.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciRecomended, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.lueRecomended)
         Me.LayoutControl1.Controls.Add(Me.lueChair)
         Me.LayoutControl1.Controls.Add(Me.teNotes)
         Me.LayoutControl1.Controls.Add(Me.teFloor)
@@ -89,11 +94,21 @@ Partial Class viewFloor
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'lueChair
+        '
+        Me.lueChair.Location = New System.Drawing.Point(202, 180)
+        Me.lueChair.Name = "lueChair"
+        Me.lueChair.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lueChair.Properties.NullText = ""
+        Me.lueChair.Size = New System.Drawing.Size(527, 20)
+        Me.lueChair.StyleController = Me.LayoutControl1
+        Me.lueChair.TabIndex = 17
+        '
         'teNotes
         '
-        Me.teNotes.Location = New System.Drawing.Point(126, 196)
+        Me.teNotes.Location = New System.Drawing.Point(126, 220)
         Me.teNotes.Name = "teNotes"
-        Me.teNotes.Size = New System.Drawing.Size(603, 278)
+        Me.teNotes.Size = New System.Drawing.Size(603, 254)
         Me.teNotes.StyleController = Me.LayoutControl1
         Me.teNotes.TabIndex = 16
         '
@@ -172,7 +187,7 @@ Partial Class viewFloor
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciThread, Me.lciGoing, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciNosing, Me.lciFloor, Me.lciNotes, Me.lciChair})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciThread, Me.lciGoing, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciNosing, Me.lciFloor, Me.lciNotes, Me.lciChair, Me.lciRecomended})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -270,41 +285,52 @@ Partial Class viewFloor
         'lciNotes
         '
         Me.lciNotes.Control = Me.teNotes
-        Me.lciNotes.Location = New System.Drawing.Point(114, 168)
+        Me.lciNotes.Location = New System.Drawing.Point(114, 192)
         Me.lciNotes.Name = "lciNotes"
-        Me.lciNotes.Size = New System.Drawing.Size(607, 298)
+        Me.lciNotes.Size = New System.Drawing.Size(607, 274)
         Me.lciNotes.Text = "iNotes"
         Me.lciNotes.TextLocation = DevExpress.Utils.Locations.Top
         Me.lciNotes.TextSize = New System.Drawing.Size(73, 13)
         '
-        'lueChair
-        '
-        Me.lueChair.Location = New System.Drawing.Point(202, 156)
-        Me.lueChair.Name = "lueChair"
-        Me.lueChair.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.lueChair.Properties.NullText = ""
-        Me.lueChair.Size = New System.Drawing.Size(527, 20)
-        Me.lueChair.StyleController = Me.LayoutControl1
-        Me.lueChair.TabIndex = 17
-        '
         'lciChair
         '
         Me.lciChair.Control = Me.lueChair
-        Me.lciChair.Location = New System.Drawing.Point(114, 144)
+        Me.lciChair.Location = New System.Drawing.Point(114, 168)
         Me.lciChair.Name = "lciChair"
         Me.lciChair.Size = New System.Drawing.Size(607, 24)
         Me.lciChair.Text = "Chair"
         Me.lciChair.TextSize = New System.Drawing.Size(73, 13)
         '
-        'viewFloorSwipe
+        'lueRecomended
+        '
+        Me.lueRecomended.Location = New System.Drawing.Point(202, 156)
+        Me.lueRecomended.Name = "lueRecomended"
+        Me.lueRecomended.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lueRecomended.Properties.NullText = " "
+        Me.lueRecomended.Properties.ReadOnly = True
+        Me.lueRecomended.Size = New System.Drawing.Size(527, 20)
+        Me.lueRecomended.StyleController = Me.LayoutControl1
+        Me.lueRecomended.TabIndex = 18
+        '
+        'lciRecomended
+        '
+        Me.lciRecomended.Control = Me.lueRecomended
+        Me.lciRecomended.Location = New System.Drawing.Point(114, 144)
+        Me.lciRecomended.Name = "lciRecomended"
+        Me.lciRecomended.Size = New System.Drawing.Size(607, 24)
+        Me.lciRecomended.Text = "Recomended"
+        Me.lciRecomended.TextSize = New System.Drawing.Size(73, 13)
+        '
+        'viewFloor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "viewFloorSwipe"
+        Me.Name = "viewFloor"
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.lueChair.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teFloor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.icbNosing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -324,11 +350,12 @@ Partial Class viewFloor
         CType(Me.lciNosing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciNotes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lueChair.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciChair, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lueRecomended.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciRecomended, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents picBack As System.Windows.Forms.PictureBox
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
@@ -351,5 +378,6 @@ End Sub
     Friend WithEvents lciNotes As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lueChair As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents lciChair As DevExpress.XtraLayout.LayoutControlItem
-
+    Friend WithEvents lueRecomended As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents lciRecomended As DevExpress.XtraLayout.LayoutControlItem
 End Class

@@ -107,6 +107,40 @@ Module Misc
 
         Return edit
     End Function
+    Public Function CreateProductLookUpEdit(ByVal session As Session, ByVal collection As RepositoryItemCollection, ByVal key As Boolean) As RepositoryItemLookUpEdit
+        Return CreateProductLookUpEdit(session, Nothing, collection, key)
+    End Function
+    Public Function CreateProductLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection) As RepositoryItemLookUpEdit
+        Return CreateProductLookUpEdit(session, edit, collection, False)
+    End Function
+    Public Function CreateProductLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByVal key As Boolean) As RepositoryItemLookUpEdit
+        Dim ret As RepositoryItemLookUpEdit
+        If Object.Equals(edit, Nothing) Then
+            ret = New RepositoryItemLookUpEdit()
+        Else
+            ret = edit
+        End If
+        If (Not Object.Equals(collection, Nothing)) Then
+            collection.Add(ret)
+        End If
+        If key Then
+            ret.ValueMember = "Oid"
+        Else
+            ret.ValueMember = "This"
+        End If
+
+        ret.DisplayMember = "Description"
+
+        ret.DataSource = New XPCollection(Of Product)(session, Nothing, New SortProperty("ProductCode", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        ret.NullText = String.Empty
+        ret.Columns.Clear()
+        ret.Columns.Add(New LookUpColumnInfo("Description"))
+        ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
+        ret.ShowHeader = False
+        ret.DropDownRows = 20
+        Return ret
+    End Function
+
     Public Function CreateTaskTypeImageComboBox(ByVal collection As RepositoryItemCollection) As RepositoryItemImageComboBox
         Return CreateTaskTypeImageComboBox(Nothing, collection)
     End Function

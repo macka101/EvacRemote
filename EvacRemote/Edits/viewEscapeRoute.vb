@@ -88,6 +88,7 @@ Public Class viewEscapeRoute
         _currentEscapeRoute.Going = CBEGoing.EditValue
         _currentEscapeRoute.Save()
         _session.CommitTransaction()
+        ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then

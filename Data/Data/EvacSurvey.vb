@@ -784,6 +784,37 @@ Namespace Esso.Data
                 SetPropertyValue(Of Date)("SurveyDate", _surveyDate, value)
             End Set
         End Property
+        Private _access As String
+        <Size(20)>
+        Public Property Access() As String
+            Get
+                Return _access
+            End Get
+            Set(value As String)
+                SetPropertyValue(Of String)("Access", _access, value)
+            End Set
+        End Property
+        Private _heritage As String
+        Public Property Heritage() As String
+            Get
+                Return _heritage
+            End Get
+            Set(value As String)
+                SetPropertyValue(Of String)("Heritage", _heritage, value)
+            End Set
+        End Property
+        Private _escapeRoutes As Integer
+        Public Property EscapeRoutes() As Integer
+            Get
+                Return _escapeRoutes
+            End Get
+            Set(value As Integer)
+                SetPropertyValue(Of Integer)("EscapeRoutes", _escapeRoutes, value)
+            End Set
+        End Property
+
+
+
         Private _signer As String
         Public Property Signer() As String
             Get
@@ -815,6 +846,45 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Notes", _notes, value)
             End Set
         End Property
+        Private fcreatedBy As User
+        Public Property CreatedBy() As User
+            Get
+                Return fcreatedBy
+            End Get
+            Set(ByVal value As User)
+                SetPropertyValue(Of User)("CreatedBy", fcreatedBy, value)
+            End Set
+        End Property
+        Private fcreatedAt As DateTime
+        Public Property CreatedAt() As DateTime
+            Get
+                Return fcreatedAt
+            End Get
+            Set(ByVal value As DateTime)
+                SetPropertyValue(Of DateTime)("CreatedAt", fcreatedAt, value)
+            End Set
+        End Property
+        Private fmodifiedBy As User
+        <MergeCollisionBehavior(OptimisticLockingReadMergeBehavior.Ignore)>
+        Public Property ModifiedBy() As User
+            Get
+                Return fmodifiedBy
+            End Get
+            Set(ByVal value As User)
+                SetPropertyValue(Of User)("ModifiedBy", fmodifiedBy, value)
+            End Set
+        End Property
+        Private fmodifiedAt As DateTime
+        <MergeCollisionBehavior(OptimisticLockingReadMergeBehavior.Ignore)>
+        Public Property ModifiedAt() As DateTime
+            Get
+                Return fmodifiedAt
+            End Get
+            Set(ByVal value As DateTime)
+                SetPropertyValue(Of DateTime)("ModifiedAt", fmodifiedAt, value)
+            End Set
+        End Property
+
     End Class
     Public Class Building
         Inherits XPCustomObject
@@ -1383,6 +1453,24 @@ Namespace Esso.Data
                 SetPropertyValue(Of Boolean)("MovingAndHandling", _movingAndHandling, value)
             End Set
         End Property
+        Private _recommenedProduct As Product
+        Public Property RecommenedProduct() As Product
+            Get
+                Return _recommenedProduct
+            End Get
+            Set(value As Product)
+                _recommenedProduct = value
+            End Set
+        End Property
+        Private _product As Product
+        Public Property Product() As Product
+            Get
+                Return _product
+            End Get
+            Set(value As Product)
+                _product = value
+            End Set
+        End Property
         Public Property Notes() As String
             Get
                 Return _notes
@@ -1457,10 +1545,7 @@ Namespace Esso.Data
             ModifiedAt = DateTime.Now
         End Sub
         Private ID_Renamed As Integer
-        Private _pitch As String
-        Private _going As String
         Private _notes As String
-        Private _escaperoute As EscapeRoute
         Private _building As Building
         <Association("Building-Floor")>
         Public Property Building() As Building
@@ -1507,7 +1592,8 @@ Namespace Esso.Data
                 _glass = value
             End Set
         End Property
-
+        Private _pitch As String
+        <Size(10)>
         Public Property Pitch() As String
             Get
                 Return _pitch
@@ -1516,15 +1602,20 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Pitch", _pitch, value)
             End Set
         End Property
-
+        Private _going As String
+        <Size(10)>
         Public Property Going() As String
             Get
                 Return _going
             End Get
             Set(value As String)
-                _going = value
+                SetPropertyValue(Of String)("Going", _going, value)
+
             End Set
         End Property
+
+
+
         Public Property Notes() As String
             Get
                 Return _notes

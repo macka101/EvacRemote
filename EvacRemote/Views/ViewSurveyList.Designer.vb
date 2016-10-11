@@ -30,15 +30,14 @@ Partial Class ViewSurveyList
         Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colDivname = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xolContact = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAddress1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAddress2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAddress3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAddress4 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colPostCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.colSurveyDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAccess = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colHeritage = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colEscapeRoutes = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,7 +86,7 @@ Partial Class ViewSurveyList
         '
         'vw_Surveys
         '
-        Me.vw_Surveys.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colAddress1, Me.colAddress2, Me.colAddress3, Me.colAddress4, Me.colPostCode})
+        Me.vw_Surveys.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colDivname, Me.xolContact, Me.colSurveyDate, Me.colAccess, Me.colHeritage, Me.colEscapeRoutes})
         Me.vw_Surveys.GridControl = Me.grdSurveys
         Me.vw_Surveys.Name = "vw_Surveys"
         Me.vw_Surveys.OptionsBehavior.AllowIncrementalSearch = True
@@ -117,46 +116,6 @@ Partial Class ViewSurveyList
         Me.xolContact.Name = "xolContact"
         Me.xolContact.Visible = True
         Me.xolContact.VisibleIndex = 1
-        '
-        'colAddress1
-        '
-        Me.colAddress1.Caption = "Address1"
-        Me.colAddress1.FieldName = "Address1"
-        Me.colAddress1.Name = "colAddress1"
-        Me.colAddress1.Visible = True
-        Me.colAddress1.VisibleIndex = 2
-        '
-        'colAddress2
-        '
-        Me.colAddress2.Caption = "Address2"
-        Me.colAddress2.FieldName = "Address2"
-        Me.colAddress2.Name = "colAddress2"
-        Me.colAddress2.Visible = True
-        Me.colAddress2.VisibleIndex = 3
-        '
-        'colAddress3
-        '
-        Me.colAddress3.Caption = "Address3"
-        Me.colAddress3.FieldName = "Address3"
-        Me.colAddress3.Name = "colAddress3"
-        Me.colAddress3.Visible = True
-        Me.colAddress3.VisibleIndex = 4
-        '
-        'colAddress4
-        '
-        Me.colAddress4.Caption = "Address4"
-        Me.colAddress4.FieldName = "Address4"
-        Me.colAddress4.Name = "colAddress4"
-        Me.colAddress4.Visible = True
-        Me.colAddress4.VisibleIndex = 5
-        '
-        'colPostCode
-        '
-        Me.colPostCode.Caption = "PostCode"
-        Me.colPostCode.FieldName = "PostCode"
-        Me.colPostCode.Name = "colPostCode"
-        Me.colPostCode.Visible = True
-        Me.colPostCode.VisibleIndex = 6
         '
         'LayoutControlGroup1
         '
@@ -205,12 +164,44 @@ Partial Class ViewSurveyList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'SurveyList
+        'colSurveyDate
+        '
+        Me.colSurveyDate.Caption = "SurveyDate"
+        Me.colSurveyDate.FieldName = "SurveyDate"
+        Me.colSurveyDate.Name = "colSurveyDate"
+        Me.colSurveyDate.Visible = True
+        Me.colSurveyDate.VisibleIndex = 2
+        '
+        'colAccess
+        '
+        Me.colAccess.Caption = "Access"
+        Me.colAccess.FieldName = "Access"
+        Me.colAccess.Name = "colAccess"
+        Me.colAccess.Visible = True
+        Me.colAccess.VisibleIndex = 3
+        '
+        'colHeritage
+        '
+        Me.colHeritage.Caption = "Heritage"
+        Me.colHeritage.FieldName = "Heritage"
+        Me.colHeritage.Name = "colHeritage"
+        Me.colHeritage.Visible = True
+        Me.colHeritage.VisibleIndex = 4
+        '
+        'colEscapeRoutes
+        '
+        Me.colEscapeRoutes.Caption = "EscapeRoutes"
+        Me.colEscapeRoutes.FieldName = "EscapeRoutes"
+        Me.colEscapeRoutes.Name = "colEscapeRoutes"
+        Me.colEscapeRoutes.Visible = True
+        Me.colEscapeRoutes.VisibleIndex = 5
+        '
+        'ViewSurveyList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "SurveyList"
+        Me.Name = "ViewSurveyList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
@@ -233,11 +224,9 @@ Partial Class ViewSurveyList
     Friend WithEvents lciSetCurrent As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDivname As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colAddress1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colAddress2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colAddress3 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colAddress4 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPostCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents xolContact As DevExpress.XtraGrid.Columns.GridColumn
-
+    Friend WithEvents colSurveyDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colAccess As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colHeritage As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colEscapeRoutes As DevExpress.XtraGrid.Columns.GridColumn
 End Class

@@ -36,15 +36,20 @@ Public Class ViewSurveyList
     Private Sub FetchData()
 
         Dim current As Integer = vw_Surveys.FocusedRowHandle
-        Dim _surveyView As XPView = New XPView(_session, GetType(EvacService))
+        Dim _surveyView As XPView = New XPView(_session, GetType(EvacSurvey))
         _surveyView.AddProperty("Oid", "Oid")
-        _surveyView.AddProperty("ServiceDate", "ServiceDate")
+        _surveyView.AddProperty("Division", "Division.Divname")
+        _surveyView.AddProperty("Surname", "Contact.Surname")
+        _surveyView.AddProperty("SurveyDate", "SurveyDate")
+        _surveyView.AddProperty("Access", "Access")
+        _surveyView.AddProperty("Heritage", "Heritage")
+        _surveyView.AddProperty("EscapeRoutes", "EscapeRoutes")
         '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
+        _surveyView.Criteria = CriteriaOperator.Parse("Division = ? ", _currentDivision.Oid)
 
-        '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
         Dim sortCollection As SortingCollection = New SortingCollection()
         '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
-        sortCollection.Add(New SortProperty("ServiceDate", SortingDirection.Descending))
+        sortCollection.Add(New SortProperty("SurveyDate", SortingDirection.Descending))
 
         _surveyView.Sorting = sortCollection
         grdSurveys.DataSource = _surveyView

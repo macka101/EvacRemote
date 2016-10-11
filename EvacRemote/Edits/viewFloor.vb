@@ -31,7 +31,8 @@ Public Class viewFloor
     End Property
     Public Sub InitEditors()
         Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
-
+        Misc.CreateProductLookUpEdit(_session, lueRecomended.Properties, Nothing)
+        Misc.CreateProductLookUpEdit(_session, lueChair.Properties, Nothing)
         AddHandler teFloor.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler cbeStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbNosing.EditValueChanged, AddressOf edit_EditValueChanged
@@ -41,12 +42,28 @@ Public Class viewFloor
         AddHandler teNotes.EditValueChanged, AddressOf edit_EditValueChanged
     End Sub
     Public Sub Initdata()
+        InitEditors()
         teFloor.Text = _currentFloor.Floor
         cbeStairwayType.EditValue = _currentFloor.Type
         icbNosing.EditValue = _currentFloor.Nosing
         cbePitch.EditValue = _currentFloor.Pitch
         CBEGoing.EditValue = _currentFloor.Going
+        lueChair.EditValue = _currentFloor.Product
+        lueRecomended.EditValue = _currentFloor.RecommenedProduct
         teNotes.Text = _currentFloor.Notes
+    End Sub
+    Private Sub SaveData()
+        _currentFloor.Floor = teFloor.Text
+        _currentFloor.Type = cbeStairwayType.EditValue
+        _currentFloor.Nosing = icbNosing.EditValue
+        _currentFloor.Pitch = cbePitch.EditValue
+        _currentFloor.Going = CBEGoing.EditValue
+        _currentFloor.Product = lueChair.EditValue
+
+        _currentFloor.RecommenedProduct = lueRecomended.EditValue
+        _currentFloor.Notes = teNotes.Text
+        _currentFloor.Save()
+        _session.CommitChanges()
     End Sub
     Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
 
@@ -76,14 +93,7 @@ Public Class viewFloor
 
     End Sub
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        _currentFloor.Floor = teFloor.Text
-        _currentFloor.Type = cbeStairwayType.EditValue
-        _currentFloor.Nosing = icbNosing.EditValue
-        _currentFloor.Pitch = cbePitch.EditValue
-        _currentFloor.Going = CBEGoing.EditValue
-        _currentFloor.Notes = teNotes.Text
-        _currentFloor.Save()
-        _session.CommitTransaction()
+        SaveData()
         ParentFormMain.SelectPage(frmMain.ePage.EscapeRoute)
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)

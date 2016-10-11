@@ -124,9 +124,9 @@ Public Class frmMain
                 End If
                 _ContactList.Parent = Me.MainPnl
                 _ContactList.Dock = DockStyle.Fill
-                If _ContactList.Loaded = False Then
-                    _ContactList.InitData()
-                End If
+
+                _ContactList.InitData()
+
                 BasketEnabled(False)
                 SurveyEnabled(False)
                 ServiceEnabled(False)
@@ -137,9 +137,9 @@ Public Class frmMain
                 End If
                 _DiarySchedule.Parent = Me.MainPnl
                 _DiarySchedule.Dock = DockStyle.Fill
-                If _DiarySchedule.Loaded = False Then
-                    _DiarySchedule.InitData()
-                End If
+
+                _DiarySchedule.InitData()
+
                 _DiarySchedule.Visible = True
             Case ePage.ContactDetail
                 If _ContactDetail Is Nothing Then
@@ -158,9 +158,9 @@ Public Class frmMain
                 End If
                 _ProductList.Parent = Me.MainPnl
                 _ProductList.Dock = DockStyle.Fill
-                If _ProductList.Loaded = False Then
-                    _ProductList.InitData()
-                End If
+
+                _ProductList.InitData()
+
                 BasketEnabled(False)
                 SurveyEnabled(False)
                 ServiceEnabled(False)
@@ -171,9 +171,9 @@ Public Class frmMain
                 End If
                 _SurveyList.Parent = Me.MainPnl
                 _SurveyList.Dock = DockStyle.Fill
-                If _SurveyList.Loaded = False Then
-                    _SurveyList.InitData()
-                End If
+
+                _SurveyList.InitData()
+
                 BasketEnabled(False)
                 SurveyEnabled(False)
                 ServiceEnabled(False)
@@ -184,9 +184,9 @@ Public Class frmMain
                 End If
                 _SurveyDetail.Parent = Me.MainPnl
                 _SurveyDetail.Dock = DockStyle.Fill
-                If _SurveyDetail.Loaded = False Then
-                    _SurveyDetail.Initdata()
-                End If
+
+                _SurveyDetail.Initdata()
+
                 _SurveyDetail.Visible = True
             Case ePage.EscapeRoute
                 If _EscapeRoute Is Nothing Then
@@ -194,9 +194,9 @@ Public Class frmMain
                 End If
                 _EscapeRoute.Parent = Me.MainPnl
                 _EscapeRoute.Dock = DockStyle.Fill
-                If _EscapeRoute.Loaded = False Then
-                    _EscapeRoute.Initdata()
-                End If
+
+                _EscapeRoute.Initdata()
+
                 _EscapeRoute.Visible = True
             Case ePage.FloorDetail
                 If _FloorDetail Is Nothing Then
@@ -204,9 +204,9 @@ Public Class frmMain
                 End If
                 _FloorDetail.Parent = Me.MainPnl
                 _FloorDetail.Dock = DockStyle.Fill
-                If _FloorDetail.Loaded = False Then
-                    _FloorDetail.Initdata()
-                End If
+
+                _FloorDetail.Initdata()
+
                 _FloorDetail.Visible = True
 
             Case ePage.ServiceList
@@ -215,9 +215,9 @@ Public Class frmMain
                 End If
                 _ServiceList.Parent = Me.MainPnl
                 _ServiceList.Dock = DockStyle.Fill
-                If _ServiceList.Loaded = False Then
-                    _ServiceList.InitData()
-                End If
+
+                _ServiceList.InitData()
+
                 BasketEnabled(False)
                 SurveyEnabled(False)
                 ServiceEnabled(False)
@@ -228,9 +228,9 @@ Public Class frmMain
                 End If
                 _ServiceDetail.Parent = Me.MainPnl
                 _ServiceDetail.Dock = DockStyle.Fill
-                If _ServiceDetail.Loaded = False Then
-                    _ServiceDetail.Initdata()
-                End If
+
+                _ServiceDetail.Initdata()
+
                 _ServiceDetail.Visible = True
             Case ePage.AssetServiceChair
                 If _AssetServiceChair Is Nothing Then
@@ -238,9 +238,9 @@ Public Class frmMain
                 End If
                 _AssetServiceChair.Parent = Me.MainPnl
                 _AssetServiceChair.Dock = DockStyle.Fill
-                If _AssetServiceChair.Loaded = False Then
-                    _AssetServiceChair.Initdata()
-                End If
+
+                _AssetServiceChair.Initdata()
+
                 _AssetServiceChair.Visible = True
                 'Case ePage.StairWell
                 '    If _StairwellDetail Is Nothing Then

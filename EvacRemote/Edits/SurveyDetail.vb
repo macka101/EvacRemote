@@ -72,7 +72,9 @@ Public Class SurveyDetail
         End If
 
         lueBuilding.EditValue = xpBuildings.First
-
+        icbAccess.EditValue = _currentSurvey.Access
+        icbHeritage.EditValue = _currentSurvey.Heritage
+        teEscapeRoutes.Text = _currentSurvey.EscapeRoutes
         ' colClient.ColumnEdit = Misc.CreateAccessTypeImageComboBox(grid_Buildings.RepositoryItems, True, True)
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, False)
 
@@ -228,6 +230,10 @@ Public Class SurveyDetail
 
     End Sub
     Private Sub SaveData()
+        _currentSurvey.Access = icbAccess.Text
+        _currentSurvey.Heritage = icbHeritage.Text
+        _currentSurvey.EscapeRoutes = teEscapeRoutes.Text
+        _currentSurvey.Save()
         _session.CommitChanges()
     End Sub
 
