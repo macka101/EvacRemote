@@ -62,7 +62,7 @@ Public Class frmMain
     End Sub
 
     Private Sub dashboardTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles dashboardTileBarItem.ItemClick
-        Using frmsysnc As New FrmSyncronize(False)
+        Using frmsysnc As New FrmSyncronize(False, False)
             frmsysnc.ShowDialog()
         End Using
     End Sub
@@ -335,12 +335,9 @@ Public Class frmMain
         '    ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=EVAC2K8;integrated security=SSPI;initial catalog=evacremote"
         '    ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
         'Else
-        If SQLHelper.DBExists() = 0 Then
-            MsgBox("No Database detected creating Local Database and Subscription", MsgBoxStyle.Critical)
-            Using frmsysnc As New FrmSyncronize(True)
-                frmsysnc.ShowDialog()
-            End Using
-        End If
+
+        Misc.InstallUpdateSyncWithInfo()
+
 
         ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=Willow"
 

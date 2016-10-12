@@ -4,6 +4,7 @@ Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraEditors
 Imports DevExpress.Utils
 Imports Esso.Data
+Imports DevExpress.XtraReports.UI
 
 Public Class SurveyDetail
     Private _Loaded As Boolean = False
@@ -34,6 +35,23 @@ Public Class SurveyDetail
 
     Public Sub InitEditors()
 
+        xpBuildings = _currentDivision.Buildings
+
+        xpEscapeRoutes = New XPCollection(Of EscapeRoute)(_session)
+        xpFloors = New XPCollection(Of Floor)(_session)
+
+        If xpBuildings.Count = 0 Then
+            Dim nBuilding As New Building(_session)
+            nBuilding.Location = String.Format("Building {0}", 1)
+            nBuilding.Heritage = "No"
+            nBuilding.Access = "Private"
+            nBuilding.Save()
+            _session.CommitChanges()
+            _currentDivision.Buildings.Add(nBuilding)
+        End If
+
+        ' CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, True, _currentDivision.Oid)
+
         lueBuilding.Properties.DataSource = xpBuildings
         lueBuilding.Properties.DisplayMember = "Location"
         lueBuilding.Properties.NullText = String.Empty
@@ -56,20 +74,9 @@ Public Class SurveyDetail
     Public Sub Initdata()
         InitEditors()
 
-        xpBuildings = _currentDivision.Buildings
-        xpEscapeRoutes = New XPCollection(Of EscapeRoute)(_session)
-        xpFloors = New XPCollection(Of Asset)(_session)
+    
 
-        If xpBuildings.Count = 0 Then
-            Dim nBuilding As New Building(_session)
-            nBuilding.Location = String.Format("Building {0}", 1)
-            nBuilding.Heritage = "No"
-            nBuilding.Access = "Private"
-            nBuilding.Save()
-            _session.CommitChanges()
-            _currentDivision.Buildings.Add(nBuilding)
 
-        End If
 
         lueBuilding.EditValue = xpBuildings.First
         icbAccess.EditValue = _currentSurvey.Access
@@ -245,5 +252,26 @@ Public Class SurveyDetail
             _currentEscapeRoute = CurrentEscapeRoute
             ParentFormMain.SelectPage(frmMain.ePage.EscapeRoute)
         End If
+    End Sub
+
+    Private Sub btnPrintQuote_Click(sender As Object, e As EventArgs) Handles btnPrintQuote.Click
+        Dim _tafdoc As New rptSurveyQuote
+        _tafdoc.RequestParameters = False
+        _tafdoc.Parameters(0).Value = _currentSurvey.Oid
+        _tafdoc.CreateDocument()
+
+        Using printTool As New ReportPrintTool(_tafdoc)
+            printTool.ShowPreviewDialog()
+        End Using
+
+    End Sub
+
+    Private Sub lciPicback_Click(sender As Object, e As EventArgs) Handles lciPicback.Click
+
+    End Sub
+
+    Private Sub Picback_Click_1(sender As Object, e As EventArgs) Handles Picback.Click
+        SaveData()
+        ParentFormMain.SelectPage(frmMain.ePage.SurveyList)
     End Sub
 End Class

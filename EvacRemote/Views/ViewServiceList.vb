@@ -39,14 +39,19 @@ Public Class ViewServiceList
         Dim _serviceView As XPView = New XPView(_session, GetType(EvacService))
         _serviceView.AddProperty("Oid", "Oid")
         _serviceView.AddProperty("ServiceDate", "ServiceDate")
-        '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
+        _serviceView.AddProperty("Division", "Division.Divname")
+        _serviceView.AddProperty("Contact", "isnull(Contact.Forename,'') + ' ' + isnull(Contact.SurName,'')")
 
-        '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
         Dim sortCollection As SortingCollection = New SortingCollection()
-        '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
+
         sortCollection.Add(New SortProperty("ServiceDate", SortingDirection.Descending))
 
         _serviceView.Sorting = sortCollection
+
+        Dim Where As CriteriaOperator = CriteriaOperator.Parse("Division = ? ", _currentDivision.Oid)
+
+        _serviceView.Filter = Where
+
         grdService.DataSource = _serviceView
         If current >= 0 Then
             If current < vw_Service.RowCount Then
@@ -57,14 +62,14 @@ Public Class ViewServiceList
         _Loaded = True
     End Sub
 
-    Public Sub New(ByVal session As Session, ByVal parent As frmMain)
+    Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
 
         ' This call is required by the designer.
         InitializeComponent()
         _parent = parent
         _session = session
         ' Add any initialization after the InitializeComponent() call.
-
+        FetchData()
     End Sub
 
 

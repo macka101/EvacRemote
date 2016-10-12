@@ -7,6 +7,9 @@ Imports DevExpress.Data.Helpers
 Imports DevExpress.XtraEditors.DXErrorProvider
 Imports DevExpress.Xpo
 Imports Esso.Data
+Imports DevExpress.XtraEditors
+Imports DevExpress.Data.Filtering
+Imports System.Deployment.Application
 
 Public Class GlobalVariables
     Public Shared SupportFilesDirectory As String = Nothing
@@ -53,7 +56,7 @@ Module Misc
 
     Public xpBuildings As XPCollection(Of Building)
     Public xpEscapeRoutes As XPCollection(Of EscapeRoute)
-    Public xpFloors As XPCollection(Of Asset)
+    Public xpFloors As XPCollection(Of Floor)
 
     Public Function OpenConnection() As OdbcConnection
 
@@ -107,6 +110,46 @@ Module Misc
 
         Return edit
     End Function
+    Public Function CreateBuildingLookUpEdit(ByVal session As Session, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, ByRef _division As Guid) As RepositoryItemLookUpEdit
+        Return CreateBuildingLookUpEdit(session, Nothing, collection, key, _division)
+    End Function
+    Public Function CreateBuildingLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByRef _division As Guid) As RepositoryItemLookUpEdit
+        Return CreateBuildingLookUpEdit(session, edit, collection, False, _division)
+    End Function
+    Public Function CreateBuildingLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, ByRef _division As Guid) As RepositoryItemLookUpEdit
+        Dim ret As RepositoryItemLookUpEdit
+        If Object.Equals(edit, Nothing) Then
+            ret = New RepositoryItemLookUpEdit()
+        Else
+            ret = edit
+        End If
+        If (Not Object.Equals(collection, Nothing)) Then
+            collection.Add(ret)
+        End If
+        If key Then
+            ret.ValueMember = "Oid"
+        Else
+            ret.ValueMember = "This"
+        End If
+
+        ret.DisplayMember = "Location"
+
+        Dim filter As CriteriaOperator = Nothing
+        filter = CriteriaOperator.Parse("Division = ? ", _division)
+
+        ret.DataSource = New XPCollection(Of Building)(session, filter, New SortProperty("Location", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        ret.NullText = String.Empty
+        ret.Columns.Clear()
+        ret.Columns.Add(New LookUpColumnInfo("Location"))
+        ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
+        ret.ShowHeader = False
+        ret.DropDownRows = 10
+        Return ret
+    End Function
+
+
+
+
     Public Function CreateProductLookUpEdit(ByVal session As Session, ByVal collection As RepositoryItemCollection, ByVal key As Boolean) As RepositoryItemLookUpEdit
         Return CreateProductLookUpEdit(session, Nothing, collection, key)
     End Function
@@ -202,6 +245,7 @@ Module Misc
         ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
         Return ret
     End Function
+
     Public Function CreateNosingImageComboBox(ByVal collection As RepositoryItemCollection) As RepositoryItemImageComboBox
         Return CreateNosingImageComboBox(Nothing, collection)
     End Function
@@ -223,6 +267,10 @@ Module Misc
         ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
         Return ret
     End Function
+    Public Sub CreateToggleSwitch(ByRef _switch As ToggleSwitch)
+        _switch.Properties.OffText = "No"
+        _switch.Properties.OnText = "Yes"
+    End Sub
     Public Class OrderLine
         Private productID_Renamed As Integer
         Private code_Renamed As String
@@ -298,5 +346,132 @@ Module Misc
             Return ret
         End Function
     End Class
+
+    Public Sub RecommendProduct(ByRef _session As UnitOfWork, ByRef _floor As Floor)
+        Dim _bestmatch As Integer = 0
+        Dim _bestproduct As Product = Nothing
+        Dim _building As Building = _floor.Building
+        Dim _escaperoute As EscapeRoute = _floor.EscapeRoute
+        For Each _product As Product In New XPCollection(Of Product)(_session)
+            Dim _matchcount As Integer = _product.RatingDefault
+
+            If _building.Heritage = "Yes" And _product.RatingHeritage > 0 Then
+                _matchcount += _product.RatingHeritage
+            End If
+
+            If _building.Access = "Public" And _product.RatingPublic > 0 Then
+                _matchcount += _product.RatingPublic
+            End If
+
+            If _building.Access = "Public" And _product.RatingPublic > 0 Then
+                _matchcount += _product.RatingPublic
+            End If
+            If _escaperoute.NarrowStairs = True And _product.RatingNarrowStairs > 0 Then
+                _matchcount += _product.RatingNarrowStairs
+            End If
+            If _escaperoute.SteepStairs = True And _product.RatingSteepStairs > 0 Then
+                _matchcount += _product.RatingSteepStairs
+            End If
+            If _escaperoute.TightTurning = True And _product.RatingTightTurning > 0 Then
+                _matchcount += _product.RatingTightTurning
+            End If
+            If _escaperoute.UnevenGround = True And _product.RatingUnevenGround > 0 Then
+                _matchcount += _product.RatingUnevenGround
+            End If
+
+            If _escaperoute.Horizontal = True And _product.RatingTightTurning > 0 Then
+                _matchcount += _product.RatingTightTurning
+            End If
+            If _escaperoute.Misuse = True And _product.RatingMisuse > 0 Then
+                _matchcount += _product.RatingMisuse
+            End If
+            If _escaperoute.Upstairs = True And _product.RatingUpstairs > 0 Then
+                _matchcount += _product.RatingUpstairs
+            End If
+            If _escaperoute.Spiral = True And _product.RatingSpiral > 0 Then
+                _matchcount += _product.RatingSpiral
+            End If
+
+            If _escaperoute.Upstairs = True And _product.RatingUpstairs > 0 Then
+                _matchcount += _product.RatingUpstairs
+            End If
+
+            If _floor.BedBound = True And _product.RatingBedBound > 0 Then
+                _matchcount += _product.RatingBedBound
+            End If
+
+            If _floor.Barriatric = True And _product.RatingBarriatric > 0 Then
+                _matchcount += _product.RatingBarriatric
+            End If
+            If _floor.ComplexDisability = True And _product.RatingComplexDisability > 0 Then
+                _matchcount += _product.RatingComplexDisability
+            End If
+            If _floor.SmallStorage = True And _product.RatingSmallStorage > 0 Then
+                _matchcount += _product.RatingSmallStorage
+            End If
+            If _floor.BedAccess = True And _product.RatingBedAccess > 0 Then
+                _matchcount += _product.RatingBedAccess
+            End If
+
+            If _floor.Misuse = True And _product.RatingMisuse > 0 Then
+                _matchcount += _product.RatingBedAccess
+            End If
+            If _matchcount > _bestmatch Then
+                _bestmatch = _matchcount
+                _bestproduct = _product
+            End If
+        Next
+        _floor.RecommendedProduct = _bestproduct
+        If _floor.Product Is Nothing Then
+            _floor.Product = _bestproduct
+        End If
+
+    End Sub
+    Public Sub InstallUpdateSyncWithInfo()
+        Dim info As UpdateCheckInfo = Nothing
+
+        If (ApplicationDeployment.IsNetworkDeployed) Then
+            Dim AD As ApplicationDeployment = ApplicationDeployment.CurrentDeployment
+
+            Try
+                info = AD.CheckForDetailedUpdate()
+            Catch dde As DeploymentDownloadException
+                MessageBox.Show("The new version of the application cannot be downloaded at this time. " + ControlChars.Lf & ControlChars.Lf & "Please check your network connection, or try again later. Error: " + dde.Message)
+                Return
+            Catch ioe As InvalidOperationException
+                MessageBox.Show("This application cannot be updated. It is likely not a ClickOnce application. Error: " & ioe.Message)
+                Return
+            End Try
+
+            If (info.UpdateAvailable) Then
+                Dim doUpdate As Boolean = True
+
+                If (Not info.IsUpdateRequired) Then
+                    Dim dr As DialogResult = MessageBox.Show("An update is available. Would you like to update the application now?", "Update Available", MessageBoxButtons.OKCancel)
+                    If (Not System.Windows.Forms.DialogResult.OK = dr) Then
+                        doUpdate = False
+                    End If
+                Else
+                    ' Display a message that the app MUST reboot. Display the minimum required version.
+                    MessageBox.Show("This application has detected a mandatory update from your current " & _
+                        "version to version " & info.MinimumRequiredVersion.ToString() & _
+                        ". The application will now install the update and restart.", _
+                        "Update Available", MessageBoxButtons.OK, _
+                        MessageBoxIcon.Information)
+                End If
+
+                If (doUpdate) Then
+                    Try
+                        AD.Update()
+                        MessageBox.Show("The application has been upgraded, and will now restart.")
+                        Application.Restart()
+                    Catch dde As DeploymentDownloadException
+                        MessageBox.Show("Cannot install the latest version of the application. " & ControlChars.Lf & ControlChars.Lf & "Please check your network connection, or try again later.")
+                        Return
+                    End Try
+                End If
+            End If
+        End If
+    End Sub
 
 End Module

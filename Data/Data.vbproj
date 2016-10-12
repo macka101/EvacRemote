@@ -67,14 +67,17 @@
   <ItemGroup>
     <Compile Include="ConnectionHelper.vb" />
     <Compile Include="Data\Address.vb" />
+    <Compile Include="Data\Asset.vb" />
+    <Compile Include="Data\Building.vb" />
     <Compile Include="Data\CentralDiary.vb" />
     <Compile Include="Data\Company.vb" />
     <Compile Include="Data\Division.vb" />
     <Compile Include="Data\Engineer.vb" />
     <Compile Include="Data\Enums.vb" />
-    <Compile Include="Data\EvacSurvey.vb" />
     <Compile Include="Data\EvacTask.vb" />
     <Compile Include="Data\Product.vb" />
+    <Compile Include="Data\Service.vb" />
+    <Compile Include="Data\Survey.vb" />
     <Compile Include="Data\Task.vb" />
     <Compile Include="Data\User.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

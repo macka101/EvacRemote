@@ -178,7 +178,7 @@ Public Class frmImportProducts
                     Case "Plastic".ToUpper
                         iPlastic = i
                         iFound = True
-                    Case "Moving and Hangling".ToUpper
+                    Case "Moving and Handling".ToUpper
                         iMovingHangling = i
                         iFound = True
 
@@ -246,7 +246,7 @@ Public Class frmImportProducts
             End If
             If iDefault > 0 Then
                 If Not ws.Cells(i, iDefault).Value.IsEmpty Then
-                    If Not ws.Cells(i, iDefault).Value.IsNumeric Then
+                    If ws.Cells(i, iDefault).Value.IsNumeric Then
                         _Product.RatingDefault = CInt(ws.Cells(i, iDefault).Value.NumericValue)
                     End If
                 End If
@@ -254,7 +254,7 @@ Public Class frmImportProducts
 
             If iHeritage > 0 Then
                 If Not ws.Cells(i, iHeritage).Value.IsEmpty Then
-                    If Not ws.Cells(i, iHeritage).Value.IsNumeric Then
+                    If ws.Cells(i, iHeritage).Value.IsNumeric Then
                         _Product.RatingHeritage = CInt(ws.Cells(i, iHeritage).Value.NumericValue)
                     End If
                 End If
@@ -262,7 +262,7 @@ Public Class frmImportProducts
 
             If iBedBound > 0 Then
                 If Not ws.Cells(i, iBedBound).Value.IsEmpty Then
-                    If Not ws.Cells(i, iBedBound).Value.IsNumeric Then
+                    If ws.Cells(i, iBedBound).Value.IsNumeric Then
                         _Product.RatingBedBound = CInt(ws.Cells(i, iBedBound).Value.NumericValue)
                     End If
                 End If
@@ -270,7 +270,7 @@ Public Class frmImportProducts
 
             If iPublic > 0 Then
                 If Not ws.Cells(i, iPublic).Value.IsEmpty Then
-                    If Not ws.Cells(i, iPublic).Value.IsNumeric Then
+                    If ws.Cells(i, iPublic).Value.IsNumeric Then
                         _Product.RatingPublic = CInt(ws.Cells(i, iPublic).Value.NumericValue)
                     End If
                 End If
@@ -278,7 +278,7 @@ Public Class frmImportProducts
 
             If iBarriatric > 0 Then
                 If Not ws.Cells(i, iBarriatric).Value.IsEmpty Then
-                    If Not ws.Cells(i, iBarriatric).Value.IsNumeric Then
+                    If ws.Cells(i, iBarriatric).Value.IsNumeric Then
                         _Product.RatingBarriatric = CInt(ws.Cells(i, iBarriatric).Value.NumericValue)
                     End If
                 End If
@@ -286,7 +286,7 @@ Public Class frmImportProducts
 
             If iNarrowStairs > 0 Then
                 If Not ws.Cells(i, iNarrowStairs).Value.IsEmpty Then
-                    If Not ws.Cells(i, iNarrowStairs).Value.IsNumeric Then
+                    If ws.Cells(i, iNarrowStairs).Value.IsNumeric Then
                         _Product.RatingNarrowStairs = CInt(ws.Cells(i, iNarrowStairs).Value.NumericValue)
                     End If
                 End If
@@ -294,7 +294,7 @@ Public Class frmImportProducts
 
             If iSteepStairs > 0 Then
                 If Not ws.Cells(i, iSteepStairs).Value.IsEmpty Then
-                    If Not ws.Cells(i, iSteepStairs).Value.IsNumeric Then
+                    If ws.Cells(i, iSteepStairs).Value.IsNumeric Then
                         _Product.RatingSteepStairs = CInt(ws.Cells(i, iSteepStairs).Value.NumericValue)
                     End If
                 End If
@@ -302,7 +302,7 @@ Public Class frmImportProducts
 
             If iSchool > 0 Then
                 If Not ws.Cells(i, iSchool).Value.IsEmpty Then
-                    If Not ws.Cells(i, iSchool).Value.IsNumeric Then
+                    If ws.Cells(i, iSchool).Value.IsNumeric Then
                         _Product.RatingSchool = CInt(ws.Cells(i, iSchool).Value.NumericValue)
                     End If
                 End If
@@ -310,7 +310,7 @@ Public Class frmImportProducts
 
             If iCollegeUniversity > 0 Then
                 If Not ws.Cells(i, iCollegeUniversity).Value.IsEmpty Then
-                    If Not ws.Cells(i, iCollegeUniversity).Value.IsNumeric Then
+                    If ws.Cells(i, iCollegeUniversity).Value.IsNumeric Then
                         _Product.RatingCollegeUniversity = CInt(ws.Cells(i, iCollegeUniversity).Value.NumericValue)
                     End If
                 End If
@@ -318,7 +318,7 @@ Public Class frmImportProducts
 
             If iShallowStairs > 0 Then
                 If Not ws.Cells(i, iShallowStairs).Value.IsEmpty Then
-                    If Not ws.Cells(i, iShallowStairs).Value.IsNumeric Then
+                    If ws.Cells(i, iShallowStairs).Value.IsNumeric Then
                         _Product.RatingShallowStairs = CInt(ws.Cells(i, iShallowStairs).Value.NumericValue)
                     End If
                 End If
@@ -326,7 +326,7 @@ Public Class frmImportProducts
 
             If iTightTurning > 0 Then
                 If Not ws.Cells(i, iTightTurning).Value.IsEmpty Then
-                    If Not ws.Cells(i, iTightTurning).Value.IsNumeric Then
+                    If ws.Cells(i, iTightTurning).Value.IsNumeric Then
                         _Product.RatingTightTurning = CInt(ws.Cells(i, iTightTurning).Value.NumericValue)
                     End If
                 End If
@@ -334,14 +334,14 @@ Public Class frmImportProducts
 
             If iUnevenGround > 0 Then
                 If Not ws.Cells(i, iUnevenGround).Value.IsEmpty Then
-                    If Not ws.Cells(i, iUnevenGround).Value.IsNumeric Then
+                    If ws.Cells(i, iUnevenGround).Value.IsNumeric Then
                         _Product.RatingUnevenGround = CInt(ws.Cells(i, iUnevenGround).Value.NumericValue)
                     End If
                 End If
             End If
             If iComplexDisability > 0 Then
                 If Not ws.Cells(i, iComplexDisability).Value.IsEmpty Then
-                    If Not ws.Cells(i, iComplexDisability).Value.IsNumeric Then
+                    If ws.Cells(i, iComplexDisability).Value.IsNumeric Then
                         _Product.RatingComplexDisability = CInt(ws.Cells(i, iComplexDisability).Value.NumericValue)
                     End If
                 End If
@@ -349,7 +349,7 @@ Public Class frmImportProducts
 
             If iHorizontal > 0 Then
                 If Not ws.Cells(i, iHorizontal).Value.IsEmpty Then
-                    If Not ws.Cells(i, iHorizontal).Value.IsNumeric Then
+                    If ws.Cells(i, iHorizontal).Value.IsNumeric Then
                         _Product.RatingHorizontal = CInt(ws.Cells(i, iHorizontal).Value.NumericValue)
                     End If
                 End If
@@ -357,14 +357,14 @@ Public Class frmImportProducts
 
             If iSmallStorage > 0 Then
                 If Not ws.Cells(i, iSmallStorage).Value.IsEmpty Then
-                    If Not ws.Cells(i, iSmallStorage).Value.IsNumeric Then
+                    If ws.Cells(i, iSmallStorage).Value.IsNumeric Then
                         _Product.RatingSmallStorage = CInt(ws.Cells(i, iSmallStorage).Value.NumericValue)
                     End If
                 End If
             End If
             If iBedAccess > 0 Then
                 If Not ws.Cells(i, iBedAccess).Value.IsEmpty Then
-                    If Not ws.Cells(i, iBedAccess).Value.IsNumeric Then
+                    If ws.Cells(i, iBedAccess).Value.IsNumeric Then
                         _Product.RatingBedAccess = CInt(ws.Cells(i, iBedAccess).Value.NumericValue)
                     End If
                 End If
@@ -372,7 +372,7 @@ Public Class frmImportProducts
 
             If iMisuse > 0 Then
                 If Not ws.Cells(i, iMisuse).Value.IsEmpty Then
-                    If Not ws.Cells(i, iMisuse).Value.IsNumeric Then
+                    If ws.Cells(i, iMisuse).Value.IsNumeric Then
                         _Product.RatingMisuse = CInt(ws.Cells(i, iMisuse).Value.NumericValue)
                     End If
                 End If
@@ -380,7 +380,7 @@ Public Class frmImportProducts
 
             If iUpstairs > 0 Then
                 If Not ws.Cells(i, iUpstairs).Value.IsEmpty Then
-                    If Not ws.Cells(i, iUpstairs).Value.IsNumeric Then
+                    If ws.Cells(i, iUpstairs).Value.IsNumeric Then
                         _Product.RatingUpstairs = CInt(ws.Cells(i, iUpstairs).Value.NumericValue)
                     End If
                 End If
@@ -388,7 +388,7 @@ Public Class frmImportProducts
 
             If iSpiral > 0 Then
                 If Not ws.Cells(i, iSpiral).Value.IsEmpty Then
-                    If Not ws.Cells(i, iSpiral).Value.IsNumeric Then
+                    If ws.Cells(i, iSpiral).Value.IsNumeric Then
                         _Product.RatingSpiral = CInt(ws.Cells(i, iSpiral).Value.NumericValue)
                     End If
                 End If
@@ -396,14 +396,14 @@ Public Class frmImportProducts
 
             If iPlastic > 0 Then
                 If Not ws.Cells(i, iPlastic).Value.IsEmpty Then
-                    If Not ws.Cells(i, iPlastic).Value.IsNumeric Then
+                    If ws.Cells(i, iPlastic).Value.IsNumeric Then
                         _Product.RatingPlastic = CInt(ws.Cells(i, iPlastic).Value.NumericValue)
                     End If
                 End If
             End If
             If iMovingHangling > 0 Then
                 If Not ws.Cells(i, iMovingHangling).Value.IsEmpty Then
-                    If Not ws.Cells(i, iMovingHangling).Value.IsNumeric Then
+                    If ws.Cells(i, iMovingHangling).Value.IsNumeric Then
                         _Product.RatingMovingHangling = CInt(ws.Cells(i, iMovingHangling).Value.NumericValue)
                     End If
                 End If

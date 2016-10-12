@@ -27,14 +27,11 @@ Partial Class ViewServiceList
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.btnNew = New DevExpress.XtraEditors.SimpleButton()
         Me.grdService = New DevExpress.XtraGrid.GridControl()
-        Me.XpCollection1 = New DevExpress.Xpo.XPCollection(Me.components)
         Me.vw_Service = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ColDivision = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colContact = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colServiceDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colSignature = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colSigner = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colNotes = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
@@ -42,7 +39,6 @@ Partial Class ViewServiceList
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.grdService, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vw_Service, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +74,6 @@ Partial Class ViewServiceList
         '
         'grdService
         '
-        Me.grdService.DataSource = Me.XpCollection1
         Me.grdService.Location = New System.Drawing.Point(12, 54)
         Me.grdService.MainView = Me.vw_Service
         Me.grdService.Name = "grdService"
@@ -87,13 +82,9 @@ Partial Class ViewServiceList
         Me.grdService.TabIndex = 4
         Me.grdService.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Service})
         '
-        'XpCollection1
-        '
-        Me.XpCollection1.ObjectType = GetType(Esso.Data.EvacService)
-        '
         'vw_Service
         '
-        Me.vw_Service.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColDivision, Me.GridColumn2, Me.colServiceDate, Me.colSignature, Me.colSigner, Me.colNotes})
+        Me.vw_Service.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColDivision, Me.colContact, Me.colServiceDate, Me.colSignature})
         Me.vw_Service.GridControl = Me.grdService
         Me.vw_Service.Name = "vw_Service"
         Me.vw_Service.OptionsBehavior.AllowIncrementalSearch = True
@@ -104,17 +95,18 @@ Partial Class ViewServiceList
         '
         'ColDivision
         '
-        Me.ColDivision.FieldName = "Division!"
+        Me.ColDivision.FieldName = "Division"
         Me.ColDivision.Name = "ColDivision"
         Me.ColDivision.Visible = True
         Me.ColDivision.VisibleIndex = 0
         '
-        'GridColumn2
+        'colContact
         '
-        Me.GridColumn2.FieldName = "Division!Key"
-        Me.GridColumn2.Name = "GridColumn2"
-        Me.GridColumn2.Visible = True
-        Me.GridColumn2.VisibleIndex = 1
+        Me.colContact.Caption = "Contact"
+        Me.colContact.FieldName = "Contact"
+        Me.colContact.Name = "colContact"
+        Me.colContact.Visible = True
+        Me.colContact.VisibleIndex = 1
         '
         'colServiceDate
         '
@@ -129,20 +121,6 @@ Partial Class ViewServiceList
         Me.colSignature.Name = "colSignature"
         Me.colSignature.Visible = True
         Me.colSignature.VisibleIndex = 3
-        '
-        'colSigner
-        '
-        Me.colSigner.FieldName = "Signer"
-        Me.colSigner.Name = "colSigner"
-        Me.colSigner.Visible = True
-        Me.colSigner.VisibleIndex = 4
-        '
-        'colNotes
-        '
-        Me.colNotes.FieldName = "Notes"
-        Me.colNotes.Name = "colNotes"
-        Me.colNotes.Visible = True
-        Me.colNotes.VisibleIndex = 5
         '
         'LayoutControlGroup1
         '
@@ -191,17 +169,16 @@ Partial Class ViewServiceList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'ServiceList
+        'ViewServiceList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "ServiceList"
+        Me.Name = "ViewServiceList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.grdService, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vw_Service, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).EndInit()
@@ -218,12 +195,9 @@ Partial Class ViewServiceList
     Friend WithEvents SIService As DevExpress.XtraLayout.SimpleLabelItem
     Friend WithEvents lciContacts As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciSetCurrent As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents XpCollection1 As DevExpress.Xpo.XPCollection
     Friend WithEvents ColDivision As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colContact As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colServiceDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colSignature As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSigner As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNotes As DevExpress.XtraGrid.Columns.GridColumn
 
 End Class

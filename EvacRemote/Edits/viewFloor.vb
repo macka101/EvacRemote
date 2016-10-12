@@ -33,6 +33,15 @@ Public Class viewFloor
         Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
         Misc.CreateProductLookUpEdit(_session, lueRecomended.Properties, Nothing)
         Misc.CreateProductLookUpEdit(_session, lueChair.Properties, Nothing)
+
+        Misc.CreateToggleSwitch(tgsBarriatric)
+        Misc.CreateToggleSwitch(tgsBedAccess)
+        Misc.CreateToggleSwitch(tgsBedBound)
+        Misc.CreateToggleSwitch(tgsComplexDisability)
+        Misc.CreateToggleSwitch(tgsMisuse)
+        Misc.CreateToggleSwitch(tgsMovingHandling)
+        Misc.CreateToggleSwitch(tgsSmallStorage)
+
         AddHandler teFloor.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler cbeStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbNosing.EditValueChanged, AddressOf edit_EditValueChanged
@@ -40,6 +49,13 @@ Public Class viewFloor
         AddHandler cbePitch.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler CBEGoing.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler teNotes.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsBedBound.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsBarriatric.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsComplexDisability.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsSmallStorage.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsBedAccess.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsMisuse.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsMovingHandling.EditValueChanged, AddressOf edit_EditValueChanged
     End Sub
     Public Sub Initdata()
         InitEditors()
@@ -49,7 +65,16 @@ Public Class viewFloor
         cbePitch.EditValue = _currentFloor.Pitch
         CBEGoing.EditValue = _currentFloor.Going
         lueChair.EditValue = _currentFloor.Product
-        lueRecomended.EditValue = _currentFloor.RecommenedProduct
+
+        tgsBedBound.IsOn = _currentFloor.BedBound
+        tgsBarriatric.IsOn = _currentFloor.Barriatric
+        tgsComplexDisability.IsOn = _currentFloor.ComplexDisability
+        tgsSmallStorage.IsOn = _currentFloor.SmallStorage
+        tgsBedAccess.IsOn = _currentFloor.BedAccess
+        tgsMisuse.IsOn = _currentFloor.Misuse
+        tgsMovingHandling.IsOn = _currentFloor.MovingAndHandling
+
+        lueRecomended.EditValue = _currentFloor.RecommendedProduct
         teNotes.Text = _currentFloor.Notes
     End Sub
     Private Sub SaveData()
@@ -60,7 +85,16 @@ Public Class viewFloor
         _currentFloor.Going = CBEGoing.EditValue
         _currentFloor.Product = lueChair.EditValue
 
-        _currentFloor.RecommenedProduct = lueRecomended.EditValue
+        _currentFloor.BedBound = tgsBedBound.IsOn
+        _currentFloor.Barriatric = tgsBarriatric.IsOn
+        _currentFloor.ComplexDisability = tgsComplexDisability.IsOn
+        _currentFloor.SmallStorage = tgsSmallStorage.IsOn
+        _currentFloor.BedAccess = tgsBedAccess.IsOn
+        _currentFloor.Misuse = tgsMisuse.IsOn
+        _currentFloor.MovingAndHandling = tgsMovingHandling.IsOn
+
+
+        _currentFloor.RecommendedProduct = lueRecomended.EditValue
         _currentFloor.Notes = teNotes.Text
         _currentFloor.Save()
         _session.CommitChanges()
@@ -99,6 +133,8 @@ Public Class viewFloor
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then
             _changed = True
+            RecommendProduct(_session, _currentFloor)
+            lueRecomended.EditValue = _currentFloor.RecommendedProduct
         End If
     End Sub
 End Class

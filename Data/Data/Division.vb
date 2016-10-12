@@ -323,6 +323,104 @@ Namespace Esso.Data
                 SetPropertyValue(Of Address)("CreatedBy", _address, value)
             End Set
         End Property
+        Public ReadOnly Property FullName() As String
+            Get
+                Return GetFullName(Forename, Surname, Nothing)
+            End Get
+        End Property
+        Public ReadOnly Property TitledName() As String
+            Get
+                Return GetFullName(Title, Forename, Surname)
+            End Get
+        End Property
+        Public ReadOnly Property FullNameSorting() As String
+            Get
+                Return GetFullName(Surname, Title, Forename)
+            End Get
+        End Property
+        Public Shared Function GetFullName(ByVal first As String, ByVal second As String, ByVal third As String) As String
+            Dim ret As String
+            If Object.Equals(first, Nothing) Then
+                ret = String.Empty
+            Else
+                ret = first.Trim()
+            End If
+            Dim secondTrim As String
+            If Object.Equals(second, Nothing) Then
+                secondTrim = String.Empty
+            Else
+                secondTrim = second.Trim()
+            End If
+            If secondTrim.Length <> 0 Then
+                If ret.Length = 0 Then
+                    ret &= (String.Empty) & secondTrim
+                Else
+                    ret &= (" ") & secondTrim
+                End If
+            End If
+            Dim thirdTrim As String
+            If Object.Equals(third, Nothing) Then
+                thirdTrim = String.Empty
+            Else
+                thirdTrim = third.Trim()
+            End If
+            If thirdTrim.Length <> 0 Then
+                If ret.Length = 0 Then
+                    ret &= (String.Empty) & thirdTrim
+                Else
+                    ret &= (" ") & thirdTrim
+                End If
+            End If
+            Return ret
+        End Function
+        Public ReadOnly Property FullAddressLine() As String
+            Get
+                Return GetFullAddressLine()
+            End Get
+        End Property
+        Public ReadOnly Property FullAddressBlock() As String
+            Get
+                Return GetFullAddressBlock()
+            End Get
+        End Property
+        Public Function GetFullAddressLine() As String
+            Dim ret As String = String.Empty
+            If Address.Address1 IsNot Nothing And Address.Address1 IsNot String.Empty Then
+                ret = String.Format("{0}", Address.Address1)
+            End If
+            If Address.Address2 IsNot Nothing And Address.Address2 IsNot String.Empty Then
+                ret = String.Format("{0}, {1}", ret, Address.Address2)
+            End If
+            If Address.Address3 IsNot Nothing And Address.Address3 IsNot String.Empty Then
+                ret = String.Format("{0}, {1}", ret, Address.Address3)
+            End If
+            If Address.Address4 IsNot Nothing And Address.Address4 IsNot String.Empty Then
+                ret = String.Format("{0}, {1}", ret, Address.Address4)
+            End If
+            If Address.PostCode IsNot Nothing And Address.PostCode IsNot String.Empty Then
+                ret = String.Format("{0}, {1}", ret, Address.PostCode)
+            End If
+            Return ret
+        End Function
+        Public Function GetFullAddressBlock() As String
+            Dim ret As String = String.Empty
+            If Address.Address1 IsNot Nothing And Address.Address1 IsNot String.Empty Then
+                ret = String.Format("{0}", Address.Address1)
+            End If
+            If Address.Address2 IsNot Nothing And Address.Address2 IsNot String.Empty Then
+                ret = String.Format("{0}{1}{2}", ret, vbCrLf, Address.Address2)
+            End If
+            If Address.Address3 IsNot Nothing And Address.Address3 IsNot String.Empty Then
+                ret = String.Format("{0}{1}{2}", ret, vbCrLf, Address.Address3)
+            End If
+            If Address.Address4 IsNot Nothing And Address.Address4 IsNot String.Empty Then
+                ret = String.Format("{0}{1}{2}", ret, vbCrLf, Address.Address4)
+            End If
+            If Address.PostCode IsNot Nothing And Address.PostCode IsNot String.Empty Then
+                ret = String.Format("{0}{1}{2}", ret, vbCr, Address.PostCode)
+            End If
+            Return ret
+        End Function
         Private _lastupdatedtimestamp As Date
         <Indexed(Unique:=False)> _
         Public Property lastupdatedtimestamp() As Date

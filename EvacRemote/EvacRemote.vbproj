@@ -21,7 +21,7 @@
     <PublishUrl>ftp://Willow.evacchair.co.uk/Software/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -35,7 +35,7 @@
     <PublisherName>Evac Chair International</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>73</ApplicationRevision>
+    <ApplicationRevision>77</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -102,6 +102,7 @@
     <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v16.1" />
     <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.1" />
     <Reference Include="DevExpress.Pdf.v16.1.Drawing, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -301,6 +302,12 @@
     <Compile Include="Helpers\Misc.vb" />
     <Compile Include="Helpers\RichTextHelper.vb" />
     <Compile Include="Misc.vb" />
+    <Compile Include="Reports\rptSurveyQuote.Designer.vb">
+      <DependentUpon>rptSurveyQuote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptSurveyQuote.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RTFActions\1 RangeActions.vb" />
     <Compile Include="RTFActions\2 FormattingActions.vb" />
     <Compile Include="RTFActions\3 PageLayoutActions.vb" />
@@ -447,6 +454,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSurveyQuote.resx">
+      <DependentUpon>rptSurveyQuote.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SwipeGrid\SwipeGridControl.resx" />
     <EmbeddedResource Include="Views\ViewBasketList.resx">
       <DependentUpon>ViewBasketList.vb</DependentUpon>
@@ -543,7 +553,6 @@
     <EmbeddedResource Include="Resources\Separator.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reports\" />
     <Folder Include="Xtras\" />
   </ItemGroup>
   <ItemGroup>
@@ -770,6 +779,16 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.SpellChecker.v16.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Spreadsheet.v16.1.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -1010,6 +1029,16 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraSpellChecker.v16.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraSpreadsheet.v16.1">
       <Visible>False</Visible>
       <Group>
       </Group>

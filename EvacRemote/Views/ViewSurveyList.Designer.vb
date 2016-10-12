@@ -30,14 +30,16 @@ Partial Class ViewSurveyList
         Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colDivname = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xolContact = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
-        Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
         Me.colSurveyDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colAccess = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colHeritage = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colEscapeRoutes = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
+        Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.lcipicBack = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,10 +48,13 @@ Partial Class ViewSurveyList
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciSetCurrent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lcipicBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.picBack)
         Me.LayoutControl1.Controls.Add(Me.btnNew)
         Me.LayoutControl1.Controls.Add(Me.grdSurveys)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -76,11 +81,11 @@ Partial Class ViewSurveyList
         '
         'grdSurveys
         '
-        Me.grdSurveys.Location = New System.Drawing.Point(12, 54)
+        Me.grdSurveys.Location = New System.Drawing.Point(62, 54)
         Me.grdSurveys.MainView = Me.vw_Surveys
         Me.grdSurveys.Name = "grdSurveys"
         Me.grdSurveys.ShowOnlyPredefinedDetails = True
-        Me.grdSurveys.Size = New System.Drawing.Size(635, 353)
+        Me.grdSurveys.Size = New System.Drawing.Size(585, 353)
         Me.grdSurveys.TabIndex = 4
         Me.grdSurveys.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_Surveys})
         '
@@ -104,7 +109,7 @@ Partial Class ViewSurveyList
         'colDivname
         '
         Me.colDivname.Caption = "Division"
-        Me.colDivname.FieldName = "Divname"
+        Me.colDivname.FieldName = "Division"
         Me.colDivname.Name = "colDivname"
         Me.colDivname.Visible = True
         Me.colDivname.VisibleIndex = 0
@@ -116,53 +121,6 @@ Partial Class ViewSurveyList
         Me.xolContact.Name = "xolContact"
         Me.xolContact.Visible = True
         Me.xolContact.VisibleIndex = 1
-        '
-        'LayoutControlGroup1
-        '
-        Me.LayoutControlGroup1.CustomizationFormText = "Root"
-        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.SIService, Me.lciContacts, Me.lciSetCurrent})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(659, 419)
-        Me.LayoutControlGroup1.TextVisible = False
-        '
-        'SIService
-        '
-        Me.SIService.AllowHotTrack = False
-        Me.SIService.AllowHtmlStringInCaption = True
-        Me.SIService.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SIService.AppearanceItemCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.SIService.AppearanceItemCaption.Options.UseFont = True
-        Me.SIService.AppearanceItemCaption.Options.UseForeColor = True
-        Me.SIService.CustomizationFormText = "CURRENT CONTACT <color=47, 81, 165>"
-        Me.SIService.Location = New System.Drawing.Point(0, 0)
-        Me.SIService.Name = "SIService"
-        Me.SIService.Size = New System.Drawing.Size(593, 42)
-        Me.SIService.Text = "Surveys"
-        Me.SIService.TextSize = New System.Drawing.Size(64, 25)
-        '
-        'lciContacts
-        '
-        Me.lciContacts.Control = Me.grdSurveys
-        Me.lciContacts.CustomizationFormText = "Contacts"
-        Me.lciContacts.Location = New System.Drawing.Point(0, 42)
-        Me.lciContacts.Name = "lciContacts"
-        Me.lciContacts.Size = New System.Drawing.Size(639, 357)
-        Me.lciContacts.Text = "Contacts"
-        Me.lciContacts.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciContacts.TextVisible = False
-        '
-        'lciSetCurrent
-        '
-        Me.lciSetCurrent.Control = Me.btnNew
-        Me.lciSetCurrent.CustomizationFormText = "lciSetCurrent"
-        Me.lciSetCurrent.Location = New System.Drawing.Point(593, 0)
-        Me.lciSetCurrent.Name = "lciSetCurrent"
-        Me.lciSetCurrent.Size = New System.Drawing.Size(46, 42)
-        Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciSetCurrent.TextVisible = False
         '
         'colSurveyDate
         '
@@ -196,6 +154,76 @@ Partial Class ViewSurveyList
         Me.colEscapeRoutes.Visible = True
         Me.colEscapeRoutes.VisibleIndex = 5
         '
+        'LayoutControlGroup1
+        '
+        Me.LayoutControlGroup1.CustomizationFormText = "Root"
+        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup1.GroupBordersVisible = False
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.SIService, Me.lciContacts, Me.lciSetCurrent, Me.lcipicBack})
+        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Name = "Root"
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(659, 419)
+        Me.LayoutControlGroup1.TextVisible = False
+        '
+        'SIService
+        '
+        Me.SIService.AllowHotTrack = False
+        Me.SIService.AllowHtmlStringInCaption = True
+        Me.SIService.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SIService.AppearanceItemCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.SIService.AppearanceItemCaption.Options.UseFont = True
+        Me.SIService.AppearanceItemCaption.Options.UseForeColor = True
+        Me.SIService.CustomizationFormText = "CURRENT CONTACT <color=47, 81, 165>"
+        Me.SIService.Location = New System.Drawing.Point(50, 0)
+        Me.SIService.Name = "SIService"
+        Me.SIService.Size = New System.Drawing.Size(543, 42)
+        Me.SIService.Text = "Surveys"
+        Me.SIService.TextSize = New System.Drawing.Size(64, 25)
+        '
+        'lciContacts
+        '
+        Me.lciContacts.Control = Me.grdSurveys
+        Me.lciContacts.CustomizationFormText = "Contacts"
+        Me.lciContacts.Location = New System.Drawing.Point(50, 42)
+        Me.lciContacts.Name = "lciContacts"
+        Me.lciContacts.Size = New System.Drawing.Size(589, 357)
+        Me.lciContacts.Text = "Contacts"
+        Me.lciContacts.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciContacts.TextVisible = False
+        '
+        'lciSetCurrent
+        '
+        Me.lciSetCurrent.Control = Me.btnNew
+        Me.lciSetCurrent.CustomizationFormText = "lciSetCurrent"
+        Me.lciSetCurrent.Location = New System.Drawing.Point(593, 0)
+        Me.lciSetCurrent.Name = "lciSetCurrent"
+        Me.lciSetCurrent.Size = New System.Drawing.Size(46, 42)
+        Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciSetCurrent.TextVisible = False
+        '
+        'picBack
+        '
+        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
+        Me.picBack.Location = New System.Drawing.Point(20, 30)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(30, 369)
+        Me.picBack.TabIndex = 6
+        Me.picBack.TabStop = False
+        '
+        'lcipicBack
+        '
+        Me.lcipicBack.Control = Me.picBack
+        Me.lcipicBack.Location = New System.Drawing.Point(0, 0)
+        Me.lcipicBack.MinSize = New System.Drawing.Size(50, 24)
+        Me.lcipicBack.Name = "lcipicBack"
+        Me.lcipicBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
+        Me.lcipicBack.Size = New System.Drawing.Size(50, 399)
+        Me.lcipicBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.lcipicBack.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize
+        Me.lcipicBack.TextSize = New System.Drawing.Size(0, 0)
+        Me.lcipicBack.TextToControlDistance = 0
+        Me.lcipicBack.TextVisible = False
+        '
         'ViewSurveyList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -211,6 +239,8 @@ Partial Class ViewSurveyList
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciSetCurrent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lcipicBack, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -229,4 +259,6 @@ Partial Class ViewSurveyList
     Friend WithEvents colAccess As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colHeritage As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colEscapeRoutes As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents picBack As System.Windows.Forms.PictureBox
+    Friend WithEvents lcipicBack As DevExpress.XtraLayout.LayoutControlItem
 End Class

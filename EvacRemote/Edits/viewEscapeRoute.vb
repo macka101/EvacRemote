@@ -30,7 +30,11 @@ Public Class viewEscapeRoute
     End Property
 
     Public Sub InitEditors()
+
+
         Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
+
+        Me.gridFloors.DataSource = _currentEscapeRoute.Floors
 
         AddHandler teLocation.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler teFloors.EditValueChanged, AddressOf edit_EditValueChanged
@@ -41,12 +45,20 @@ Public Class viewEscapeRoute
         AddHandler CBEGoing.EditValueChanged, AddressOf edit_EditValueChanged
     End Sub
     Public Sub Initdata()
+        InitEditors()
+
         teLocation.Text = _currentEscapeRoute.Location
         teFloors.Text = _currentEscapeRoute.NoFloors
         cbeStairwayType.EditValue = _currentEscapeRoute.Type
         icbNosing.EditValue = _currentEscapeRoute.Nosing
         cbePitch.EditValue = _currentEscapeRoute.Angle
         CBEGoing.EditValue = _currentEscapeRoute.Going
+
+        tgsUnEvenGround.EditValue = _currentEscapeRoute.UnevenGround
+        tgsHorizontal.EditValue = _currentEscapeRoute.Horizontal
+        tgsMisuse.EditValue = _currentEscapeRoute.Misuse
+        tgsUpstairs.EditValue = _currentEscapeRoute.Upstairs
+
         _loaded = True
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, True)
     End Sub
@@ -80,12 +92,24 @@ Public Class viewEscapeRoute
 
     End Sub
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+        SaveData()
+    End Sub
+
+    Private Sub SaveData()
+
         _currentEscapeRoute.Location = teLocation.Text
         _currentEscapeRoute.NoFloors = teFloors.Text
         _currentEscapeRoute.Type = cbeStairwayType.EditValue
         _currentEscapeRoute.Nosing = icbNosing.EditValue
         _currentEscapeRoute.Angle = cbePitch.EditValue
         _currentEscapeRoute.Going = CBEGoing.EditValue
+
+        _currentEscapeRoute.UnevenGround = tgsUnEvenGround.EditValue
+        _currentEscapeRoute.Horizontal = tgsHorizontal.EditValue
+        _currentEscapeRoute.Misuse = tgsMisuse.EditValue
+        _currentEscapeRoute.Upstairs = tgsUpstairs.EditValue
+
+
         _currentEscapeRoute.Save()
         _session.CommitTransaction()
         ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)

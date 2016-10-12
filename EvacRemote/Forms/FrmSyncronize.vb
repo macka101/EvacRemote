@@ -10,6 +10,7 @@ Imports System.Windows.Forms
 Imports Microsoft.SqlServer.Replication
 Imports Microsoft.SqlServer.Management.Common
 Imports System.IO
+Imports DevExpress.XtraEditors
 
 Partial Public Class FrmSyncronize
     Inherits Form
@@ -25,13 +26,14 @@ Partial Public Class FrmSyncronize
 
     ' Sync BackgroundWorker
     Private syncBackgroundWorker As BackgroundWorker
-    Private _forced As Boolean = False
-
-    Public Sub New(ByVal forced As Boolean)
+    Private _create As Boolean = False
+    Private _autostart As Boolean = False
+    Public Sub New(ByVal forced As Boolean, ByVal AutoStart As Boolean)
         InitializeComponent()
         lblSubscriptionName.Text = "[" & subscriptionDbName & "] - [" & publisherName & "] - [" & publicationDbName & "]"
         lblPublicationName.Text = publicationName
-        _forced = forced
+        _create = forced
+        _autostart = AutoStart
     End Sub
 
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
@@ -111,7 +113,7 @@ Partial Public Class FrmSyncronize
 
                 agent.InternetSecurityMode = SecurityMode.Standard
 
-                agent.InternetLogin ="EvacRemote"
+                agent.InternetLogin = "EvacRemote"
                 agent.InternetPassword = "6A33%7rq"
                 agent.InternetUrl = "https://willow.evacchair.co.uk/SQLReplication/replisapi.dll"
                 ' Enable verbose merge agent output to file.
@@ -163,6 +165,9 @@ Partial Public Class FrmSyncronize
         Else
             tbLastStatusMessage.Text += "Done!" & Environment.NewLine
             ScrollToEnd()
+
+            XtraMessageBox.Show("Data Synchronisation Complete", "Finished", MessageBoxButtons.OK)
+            Me.Close()
         End If
 
         btnStart.Enabled = True
@@ -254,7 +259,7 @@ Partial Public Class FrmSyncronize
     End Sub
 
     Private Sub FrmSyncronize_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If _forced = True Then
+        If _create = True Then
             tbLastStatusMessage.Text += "Creating Database "
             SQLHelper.DBCreate()
             tbLastStatusMessage.Text += "Done!" & Environment.NewLine
@@ -268,7 +273,9 @@ Partial Public Class FrmSyncronize
             tbLastStatusMessage.Text += "Done!" & Environment.NewLine
             ScrollToEnd()
             StartSync()
+        ElseIf _autostart = True Then
+            StartSync()
         End If
     End Sub
-  
+
 End Class

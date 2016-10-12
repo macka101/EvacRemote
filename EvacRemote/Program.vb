@@ -42,10 +42,17 @@ Friend NotInheritable Class Program
         Application.SetCompatibleTextRenderingDefault(False)
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
-        If XtraMessageBox.Show("Syncronise Data First", "Syncronise", MessageBoxButtons.YesNo) = DialogResult.Yes Then
-            Using frmsysnc As New FrmSyncronize(False)
+        If SQLHelper.DBExists() = 0 Then
+            MsgBox("No Database detected creating Local Database and Subscription", MsgBoxStyle.Critical)
+            Using frmsysnc As New FrmSyncronize(True, False)
                 frmsysnc.ShowDialog()
             End Using
+        Else
+            If XtraMessageBox.Show("Syncronise Data First", "Syncronise", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                Using frmsysnc As New FrmSyncronize(False, True)
+                    frmsysnc.ShowDialog()
+                End Using
+            End If
         End If
 
         Application.Run(New frmMain())

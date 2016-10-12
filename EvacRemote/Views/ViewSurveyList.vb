@@ -9,11 +9,14 @@ Imports DevExpress.Xpo
 Imports Esso.Data
 Imports DevExpress.Xpo.DB
 Imports DevExpress.Data.Filtering
+Imports DevExpress.XtraEditors
 
 Public Class ViewSurveyList
     Private _Loaded As Boolean = False
     Private _session As UnitOfWork
     Private _parent As frmMain = Nothing
+    Private _changed As Boolean = False
+
     Public ReadOnly Property Loaded As Boolean
         Get
             Return _Loaded
@@ -39,7 +42,7 @@ Public Class ViewSurveyList
         Dim _surveyView As XPView = New XPView(_session, GetType(EvacSurvey))
         _surveyView.AddProperty("Oid", "Oid")
         _surveyView.AddProperty("Division", "Division.Divname")
-        _surveyView.AddProperty("Surname", "Contact.Surname")
+        _surveyView.AddProperty("Contact", "isnull(Contact.Forename,'') + ' ' + isnull(Contact.Surname,'')")
         _surveyView.AddProperty("SurveyDate", "SurveyDate")
         _surveyView.AddProperty("Access", "Access")
         _surveyView.AddProperty("Heritage", "Heritage")
@@ -108,10 +111,15 @@ Public Class ViewSurveyList
         _currentSurvey = New EvacSurvey(_session)
         _currentSurvey.Division = _currentDivision
         _currentSurvey.Contact = _currentContact
+        _currentSurvey.SurveyDate = DateTime.Today
         ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
     End Sub
 
     Private Sub vw_Surveys_DoubleClick(sender As Object, e As EventArgs) Handles vw_Surveys.DoubleClick
         ViewSurvey()
+    End Sub
+
+    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click    
+        ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
     End Sub
 End Class
