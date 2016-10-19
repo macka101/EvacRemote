@@ -48,12 +48,12 @@ Partial Class ViewDiarySchedule
         Me.SchedulerControl1.Views.WeekView.Enabled = False
         Me.SchedulerControl1.Views.WorkWeekView.TimeRulers.Add(TimeRuler3)
         '
-        'DiarySchedule
+        'ViewDiarySchedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.SchedulerControl1)
-        Me.Name = "DiarySchedule"
+        Me.Name = "ViewDiarySchedule"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SchedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()

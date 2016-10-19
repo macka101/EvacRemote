@@ -39,6 +39,24 @@ Namespace Esso.Data
                 SetPropertyValue(Of Integer)("CentralDiaryNo", _centraldiaryno, value)
             End Set
         End Property
+        Private _division As Division
+        Public Property Division() As Division
+            Get
+                Return _division
+            End Get
+            Set(ByVal value As Division)
+                SetPropertyValue(Of Division)("Division", _division, value)
+            End Set
+        End Property
+        Private _contact As Contact
+        Public Property Contact() As Contact
+            Get
+                Return _contact
+            End Get
+            Set(ByVal value As Contact)
+                SetPropertyValue(Of Contact)("Contact", _contact, value)
+            End Set
+        End Property
         Private _appType As Integer
         Public Property AppType() As Integer
             Get

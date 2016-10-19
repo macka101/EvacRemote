@@ -82,77 +82,70 @@ Namespace Esso.Data
                 _Oid = XpoDefault.NewGuid()
             End If
         End Sub
-        Private ID_Renamed As Integer
-        Private barcode_Renamed As String
-        Private product_Renamed As String
-        Private installed_Renamed As Date
-        Private notes_Renamed As String
-        Private building_Renamed As Integer
-        Private _productType As ProductType
-        Public Property ProductType() As ProductType
-            Get
-                Return _productType
-            End Get
-            Set(ByVal value As ProductType)
-                _productType = value
-            End Set
-        End Property
-        Private _division As Integer
-        Public Property Division() As Integer
+        Private _division As Division
+        <Association("Division-Assets")>
+        Public Property Division() As Division
             Get
                 Return _division
             End Get
-            Set(ByVal value As Integer)
-                _division = value
+            Set(ByVal value As Division)
+                SetPropertyValue(Of Division)("Division", _division, value)
             End Set
         End Property
-        Public Property Building() As Integer
+        Private _building As Building
+        Public Property Building() As Building
             Get
-                Return building_Renamed
+                Return _building
             End Get
-            Set(value As Integer)
-                building_Renamed = value
+            Set(value As Building)
+                SetPropertyValue(Of Building)("Building", _building, value)
             End Set
         End Property
+        Private _barcode As String
+        <Size(20)> _
         Public Property BarCode() As String
             Get
-                Return barcode_Renamed
+                Return _barcode
             End Get
-            Set(value As String)
-                barcode_Renamed = value
+            Set(ByVal value As String)
+                SetPropertyValue(Of String)("BarCode", _barcode, value)
             End Set
         End Property
-        Public Property Product() As String
+        Private _product As Product
+        Public Property Product() As Product
             Get
-                Return product_Renamed
+                Return _product
             End Get
-            Set(value As String)
-                product_Renamed = value
+            Set(value As Product)
+                SetPropertyValue(Of Product)("Product", _product, value)
             End Set
         End Property
+        Private _installed As Date
         Public Property Installed() As Date
             Get
-                Return installed_Renamed
+                Return _installed
             End Get
             Set(value As Date)
-                installed_Renamed = value
+                SetPropertyValue(Of Date)("Installed", _installed, value)
             End Set
         End Property
-        Private fLastServiced As Date?
+        Private _lastServiced As Date?
         Public Property LastServiced() As Date?
             Get
-                Return fLastServiced
+                Return _lastServiced
             End Get
             Set(value As Date?)
-                fLastServiced = value
+                SetPropertyValue(Of Date)("LastServiced", _lastServiced, value)
             End Set
         End Property
-        Public Property Notes() As String
+        Private _notes As String
+        <Size(SizeAttribute.Unlimited)> _
+           Public Property Notes() As String
             Get
-                Return notes_Renamed
+                Return _notes
             End Get
             Set(value As String)
-                notes_Renamed = value
+                SetPropertyValue(Of String)("LastServiced", _notes, value)
             End Set
         End Property
     End Class

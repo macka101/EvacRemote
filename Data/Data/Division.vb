@@ -52,7 +52,7 @@ Namespace Esso.Data
             End Set
         End Property
         Private _divname As String
-        <Size(120)>
+        <Size(120)> _
         Public Property Divname() As String
             Get
                 Return _divname
@@ -71,7 +71,7 @@ Namespace Esso.Data
             End Set
         End Property
         Private _oprano As String
-        <Size(20)>
+        <Size(20)> _
         Public Property oprano() As String
             Get
                 Return _oprano
@@ -81,7 +81,7 @@ Namespace Esso.Data
             End Set
         End Property
         Private _phone As String
-        <Size(30)>
+        <Size(30)> _
         Public Property Phone() As String
             Get
                 Return _phone
@@ -91,8 +91,8 @@ Namespace Esso.Data
             End Set
         End Property
         Private _notepad As String
-        <Size(SizeAttribute.Unlimited)>
-        Public Property Notepad() As String
+        <Size(SizeAttribute.Unlimited)> _
+     Public Property Notepad() As String
             Get
                 Return _notepad
             End Get
@@ -121,6 +121,12 @@ Namespace Esso.Data
         Public ReadOnly Property Surveys() As XPCollection(Of EvacSurvey)
             Get
                 Return GetCollection(Of EvacSurvey)("Surveys")
+            End Get
+        End Property
+        <Association("Division-Assets")>
+        Public ReadOnly Property Assets() As XPCollection(Of Asset)
+            Get
+                Return GetCollection(Of Asset)("Assets")
             End Get
         End Property
         Private _lastupdatedtimestamp As Date

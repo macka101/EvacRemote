@@ -35,11 +35,11 @@ Public Class ServiceDetail
 
     Public Sub Initdata()
 
-        xpBuildings = New XPCollection(Of Building)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Building]", DevExpress.Xpo.DB.SortingDirection.Ascending))
-        xpStairWells = New XPCollection(Of EscapeRoute)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Floor]", DevExpress.Xpo.DB.SortingDirection.Ascending))
-        xpAssets = New XPCollection(Of Asset)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Product]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        '        xpBuildings = New XPCollection(Of Building)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Building]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        '       xpStairWells = New XPCollection(Of EscapeRoute)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Floor]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        '      xpAssets = New XPCollection(Of Asset)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Product]", DevExpress.Xpo.DB.SortingDirection.Ascending))
 
-        grid_assets.DataSource = xpAssets
+        grid_assets.DataSource = _currentDivision.Assets
 
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, False)
 
@@ -75,12 +75,14 @@ Public Class ServiceDetail
     Private Sub view_Assets_Click(sender As Object, e As EventArgs) Handles view_Assets.Click
         If CurrentAsset IsNot Nothing Then
             _currentAsset = CurrentAsset
-            If CurrentAsset.ProductType = ProductType.Chair Then
-                '  ParentFormMain.ViewServiceChair(Me, gCurrentAsset)
-            Else
-                ' ParentFormMain.ViewServiceIbex(Me, gCurrentAsset)
-            End If
-            _session.CommitChanges()
+            ParentFormMain.SelectPage(frmMain.ePage.AssetServiceChair)
+
+            '   If CurrentAsset.ProductType = ProductType.Chair Then
+            '  ParentFormMain.ViewServiceChair(Me, gCurrentAsset)
+            'else
+            ' ParentFormMain.ViewServiceIbex(Me, gCurrentAsset)
+            'End If
+
             view_Assets.RefreshData()
         End If
     End Sub

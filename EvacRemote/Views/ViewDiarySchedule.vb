@@ -76,8 +76,11 @@ Public Class ViewDiarySchedule
         Me.SchedulerStorage1.Appointments.Mappings.Type = "AppType"
         Me.SchedulerStorage1.Appointments.Mappings.ResourceId = "UserId"
         Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("OutlookEntryID", "OutlookEntryID"))
-        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("central_diaryno", "central_diaryno"))
-        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("no_of_chairs", "no_of_chairs"))
+        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("CentralDiaryNo", "CentralDiaryNo"))
+        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("NoOfChairs", "NoOfChairs"))
+        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("Division", "Division"))
+        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("Contact", "Contact"))
+        Me.SchedulerStorage1.Appointments.CustomFieldMappings.Add(New AppointmentCustomFieldMapping("LeadNo", "LeadNo"))
 
     End Sub
 
@@ -86,4 +89,32 @@ Public Class ViewDiarySchedule
         Me.SchedulerStorage1.Resources.Mappings.Caption = "EngineerName"
     End Sub
 
+    Private Sub SchedulerControl1_EditAppointmentFormShowing(sender As Object, e As AppointmentFormEventArgs) Handles SchedulerControl1.EditAppointmentFormShowing
+
+        Dim _id As Integer = e.Appointment.CustomFields("CentralDiaryNo")
+
+        Dim _diary As CentralDiary = _session.FindObject(Of CentralDiary)(CriteriaOperator.Parse("CentralDiaryNo= ?", _id))
+        If _diary IsNot Nothing Then
+            _currentDivision = _diary.Division
+            _currentContact = _diary.Contact
+            Dim _chairs As Integer = e.Appointment.CustomFields("NoOfChairs")
+            Dim _assetscount As Integer = 0
+            If _currentDivision.Assets IsNot Nothing Then
+                _assetscount = _currentDivision.Assets.Count
+            End If
+            If _chairs > _assetscount Then
+                For i As Integer = _assetscount + 1 To _chairs
+                    Dim _asset As New Asset(_session)
+                    _asset.Division = _currentDivision
+                    _asset.BarCode = "Not Identified"
+                    _asset.Save()
+                    _currentDivision.Assets.Add(_asset)
+                Next
+            End If
+        End If
+        _session.CommitChanges()
+        _currentDivision.Reload()
+        e.Handled = True
+        ParentFormMain.SelectPage(frmMain.ePage.ServiceDetail)
+    End Sub
 End Class

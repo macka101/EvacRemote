@@ -33,7 +33,7 @@ Public Class AssetServiceChair
     End Property
     Public Sub Initdata()
         InitEditors()
-        teDescription.Text = _currentAsset.Product
+        '     teDescription.Text = _currentAsset.Product
         cbeBuilding.EditValue = _currentAsset.Building
         cbeLocation.EditValue = _currentAsset.Division
         teNotes.Text = _currentAsset.Notes
@@ -54,9 +54,9 @@ Public Class AssetServiceChair
             XtraMessageBox.Show("Please supply missing information.", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End If
-        _currentAsset.Product = teDescription.Text
-        _currentAsset.Building = cbeBuilding.EditValue
-        _currentAsset.Division = cbeLocation.EditValue
+        '_currentAsset.Product = teDescription.Text
+        '_currentAsset.Building = cbeBuilding.EditValue
+        '_currentAsset.Division = cbeLocation.EditValue
         _currentAsset.Notes = teNotes.Text
         _currentAsset.Save()
         _currentAsset.Session.CommitTransaction()

@@ -103,6 +103,7 @@ Partial Class ServiceDetail
         Me.grid_assets.Location = New System.Drawing.Point(52, 54)
         Me.grid_assets.MainView = Me.view_Assets
         Me.grid_assets.Name = "grid_assets"
+        Me.grid_assets.ShowOnlyPredefinedDetails = True
         Me.grid_assets.Size = New System.Drawing.Size(852, 370)
         Me.grid_assets.TabIndex = 13
         Me.grid_assets.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.view_Assets})
@@ -131,7 +132,7 @@ Partial Class ServiceDetail
         Me.colBarCode.OptionsColumn.FixedWidth = True
         Me.colBarCode.Visible = True
         Me.colBarCode.VisibleIndex = 0
-        Me.colBarCode.Width = 93
+        Me.colBarCode.Width = 120
         '
         'colProduct
         '

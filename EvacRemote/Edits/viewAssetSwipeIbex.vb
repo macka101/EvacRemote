@@ -48,7 +48,7 @@ Public Class viewAssetSwipeIbex
         End If
         _Asset = pAsset
         ' Add any initialization after the InitializeComponent() call.
-        teDescription.Text = _Asset.Product
+        '   teDescription.Text = _Asset.Product
         cbeBuilding.EditValue = _Asset.Building
         cbeLocation.EditValue = _Asset.Division
         teNotes.Text = _Asset.Notes
@@ -91,9 +91,9 @@ Public Class viewAssetSwipeIbex
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
 
-        _Asset.Product = teDescription.Text
-        _Asset.Building = cbeBuilding.EditValue
-        _Asset.Division = cbeLocation.EditValue
+        '_Asset.Product = teDescription.Text
+        '_Asset.Building = cbeBuilding.EditValue
+        '_Asset.Division = cbeLocation.EditValue
         Dim x = tsFasteners.EditValue
 
         _Asset.Notes = teNotes.Text

@@ -27,7 +27,7 @@ Module Sync
         End Using
 
         cn = New OdbcConnection("DSN=PSCRM 6 Default;UID=DBA;PWD=prospect")
-        '        cn = New OdbcConnection("DSN=PSCRM 6 Demonstration;UID=DBA;PWD=prospect")
+        cn = New OdbcConnection("DSN=PSCRM 6 Demonstration;UID=DBA;PWD=prospect")
         cn.Open()
         If SyncUsers() = True Then
             SyncEngineers()
@@ -381,9 +381,12 @@ Module Sync
         If _lastSync = DateTime.MinValue Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT * "
-        Str = String.Concat(Str, "FROM [central_diary]")
-        Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
+        Str = "SELECT central_diary.*,  lead.contno, contact.divno "
+        Str = String.Concat(Str, "FROM central_diary INNER JOIN ")
+        Str = String.Concat(Str, "lead ON central_diary.Leadno = lead.leadno INNER JOIN ")
+        Str = String.Concat(Str, "contact ON lead.contno = contact.contno ")
+
+        Str = String.Concat(Str, String.Format("where central_diary.lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by central_diary.lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
         Dim dsDiary = New DataSet
@@ -401,6 +404,8 @@ Module Sync
                     xDiary = New CentralDiary(_session)
                     xDiary.CentralDiaryNo = orow.Item("central_diaryno")
                 End If
+                xDiary.Division = _session.FindObject(Of Division)(CriteriaOperator.Parse("Divno= ?", GetValueorNull(orow, "divno")))
+                xDiary.Contact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("Contno= ?", GetValueorNull(orow, "contno")))
 
                 xDiary.AllDay = GetValueorNull(orow, "AllDay")
                 xDiary.AppDescription = GetValueorNull(orow, "AppDescription")
