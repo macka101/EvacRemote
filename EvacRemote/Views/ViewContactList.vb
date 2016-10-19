@@ -39,21 +39,26 @@ Public Class ViewContactList
         Dim current As Integer = vw_Companies.FocusedRowHandle
         Dim _companyView As XPView = New XPView(_session, GetType(Contact))
         _companyView.AddProperty("Oid", "Oid")
-        _companyView.AddProperty("Divname", "Division.Divname")
-        '      _companyView.AddProperty("Contact", "Forename + ' ' + Surname")
+        _companyView.AddProperty("DivName", "Division.Divname")
+        _companyView.AddProperty("SearchName", "SearchName")
         _companyView.AddProperty("Address1", "Address.Address1")
         _companyView.AddProperty("Address2", "Address.Address2")
         _companyView.AddProperty("Address3", "Address.Address3")
         _companyView.AddProperty("Address4", "Address.Address4")
         _companyView.AddProperty("PostCode", "Address.PostCode")
 
-        '        _authorisationView.Criteria = CriteriaOperator.Parse("Status= ? and AuthorisationDate is null", eAuthorisationStatus.Active)
+        '_companyView.AddProperty("ContNo", "Contact.ContNo")
+        '_companyView.AddProperty("DivNo", "Contact.DivNo")
+
         Dim sortCollection As SortingCollection = New SortingCollection()
         '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
+        sortCollection.Add(New SortProperty("DivName", SortingDirection.Ascending))
         sortCollection.Add(New SortProperty("Contact", SortingDirection.Ascending))
 
+        '    _companyView.Criteria = (CriteriaOperator.Parse("StatusFlag <> 'D'"))
         _companyView.Sorting = sortCollection
         grdCompanies.DataSource = _companyView
+        'vw_Companies.ActiveFilterString = "[DivName] <> '' "
         If current >= 0 Then
             If current < vw_Companies.RowCount Then
                 vw_Companies.FocusedRowHandle = current

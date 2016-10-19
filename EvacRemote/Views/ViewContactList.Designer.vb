@@ -106,7 +106,7 @@ Partial Class ViewContactList
         'colDivname
         '
         Me.colDivname.Caption = "Division"
-        Me.colDivname.FieldName = "Divname"
+        Me.colDivname.FieldName = "DivName"
         Me.colDivname.Name = "colDivname"
         Me.colDivname.Visible = True
         Me.colDivname.VisibleIndex = 0
@@ -114,7 +114,7 @@ Partial Class ViewContactList
         'xolContact
         '
         Me.xolContact.Caption = "Contact"
-        Me.xolContact.FieldName = "Contact"
+        Me.xolContact.FieldName = "SearchName"
         Me.xolContact.Name = "xolContact"
         Me.xolContact.Visible = True
         Me.xolContact.VisibleIndex = 1
@@ -206,12 +206,12 @@ Partial Class ViewContactList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'ContactList
+        'ViewContactList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "ContactList"
+        Me.Name = "ViewContactList"
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

@@ -61,9 +61,7 @@ Partial Class AssetServiceChair
         Me.tsSpringClips = New DevExpress.XtraEditors.ToggleSwitch()
         Me.tsSafetyBelt = New DevExpress.XtraEditors.ToggleSwitch()
         Me.teNotes = New DevExpress.XtraEditors.MemoEdit()
-        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciNotes = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
@@ -107,6 +105,8 @@ Partial Class AssetServiceChair
         Me.lciClosureOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciKickstandBoltOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.icbKickstandBolt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,9 +145,7 @@ Partial Class AssetServiceChair
         CType(Me.tsSpringClips.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tsSafetyBelt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciNotes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,6 +189,8 @@ Partial Class AssetServiceChair
         CType(Me.lciClosureOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciKickstandBoltOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -605,16 +605,6 @@ Partial Class AssetServiceChair
         Me.teNotes.StyleController = Me.LayoutControl1
         Me.teNotes.TabIndex = 13
         '
-        'picBack
-        '
-        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
-        Me.picBack.Location = New System.Drawing.Point(20, 30)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(30, 402)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.picBack.TabIndex = 4
-        Me.picBack.TabStop = False
-        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
@@ -625,19 +615,6 @@ Partial Class AssetServiceChair
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(922, 452)
         Me.LayoutControlGroup1.TextVisible = False
-        '
-        'lciBack
-        '
-        Me.lciBack.Control = Me.picBack
-        Me.lciBack.CustomizationFormText = "lciBack"
-        Me.lciBack.Location = New System.Drawing.Point(0, 0)
-        Me.lciBack.MinSize = New System.Drawing.Size(50, 24)
-        Me.lciBack.Name = "lciBack"
-        Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
-        Me.lciBack.Size = New System.Drawing.Size(50, 432)
-        Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciBack.TextVisible = False
         '
         'lciNotes
         '
@@ -1058,6 +1035,28 @@ Partial Class AssetServiceChair
         Me.lciKickstandBoltOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciKickstandBoltOpt.TextVisible = False
         '
+        'picBack
+        '
+        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
+        Me.picBack.Location = New System.Drawing.Point(20, 30)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(30, 402)
+        Me.picBack.TabIndex = 4
+        Me.picBack.TabStop = False
+        '
+        'lciBack
+        '
+        Me.lciBack.Control = Me.picBack
+        Me.lciBack.CustomizationFormText = "lciBack"
+        Me.lciBack.Location = New System.Drawing.Point(0, 0)
+        Me.lciBack.MinSize = New System.Drawing.Size(50, 24)
+        Me.lciBack.Name = "lciBack"
+        Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
+        Me.lciBack.Size = New System.Drawing.Size(50, 432)
+        Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciBack.TextVisible = False
+        '
         'AssetServiceChair
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1104,9 +1103,7 @@ Partial Class AssetServiceChair
         CType(Me.tsSpringClips.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tsSafetyBelt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciNotes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1150,6 +1147,8 @@ Partial Class AssetServiceChair
         CType(Me.lciClosureOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciKickstandBoltOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

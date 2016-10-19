@@ -67,7 +67,8 @@ Namespace Esso.Data
             End Set
         End Property
         Private _leadno As Integer
-        Public Property Leadno() As String
+        <Indexed(Unique:=False)>
+           Public Property Leadno() As String
             Get
                 Return _leadno
             End Get
@@ -85,7 +86,8 @@ Namespace Esso.Data
             End Set
         End Property
         Private _bookedDate As DateTime
-        Public Property BookedDate() As DateTime
+        <Indexed(Unique:=False)>
+          Public Property BookedDate() As DateTime
             Get
                 Return _bookedDate
             End Get

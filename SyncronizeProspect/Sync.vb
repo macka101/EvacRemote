@@ -2,6 +2,7 @@
 Imports DevExpress.Xpo
 Imports DevExpress.Data.Filtering
 Imports Esso.Data
+Imports System.Timers
 
 Module Sync
     Public cn As OdbcConnection
@@ -9,6 +10,11 @@ Module Sync
     Dim iCounter As Integer = 0
     Dim iTop As Integer = 0
     Dim iLeft As Integer = 0
+    Dim iTimerTop As Integer = 0
+    Dim iTimerLeft As Integer = 0
+
+    Dim _timer1 As New Timer
+    Dim _startTime As DateTime
 
     Sub Main()
         If Environment.MachineName = "JOHN-PC2" Then
@@ -29,6 +35,16 @@ Module Sync
         cn = New OdbcConnection("DSN=PSCRM 6 Default;UID=DBA;PWD=prospect")
         ' cn = New OdbcConnection("DSN=PSCRM 6 Demonstration;UID=DBA;PWD=prospect")
         cn.Open()
+        _startTime = DateTime.Now
+        Console.Write(String.Format("Started {0:hh:mm}", DateTime.Now))
+        iTimerTop = Console.CursorTop
+        iTimerLeft = Console.CursorLeft
+        Console.WriteLine("")
+        _timer1.Interval = 1000
+        AddHandler _timer1.Elapsed, AddressOf UpdateTimer
+
+        _timer1.Start() 'Timer starts functioning
+
         If SyncUsers() = True Then
             SyncEngineers()
             SyncAddresses()
@@ -37,10 +53,11 @@ Module Sync
             SyncContacts()
             SyncDiary()
         End If
+        _timer1.Stop()
         cn.Close()
 
     End Sub
- 
+
     Private Function SyncUsers() As Boolean
         Dim Str As String = Nothing
         Dim _session As New UnitOfWork
@@ -284,11 +301,11 @@ Module Sync
             iLeft = Console.CursorLeft
             Dim xDivision As Division
             For Each orow As DataRow In dsCompanies.Tables(0).Rows
-                xDivision = _session.FindObject(Of Division)(CriteriaOperator.Parse("Divno= ?", orow.Item("divno")))
+                xDivision = _session.FindObject(Of Division)(CriteriaOperator.Parse("DivNo= ?", orow.Item("divNo")))
                 If xDivision Is Nothing Then
                     xDivision = New Division(_session)
-                    xDivision.Divno = orow.Item("divno")
-                    xDivision.Compno = orow.Item("compno")
+                    xDivision.DivNo = orow.Item("divno")
+                    xDivision.CompNo = orow.Item("compno")
                 End If
                 'xDivision.a.address = _session.FindObject(Of Address)(CriteriaOperator.Parse("addrno= ?", GetValueorNull(orow, "addrno")))
                 xDivision.Divname = orow.Item("divname").ToString
@@ -338,15 +355,14 @@ Module Sync
             iLeft = Console.CursorLeft
             Dim xContact As Contact
             For Each orow As DataRow In dsContacts.Tables(0).Rows
-                xContact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("Contno= ?", orow.Item("divno")))
+                xContact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("ContNo= ?", orow.Item("divno")))
                 If xContact Is Nothing Then
                     xContact = New Contact(_session)
-                    xContact.Contno = orow.Item("contno")
-                    xContact.Divno = orow.Item("divno")
                 End If
-
+                xContact.ContNo = orow.Item("contno")
+                xContact.DivNo = orow.Item("divno")
                 xContact.Surname = GetValueorNull(orow, "surname")
-                xContact.forename = GetValueorNull(orow, "forename")
+                xContact.Forename = GetValueorNull(orow, "forename")
                 xContact.Title = GetValueorNull(orow, "title")
                 xContact.Salutation = GetValueorNull(orow, "salutation")
                 xContact.Address = _session.FindObject(Of Address)(CriteriaOperator.Parse("addrno= ?", GetValueorNull(orow, "addrno")))
@@ -355,6 +371,9 @@ Module Sync
                 xContact.Phone = GetValueorNull(orow, "primephone")
                 xContact.Notepad = GetValueorNull(orow, "notepad")
                 xContact.StatusFlag = GetValueorNull(orow, "StatusFlag")
+                If xContact.ContNo = 0 Or xContact.DivNo Then
+                    xContact.StatusFlag = "D"
+                End If
                 xContact.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
                 xContact.Save()
                 _session.CommitChanges()
@@ -404,8 +423,8 @@ Module Sync
                     xDiary = New CentralDiary(_session)
                     xDiary.CentralDiaryNo = orow.Item("central_diaryno")
                 End If
-                xDiary.Division = _session.FindObject(Of Division)(CriteriaOperator.Parse("Divno= ?", GetValueorNull(orow, "divno")))
-                xDiary.Contact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("Contno= ?", GetValueorNull(orow, "contno")))
+                xDiary.Division = _session.FindObject(Of Division)(CriteriaOperator.Parse("DivNo= ?", GetValueorNull(orow, "divno")))
+                xDiary.Contact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("ContNo= ?", GetValueorNull(orow, "contno")))
 
                 xDiary.AllDay = GetValueorNull(orow, "AllDay")
                 xDiary.AppDescription = GetValueorNull(orow, "AppDescription")
@@ -449,4 +468,11 @@ Module Sync
         Return x
 
     End Function
+
+    Private Sub UpdateTimer(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Console.SetCursorPosition(iTimerLeft, iTimerTop)
+        Dim elapsed_time As TimeSpan
+        elapsed_time = DateTime.Now.Subtract(_startTime)
+        Console.Write(String.Format(" Taken ({0} Secs) ", CInt(elapsed_time.TotalSeconds)))
+    End Sub
 End Module
