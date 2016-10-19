@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Evac Remote")> 
 <Assembly: AssemblyConfiguration("")>
 <Assembly: AssemblyCompany("Evac Chair International")> 
-<Assembly: AssemblyProduct("Template")>
+<Assembly: AssemblyProduct("Evac Remote")> 
 <Assembly: AssemblyCopyright("Copyright ©  2016")> 
 <Assembly: AssemblyTrademark("")>
 <Assembly: AssemblyCulture("")>

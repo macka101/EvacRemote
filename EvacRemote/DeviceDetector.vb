@@ -155,7 +155,7 @@ Public Class DeviceDetector
             Return m_hasTouchSupport.Value
         End Get
     End Property
-    Private Shared Function CheckTouch() As Boolean
+    Public Shared Function CheckTouch() As Boolean
         Dim device = System.Windows.Input.Tablet.TabletDevices.Cast(Of System.Windows.Input.TabletDevice)().FirstOrDefault(Function(dev) dev.Type = System.Windows.Input.TabletDeviceType.Touch)
         If device Is Nothing Then
             Return False

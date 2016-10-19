@@ -112,4 +112,11 @@ Public Class ServiceDetail
         _currentAsset = New Asset(_session)
         ParentFormMain.SelectPage(frmMain.ePage.AssetServiceChair)
     End Sub
+    Private Sub SaveData()
+        _session.CommitChanges()
+    End Sub
+    Private Sub picBack_Click_1(sender As Object, e As EventArgs) Handles picBack.Click
+        SaveData()
+        ParentFormMain.SelectPage(frmMain.ePage.DiarySchedule)
+    End Sub
 End Class

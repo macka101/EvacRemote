@@ -3073,6 +3073,8 @@
     <Content Include="References\Microsoft.SqlServer.ConnectionInfo.dll" />
     <Content Include="References\Microsoft.SqlServer.Replication.dll" />
     <Content Include="References\Microsoft.SqlServer.Rmo.dll" />
+    <None Include="Resources\AppIcon.ico" />
+    <None Include="Resources\evacremote.ico" />
     <Content Include="TEST.HTML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

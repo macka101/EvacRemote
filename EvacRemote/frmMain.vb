@@ -336,7 +336,7 @@ Public Class frmMain
         '    ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)
         'Else
 
-        Misc.InstallUpdateSyncWithInfo()
+        ' Misc.InstallUpdateSyncWithInfo()
 
 
         ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=Willow"

@@ -30,7 +30,23 @@ Friend NotInheritable Class Program
 
         Application.CurrentCulture = CultureInfo.GetCultureInfo("en-GB")
         WindowsFormsSettings.SetDPIAware()
-        WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.True
+        Application.EnableVisualStyles()
+        Application.SetCompatibleTextRenderingDefault(False)
+
+        If Debugger.IsAttached Then
+            If XtraMessageBox.Show("Run in Touch Mode.", "Touch Mode", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
+                WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.True
+            Else
+                WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.False
+            End If
+        Else
+            If DeviceDetector.CheckTouch = True Then
+                WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.True
+            Else
+                WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.False
+            End If
+        End If
+
         DevExpress.XtraEditors.WindowsFormsSettings.AllowPixelScrolling = DevExpress.Utils.DefaultBoolean.True
         DevExpress.XtraEditors.WindowsFormsSettings.ScrollUIMode = DevExpress.XtraEditors.ScrollUIMode.Touch
         Dim touchScaleFactor As Single, fontSize As Single
@@ -38,17 +54,19 @@ Friend NotInheritable Class Program
         WindowsFormsSettings.DefaultFont = New Font("Segoe UI", fontSize)
         WindowsFormsSettings.DefaultMenuFont = New Font("Segoe UI", fontSize)
         WindowsFormsSettings.TouchScaleFactor = touchScaleFactor
-        Application.EnableVisualStyles()
-        Application.SetCompatibleTextRenderingDefault(False)
-        Application.EnableVisualStyles()
-        Application.SetCompatibleTextRenderingDefault(False)
+       
         If SQLHelper.DBExists() = 0 Then
             MsgBox("No Database detected creating Local Database and Subscription", MsgBoxStyle.Critical)
             Using frmsysnc As New FrmSyncronize(True, False)
                 frmsysnc.ShowDialog()
             End Using
         Else
-            If XtraMessageBox.Show("Syncronise Data First", "Syncronise", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Dim result As DialogResult = XtraMessageBox.Show(New XtraMessageBoxArgs() With {.Owner = Form.ActiveForm, _
+                .Text = "Syncronise Data First", _
+                .Caption = "Syncronise", _
+                .Buttons = {DialogResult.Yes, DialogResult.No}, _
+                .Icon = My.Resources.evacremote})
+            If result = DialogResult.Yes Then
                 Using frmsysnc As New FrmSyncronize(False, True)
                     frmsysnc.ShowDialog()
                 End Using

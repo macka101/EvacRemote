@@ -27,7 +27,7 @@ Module Sync
         End Using
 
         cn = New OdbcConnection("DSN=PSCRM 6 Default;UID=DBA;PWD=prospect")
-        cn = New OdbcConnection("DSN=PSCRM 6 Demonstration;UID=DBA;PWD=prospect")
+        ' cn = New OdbcConnection("DSN=PSCRM 6 Demonstration;UID=DBA;PWD=prospect")
         cn.Open()
         If SyncUsers() = True Then
             SyncEngineers()

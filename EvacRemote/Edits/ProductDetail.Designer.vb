@@ -23,38 +23,38 @@ Partial Class ProductDetail
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
+        Me.xtbDetails = New DevExpress.XtraTab.XtraTabPage()
+        Me.lciDetails = New DevExpress.XtraLayout.LayoutControl()
+        Me.rtcFullDetails = New DevExpress.XtraRichEdit.RichEditControl()
+        Me.teDescription = New DevExpress.XtraEditors.TextEdit()
+        Me.teProductCode = New DevExpress.XtraEditors.TextEdit()
+        Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.lciProductCode = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciDescription = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciFullDetails = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.xtWeightings = New DevExpress.XtraTab.XtraTabPage()
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.lciTabControl = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.xtbDetails = New DevExpress.XtraTab.XtraTabPage()
-        Me.xtWeightings = New DevExpress.XtraTab.XtraTabPage()
-        Me.lciDetails = New DevExpress.XtraLayout.LayoutControl()
-        Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.teProductCode = New DevExpress.XtraEditors.TextEdit()
-        Me.lciProductCode = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.teDescription = New DevExpress.XtraEditors.TextEdit()
-        Me.lciDescription = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.rtcFullDetails = New DevExpress.XtraRichEdit.RichEditControl()
-        Me.lciFullDetails = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
-        CType(Me.lciTabControl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.xtbDetails.SuspendLayout()
         CType(Me.lciDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.lciDetails.SuspendLayout()
-        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.teProductCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciProductCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teProductCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciProductCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciDescription, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFullDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciTabControl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -68,6 +68,104 @@ Partial Class ProductDetail
         Me.LayoutControl1.Size = New System.Drawing.Size(895, 419)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'XtraTabControl1
+        '
+        Me.XtraTabControl1.Location = New System.Drawing.Point(63, 12)
+        Me.XtraTabControl1.Name = "XtraTabControl1"
+        Me.XtraTabControl1.SelectedTabPage = Me.xtbDetails
+        Me.XtraTabControl1.Size = New System.Drawing.Size(820, 395)
+        Me.XtraTabControl1.TabIndex = 7
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.xtbDetails, Me.xtWeightings})
+        '
+        'xtbDetails
+        '
+        Me.xtbDetails.Controls.Add(Me.lciDetails)
+        Me.xtbDetails.Name = "xtbDetails"
+        Me.xtbDetails.Size = New System.Drawing.Size(814, 367)
+        Me.xtbDetails.Text = "Details"
+        '
+        'lciDetails
+        '
+        Me.lciDetails.Controls.Add(Me.rtcFullDetails)
+        Me.lciDetails.Controls.Add(Me.teDescription)
+        Me.lciDetails.Controls.Add(Me.teProductCode)
+        Me.lciDetails.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lciDetails.Location = New System.Drawing.Point(0, 0)
+        Me.lciDetails.Name = "lciDetails"
+        Me.lciDetails.Root = Me.LayoutControlGroup2
+        Me.lciDetails.Size = New System.Drawing.Size(814, 367)
+        Me.lciDetails.TabIndex = 0
+        Me.lciDetails.Text = "LayoutControl2"
+        '
+        'rtcFullDetails
+        '
+        Me.rtcFullDetails.Location = New System.Drawing.Point(12, 36)
+        Me.rtcFullDetails.Name = "rtcFullDetails"
+        Me.rtcFullDetails.ReadOnly = True
+        Me.rtcFullDetails.Size = New System.Drawing.Size(790, 319)
+        Me.rtcFullDetails.TabIndex = 6
+        '
+        'teDescription
+        '
+        Me.teDescription.Location = New System.Drawing.Point(301, 12)
+        Me.teDescription.Name = "teDescription"
+        Me.teDescription.Properties.ReadOnly = True
+        Me.teDescription.Size = New System.Drawing.Size(501, 20)
+        Me.teDescription.StyleController = Me.lciDetails
+        Me.teDescription.TabIndex = 5
+        '
+        'teProductCode
+        '
+        Me.teProductCode.Location = New System.Drawing.Point(80, 12)
+        Me.teProductCode.Name = "teProductCode"
+        Me.teProductCode.Properties.ReadOnly = True
+        Me.teProductCode.Size = New System.Drawing.Size(149, 20)
+        Me.teProductCode.StyleController = Me.lciDetails
+        Me.teProductCode.TabIndex = 4
+        '
+        'LayoutControlGroup2
+        '
+        Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup2.GroupBordersVisible = False
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciProductCode, Me.lciDescription, Me.lciFullDetails})
+        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(814, 367)
+        Me.LayoutControlGroup2.TextVisible = False
+        '
+        'lciProductCode
+        '
+        Me.lciProductCode.Control = Me.teProductCode
+        Me.lciProductCode.Location = New System.Drawing.Point(0, 0)
+        Me.lciProductCode.Name = "lciProductCode"
+        Me.lciProductCode.Size = New System.Drawing.Size(221, 24)
+        Me.lciProductCode.Text = "Product Code"
+        Me.lciProductCode.TextSize = New System.Drawing.Size(65, 13)
+        '
+        'lciDescription
+        '
+        Me.lciDescription.Control = Me.teDescription
+        Me.lciDescription.Location = New System.Drawing.Point(221, 0)
+        Me.lciDescription.Name = "lciDescription"
+        Me.lciDescription.Size = New System.Drawing.Size(573, 24)
+        Me.lciDescription.Text = "Description"
+        Me.lciDescription.TextSize = New System.Drawing.Size(65, 13)
+        '
+        'lciFullDetails
+        '
+        Me.lciFullDetails.Control = Me.rtcFullDetails
+        Me.lciFullDetails.Location = New System.Drawing.Point(0, 24)
+        Me.lciFullDetails.Name = "lciFullDetails"
+        Me.lciFullDetails.Size = New System.Drawing.Size(794, 323)
+        Me.lciFullDetails.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciFullDetails.TextVisible = False
+        '
+        'xtWeightings
+        '
+        Me.xtWeightings.Name = "xtWeightings"
+        Me.xtWeightings.Size = New System.Drawing.Size(814, 367)
+        Me.xtWeightings.Text = "Weightings"
         '
         'picBack
         '
@@ -102,15 +200,6 @@ Partial Class ProductDetail
         Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
         Me.lciBack.TextVisible = False
         '
-        'XtraTabControl1
-        '
-        Me.XtraTabControl1.Location = New System.Drawing.Point(63, 12)
-        Me.XtraTabControl1.Name = "XtraTabControl1"
-        Me.XtraTabControl1.SelectedTabPage = Me.xtbDetails
-        Me.XtraTabControl1.Size = New System.Drawing.Size(820, 395)
-        Me.XtraTabControl1.TabIndex = 7
-        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.xtbDetails, Me.xtWeightings})
-        '
         'lciTabControl
         '
         Me.lciTabControl.Control = Me.XtraTabControl1
@@ -119,95 +208,6 @@ Partial Class ProductDetail
         Me.lciTabControl.Size = New System.Drawing.Size(824, 399)
         Me.lciTabControl.TextSize = New System.Drawing.Size(0, 0)
         Me.lciTabControl.TextVisible = False
-        '
-        'xtbDetails
-        '
-        Me.xtbDetails.Controls.Add(Me.lciDetails)
-        Me.xtbDetails.Name = "xtbDetails"
-        Me.xtbDetails.Size = New System.Drawing.Size(814, 367)
-        Me.xtbDetails.Text = "Details"
-        '
-        'xtWeightings
-        '
-        Me.xtWeightings.Name = "xtWeightings"
-        Me.xtWeightings.Size = New System.Drawing.Size(814, 367)
-        Me.xtWeightings.Text = "Weightings"
-        '
-        'lciDetails
-        '
-        Me.lciDetails.Controls.Add(Me.rtcFullDetails)
-        Me.lciDetails.Controls.Add(Me.teDescription)
-        Me.lciDetails.Controls.Add(Me.teProductCode)
-        Me.lciDetails.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lciDetails.Location = New System.Drawing.Point(0, 0)
-        Me.lciDetails.Name = "lciDetails"
-        Me.lciDetails.Root = Me.LayoutControlGroup2
-        Me.lciDetails.Size = New System.Drawing.Size(814, 367)
-        Me.lciDetails.TabIndex = 0
-        Me.lciDetails.Text = "LayoutControl2"
-        '
-        'LayoutControlGroup2
-        '
-        Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciProductCode, Me.lciDescription, Me.lciFullDetails})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(814, 367)
-        Me.LayoutControlGroup2.TextVisible = False
-        '
-        'teProductCode
-        '
-        Me.teProductCode.Location = New System.Drawing.Point(81, 12)
-        Me.teProductCode.Name = "teProductCode"
-        Me.teProductCode.Properties.ReadOnly = True
-        Me.teProductCode.Size = New System.Drawing.Size(148, 20)
-        Me.teProductCode.StyleController = Me.lciDetails
-        Me.teProductCode.TabIndex = 4
-        '
-        'lciProductCode
-        '
-        Me.lciProductCode.Control = Me.teProductCode
-        Me.lciProductCode.Location = New System.Drawing.Point(0, 0)
-        Me.lciProductCode.Name = "lciProductCode"
-        Me.lciProductCode.Size = New System.Drawing.Size(221, 24)
-        Me.lciProductCode.Text = "Product Code"
-        Me.lciProductCode.TextSize = New System.Drawing.Size(65, 13)
-        '
-        'teDescription
-        '
-        Me.teDescription.Location = New System.Drawing.Point(302, 12)
-        Me.teDescription.Name = "teDescription"
-        Me.teDescription.Properties.ReadOnly = True
-        Me.teDescription.Size = New System.Drawing.Size(500, 20)
-        Me.teDescription.StyleController = Me.lciDetails
-        Me.teDescription.TabIndex = 5
-        '
-        'lciDescription
-        '
-        Me.lciDescription.Control = Me.teDescription
-        Me.lciDescription.Location = New System.Drawing.Point(221, 0)
-        Me.lciDescription.Name = "lciDescription"
-        Me.lciDescription.Size = New System.Drawing.Size(573, 24)
-        Me.lciDescription.Text = "Description"
-        Me.lciDescription.TextSize = New System.Drawing.Size(65, 13)
-        '
-        'rtcFullDetails
-        '
-        Me.rtcFullDetails.Location = New System.Drawing.Point(12, 36)
-        Me.rtcFullDetails.Name = "rtcFullDetails"
-        Me.rtcFullDetails.ReadOnly = True
-        Me.rtcFullDetails.Size = New System.Drawing.Size(790, 319)
-        Me.rtcFullDetails.TabIndex = 6
-        '
-        'lciFullDetails
-        '
-        Me.lciFullDetails.Control = Me.rtcFullDetails
-        Me.lciFullDetails.Location = New System.Drawing.Point(0, 24)
-        Me.lciFullDetails.Name = "lciFullDetails"
-        Me.lciFullDetails.Size = New System.Drawing.Size(794, 323)
-        Me.lciFullDetails.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciFullDetails.TextVisible = False
         '
         'ProductDetail
         '
@@ -218,21 +218,21 @@ Partial Class ProductDetail
         Me.Size = New System.Drawing.Size(895, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraTabControl1.ResumeLayout(False)
-        CType(Me.lciTabControl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.xtbDetails.ResumeLayout(False)
         CType(Me.lciDetails, System.ComponentModel.ISupportInitialize).EndInit()
         Me.lciDetails.ResumeLayout(False)
-        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.teProductCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciProductCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teProductCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciProductCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciDescription, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFullDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciTabControl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -611,6 +611,7 @@ Partial Class AssetServiceChair
         Me.picBack.Location = New System.Drawing.Point(20, 30)
         Me.picBack.Name = "picBack"
         Me.picBack.Size = New System.Drawing.Size(30, 402)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.picBack.TabIndex = 4
         Me.picBack.TabStop = False
         '

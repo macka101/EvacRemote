@@ -39,14 +39,11 @@ Partial Class viewFloor
         Me.cbeThread = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.cbePitch = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.cbeStairwayType = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciStairwayType = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciPitch = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciThread = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciGoing = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.lciNosing = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciFloor = New DevExpress.XtraLayout.LayoutControlItem()
@@ -60,6 +57,8 @@ Partial Class viewFloor
         Me.lciMovingHandling = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciBedAccess = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciMisuse = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.tgsMisuse.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,14 +77,11 @@ Partial Class viewFloor
         CType(Me.cbeThread.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbePitch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbeStairwayType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciStairwayType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPitch, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciThread, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciGoing, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciNosing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,6 +95,8 @@ Partial Class viewFloor
         CType(Me.lciMovingHandling, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciBedAccess, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciMisuse, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -141,11 +139,11 @@ Partial Class viewFloor
         '
         'tgsBedAccess
         '
-        Me.tgsBedAccess.Location = New System.Drawing.Point(216, 232)
+        Me.tgsBedAccess.Location = New System.Drawing.Point(164, 232)
         Me.tgsBedAccess.Name = "tgsBedAccess"
         Me.tgsBedAccess.Properties.OffText = "Off"
         Me.tgsBedAccess.Properties.OnText = "On"
-        Me.tgsBedAccess.Size = New System.Drawing.Size(90, 24)
+        Me.tgsBedAccess.Size = New System.Drawing.Size(142, 24)
         Me.tgsBedAccess.StyleController = Me.LayoutControl1
         Me.tgsBedAccess.TabIndex = 24
         '
@@ -191,144 +189,122 @@ Partial Class viewFloor
         '
         'tgsBedBound
         '
-        Me.tgsBedBound.Location = New System.Drawing.Point(216, 204)
+        Me.tgsBedBound.Location = New System.Drawing.Point(164, 204)
         Me.tgsBedBound.Name = "tgsBedBound"
         Me.tgsBedBound.Properties.OffText = "No"
         Me.tgsBedBound.Properties.OnText = "Yes"
-        Me.tgsBedBound.Size = New System.Drawing.Size(90, 24)
+        Me.tgsBedBound.Size = New System.Drawing.Size(142, 24)
         Me.tgsBedBound.StyleController = Me.LayoutControl1
         Me.tgsBedBound.TabIndex = 19
         '
         'lueRecomended
         '
-        Me.lueRecomended.Location = New System.Drawing.Point(216, 156)
+        Me.lueRecomended.Location = New System.Drawing.Point(164, 156)
         Me.lueRecomended.Name = "lueRecomended"
         Me.lueRecomended.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.lueRecomended.Properties.NullText = " "
         Me.lueRecomended.Properties.ReadOnly = True
-        Me.lueRecomended.Size = New System.Drawing.Size(678, 20)
+        Me.lueRecomended.Size = New System.Drawing.Size(730, 20)
         Me.lueRecomended.StyleController = Me.LayoutControl1
         Me.lueRecomended.TabIndex = 18
         '
         'lueChair
         '
-        Me.lueChair.Location = New System.Drawing.Point(216, 180)
+        Me.lueChair.Location = New System.Drawing.Point(164, 180)
         Me.lueChair.Name = "lueChair"
         Me.lueChair.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.lueChair.Properties.NullText = ""
-        Me.lueChair.Size = New System.Drawing.Size(678, 20)
+        Me.lueChair.Size = New System.Drawing.Size(730, 20)
         Me.lueChair.StyleController = Me.LayoutControl1
         Me.lueChair.TabIndex = 17
         '
         'teNotes
         '
-        Me.teNotes.Location = New System.Drawing.Point(114, 276)
+        Me.teNotes.Location = New System.Drawing.Point(62, 276)
         Me.teNotes.Name = "teNotes"
-        Me.teNotes.Size = New System.Drawing.Size(780, 198)
+        Me.teNotes.Size = New System.Drawing.Size(832, 198)
         Me.teNotes.StyleController = Me.LayoutControl1
         Me.teNotes.TabIndex = 16
         '
         'teFloor
         '
-        Me.teFloor.Location = New System.Drawing.Point(216, 12)
+        Me.teFloor.Location = New System.Drawing.Point(164, 12)
         Me.teFloor.Name = "teFloor"
-        Me.teFloor.Size = New System.Drawing.Size(678, 20)
+        Me.teFloor.Size = New System.Drawing.Size(730, 20)
         Me.teFloor.StyleController = Me.LayoutControl1
         Me.teFloor.TabIndex = 15
         '
         'icbNosing
         '
-        Me.icbNosing.Location = New System.Drawing.Point(216, 60)
+        Me.icbNosing.Location = New System.Drawing.Point(164, 60)
         Me.icbNosing.Name = "icbNosing"
         Me.icbNosing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.icbNosing.Size = New System.Drawing.Size(678, 20)
+        Me.icbNosing.Size = New System.Drawing.Size(730, 20)
         Me.icbNosing.StyleController = Me.LayoutControl1
         Me.icbNosing.TabIndex = 14
         '
         'CBEGoing
         '
-        Me.CBEGoing.Location = New System.Drawing.Point(216, 132)
+        Me.CBEGoing.Location = New System.Drawing.Point(164, 132)
         Me.CBEGoing.Name = "CBEGoing"
         Me.CBEGoing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CBEGoing.Properties.Items.AddRange(New Object() {"220", "230", "240", "250", "260", "270", "280", "290", "300"})
         Me.CBEGoing.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.CBEGoing.Size = New System.Drawing.Size(678, 20)
+        Me.CBEGoing.Size = New System.Drawing.Size(730, 20)
         Me.CBEGoing.StyleController = Me.LayoutControl1
         Me.CBEGoing.TabIndex = 12
         '
         'cbeThread
         '
-        Me.cbeThread.Location = New System.Drawing.Point(216, 84)
+        Me.cbeThread.Location = New System.Drawing.Point(164, 84)
         Me.cbeThread.Name = "cbeThread"
         Me.cbeThread.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbeThread.Properties.Items.AddRange(New Object() {"Glass", "Granite", "Marble", "Stainless Steel", "Stone", "Tile", "Terrazzo", "Wooden"})
         Me.cbeThread.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbeThread.Size = New System.Drawing.Size(678, 20)
+        Me.cbeThread.Size = New System.Drawing.Size(730, 20)
         Me.cbeThread.StyleController = Me.LayoutControl1
         Me.cbeThread.TabIndex = 11
         '
         'cbePitch
         '
-        Me.cbePitch.Location = New System.Drawing.Point(216, 108)
+        Me.cbePitch.Location = New System.Drawing.Point(164, 108)
         Me.cbePitch.Name = "cbePitch"
         Me.cbePitch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbePitch.Properties.Items.AddRange(New Object() {"20", "22", "24", "26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50"})
         Me.cbePitch.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbePitch.Size = New System.Drawing.Size(678, 20)
+        Me.cbePitch.Size = New System.Drawing.Size(730, 20)
         Me.cbePitch.StyleController = Me.LayoutControl1
         Me.cbePitch.TabIndex = 9
         '
         'cbeStairwayType
         '
-        Me.cbeStairwayType.Location = New System.Drawing.Point(216, 36)
+        Me.cbeStairwayType.Location = New System.Drawing.Point(164, 36)
         Me.cbeStairwayType.Name = "cbeStairwayType"
         Me.cbeStairwayType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbeStairwayType.Properties.Items.AddRange(New Object() {"Closed Riser", "Kite", "Open Riser", "Helical", "Winder", "Short Straight", "Spiral with no Landing", "Straight with Landing", "Straight with no landing"})
         Me.cbeStairwayType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbeStairwayType.Size = New System.Drawing.Size(678, 20)
+        Me.cbeStairwayType.Size = New System.Drawing.Size(730, 20)
         Me.cbeStairwayType.StyleController = Me.LayoutControl1
         Me.cbeStairwayType.TabIndex = 8
-        '
-        'picBack
-        '
-        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
-        Me.picBack.Location = New System.Drawing.Point(20, 30)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(30, 436)
-        Me.picBack.TabIndex = 4
-        Me.picBack.TabStop = False
         '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciThread, Me.lciGoing, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciNosing, Me.lciFloor, Me.lciNotes, Me.lciChair, Me.lciRecomended, Me.lciBedBound, Me.lciComplexDisability, Me.lciSmallStorage, Me.lciBarriatric, Me.lciMovingHandling, Me.lciBedAccess, Me.lciMisuse})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciStairwayType, Me.lciPitch, Me.lciThread, Me.lciGoing, Me.EmptySpaceItem2, Me.lciNosing, Me.lciFloor, Me.lciNotes, Me.lciChair, Me.lciRecomended, Me.lciBedBound, Me.lciComplexDisability, Me.lciSmallStorage, Me.lciBarriatric, Me.lciMovingHandling, Me.lciBedAccess, Me.lciMisuse})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
         Me.LayoutControlGroup1.TextVisible = False
         '
-        'lciBack
-        '
-        Me.lciBack.Control = Me.picBack
-        Me.lciBack.CustomizationFormText = "lciBack"
-        Me.lciBack.Location = New System.Drawing.Point(0, 0)
-        Me.lciBack.MinSize = New System.Drawing.Size(50, 24)
-        Me.lciBack.Name = "lciBack"
-        Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
-        Me.lciBack.Size = New System.Drawing.Size(50, 466)
-        Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciBack.TextVisible = False
-        '
         'lciStairwayType
         '
         Me.lciStairwayType.Control = Me.cbeStairwayType
         Me.lciStairwayType.CustomizationFormText = "Stairway Type"
-        Me.lciStairwayType.Location = New System.Drawing.Point(102, 24)
+        Me.lciStairwayType.Location = New System.Drawing.Point(50, 24)
         Me.lciStairwayType.Name = "lciStairwayType"
-        Me.lciStairwayType.Size = New System.Drawing.Size(784, 24)
+        Me.lciStairwayType.Size = New System.Drawing.Size(836, 24)
         Me.lciStairwayType.Text = "Stairway Type"
         Me.lciStairwayType.TextSize = New System.Drawing.Size(99, 13)
         '
@@ -336,9 +312,9 @@ Partial Class viewFloor
         '
         Me.lciPitch.Control = Me.cbePitch
         Me.lciPitch.CustomizationFormText = "Pitch (degrees)"
-        Me.lciPitch.Location = New System.Drawing.Point(102, 96)
+        Me.lciPitch.Location = New System.Drawing.Point(50, 96)
         Me.lciPitch.Name = "lciPitch"
-        Me.lciPitch.Size = New System.Drawing.Size(784, 24)
+        Me.lciPitch.Size = New System.Drawing.Size(836, 24)
         Me.lciPitch.Text = "Pitch (degrees)"
         Me.lciPitch.TextSize = New System.Drawing.Size(99, 13)
         '
@@ -346,9 +322,9 @@ Partial Class viewFloor
         '
         Me.lciThread.Control = Me.cbeThread
         Me.lciThread.CustomizationFormText = "Thread"
-        Me.lciThread.Location = New System.Drawing.Point(102, 72)
+        Me.lciThread.Location = New System.Drawing.Point(50, 72)
         Me.lciThread.Name = "lciThread"
-        Me.lciThread.Size = New System.Drawing.Size(784, 24)
+        Me.lciThread.Size = New System.Drawing.Size(836, 24)
         Me.lciThread.Text = "Thread"
         Me.lciThread.TextSize = New System.Drawing.Size(99, 13)
         '
@@ -356,20 +332,11 @@ Partial Class viewFloor
         '
         Me.lciGoing.Control = Me.CBEGoing
         Me.lciGoing.CustomizationFormText = "Going"
-        Me.lciGoing.Location = New System.Drawing.Point(102, 120)
+        Me.lciGoing.Location = New System.Drawing.Point(50, 120)
         Me.lciGoing.Name = "lciGoing"
-        Me.lciGoing.Size = New System.Drawing.Size(784, 24)
+        Me.lciGoing.Size = New System.Drawing.Size(836, 24)
         Me.lciGoing.Text = "Going"
         Me.lciGoing.TextSize = New System.Drawing.Size(99, 13)
-        '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(50, 0)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(52, 466)
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
         '
@@ -383,27 +350,27 @@ Partial Class viewFloor
         'lciNosing
         '
         Me.lciNosing.Control = Me.icbNosing
-        Me.lciNosing.Location = New System.Drawing.Point(102, 48)
+        Me.lciNosing.Location = New System.Drawing.Point(50, 48)
         Me.lciNosing.Name = "lciNosing"
-        Me.lciNosing.Size = New System.Drawing.Size(784, 24)
+        Me.lciNosing.Size = New System.Drawing.Size(836, 24)
         Me.lciNosing.Text = "Nosing"
         Me.lciNosing.TextSize = New System.Drawing.Size(99, 13)
         '
         'lciFloor
         '
         Me.lciFloor.Control = Me.teFloor
-        Me.lciFloor.Location = New System.Drawing.Point(102, 0)
+        Me.lciFloor.Location = New System.Drawing.Point(50, 0)
         Me.lciFloor.Name = "lciFloor"
-        Me.lciFloor.Size = New System.Drawing.Size(784, 24)
+        Me.lciFloor.Size = New System.Drawing.Size(836, 24)
         Me.lciFloor.Text = "Floor"
         Me.lciFloor.TextSize = New System.Drawing.Size(99, 13)
         '
         'lciNotes
         '
         Me.lciNotes.Control = Me.teNotes
-        Me.lciNotes.Location = New System.Drawing.Point(102, 248)
+        Me.lciNotes.Location = New System.Drawing.Point(50, 248)
         Me.lciNotes.Name = "lciNotes"
-        Me.lciNotes.Size = New System.Drawing.Size(784, 218)
+        Me.lciNotes.Size = New System.Drawing.Size(836, 218)
         Me.lciNotes.Text = "iNotes"
         Me.lciNotes.TextLocation = DevExpress.Utils.Locations.Top
         Me.lciNotes.TextSize = New System.Drawing.Size(99, 13)
@@ -411,27 +378,27 @@ Partial Class viewFloor
         'lciChair
         '
         Me.lciChair.Control = Me.lueChair
-        Me.lciChair.Location = New System.Drawing.Point(102, 168)
+        Me.lciChair.Location = New System.Drawing.Point(50, 168)
         Me.lciChair.Name = "lciChair"
-        Me.lciChair.Size = New System.Drawing.Size(784, 24)
+        Me.lciChair.Size = New System.Drawing.Size(836, 24)
         Me.lciChair.Text = "Chair"
         Me.lciChair.TextSize = New System.Drawing.Size(99, 13)
         '
         'lciRecomended
         '
         Me.lciRecomended.Control = Me.lueRecomended
-        Me.lciRecomended.Location = New System.Drawing.Point(102, 144)
+        Me.lciRecomended.Location = New System.Drawing.Point(50, 144)
         Me.lciRecomended.Name = "lciRecomended"
-        Me.lciRecomended.Size = New System.Drawing.Size(784, 24)
+        Me.lciRecomended.Size = New System.Drawing.Size(836, 24)
         Me.lciRecomended.Text = "Recomended"
         Me.lciRecomended.TextSize = New System.Drawing.Size(99, 13)
         '
         'lciBedBound
         '
         Me.lciBedBound.Control = Me.tgsBedBound
-        Me.lciBedBound.Location = New System.Drawing.Point(102, 192)
+        Me.lciBedBound.Location = New System.Drawing.Point(50, 192)
         Me.lciBedBound.Name = "lciBedBound"
-        Me.lciBedBound.Size = New System.Drawing.Size(196, 28)
+        Me.lciBedBound.Size = New System.Drawing.Size(248, 28)
         Me.lciBedBound.Text = "Bed Bound"
         Me.lciBedBound.TextSize = New System.Drawing.Size(99, 13)
         '
@@ -474,9 +441,9 @@ Partial Class viewFloor
         'lciBedAccess
         '
         Me.lciBedAccess.Control = Me.tgsBedAccess
-        Me.lciBedAccess.Location = New System.Drawing.Point(102, 220)
+        Me.lciBedAccess.Location = New System.Drawing.Point(50, 220)
         Me.lciBedAccess.Name = "lciBedAccess"
-        Me.lciBedAccess.Size = New System.Drawing.Size(196, 28)
+        Me.lciBedAccess.Size = New System.Drawing.Size(248, 28)
         Me.lciBedAccess.Text = "Bed Access"
         Me.lciBedAccess.TextSize = New System.Drawing.Size(99, 13)
         '
@@ -488,6 +455,28 @@ Partial Class viewFloor
         Me.lciMisuse.Size = New System.Drawing.Size(196, 28)
         Me.lciMisuse.Text = "Misuse"
         Me.lciMisuse.TextSize = New System.Drawing.Size(99, 13)
+        '
+        'picBack
+        '
+        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
+        Me.picBack.Location = New System.Drawing.Point(20, 30)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(30, 436)
+        Me.picBack.TabIndex = 4
+        Me.picBack.TabStop = False
+        '
+        'lciBack
+        '
+        Me.lciBack.Control = Me.picBack
+        Me.lciBack.CustomizationFormText = "lciBack"
+        Me.lciBack.Location = New System.Drawing.Point(0, 0)
+        Me.lciBack.MinSize = New System.Drawing.Size(50, 24)
+        Me.lciBack.Name = "lciBack"
+        Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
+        Me.lciBack.Size = New System.Drawing.Size(50, 466)
+        Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciBack.TextVisible = False
         '
         'viewFloor
         '
@@ -514,14 +503,11 @@ Partial Class viewFloor
         CType(Me.cbeThread.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbePitch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbeStairwayType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciStairwayType, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPitch, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciThread, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciGoing, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciNosing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).EndInit()
@@ -535,6 +521,8 @@ Partial Class viewFloor
         CType(Me.lciMovingHandling, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciBedAccess, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciMisuse, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -550,7 +538,6 @@ Partial Class viewFloor
     Friend WithEvents lciPitch As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciThread As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciGoing As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents icbNosing As DevExpress.XtraEditors.ImageComboBoxEdit
     Friend WithEvents lciNosing As DevExpress.XtraLayout.LayoutControlItem

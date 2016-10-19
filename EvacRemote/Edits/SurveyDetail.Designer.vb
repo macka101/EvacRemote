@@ -24,6 +24,7 @@ Partial Class SurveyDetail
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SurveyDetail))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.Picback = New System.Windows.Forms.PictureBox()
         Me.btnPrintQuote = New DevExpress.XtraEditors.SimpleButton()
         Me.lueBuilding = New DevExpress.XtraEditors.LookUpEdit()
         Me.GrdEscapeRoutes = New DevExpress.XtraGrid.GridControl()
@@ -45,14 +46,14 @@ Partial Class SurveyDetail
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciPicback = New DevExpress.XtraLayout.LayoutControlItem()
         Me.colEscapeRoute = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colIntExt = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colFloors = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.Picback = New System.Windows.Forms.PictureBox()
-        Me.lciPicback = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.Picback, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrdEscapeRoutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vw_EscapeRoute, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +69,6 @@ Partial Class SurveyDetail
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Picback, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPicback, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -90,20 +90,29 @@ Partial Class SurveyDetail
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'Picback
+        '
+        Me.Picback.Image = Global.EvacRemote.My.Resources.Resources.returnButton
+        Me.Picback.Location = New System.Drawing.Point(20, 30)
+        Me.Picback.Name = "Picback"
+        Me.Picback.Size = New System.Drawing.Size(31, 436)
+        Me.Picback.TabIndex = 30
+        Me.Picback.TabStop = False
+        '
         'btnPrintQuote
         '
         Me.btnPrintQuote.Image = CType(resources.GetObject("btnPrintQuote.Image"), System.Drawing.Image)
         Me.btnPrintQuote.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnPrintQuote.Location = New System.Drawing.Point(784, 12)
+        Me.btnPrintQuote.Location = New System.Drawing.Point(785, 12)
         Me.btnPrintQuote.Name = "btnPrintQuote"
-        Me.btnPrintQuote.Size = New System.Drawing.Size(120, 38)
+        Me.btnPrintQuote.Size = New System.Drawing.Size(119, 38)
         Me.btnPrintQuote.StyleController = Me.LayoutControl1
         Me.btnPrintQuote.TabIndex = 29
         '
         'lueBuilding
         '
         Me.lueBuilding.EnterMoveNextControl = True
-        Me.lueBuilding.Location = New System.Drawing.Point(133, 12)
+        Me.lueBuilding.Location = New System.Drawing.Point(134, 12)
         Me.lueBuilding.Name = "lueBuilding"
         Me.lueBuilding.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)})
         Me.lueBuilding.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
@@ -113,11 +122,11 @@ Partial Class SurveyDetail
         '
         'GrdEscapeRoutes
         '
-        Me.GrdEscapeRoutes.Location = New System.Drawing.Point(62, 78)
+        Me.GrdEscapeRoutes.Location = New System.Drawing.Point(63, 78)
         Me.GrdEscapeRoutes.MainView = Me.vw_EscapeRoute
         Me.GrdEscapeRoutes.Name = "GrdEscapeRoutes"
         Me.GrdEscapeRoutes.ShowOnlyPredefinedDetails = True
-        Me.GrdEscapeRoutes.Size = New System.Drawing.Size(842, 396)
+        Me.GrdEscapeRoutes.Size = New System.Drawing.Size(841, 396)
         Me.GrdEscapeRoutes.TabIndex = 26
         Me.GrdEscapeRoutes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_EscapeRoute})
         '
@@ -161,7 +170,7 @@ Partial Class SurveyDetail
         'colESnofloors
         '
         Me.colESnofloors.Caption = "Floors"
-        Me.colESnofloors.FieldName = "nofloors"
+        Me.colESnofloors.FieldName = "NoFloors"
         Me.colESnofloors.Name = "colESnofloors"
         Me.colESnofloors.Visible = True
         Me.colESnofloors.VisibleIndex = 3
@@ -169,7 +178,7 @@ Partial Class SurveyDetail
         'icbHeritage
         '
         Me.icbHeritage.EnterMoveNextControl = True
-        Me.icbHeritage.Location = New System.Drawing.Point(485, 54)
+        Me.icbHeritage.Location = New System.Drawing.Point(486, 54)
         Me.icbHeritage.Name = "icbHeritage"
         Me.icbHeritage.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbHeritage.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("No", "No", -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Yes", "Yes", -1)})
@@ -180,7 +189,7 @@ Partial Class SurveyDetail
         'icbAccess
         '
         Me.icbAccess.EnterMoveNextControl = True
-        Me.icbAccess.Location = New System.Drawing.Point(133, 54)
+        Me.icbAccess.Location = New System.Drawing.Point(134, 54)
         Me.icbAccess.Name = "icbAccess"
         Me.icbAccess.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbAccess.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Public", "Public", -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Private", "Private", -1)})
@@ -191,7 +200,7 @@ Partial Class SurveyDetail
         'teEscapeRoutes
         '
         Me.teEscapeRoutes.EnterMoveNextControl = True
-        Me.teEscapeRoutes.Location = New System.Drawing.Point(632, 54)
+        Me.teEscapeRoutes.Location = New System.Drawing.Point(633, 54)
         Me.teEscapeRoutes.Name = "teEscapeRoutes"
         Me.teEscapeRoutes.Size = New System.Drawing.Size(98, 20)
         Me.teEscapeRoutes.StyleController = Me.LayoutControl1
@@ -211,7 +220,7 @@ Partial Class SurveyDetail
         'lciAccess
         '
         Me.lciAccess.Control = Me.icbAccess
-        Me.lciAccess.Location = New System.Drawing.Point(50, 42)
+        Me.lciAccess.Location = New System.Drawing.Point(51, 42)
         Me.lciAccess.Name = "lciAccess"
         Me.lciAccess.Size = New System.Drawing.Size(352, 24)
         Me.lciAccess.Text = "Access"
@@ -220,7 +229,7 @@ Partial Class SurveyDetail
         'lciHeritage
         '
         Me.lciHeritage.Control = Me.icbHeritage
-        Me.lciHeritage.Location = New System.Drawing.Point(402, 42)
+        Me.lciHeritage.Location = New System.Drawing.Point(403, 42)
         Me.lciHeritage.Name = "lciHeritage"
         Me.lciHeritage.Size = New System.Drawing.Size(147, 24)
         Me.lciHeritage.Text = "Heritage"
@@ -229,7 +238,7 @@ Partial Class SurveyDetail
         'lciEscapeRoutes
         '
         Me.lciEscapeRoutes.Control = Me.teEscapeRoutes
-        Me.lciEscapeRoutes.Location = New System.Drawing.Point(549, 42)
+        Me.lciEscapeRoutes.Location = New System.Drawing.Point(550, 42)
         Me.lciEscapeRoutes.Name = "lciEscapeRoutes"
         Me.lciEscapeRoutes.Size = New System.Drawing.Size(173, 24)
         Me.lciEscapeRoutes.Text = "EscapeRoutes"
@@ -238,16 +247,16 @@ Partial Class SurveyDetail
         'grdEscapeRoute
         '
         Me.grdEscapeRoute.Control = Me.GrdEscapeRoutes
-        Me.grdEscapeRoute.Location = New System.Drawing.Point(50, 66)
+        Me.grdEscapeRoute.Location = New System.Drawing.Point(51, 66)
         Me.grdEscapeRoute.Name = "grdEscapeRoute"
-        Me.grdEscapeRoute.Size = New System.Drawing.Size(846, 400)
+        Me.grdEscapeRoute.Size = New System.Drawing.Size(845, 400)
         Me.grdEscapeRoute.TextSize = New System.Drawing.Size(0, 0)
         Me.grdEscapeRoute.TextVisible = False
         '
         'lciBuilding
         '
         Me.lciBuilding.Control = Me.lueBuilding
-        Me.lciBuilding.Location = New System.Drawing.Point(50, 0)
+        Me.lciBuilding.Location = New System.Drawing.Point(51, 0)
         Me.lciBuilding.Name = "lciBuilding"
         Me.lciBuilding.Size = New System.Drawing.Size(423, 42)
         Me.lciBuilding.Text = "Building"
@@ -256,15 +265,15 @@ Partial Class SurveyDetail
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(722, 42)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(723, 42)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(174, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(173, 24)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(473, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(474, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(299, 42)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -272,11 +281,25 @@ Partial Class SurveyDetail
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.btnPrintQuote
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(772, 0)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(773, 0)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
+        '
+        'lciPicback
+        '
+        Me.lciPicback.Control = Me.Picback
+        Me.lciPicback.Location = New System.Drawing.Point(0, 0)
+        Me.lciPicback.MinSize = New System.Drawing.Size(50, 24)
+        Me.lciPicback.Name = "lciPicback"
+        Me.lciPicback.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
+        Me.lciPicback.Size = New System.Drawing.Size(51, 466)
+        Me.lciPicback.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.lciPicback.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize
+        Me.lciPicback.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciPicback.TextToControlDistance = 0
+        Me.lciPicback.TextVisible = False
         '
         'colEscapeRoute
         '
@@ -310,28 +333,6 @@ Partial Class SurveyDetail
         Me.colFloors.Visible = True
         Me.colFloors.VisibleIndex = 3
         '
-        'Picback
-        '
-        Me.Picback.Image = Global.EvacRemote.My.Resources.Resources.returnButton
-        Me.Picback.Location = New System.Drawing.Point(12, 12)
-        Me.Picback.Name = "Picback"
-        Me.Picback.Size = New System.Drawing.Size(46, 462)
-        Me.Picback.TabIndex = 30
-        Me.Picback.TabStop = False
-        '
-        'lciPicback
-        '
-        Me.lciPicback.Control = Me.Picback
-        Me.lciPicback.Location = New System.Drawing.Point(0, 0)
-        Me.lciPicback.MinSize = New System.Drawing.Size(50, 24)
-        Me.lciPicback.Name = "lciPicback"
-        Me.lciPicback.Size = New System.Drawing.Size(50, 466)
-        Me.lciPicback.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.lciPicback.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize
-        Me.lciPicback.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciPicback.TextToControlDistance = 0
-        Me.lciPicback.TextVisible = False
-        '
         'SurveyDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -341,6 +342,7 @@ Partial Class SurveyDetail
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.Picback, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrdEscapeRoutes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vw_EscapeRoute, System.ComponentModel.ISupportInitialize).EndInit()
@@ -356,7 +358,6 @@ Partial Class SurveyDetail
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Picback, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPicback, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

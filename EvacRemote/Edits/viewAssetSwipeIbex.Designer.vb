@@ -45,9 +45,7 @@ Partial Class viewAssetSwipeIbex
         Me.tsBrakeMechanism = New DevExpress.XtraEditors.ToggleSwitch()
         Me.tsFasteners = New DevExpress.XtraEditors.ToggleSwitch()
         Me.teNotes = New DevExpress.XtraEditors.MemoEdit()
-        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciNotes = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
@@ -74,6 +72,8 @@ Partial Class viewAssetSwipeIbex
         Me.lciPatientStrapsOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciTelescopicOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.icbTelescopic.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,9 +97,7 @@ Partial Class viewAssetSwipeIbex
         CType(Me.tsBrakeMechanism.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tsFasteners.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciNotes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,6 +124,8 @@ Partial Class viewAssetSwipeIbex
         CType(Me.lciPatientStrapsOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciTelescopicOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -357,15 +357,6 @@ Partial Class viewAssetSwipeIbex
         Me.teNotes.StyleController = Me.LayoutControl1
         Me.teNotes.TabIndex = 13
         '
-        'picBack
-        '
-        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
-        Me.picBack.Location = New System.Drawing.Point(20, 30)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(30, 436)
-        Me.picBack.TabIndex = 4
-        Me.picBack.TabStop = False
-        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
@@ -375,22 +366,7 @@ Partial Class viewAssetSwipeIbex
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
-        Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
-        '
-        'lciBack
-        '
-        Me.lciBack.Control = Me.picBack
-        Me.lciBack.CustomizationFormText = "lciBack"
-        Me.lciBack.Location = New System.Drawing.Point(0, 0)
-        Me.lciBack.MinSize = New System.Drawing.Size(50, 24)
-        Me.lciBack.Name = "lciBack"
-        Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
-        Me.lciBack.Size = New System.Drawing.Size(50, 466)
-        Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.lciBack.Text = "lciBack"
-        Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
-        Me.lciBack.TextVisible = False
         '
         'lciNotes
         '
@@ -411,7 +387,6 @@ Partial Class viewAssetSwipeIbex
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(50, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(10, 466)
-        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
@@ -421,7 +396,6 @@ Partial Class viewAssetSwipeIbex
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(886, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(10, 466)
-        Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciFasteners
@@ -543,7 +517,6 @@ Partial Class viewAssetSwipeIbex
         Me.EmptySpaceItem4.Location = New System.Drawing.Point(60, 0)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
         Me.EmptySpaceItem4.Size = New System.Drawing.Size(826, 10)
-        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem5
@@ -553,7 +526,6 @@ Partial Class viewAssetSwipeIbex
         Me.EmptySpaceItem5.Location = New System.Drawing.Point(60, 456)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
         Me.EmptySpaceItem5.Size = New System.Drawing.Size(826, 10)
-        Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciPassFail
@@ -573,7 +545,6 @@ Partial Class viewAssetSwipeIbex
         Me.lciFastenersOpt.Location = New System.Drawing.Point(334, 58)
         Me.lciFastenersOpt.Name = "lciFastenersOpt"
         Me.lciFastenersOpt.Size = New System.Drawing.Size(140, 28)
-        Me.lciFastenersOpt.Text = "lciFastenersOpt"
         Me.lciFastenersOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciFastenersOpt.TextVisible = False
         '
@@ -584,7 +555,6 @@ Partial Class viewAssetSwipeIbex
         Me.lcitsHandGripsOpt.Location = New System.Drawing.Point(334, 86)
         Me.lcitsHandGripsOpt.Name = "lcitsHandGripsOpt"
         Me.lcitsHandGripsOpt.Size = New System.Drawing.Size(140, 28)
-        Me.lcitsHandGripsOpt.Text = "lcitsHandGripsOpt"
         Me.lcitsHandGripsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lcitsHandGripsOpt.TextVisible = False
         '
@@ -595,7 +565,6 @@ Partial Class viewAssetSwipeIbex
         Me.lcitsSafetyBeltsOpt.Location = New System.Drawing.Point(334, 114)
         Me.lcitsSafetyBeltsOpt.Name = "lcitsSafetyBeltsOpt"
         Me.lcitsSafetyBeltsOpt.Size = New System.Drawing.Size(140, 28)
-        Me.lcitsSafetyBeltsOpt.Text = "lcitsSafetyBeltsOpt"
         Me.lcitsSafetyBeltsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lcitsSafetyBeltsOpt.TextVisible = False
         '
@@ -606,7 +575,6 @@ Partial Class viewAssetSwipeIbex
         Me.lcilciWheelPulleysOpt.Location = New System.Drawing.Point(334, 142)
         Me.lcilciWheelPulleysOpt.Name = "lcilciWheelPulleysOpt"
         Me.lcilciWheelPulleysOpt.Size = New System.Drawing.Size(140, 28)
-        Me.lcilciWheelPulleysOpt.Text = "lcilciWheelPulleysOpt"
         Me.lcilciWheelPulleysOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lcilciWheelPulleysOpt.TextVisible = False
         '
@@ -617,7 +585,6 @@ Partial Class viewAssetSwipeIbex
         Me.lcitsBrakeMechanismOpt.Location = New System.Drawing.Point(745, 58)
         Me.lcitsBrakeMechanismOpt.Name = "lcitsBrakeMechanismOpt"
         Me.lcitsBrakeMechanismOpt.Size = New System.Drawing.Size(141, 28)
-        Me.lcitsBrakeMechanismOpt.Text = "lcitsBrakeMechanismOpt"
         Me.lcitsBrakeMechanismOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lcitsBrakeMechanismOpt.TextVisible = False
         '
@@ -628,7 +595,6 @@ Partial Class viewAssetSwipeIbex
         Me.lciPlugsCapsOpt.Location = New System.Drawing.Point(745, 86)
         Me.lciPlugsCapsOpt.Name = "lciPlugsCapsOpt"
         Me.lciPlugsCapsOpt.Size = New System.Drawing.Size(141, 28)
-        Me.lciPlugsCapsOpt.Text = "lciPlugsCapsOpt"
         Me.lciPlugsCapsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciPlugsCapsOpt.TextVisible = False
         '
@@ -639,7 +605,6 @@ Partial Class viewAssetSwipeIbex
         Me.lciPatientStrapsOpt.Location = New System.Drawing.Point(745, 114)
         Me.lciPatientStrapsOpt.Name = "lciPatientStrapsOpt"
         Me.lciPatientStrapsOpt.Size = New System.Drawing.Size(141, 28)
-        Me.lciPatientStrapsOpt.Text = "lciPatientStrapsOpt"
         Me.lciPatientStrapsOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciPatientStrapsOpt.TextVisible = False
         '
@@ -650,9 +615,30 @@ Partial Class viewAssetSwipeIbex
         Me.lciTelescopicOpt.Location = New System.Drawing.Point(745, 142)
         Me.lciTelescopicOpt.Name = "lciTelescopicOpt"
         Me.lciTelescopicOpt.Size = New System.Drawing.Size(141, 28)
-        Me.lciTelescopicOpt.Text = "lciTelescopicOpt"
         Me.lciTelescopicOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciTelescopicOpt.TextVisible = False
+        '
+        'picBack
+        '
+        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
+        Me.picBack.Location = New System.Drawing.Point(20, 30)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(30, 436)
+        Me.picBack.TabIndex = 4
+        Me.picBack.TabStop = False
+        '
+        'lciBack
+        '
+        Me.lciBack.Control = Me.picBack
+        Me.lciBack.CustomizationFormText = "lciBack"
+        Me.lciBack.Location = New System.Drawing.Point(0, 0)
+        Me.lciBack.MinSize = New System.Drawing.Size(50, 24)
+        Me.lciBack.Name = "lciBack"
+        Me.lciBack.Padding = New DevExpress.XtraLayout.Utils.Padding(10, 10, 20, 10)
+        Me.lciBack.Size = New System.Drawing.Size(50, 466)
+        Me.lciBack.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
+        Me.lciBack.TextVisible = False
         '
         'viewAssetSwipeIbex
         '
@@ -684,9 +670,7 @@ Partial Class viewAssetSwipeIbex
         CType(Me.tsBrakeMechanism.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tsFasteners.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciNotes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -713,6 +697,8 @@ Partial Class viewAssetSwipeIbex
         CType(Me.lciPatientStrapsOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciTelescopicOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

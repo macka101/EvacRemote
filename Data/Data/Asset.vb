@@ -129,14 +129,20 @@ Namespace Esso.Data
                 SetPropertyValue(Of Date)("Installed", _installed, value)
             End Set
         End Property
-        Private _lastServiced As Date?
-        Public Property LastServiced() As Date?
+        Private _lastServiced As Date
+        Public Property LastServiced() As Date
             Get
                 Return _lastServiced
             End Get
-            Set(value As Date?)
+            Set(value As Date)
                 SetPropertyValue(Of Date)("LastServiced", _lastServiced, value)
             End Set
+        End Property
+        <Association("Asset-ChairServices")>
+        Public ReadOnly Property ChairServices() As XPCollection(Of ChairService)
+            Get
+                Return GetCollection(Of ChairService)("ChairServices")
+            End Get
         End Property
         Private _notes As String
         <Size(SizeAttribute.Unlimited)> _

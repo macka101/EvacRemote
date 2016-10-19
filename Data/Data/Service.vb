@@ -54,6 +54,25 @@ Namespace Esso.Data
                 _contact = value
             End Set
         End Property
+        Private _dateAttended As Date
+        <DevExpress.Xpo.DisplayName("Date Attended")>
+        Public Property DateAttended() As Date
+            Get
+                Return _dateAttended
+            End Get
+            Set(value As Date)
+                SetPropertyValue(Of Date)("DateAttended", _dateAttended, value)
+            End Set
+        End Property
+        Private _deniedAccess As Boolean
+        Public Property DeniedAccess() As Boolean
+            Get
+                Return _deniedAccess
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("DeniedAccess", _deniedAccess, value)
+            End Set
+        End Property
         Private _serviceDate As Date
         <DevExpress.Xpo.DisplayName("Service Date")>
         Public Property ServiceDate() As Date
@@ -155,7 +174,8 @@ Namespace Esso.Data
             End Set
         End Property
         Private _asset As Asset
-        Public Property Asset() As Asset
+        <Association("Asset-ChairServices")>
+           Public Property Asset() As Asset
             Get
                 Return _asset
             End Get
@@ -172,7 +192,6 @@ Namespace Esso.Data
                 SetPropertyValue(Of Date)("ServiceDate", _serviceDate, value)
             End Set
         End Property
-
         Private _PlasticBushes As Char
         <DevExpress.Xpo.DisplayName("PlasticBushes")>
         Public Property PlasticBushes() As Char

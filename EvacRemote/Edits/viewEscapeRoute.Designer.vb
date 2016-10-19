@@ -42,7 +42,6 @@ Partial Class viewEscapeRoute
         Me.tgsUpstairs = New DevExpress.XtraEditors.ToggleSwitch()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.lciFloors = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lcgOptions = New DevExpress.XtraLayout.LayoutControlGroup()
@@ -76,7 +75,6 @@ Partial Class viewEscapeRoute
         CType(Me.tgsUpstairs.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFloors, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lcgOptions, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,11 +118,11 @@ Partial Class viewEscapeRoute
         '
         'gridFloors
         '
-        Me.gridFloors.Location = New System.Drawing.Point(126, 232)
+        Me.gridFloors.Location = New System.Drawing.Point(62, 232)
         Me.gridFloors.MainView = Me.vw_floors
         Me.gridFloors.Name = "gridFloors"
         Me.gridFloors.ShowOnlyPredefinedDetails = True
-        Me.gridFloors.Size = New System.Drawing.Size(720, 242)
+        Me.gridFloors.Size = New System.Drawing.Size(784, 242)
         Me.gridFloors.TabIndex = 16
         Me.gridFloors.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vw_floors})
         '
@@ -161,76 +159,76 @@ Partial Class viewEscapeRoute
         'teLocation
         '
         Me.teLocation.EnterMoveNextControl = True
-        Me.teLocation.Location = New System.Drawing.Point(219, 24)
+        Me.teLocation.Location = New System.Drawing.Point(155, 24)
         Me.teLocation.Name = "teLocation"
-        Me.teLocation.Size = New System.Drawing.Size(388, 20)
+        Me.teLocation.Size = New System.Drawing.Size(431, 20)
         Me.teLocation.StyleController = Me.LayoutControl1
         Me.teLocation.TabIndex = 15
         '
         'icbNosing
         '
         Me.icbNosing.EnterMoveNextControl = True
-        Me.icbNosing.Location = New System.Drawing.Point(219, 72)
+        Me.icbNosing.Location = New System.Drawing.Point(155, 72)
         Me.icbNosing.Name = "icbNosing"
         Me.icbNosing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.icbNosing.Size = New System.Drawing.Size(615, 20)
+        Me.icbNosing.Size = New System.Drawing.Size(679, 20)
         Me.icbNosing.StyleController = Me.LayoutControl1
         Me.icbNosing.TabIndex = 14
         '
         'CBEGoing
         '
         Me.CBEGoing.EnterMoveNextControl = True
-        Me.CBEGoing.Location = New System.Drawing.Point(219, 144)
+        Me.CBEGoing.Location = New System.Drawing.Point(155, 144)
         Me.CBEGoing.Name = "CBEGoing"
         Me.CBEGoing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CBEGoing.Properties.Items.AddRange(New Object() {"220", "230", "240", "250", "260", "270", "280", "290", "300"})
         Me.CBEGoing.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.CBEGoing.Size = New System.Drawing.Size(615, 20)
+        Me.CBEGoing.Size = New System.Drawing.Size(679, 20)
         Me.CBEGoing.StyleController = Me.LayoutControl1
         Me.CBEGoing.TabIndex = 12
         '
         'cbeThread
         '
         Me.cbeThread.EnterMoveNextControl = True
-        Me.cbeThread.Location = New System.Drawing.Point(219, 96)
+        Me.cbeThread.Location = New System.Drawing.Point(155, 96)
         Me.cbeThread.Name = "cbeThread"
         Me.cbeThread.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbeThread.Properties.Items.AddRange(New Object() {"Carpet", "Glass", "Granite", "Marble", "Stainless Steel", "Stone", "Tile", "Terrazzo", "Wooden"})
         Me.cbeThread.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbeThread.Size = New System.Drawing.Size(615, 20)
+        Me.cbeThread.Size = New System.Drawing.Size(679, 20)
         Me.cbeThread.StyleController = Me.LayoutControl1
         Me.cbeThread.TabIndex = 11
         '
         'cbePitch
         '
         Me.cbePitch.EnterMoveNextControl = True
-        Me.cbePitch.Location = New System.Drawing.Point(219, 120)
+        Me.cbePitch.Location = New System.Drawing.Point(155, 120)
         Me.cbePitch.Name = "cbePitch"
         Me.cbePitch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbePitch.Properties.Items.AddRange(New Object() {"20", "22", "24", "26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50"})
         Me.cbePitch.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbePitch.Size = New System.Drawing.Size(615, 20)
+        Me.cbePitch.Size = New System.Drawing.Size(679, 20)
         Me.cbePitch.StyleController = Me.LayoutControl1
         Me.cbePitch.TabIndex = 9
         '
         'cbeStairwayType
         '
         Me.cbeStairwayType.EnterMoveNextControl = True
-        Me.cbeStairwayType.Location = New System.Drawing.Point(219, 48)
+        Me.cbeStairwayType.Location = New System.Drawing.Point(155, 48)
         Me.cbeStairwayType.Name = "cbeStairwayType"
         Me.cbeStairwayType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbeStairwayType.Properties.Items.AddRange(New Object() {"Closed Riser", "Kite", "Open Riser", "Helical", "Winder", "Short Straight", "Spiral with no Landing", "Straight with Landing", "Straight with no landing"})
         Me.cbeStairwayType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.cbeStairwayType.Size = New System.Drawing.Size(615, 20)
+        Me.cbeStairwayType.Size = New System.Drawing.Size(679, 20)
         Me.cbeStairwayType.StyleController = Me.LayoutControl1
         Me.cbeStairwayType.TabIndex = 8
         '
         'teFloors
         '
         Me.teFloors.EnterMoveNextControl = True
-        Me.teFloors.Location = New System.Drawing.Point(692, 24)
+        Me.teFloors.Location = New System.Drawing.Point(671, 24)
         Me.teFloors.Name = "teFloors"
-        Me.teFloors.Size = New System.Drawing.Size(142, 20)
+        Me.teFloors.Size = New System.Drawing.Size(163, 20)
         Me.teFloors.StyleController = Me.LayoutControl1
         Me.teFloors.TabIndex = 5
         '
@@ -245,41 +243,41 @@ Partial Class viewEscapeRoute
         '
         'tgsUnEvenGround
         '
-        Me.tgsUnEvenGround.Location = New System.Drawing.Point(219, 192)
+        Me.tgsUnEvenGround.Location = New System.Drawing.Point(155, 192)
         Me.tgsUnEvenGround.Name = "tgsUnEvenGround"
         Me.tgsUnEvenGround.Properties.OffText = "No"
         Me.tgsUnEvenGround.Properties.OnText = "Yes"
-        Me.tgsUnEvenGround.Size = New System.Drawing.Size(90, 24)
+        Me.tgsUnEvenGround.Size = New System.Drawing.Size(106, 24)
         Me.tgsUnEvenGround.StyleController = Me.LayoutControl1
         Me.tgsUnEvenGround.TabIndex = 16
         '
         'tgsHorizontal
         '
-        Me.tgsHorizontal.Location = New System.Drawing.Point(394, 192)
+        Me.tgsHorizontal.Location = New System.Drawing.Point(346, 192)
         Me.tgsHorizontal.Name = "tgsHorizontal"
         Me.tgsHorizontal.Properties.OffText = "No"
         Me.tgsHorizontal.Properties.OnText = "Yes"
-        Me.tgsHorizontal.Size = New System.Drawing.Size(90, 24)
+        Me.tgsHorizontal.Size = New System.Drawing.Size(106, 24)
         Me.tgsHorizontal.StyleController = Me.LayoutControl1
         Me.tgsHorizontal.TabIndex = 20
         '
         'tgsMisuse
         '
-        Me.tgsMisuse.Location = New System.Drawing.Point(569, 192)
+        Me.tgsMisuse.Location = New System.Drawing.Point(537, 192)
         Me.tgsMisuse.Name = "tgsMisuse"
         Me.tgsMisuse.Properties.OffText = "No"
         Me.tgsMisuse.Properties.OnText = "Yes"
-        Me.tgsMisuse.Size = New System.Drawing.Size(90, 24)
+        Me.tgsMisuse.Size = New System.Drawing.Size(106, 24)
         Me.tgsMisuse.StyleController = Me.LayoutControl1
         Me.tgsMisuse.TabIndex = 22
         '
         'tgsUpstairs
         '
-        Me.tgsUpstairs.Location = New System.Drawing.Point(744, 192)
+        Me.tgsUpstairs.Location = New System.Drawing.Point(728, 192)
         Me.tgsUpstairs.Name = "tgsUpstairs"
         Me.tgsUpstairs.Properties.OffText = "No"
         Me.tgsUpstairs.Properties.OnText = "Yes"
-        Me.tgsUpstairs.Size = New System.Drawing.Size(90, 24)
+        Me.tgsUpstairs.Size = New System.Drawing.Size(106, 24)
         Me.tgsUpstairs.StyleController = Me.LayoutControl1
         Me.tgsUpstairs.TabIndex = 24
         '
@@ -288,7 +286,7 @@ Partial Class viewEscapeRoute
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciFloors, Me.lcgOptions, Me.lcgDetails})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.EmptySpaceItem2, Me.lciFloors, Me.lcgOptions, Me.lcgDetails})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -307,15 +305,6 @@ Partial Class viewEscapeRoute
         Me.lciBack.TextSize = New System.Drawing.Size(0, 0)
         Me.lciBack.TextVisible = False
         '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(50, 0)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(64, 466)
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
-        '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
@@ -328,9 +317,9 @@ Partial Class viewEscapeRoute
         'lciFloors
         '
         Me.lciFloors.Control = Me.gridFloors
-        Me.lciFloors.Location = New System.Drawing.Point(114, 220)
+        Me.lciFloors.Location = New System.Drawing.Point(50, 220)
         Me.lciFloors.Name = "lciFloors"
-        Me.lciFloors.Size = New System.Drawing.Size(724, 246)
+        Me.lciFloors.Size = New System.Drawing.Size(788, 246)
         Me.lciFloors.TextSize = New System.Drawing.Size(0, 0)
         Me.lciFloors.TextVisible = False
         '
@@ -338,9 +327,9 @@ Partial Class viewEscapeRoute
         '
         Me.lcgOptions.CustomizationFormText = "lcgOptions"
         Me.lcgOptions.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciUnEvenGround, Me.lciHorizontal, Me.lciMisuse, Me.lciUpstairs})
-        Me.lcgOptions.Location = New System.Drawing.Point(114, 168)
+        Me.lcgOptions.Location = New System.Drawing.Point(50, 168)
         Me.lcgOptions.Name = "lcgOptions"
-        Me.lcgOptions.Size = New System.Drawing.Size(724, 52)
+        Me.lcgOptions.Size = New System.Drawing.Size(788, 52)
         Me.lcgOptions.TextVisible = False
         '
         'lciUnEvenGround
@@ -349,7 +338,7 @@ Partial Class viewEscapeRoute
         Me.lciUnEvenGround.CustomizationFormText = "Un Even Ground"
         Me.lciUnEvenGround.Location = New System.Drawing.Point(0, 0)
         Me.lciUnEvenGround.Name = "lciUnEvenGround"
-        Me.lciUnEvenGround.Size = New System.Drawing.Size(175, 28)
+        Me.lciUnEvenGround.Size = New System.Drawing.Size(191, 28)
         Me.lciUnEvenGround.Text = "Un Even Ground"
         Me.lciUnEvenGround.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -357,9 +346,9 @@ Partial Class viewEscapeRoute
         '
         Me.lciHorizontal.Control = Me.tgsHorizontal
         Me.lciHorizontal.CustomizationFormText = "Horizontal"
-        Me.lciHorizontal.Location = New System.Drawing.Point(175, 0)
+        Me.lciHorizontal.Location = New System.Drawing.Point(191, 0)
         Me.lciHorizontal.Name = "lciHorizontal"
-        Me.lciHorizontal.Size = New System.Drawing.Size(175, 28)
+        Me.lciHorizontal.Size = New System.Drawing.Size(191, 28)
         Me.lciHorizontal.Text = "Horizontal"
         Me.lciHorizontal.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -367,9 +356,9 @@ Partial Class viewEscapeRoute
         '
         Me.lciMisuse.Control = Me.tgsMisuse
         Me.lciMisuse.CustomizationFormText = "Mis-use"
-        Me.lciMisuse.Location = New System.Drawing.Point(350, 0)
+        Me.lciMisuse.Location = New System.Drawing.Point(382, 0)
         Me.lciMisuse.Name = "lciMisuse"
-        Me.lciMisuse.Size = New System.Drawing.Size(175, 28)
+        Me.lciMisuse.Size = New System.Drawing.Size(191, 28)
         Me.lciMisuse.Text = "Mis-use"
         Me.lciMisuse.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -377,18 +366,18 @@ Partial Class viewEscapeRoute
         '
         Me.lciUpstairs.Control = Me.tgsUpstairs
         Me.lciUpstairs.CustomizationFormText = "Upstairs"
-        Me.lciUpstairs.Location = New System.Drawing.Point(525, 0)
+        Me.lciUpstairs.Location = New System.Drawing.Point(573, 0)
         Me.lciUpstairs.Name = "lciUpstairs"
-        Me.lciUpstairs.Size = New System.Drawing.Size(175, 28)
+        Me.lciUpstairs.Size = New System.Drawing.Size(191, 28)
         Me.lciUpstairs.Text = "Upstairs"
         Me.lciUpstairs.TextSize = New System.Drawing.Size(78, 13)
         '
         'lcgDetails
         '
         Me.lcgDetails.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciLocation, Me.lciStairwayType, Me.lciNosing, Me.lciTread, Me.lciPitch, Me.lciGoing, Me.lciFloor})
-        Me.lcgDetails.Location = New System.Drawing.Point(114, 0)
+        Me.lcgDetails.Location = New System.Drawing.Point(50, 0)
         Me.lcgDetails.Name = "lcgDetails"
-        Me.lcgDetails.Size = New System.Drawing.Size(724, 168)
+        Me.lcgDetails.Size = New System.Drawing.Size(788, 168)
         Me.lcgDetails.TextVisible = False
         '
         'lciLocation
@@ -396,7 +385,7 @@ Partial Class viewEscapeRoute
         Me.lciLocation.Control = Me.teLocation
         Me.lciLocation.Location = New System.Drawing.Point(0, 0)
         Me.lciLocation.Name = "lciLocation"
-        Me.lciLocation.Size = New System.Drawing.Size(473, 24)
+        Me.lciLocation.Size = New System.Drawing.Size(516, 24)
         Me.lciLocation.Text = "Location"
         Me.lciLocation.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -406,7 +395,7 @@ Partial Class viewEscapeRoute
         Me.lciStairwayType.CustomizationFormText = "Stairway Type"
         Me.lciStairwayType.Location = New System.Drawing.Point(0, 24)
         Me.lciStairwayType.Name = "lciStairwayType"
-        Me.lciStairwayType.Size = New System.Drawing.Size(700, 24)
+        Me.lciStairwayType.Size = New System.Drawing.Size(764, 24)
         Me.lciStairwayType.Text = "Stairway Type"
         Me.lciStairwayType.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -415,7 +404,7 @@ Partial Class viewEscapeRoute
         Me.lciNosing.Control = Me.icbNosing
         Me.lciNosing.Location = New System.Drawing.Point(0, 48)
         Me.lciNosing.Name = "lciNosing"
-        Me.lciNosing.Size = New System.Drawing.Size(700, 24)
+        Me.lciNosing.Size = New System.Drawing.Size(764, 24)
         Me.lciNosing.Text = "Nosing"
         Me.lciNosing.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -425,7 +414,7 @@ Partial Class viewEscapeRoute
         Me.lciTread.CustomizationFormText = "Thread"
         Me.lciTread.Location = New System.Drawing.Point(0, 72)
         Me.lciTread.Name = "lciTread"
-        Me.lciTread.Size = New System.Drawing.Size(700, 24)
+        Me.lciTread.Size = New System.Drawing.Size(764, 24)
         Me.lciTread.Text = "Tread"
         Me.lciTread.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -435,7 +424,7 @@ Partial Class viewEscapeRoute
         Me.lciPitch.CustomizationFormText = "Pitch (degrees)"
         Me.lciPitch.Location = New System.Drawing.Point(0, 96)
         Me.lciPitch.Name = "lciPitch"
-        Me.lciPitch.Size = New System.Drawing.Size(700, 24)
+        Me.lciPitch.Size = New System.Drawing.Size(764, 24)
         Me.lciPitch.Text = "Pitch (degrees)"
         Me.lciPitch.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -445,7 +434,7 @@ Partial Class viewEscapeRoute
         Me.lciGoing.CustomizationFormText = "Going"
         Me.lciGoing.Location = New System.Drawing.Point(0, 120)
         Me.lciGoing.Name = "lciGoing"
-        Me.lciGoing.Size = New System.Drawing.Size(700, 24)
+        Me.lciGoing.Size = New System.Drawing.Size(764, 24)
         Me.lciGoing.Text = "Going"
         Me.lciGoing.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -453,9 +442,9 @@ Partial Class viewEscapeRoute
         '
         Me.lciFloor.Control = Me.teFloors
         Me.lciFloor.CustomizationFormText = "Reference"
-        Me.lciFloor.Location = New System.Drawing.Point(473, 0)
+        Me.lciFloor.Location = New System.Drawing.Point(516, 0)
         Me.lciFloor.Name = "lciFloor"
-        Me.lciFloor.Size = New System.Drawing.Size(227, 24)
+        Me.lciFloor.Size = New System.Drawing.Size(248, 24)
         Me.lciFloor.Text = "Floors"
         Me.lciFloor.TextSize = New System.Drawing.Size(78, 13)
         '
@@ -484,7 +473,6 @@ Partial Class viewEscapeRoute
         CType(Me.tgsUpstairs.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFloors, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lcgOptions, System.ComponentModel.ISupportInitialize).EndInit()
@@ -517,7 +505,6 @@ Partial Class viewEscapeRoute
     Friend WithEvents lciPitch As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciTread As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciGoing As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents icbNosing As DevExpress.XtraEditors.ImageComboBoxEdit
     Friend WithEvents lciNosing As DevExpress.XtraLayout.LayoutControlItem
