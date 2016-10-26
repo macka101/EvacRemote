@@ -361,6 +361,7 @@ Module Sync
                 End If
                 xContact.ContNo = orow.Item("contno")
                 xContact.DivNo = orow.Item("divno")
+                xContact.Division = _session.FindObject(Of Division)(CriteriaOperator.Parse("DivNo= ?", xContact.DivNo))
                 xContact.Surname = GetValueorNull(orow, "surname")
                 xContact.Forename = GetValueorNull(orow, "forename")
                 xContact.Title = GetValueorNull(orow, "title")

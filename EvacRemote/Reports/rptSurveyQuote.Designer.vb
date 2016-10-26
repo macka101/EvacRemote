@@ -64,6 +64,7 @@ Partial Public Class rptSurveyQuote
         Me.XrTableRow5 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell17 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell18 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.GroupFooter1 = New DevExpress.XtraReports.UI.GroupFooterBand()
         Me.XpCollection1 = New DevExpress.Xpo.XPCollection(Me.components)
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand()
         Me.XrTable3 = New DevExpress.XtraReports.UI.XRTable()
@@ -80,7 +81,6 @@ Partial Public Class rptSurveyQuote
         Me.XrTableCell7 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell8 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.SurveyId = New DevExpress.XtraReports.Parameters.Parameter()
-        Me.GroupFooter1 = New DevExpress.XtraReports.UI.GroupFooterBand()
         Me.TableStyle = New DevExpress.XtraReports.UI.XRControlStyle()
         Me.TableHeader = New DevExpress.XtraReports.UI.XRControlStyle()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -514,6 +514,12 @@ Partial Public Class rptSurveyQuote
         Me.XrTableCell18.Text = "Product"
         Me.XrTableCell18.Weight = 1.5013098882330935R
         '
+        'GroupFooter1
+        '
+        Me.GroupFooter1.Dpi = 100.0!
+        Me.GroupFooter1.HeightF = 12.5!
+        Me.GroupFooter1.Name = "GroupFooter1"
+        '
         'XpCollection1
         '
         Me.XpCollection1.LoadingEnabled = False
@@ -654,12 +660,6 @@ Partial Public Class rptSurveyQuote
         Me.SurveyId.Type = GetType(System.Guid)
         Me.SurveyId.ValueInfo = "00000000-0000-0000-0000-000000000000"
         Me.SurveyId.Visible = False
-        '
-        'GroupFooter1
-        '
-        Me.GroupFooter1.Dpi = 100.0!
-        Me.GroupFooter1.HeightF = 12.5!
-        Me.GroupFooter1.Name = "GroupFooter1"
         '
         'TableStyle
         '
