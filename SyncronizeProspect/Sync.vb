@@ -471,9 +471,13 @@ Module Sync
     End Function
 
     Private Sub UpdateTimer(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim iTop As Integer = Console.CursorTop
+        Dim iLeft As Integer = Console.CursorLeft
+
         Console.SetCursorPosition(iTimerLeft, iTimerTop)
         Dim elapsed_time As TimeSpan
         elapsed_time = DateTime.Now.Subtract(_startTime)
         Console.Write(String.Format(" Taken ({0} Secs) ", CInt(elapsed_time.TotalSeconds)))
+        Console.SetCursorPosition(iLeft, iTop)
     End Sub
 End Module

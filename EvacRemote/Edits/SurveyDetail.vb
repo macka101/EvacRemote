@@ -72,11 +72,15 @@ Public Class SurveyDetail
 
     End Sub
     Public Sub Initdata()
+        _currentSurvey = _session.FindObject(Of EvacSurvey)(CriteriaOperator.Parse("Division = ?", _currentDivision.Oid))
+        If _currentSurvey Is Nothing Then
+            _currentSurvey = New EvacSurvey(_session)
+            _currentSurvey.Division = _currentDivision
+            _currentSurvey.Contact = _currentContact
+            _currentSurvey.SurveyDate = DateTime.Today
+        End If
+
         InitEditors()
-
-    
-
-
 
         lueBuilding.EditValue = xpBuildings.First
         icbAccess.EditValue = _currentSurvey.Access
@@ -94,6 +98,8 @@ Public Class SurveyDetail
         InitializeComponent()
         _parent = parent
         _session = session
+
+    
         ' Add any initialization after the InitializeComponent() call.
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, True)
     End Sub
@@ -272,6 +278,6 @@ Public Class SurveyDetail
 
     Private Sub Picback_Click_1(sender As Object, e As EventArgs) Handles Picback.Click
         SaveData()
-        ParentFormMain.SelectPage(frmMain.ePage.SurveyList)
+        ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
     End Sub
 End Class

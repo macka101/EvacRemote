@@ -116,13 +116,6 @@ Namespace Esso.Data
                 Return GetCollection(Of Building)("Buildings")
             End Get
         End Property
-
-        <Association("Division-Survey")>
-        Public ReadOnly Property Surveys() As XPCollection(Of EvacSurvey)
-            Get
-                Return GetCollection(Of EvacSurvey)("Surveys")
-            End Get
-        End Property
         <Association("Division-Assets")>
         Public ReadOnly Property Assets() As XPCollection(Of Asset)
             Get

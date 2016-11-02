@@ -16,7 +16,7 @@ Public Class frmMain
 
     Dim _Basket As ViewBasketList
 
-    Dim _SurveyList As ViewSurveyList
+    'Dim _SurveyList As ViewSurveyList
     Dim _SurveyDetail As SurveyDetail
     Dim _EscapeRoute As viewEscapeRoute
     Dim _FloorDetail As viewFloor
@@ -42,7 +42,7 @@ Public Class frmMain
         None = 0
         ContactList = 1
         ContactDetail = 2
-        SurveyList = 3
+        '        SurveyList = 3
         SurveyDetail = 4
         FloorDetail = 5
         ProductList = 6
@@ -105,8 +105,6 @@ Public Class frmMain
                 _ContactDetail.Visible = False
             Case ePage.ProductList
                 _ProductList.Visible = False
-            Case ePage.SurveyList
-                _SurveyList.Visible = False
             Case ePage.SurveyDetail
                 _SurveyDetail.Visible = False
             Case ePage.ServiceList
@@ -165,19 +163,6 @@ Public Class frmMain
                 SurveyEnabled(False)
                 ServiceEnabled(False)
                 _ProductList.Visible = True
-            Case ePage.SurveyList
-                If _SurveyList Is Nothing Then
-                    _SurveyList = New ViewSurveyList(dataSession, Me)
-                End If
-                _SurveyList.Parent = Me.MainPnl
-                _SurveyList.Dock = DockStyle.Fill
-
-                _SurveyList.InitData()
-
-                BasketEnabled(False)
-                SurveyEnabled(False)
-                ServiceEnabled(False)
-                _SurveyList.Visible = True
             Case ePage.SurveyDetail
                 If _SurveyDetail Is Nothing Then
                     _SurveyDetail = New SurveyDetail(dataSession, Me)
@@ -393,7 +378,7 @@ Public Class frmMain
     End Sub
 
     Private Sub surveyTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles surveyTileBarItem.ItemClick
-        SelectPage(ePage.SurveyList)
+        SelectPage(ePage.SurveyDetail)
     End Sub
 
     Private Sub ServiceTileBarItem_ItemClick(sender As Object, e As DevExpress.XtraEditors.TileItemEventArgs) Handles ServiceTileBarItem.ItemClick

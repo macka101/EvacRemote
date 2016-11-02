@@ -37,59 +37,58 @@ Partial Public Class rptSurveyQuote
         Me.FieldCaption = New DevExpress.XtraReports.UI.XRControlStyle()
         Me.PageInfo = New DevExpress.XtraReports.UI.XRControlStyle()
         Me.DataField = New DevExpress.XtraReports.UI.XRControlStyle()
-        Me.DetailReport = New DevExpress.XtraReports.UI.DetailReportBand()
-        Me.Detail1 = New DevExpress.XtraReports.UI.DetailBand()
-        Me.XrTable1 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell2 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell3 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell4 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.DetailReport1 = New DevExpress.XtraReports.UI.DetailReportBand()
-        Me.Detail2 = New DevExpress.XtraReports.UI.DetailBand()
-        Me.XrTable4 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow4 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell13 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell14 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell15 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell16 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.DetailReport2 = New DevExpress.XtraReports.UI.DetailReportBand()
-        Me.Detail3 = New DevExpress.XtraReports.UI.DetailBand()
-        Me.XrTable6 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow6 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell21 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell22 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand()
-        Me.XrTable5 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow5 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell17 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell18 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.GroupFooter1 = New DevExpress.XtraReports.UI.GroupFooterBand()
+        Me.SurveyId = New DevExpress.XtraReports.Parameters.Parameter()
+        Me.TableStyle = New DevExpress.XtraReports.UI.XRControlStyle()
+        Me.TableHeader = New DevExpress.XtraReports.UI.XRControlStyle()
         Me.XpCollection1 = New DevExpress.Xpo.XPCollection(Me.components)
-        Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand()
-        Me.XrTable3 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow3 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell9 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell10 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell11 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand()
+        Me.DetailReport3 = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.Detail4 = New DevExpress.XtraReports.UI.DetailBand()
+        Me.DetailReport4 = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.Detail5 = New DevExpress.XtraReports.UI.DetailBand()
+        Me.DetailReport5 = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.Detail6 = New DevExpress.XtraReports.UI.DetailBand()
+        Me.DetailReport6 = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.Detail7 = New DevExpress.XtraReports.UI.DetailBand()
+        Me.GroupHeader4 = New DevExpress.XtraReports.UI.GroupHeaderBand()
         Me.XrTable2 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow2 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell5 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell6 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell7 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell8 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.SurveyId = New DevExpress.XtraReports.Parameters.Parameter()
-        Me.TableStyle = New DevExpress.XtraReports.UI.XRControlStyle()
-        Me.TableHeader = New DevExpress.XtraReports.UI.XRControlStyle()
+        Me.XrTable1 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell2 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell3 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell4 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.GroupHeader5 = New DevExpress.XtraReports.UI.GroupHeaderBand()
+        Me.XrTable3 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow3 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell9 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell10 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTable4 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow4 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell13 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell14 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell16 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTable6 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow6 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell21 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell22 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.GroupHeader6 = New DevExpress.XtraReports.UI.GroupHeaderBand()
+        Me.XrTable5 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow5 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell17 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell18 = New DevExpress.XtraReports.UI.XRTableCell()
+        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -140,7 +139,7 @@ Partial Public Class rptSurveyQuote
         '
         'XrLabel4
         '
-        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Contact.TitledName")})
+        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Contact.FullName")})
         Me.XrLabel4.Dpi = 100.0!
         Me.XrLabel4.Font = New System.Drawing.Font("Arial", 11.0!, System.Drawing.FontStyle.Bold)
         Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 42.37498!)
@@ -271,331 +270,112 @@ Partial Public Class rptSurveyQuote
         Me.DataField.Name = "DataField"
         Me.DataField.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         '
-        'DetailReport
+        'SurveyId
         '
-        Me.DetailReport.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail1, Me.DetailReport1, Me.GroupHeader1})
-        Me.DetailReport.DataMember = "Buildings"
-        Me.DetailReport.DataSource = Me.XpCollection1
-        Me.DetailReport.Dpi = 100.0!
-        Me.DetailReport.Level = 0
-        Me.DetailReport.Name = "DetailReport"
+        Me.SurveyId.Description = "SurveyId"
+        Me.SurveyId.Name = "SurveyId"
+        Me.SurveyId.Type = GetType(System.Guid)
+        Me.SurveyId.ValueInfo = "00000000-0000-0000-0000-000000000000"
+        Me.SurveyId.Visible = False
         '
-        'Detail1
+        'TableStyle
         '
-        Me.Detail1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable1})
-        Me.Detail1.Dpi = 100.0!
-        Me.Detail1.HeightF = 25.0!
-        Me.Detail1.KeepTogether = True
-        Me.Detail1.KeepTogetherWithDetailReports = True
-        Me.Detail1.Name = "Detail1"
-        '
-        'XrTable1
-        '
-        Me.XrTable1.Dpi = 100.0!
-        Me.XrTable1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrTable1.ForeColor = System.Drawing.Color.LightCoral
-        Me.XrTable1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
-        Me.XrTable1.Name = "XrTable1"
-        Me.XrTable1.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow1})
-        Me.XrTable1.SizeF = New System.Drawing.SizeF(627.0!, 25.0!)
-        Me.XrTable1.StyleName = "TableStyle"
-        Me.XrTable1.StylePriority.UseFont = False
-        Me.XrTable1.StylePriority.UseForeColor = False
-        '
-        'XrTableRow1
-        '
-        Me.XrTableRow1.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell1, Me.XrTableCell2, Me.XrTableCell3, Me.XrTableCell4})
-        Me.XrTableRow1.Dpi = 100.0!
-        Me.XrTableRow1.Name = "XrTableRow1"
-        Me.XrTableRow1.Weight = 1.0R
-        '
-        'XrTableCell1
-        '
-        Me.XrTableCell1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.Location")})
-        Me.XrTableCell1.Dpi = 100.0!
-        Me.XrTableCell1.Name = "XrTableCell1"
-        Me.XrTableCell1.Weight = 1.0R
-        '
-        'XrTableCell2
-        '
-        Me.XrTableCell2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.Heritage")})
-        Me.XrTableCell2.Dpi = 100.0!
-        Me.XrTableCell2.Name = "XrTableCell2"
-        Me.XrTableCell2.Weight = 0.53365394163414315R
-        '
-        'XrTableCell3
-        '
-        Me.XrTableCell3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.Access")})
-        Me.XrTableCell3.Dpi = 100.0!
-        Me.XrTableCell3.Name = "XrTableCell3"
-        Me.XrTableCell3.Weight = 0.38286862342403566R
-        '
-        'XrTableCell4
-        '
-        Me.XrTableCell4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutesNo")})
-        Me.XrTableCell4.Dpi = 100.0!
-        Me.XrTableCell4.Name = "XrTableCell4"
-        Me.XrTableCell4.Weight = 0.29020830777886991R
-        '
-        'DetailReport1
-        '
-        Me.DetailReport1.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail2, Me.DetailReport2, Me.GroupHeader2})
-        Me.DetailReport1.DataMember = "Buildings.EscapeRoutes"
-        Me.DetailReport1.DataSource = Me.XpCollection1
-        Me.DetailReport1.Dpi = 100.0!
-        Me.DetailReport1.Level = 0
-        Me.DetailReport1.Name = "DetailReport1"
-        '
-        'Detail2
-        '
-        Me.Detail2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable4})
-        Me.Detail2.Dpi = 100.0!
-        Me.Detail2.HeightF = 32.29167!
-        Me.Detail2.KeepTogether = True
-        Me.Detail2.KeepTogetherWithDetailReports = True
-        Me.Detail2.Name = "Detail2"
-        '
-        'XrTable4
-        '
-        Me.XrTable4.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+        Me.TableStyle.BorderColor = System.Drawing.Color.LightCoral
+        Me.TableStyle.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable4.Dpi = 100.0!
-        Me.XrTable4.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.XrTable4.ForeColor = System.Drawing.Color.LightCoral
-        Me.XrTable4.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 7.291668!)
-        Me.XrTable4.Name = "XrTable4"
-        Me.XrTable4.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4})
-        Me.XrTable4.SizeF = New System.Drawing.SizeF(617.0!, 25.0!)
-        Me.XrTable4.StyleName = "TableStyle"
-        Me.XrTable4.StylePriority.UseBorders = False
-        Me.XrTable4.StylePriority.UseFont = False
-        Me.XrTable4.StylePriority.UseForeColor = False
+        Me.TableStyle.BorderWidth = 1.0!
+        Me.TableStyle.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableStyle.ForeColor = System.Drawing.Color.LightCoral
+        Me.TableStyle.Name = "TableStyle"
+        Me.TableStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
-        'XrTableRow4
+        'TableHeader
         '
-        Me.XrTableRow4.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell13, Me.XrTableCell14, Me.XrTableCell15, Me.XrTableCell16})
-        Me.XrTableRow4.Dpi = 100.0!
-        Me.XrTableRow4.Name = "XrTableRow4"
-        Me.XrTableRow4.Weight = 1.0R
-        '
-        'XrTableCell13
-        '
-        Me.XrTableCell13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutes.Location")})
-        Me.XrTableCell13.Dpi = 100.0!
-        Me.XrTableCell13.Name = "XrTableCell13"
-        Me.XrTableCell13.Weight = 0.666746965563689R
-        '
-        'XrTableCell14
-        '
-        Me.XrTableCell14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutes.Going")})
-        Me.XrTableCell14.Dpi = 100.0!
-        Me.XrTableCell14.Name = "XrTableCell14"
-        Me.XrTableCell14.Weight = 0.73883400442507075R
-        '
-        'XrTableCell15
-        '
-        Me.XrTableCell15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutes.Going")})
-        Me.XrTableCell15.Dpi = 100.0!
-        Me.XrTableCell15.Name = "XrTableCell15"
-        Me.XrTableCell15.Weight = 0.359137180630906R
-        '
-        'XrTableCell16
-        '
-        Me.XrTableCell16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutes.IntExt")})
-        Me.XrTableCell16.Dpi = 100.0!
-        Me.XrTableCell16.Name = "XrTableCell16"
-        Me.XrTableCell16.Weight = 0.27222063096604887R
-        '
-        'DetailReport2
-        '
-        Me.DetailReport2.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail3, Me.GroupHeader3, Me.GroupFooter1})
-        Me.DetailReport2.DataMember = "Buildings.EscapeRoutes.Floors"
-        Me.DetailReport2.DataSource = Me.XpCollection1
-        Me.DetailReport2.Dpi = 100.0!
-        Me.DetailReport2.Level = 0
-        Me.DetailReport2.Name = "DetailReport2"
-        Me.DetailReport2.ReportPrintOptions.PrintOnEmptyDataSource = False
-        '
-        'Detail3
-        '
-        Me.Detail3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable6})
-        Me.Detail3.Dpi = 100.0!
-        Me.Detail3.HeightF = 25.0!
-        Me.Detail3.KeepTogether = True
-        Me.Detail3.KeepTogetherWithDetailReports = True
-        Me.Detail3.Name = "Detail3"
-        '
-        'XrTable6
-        '
-        Me.XrTable6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+        Me.TableHeader.BackColor = System.Drawing.Color.LightCoral
+        Me.TableHeader.BorderColor = System.Drawing.Color.Crimson
+        Me.TableHeader.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable6.Dpi = 100.0!
-        Me.XrTable6.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrTable6.ForeColor = System.Drawing.Color.LightCoral
-        Me.XrTable6.LocationFloat = New DevExpress.Utils.PointFloat(22.91667!, 0.0!)
-        Me.XrTable6.Name = "XrTable6"
-        Me.XrTable6.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow6})
-        Me.XrTable6.SizeF = New System.Drawing.SizeF(604.0833!, 25.0!)
-        Me.XrTable6.StyleName = "TableStyle"
-        Me.XrTable6.StylePriority.UseBorders = False
-        Me.XrTable6.StylePriority.UseFont = False
-        Me.XrTable6.StylePriority.UseForeColor = False
-        '
-        'XrTableRow6
-        '
-        Me.XrTableRow6.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell21, Me.XrTableCell22})
-        Me.XrTableRow6.Dpi = 100.0!
-        Me.XrTableRow6.Name = "XrTableRow6"
-        Me.XrTableRow6.Weight = 1.0R
-        '
-        'XrTableCell21
-        '
-        Me.XrTableCell21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutes.Floors.Floor")})
-        Me.XrTableCell21.Dpi = 100.0!
-        Me.XrTableCell21.Name = "XrTableCell21"
-        Me.XrTableCell21.Weight = 0.46240681492655544R
-        '
-        'XrTableCell22
-        '
-        Me.XrTableCell22.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Buildings.EscapeRoutes.Floors.Product.Description")})
-        Me.XrTableCell22.Dpi = 100.0!
-        Me.XrTableCell22.Name = "XrTableCell22"
-        Me.XrTableCell22.Weight = 1.0151925111365885R
-        '
-        'GroupHeader3
-        '
-        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable5})
-        Me.GroupHeader3.Dpi = 100.0!
-        Me.GroupHeader3.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WholePage
-        Me.GroupHeader3.HeightF = 34.99997!
-        Me.GroupHeader3.Name = "GroupHeader3"
-        '
-        'XrTable5
-        '
-        Me.XrTable5.BackColor = System.Drawing.Color.LightCoral
-        Me.XrTable5.BorderColor = System.Drawing.Color.Snow
-        Me.XrTable5.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-            Or DevExpress.XtraPrinting.BorderSide.Right) _
-            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable5.Dpi = 100.0!
-        Me.XrTable5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrTable5.ForeColor = System.Drawing.Color.Snow
-        Me.XrTable5.LocationFloat = New DevExpress.Utils.PointFloat(22.91667!, 9.999974!)
-        Me.XrTable5.Name = "XrTable5"
-        Me.XrTable5.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow5})
-        Me.XrTable5.SizeF = New System.Drawing.SizeF(604.0833!, 25.0!)
-        Me.XrTable5.StyleName = "TableHeader"
-        Me.XrTable5.StylePriority.UseBackColor = False
-        Me.XrTable5.StylePriority.UseBorderColor = False
-        Me.XrTable5.StylePriority.UseBorders = False
-        Me.XrTable5.StylePriority.UseFont = False
-        Me.XrTable5.StylePriority.UseForeColor = False
-        '
-        'XrTableRow5
-        '
-        Me.XrTableRow5.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell17, Me.XrTableCell18})
-        Me.XrTableRow5.Dpi = 100.0!
-        Me.XrTableRow5.Name = "XrTableRow5"
-        Me.XrTableRow5.Weight = 1.0R
-        '
-        'XrTableCell17
-        '
-        Me.XrTableCell17.Dpi = 100.0!
-        Me.XrTableCell17.Name = "XrTableCell17"
-        Me.XrTableCell17.Text = "Floor"
-        Me.XrTableCell17.Weight = 0.69075999554667111R
-        '
-        'XrTableCell18
-        '
-        Me.XrTableCell18.Dpi = 100.0!
-        Me.XrTableCell18.Name = "XrTableCell18"
-        Me.XrTableCell18.Text = "Product"
-        Me.XrTableCell18.Weight = 1.5013098882330935R
-        '
-        'GroupFooter1
-        '
-        Me.GroupFooter1.Dpi = 100.0!
-        Me.GroupFooter1.HeightF = 12.5!
-        Me.GroupFooter1.Name = "GroupFooter1"
+        Me.TableHeader.BorderWidth = 1.0!
+        Me.TableHeader.Font = New System.Drawing.Font("Times New Roman", 21.0!)
+        Me.TableHeader.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.TableHeader.Name = "TableHeader"
         '
         'XpCollection1
         '
         Me.XpCollection1.LoadingEnabled = False
         Me.XpCollection1.ObjectType = GetType(Esso.Data.EvacSurvey)
         '
-        'GroupHeader2
+        'DetailReport3
         '
-        Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable3})
-        Me.GroupHeader2.Dpi = 100.0!
-        Me.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WholePage
-        Me.GroupHeader2.HeightF = 43.75!
-        Me.GroupHeader2.Name = "GroupHeader2"
+        Me.DetailReport3.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail4, Me.DetailReport4})
+        Me.DetailReport3.DataMember = "Division"
+        Me.DetailReport3.DataSource = Me.XpCollection1
+        Me.DetailReport3.Dpi = 100.0!
+        Me.DetailReport3.Level = 0
+        Me.DetailReport3.Name = "DetailReport3"
         '
-        'XrTable3
+        'Detail4
         '
-        Me.XrTable3.BackColor = System.Drawing.Color.LightCoral
-        Me.XrTable3.BorderColor = System.Drawing.Color.WhiteSmoke
-        Me.XrTable3.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-            Or DevExpress.XtraPrinting.BorderSide.Right) _
-            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable3.Dpi = 100.0!
-        Me.XrTable3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrTable3.ForeColor = System.Drawing.Color.Snow
-        Me.XrTable3.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 8.750026!)
-        Me.XrTable3.Name = "XrTable3"
-        Me.XrTable3.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow3})
-        Me.XrTable3.SizeF = New System.Drawing.SizeF(616.9999!, 25.0!)
-        Me.XrTable3.StyleName = "TableHeader"
-        Me.XrTable3.StylePriority.UseBackColor = False
-        Me.XrTable3.StylePriority.UseBorderColor = False
-        Me.XrTable3.StylePriority.UseBorders = False
-        Me.XrTable3.StylePriority.UseFont = False
-        Me.XrTable3.StylePriority.UseForeColor = False
+        Me.Detail4.Dpi = 100.0!
+        Me.Detail4.HeightF = 0.0!
+        Me.Detail4.Name = "Detail4"
         '
-        'XrTableRow3
+        'DetailReport4
         '
-        Me.XrTableRow3.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell9, Me.XrTableCell10, Me.XrTableCell11, Me.XrTableCell12})
-        Me.XrTableRow3.Dpi = 100.0!
-        Me.XrTableRow3.Name = "XrTableRow3"
-        Me.XrTableRow3.Weight = 1.0R
+        Me.DetailReport4.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail5, Me.DetailReport5, Me.GroupHeader4})
+        Me.DetailReport4.DataMember = "Division.Buildings"
+        Me.DetailReport4.DataSource = Me.XpCollection1
+        Me.DetailReport4.Dpi = 100.0!
+        Me.DetailReport4.Level = 0
+        Me.DetailReport4.Name = "DetailReport4"
         '
-        'XrTableCell9
+        'Detail5
         '
-        Me.XrTableCell9.Dpi = 100.0!
-        Me.XrTableCell9.Name = "XrTableCell9"
-        Me.XrTableCell9.Text = "Location"
-        Me.XrTableCell9.Weight = 0.74599935142845752R
+        Me.Detail5.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable1})
+        Me.Detail5.Dpi = 100.0!
+        Me.Detail5.HeightF = 25.0!
+        Me.Detail5.Name = "Detail5"
         '
-        'XrTableCell10
+        'DetailReport5
         '
-        Me.XrTableCell10.Dpi = 100.0!
-        Me.XrTableCell10.Name = "XrTableCell10"
-        Me.XrTableCell10.Text = "Glass"
-        Me.XrTableCell10.Weight = 0.78765459020568551R
+        Me.DetailReport5.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail6, Me.DetailReport6, Me.GroupHeader5})
+        Me.DetailReport5.DataMember = "Division.Buildings.EscapeRoutes"
+        Me.DetailReport5.DataSource = Me.XpCollection1
+        Me.DetailReport5.Dpi = 100.0!
+        Me.DetailReport5.Level = 0
+        Me.DetailReport5.Name = "DetailReport5"
         '
-        'XrTableCell11
+        'Detail6
         '
-        Me.XrTableCell11.Dpi = 100.0!
-        Me.XrTableCell11.Name = "XrTableCell11"
-        Me.XrTableCell11.Text = "Going"
-        Me.XrTableCell11.Weight = 0.38286862342403566R
+        Me.Detail6.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable4})
+        Me.Detail6.Dpi = 100.0!
+        Me.Detail6.HeightF = 29.16667!
+        Me.Detail6.Name = "Detail6"
         '
-        'XrTableCell12
+        'DetailReport6
         '
-        Me.XrTableCell12.Dpi = 100.0!
-        Me.XrTableCell12.Name = "XrTableCell12"
-        Me.XrTableCell12.Text = "Int/Ext"
-        Me.XrTableCell12.Weight = 0.29020830777886991R
+        Me.DetailReport6.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail7, Me.GroupHeader6})
+        Me.DetailReport6.DataMember = "Division.Buildings.EscapeRoutes.Floors"
+        Me.DetailReport6.DataSource = Me.XpCollection1
+        Me.DetailReport6.Dpi = 100.0!
+        Me.DetailReport6.Level = 0
+        Me.DetailReport6.Name = "DetailReport6"
         '
-        'GroupHeader1
+        'Detail7
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable2})
-        Me.GroupHeader1.Dpi = 100.0!
-        Me.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WholePage
-        Me.GroupHeader1.HeightF = 35.00001!
-        Me.GroupHeader1.Name = "GroupHeader1"
+        Me.Detail7.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable6})
+        Me.Detail7.Dpi = 100.0!
+        Me.Detail7.HeightF = 27.08333!
+        Me.Detail7.Name = "Detail7"
+        '
+        'GroupHeader4
+        '
+        Me.GroupHeader4.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable2})
+        Me.GroupHeader4.Dpi = 100.0!
+        Me.GroupHeader4.HeightF = 40.625!
+        Me.GroupHeader4.Name = "GroupHeader4"
         '
         'XrTable2
         '
@@ -653,41 +433,245 @@ Partial Public Class rptSurveyQuote
         Me.XrTableCell8.Text = "Escape Routes"
         Me.XrTableCell8.Weight = 0.29020830777886991R
         '
-        'SurveyId
+        'XrTable1
         '
-        Me.SurveyId.Description = "SurveyId"
-        Me.SurveyId.Name = "SurveyId"
-        Me.SurveyId.Type = GetType(System.Guid)
-        Me.SurveyId.ValueInfo = "00000000-0000-0000-0000-000000000000"
-        Me.SurveyId.Visible = False
+        Me.XrTable1.Dpi = 100.0!
+        Me.XrTable1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrTable1.ForeColor = System.Drawing.Color.LightCoral
+        Me.XrTable1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
+        Me.XrTable1.Name = "XrTable1"
+        Me.XrTable1.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow1})
+        Me.XrTable1.SizeF = New System.Drawing.SizeF(627.0!, 25.0!)
+        Me.XrTable1.StyleName = "TableStyle"
+        Me.XrTable1.StylePriority.UseFont = False
+        Me.XrTable1.StylePriority.UseForeColor = False
         '
-        'TableStyle
+        'XrTableRow1
         '
-        Me.TableStyle.BorderColor = System.Drawing.Color.LightCoral
-        Me.TableStyle.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+        Me.XrTableRow1.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell1, Me.XrTableCell2, Me.XrTableCell3, Me.XrTableCell4})
+        Me.XrTableRow1.Dpi = 100.0!
+        Me.XrTableRow1.Name = "XrTableRow1"
+        Me.XrTableRow1.Weight = 1.0R
+        '
+        'XrTableCell1
+        '
+        Me.XrTableCell1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.Location")})
+        Me.XrTableCell1.Dpi = 100.0!
+        Me.XrTableCell1.Name = "XrTableCell1"
+        Me.XrTableCell1.Weight = 1.0R
+        '
+        'XrTableCell2
+        '
+        Me.XrTableCell2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.Heritage")})
+        Me.XrTableCell2.Dpi = 100.0!
+        Me.XrTableCell2.Name = "XrTableCell2"
+        Me.XrTableCell2.Weight = 0.53365394163414315R
+        '
+        'XrTableCell3
+        '
+        Me.XrTableCell3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.Access")})
+        Me.XrTableCell3.Dpi = 100.0!
+        Me.XrTableCell3.Name = "XrTableCell3"
+        Me.XrTableCell3.Weight = 0.38286862342403566R
+        '
+        'XrTableCell4
+        '
+        Me.XrTableCell4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutesNo")})
+        Me.XrTableCell4.Dpi = 100.0!
+        Me.XrTableCell4.Name = "XrTableCell4"
+        Me.XrTableCell4.Weight = 0.29020830777886991R
+        '
+        'GroupHeader5
+        '
+        Me.GroupHeader5.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable3})
+        Me.GroupHeader5.Dpi = 100.0!
+        Me.GroupHeader5.HeightF = 37.5!
+        Me.GroupHeader5.Name = "GroupHeader5"
+        '
+        'XrTable3
+        '
+        Me.XrTable3.BackColor = System.Drawing.Color.LightCoral
+        Me.XrTable3.BorderColor = System.Drawing.Color.WhiteSmoke
+        Me.XrTable3.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.TableStyle.BorderWidth = 1.0!
-        Me.TableStyle.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableStyle.ForeColor = System.Drawing.Color.LightCoral
-        Me.TableStyle.Name = "TableStyle"
-        Me.TableStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.XrTable3.Dpi = 100.0!
+        Me.XrTable3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrTable3.ForeColor = System.Drawing.Color.Snow
+        Me.XrTable3.LocationFloat = New DevExpress.Utils.PointFloat(5.834534!, 10.0!)
+        Me.XrTable3.Name = "XrTable3"
+        Me.XrTable3.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow3})
+        Me.XrTable3.SizeF = New System.Drawing.SizeF(509.9502!, 25.0!)
+        Me.XrTable3.StyleName = "TableHeader"
+        Me.XrTable3.StylePriority.UseBackColor = False
+        Me.XrTable3.StylePriority.UseBorderColor = False
+        Me.XrTable3.StylePriority.UseBorders = False
+        Me.XrTable3.StylePriority.UseFont = False
+        Me.XrTable3.StylePriority.UseForeColor = False
         '
-        'TableHeader
+        'XrTableRow3
         '
-        Me.TableHeader.BackColor = System.Drawing.Color.LightCoral
-        Me.TableHeader.BorderColor = System.Drawing.Color.Crimson
-        Me.TableHeader.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+        Me.XrTableRow3.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell9, Me.XrTableCell10, Me.XrTableCell12})
+        Me.XrTableRow3.Dpi = 100.0!
+        Me.XrTableRow3.Name = "XrTableRow3"
+        Me.XrTableRow3.Weight = 1.0R
+        '
+        'XrTableCell9
+        '
+        Me.XrTableCell9.Dpi = 100.0!
+        Me.XrTableCell9.Name = "XrTableCell9"
+        Me.XrTableCell9.Text = "Location"
+        Me.XrTableCell9.Weight = 0.74599935142845752R
+        '
+        'XrTableCell10
+        '
+        Me.XrTableCell10.Dpi = 100.0!
+        Me.XrTableCell10.Name = "XrTableCell10"
+        Me.XrTableCell10.Text = "Type"
+        Me.XrTableCell10.Weight = 0.78765459020568551R
+        '
+        'XrTableCell12
+        '
+        Me.XrTableCell12.Dpi = 100.0!
+        Me.XrTableCell12.Name = "XrTableCell12"
+        Me.XrTableCell12.Text = "Int/Ext"
+        Me.XrTableCell12.Weight = 0.29020830777886991R
+        '
+        'XrTable4
+        '
+        Me.XrTable4.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.TableHeader.BorderWidth = 1.0!
-        Me.TableHeader.Font = New System.Drawing.Font("Times New Roman", 21.0!)
-        Me.TableHeader.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.TableHeader.Name = "TableHeader"
+        Me.XrTable4.Dpi = 100.0!
+        Me.XrTable4.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.XrTable4.ForeColor = System.Drawing.Color.LightCoral
+        Me.XrTable4.LocationFloat = New DevExpress.Utils.PointFloat(5.834412!, 0.0!)
+        Me.XrTable4.Name = "XrTable4"
+        Me.XrTable4.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4})
+        Me.XrTable4.SizeF = New System.Drawing.SizeF(508.2154!, 25.0!)
+        Me.XrTable4.StyleName = "TableStyle"
+        Me.XrTable4.StylePriority.UseBorders = False
+        Me.XrTable4.StylePriority.UseFont = False
+        Me.XrTable4.StylePriority.UseForeColor = False
+        '
+        'XrTableRow4
+        '
+        Me.XrTableRow4.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell13, Me.XrTableCell14, Me.XrTableCell16})
+        Me.XrTableRow4.Dpi = 100.0!
+        Me.XrTableRow4.Name = "XrTableRow4"
+        Me.XrTableRow4.Weight = 1.0R
+        '
+        'XrTableCell13
+        '
+        Me.XrTableCell13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.Location")})
+        Me.XrTableCell13.Dpi = 100.0!
+        Me.XrTableCell13.Name = "XrTableCell13"
+        Me.XrTableCell13.Weight = 0.666746965563689R
+        '
+        'XrTableCell14
+        '
+        Me.XrTableCell14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.Type")})
+        Me.XrTableCell14.Dpi = 100.0!
+        Me.XrTableCell14.Name = "XrTableCell14"
+        Me.XrTableCell14.Weight = 0.73883400442507075R
+        '
+        'XrTableCell16
+        '
+        Me.XrTableCell16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.IntExt")})
+        Me.XrTableCell16.Dpi = 100.0!
+        Me.XrTableCell16.Name = "XrTableCell16"
+        Me.XrTableCell16.Weight = 0.27222063096604887R
+        '
+        'XrTable6
+        '
+        Me.XrTable6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTable6.Dpi = 100.0!
+        Me.XrTable6.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrTable6.ForeColor = System.Drawing.Color.LightCoral
+        Me.XrTable6.LocationFloat = New DevExpress.Utils.PointFloat(22.91669!, 0.0!)
+        Me.XrTable6.Name = "XrTable6"
+        Me.XrTable6.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow6})
+        Me.XrTable6.SizeF = New System.Drawing.SizeF(604.0833!, 25.0!)
+        Me.XrTable6.StyleName = "TableStyle"
+        Me.XrTable6.StylePriority.UseBorders = False
+        Me.XrTable6.StylePriority.UseFont = False
+        Me.XrTable6.StylePriority.UseForeColor = False
+        '
+        'XrTableRow6
+        '
+        Me.XrTableRow6.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell21, Me.XrTableCell22})
+        Me.XrTableRow6.Dpi = 100.0!
+        Me.XrTableRow6.Name = "XrTableRow6"
+        Me.XrTableRow6.Weight = 1.0R
+        '
+        'XrTableCell21
+        '
+        Me.XrTableCell21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.Floors.Floor")})
+        Me.XrTableCell21.Dpi = 100.0!
+        Me.XrTableCell21.Name = "XrTableCell21"
+        Me.XrTableCell21.Weight = 0.46240681492655544R
+        '
+        'XrTableCell22
+        '
+        Me.XrTableCell22.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.Floors.Product.Description")})
+        Me.XrTableCell22.Dpi = 100.0!
+        Me.XrTableCell22.Name = "XrTableCell22"
+        Me.XrTableCell22.Weight = 1.0151925111365885R
+        '
+        'GroupHeader6
+        '
+        Me.GroupHeader6.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable5})
+        Me.GroupHeader6.Dpi = 100.0!
+        Me.GroupHeader6.HeightF = 26.04167!
+        Me.GroupHeader6.Name = "GroupHeader6"
+        '
+        'XrTable5
+        '
+        Me.XrTable5.BackColor = System.Drawing.Color.LightCoral
+        Me.XrTable5.BorderColor = System.Drawing.Color.Snow
+        Me.XrTable5.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTable5.Dpi = 100.0!
+        Me.XrTable5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrTable5.ForeColor = System.Drawing.Color.Snow
+        Me.XrTable5.LocationFloat = New DevExpress.Utils.PointFloat(22.91669!, 0.0!)
+        Me.XrTable5.Name = "XrTable5"
+        Me.XrTable5.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow5})
+        Me.XrTable5.SizeF = New System.Drawing.SizeF(604.0833!, 25.0!)
+        Me.XrTable5.StyleName = "TableHeader"
+        Me.XrTable5.StylePriority.UseBackColor = False
+        Me.XrTable5.StylePriority.UseBorderColor = False
+        Me.XrTable5.StylePriority.UseBorders = False
+        Me.XrTable5.StylePriority.UseFont = False
+        Me.XrTable5.StylePriority.UseForeColor = False
+        '
+        'XrTableRow5
+        '
+        Me.XrTableRow5.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell17, Me.XrTableCell18})
+        Me.XrTableRow5.Dpi = 100.0!
+        Me.XrTableRow5.Name = "XrTableRow5"
+        Me.XrTableRow5.Weight = 1.0R
+        '
+        'XrTableCell17
+        '
+        Me.XrTableCell17.Dpi = 100.0!
+        Me.XrTableCell17.Name = "XrTableCell17"
+        Me.XrTableCell17.Text = "Floor"
+        Me.XrTableCell17.Weight = 0.69075999554667111R
+        '
+        'XrTableCell18
+        '
+        Me.XrTableCell18.Dpi = 100.0!
+        Me.XrTableCell18.Name = "XrTableCell18"
+        Me.XrTableCell18.Text = "Product"
+        Me.XrTableCell18.Weight = 1.5013098882330935R
         '
         'rptSurveyQuote
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.DetailReport})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.DetailReport3})
         Me.DataSource = Me.XpCollection1
         Me.PageHeight = 1169
         Me.PageWidth = 827
@@ -696,13 +680,13 @@ Partial Public Class rptSurveyQuote
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField, Me.TableStyle, Me.TableHeader})
         Me.Version = "16.1"
+        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -722,51 +706,50 @@ Partial Public Class rptSurveyQuote
     Friend WithEvents PageInfo As DevExpress.XtraReports.UI.XRControlStyle
     Friend WithEvents DataField As DevExpress.XtraReports.UI.XRControlStyle
     Friend WithEvents XpCollection1 As DevExpress.Xpo.XPCollection
-    Friend WithEvents DetailReport As DevExpress.XtraReports.UI.DetailReportBand
-    Friend WithEvents Detail1 As DevExpress.XtraReports.UI.DetailBand
-    Friend WithEvents DetailReport1 As DevExpress.XtraReports.UI.DetailReportBand
-    Friend WithEvents Detail2 As DevExpress.XtraReports.UI.DetailBand
-    Friend WithEvents DetailReport2 As DevExpress.XtraReports.UI.DetailReportBand
-    Friend WithEvents Detail3 As DevExpress.XtraReports.UI.DetailBand
     Friend WithEvents SurveyId As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents XrLabel2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents TableStyle As DevExpress.XtraReports.UI.XRControlStyle
+    Friend WithEvents TableHeader As DevExpress.XtraReports.UI.XRControlStyle
+    Friend WithEvents DetailReport3 As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents Detail4 As DevExpress.XtraReports.UI.DetailBand
+    Friend WithEvents DetailReport4 As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents Detail5 As DevExpress.XtraReports.UI.DetailBand
     Friend WithEvents XrTable1 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow1 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell1 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell2 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell3 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell4 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents XrLabel2 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents DetailReport5 As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents Detail6 As DevExpress.XtraReports.UI.DetailBand
     Friend WithEvents XrTable4 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow4 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell13 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell14 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents XrTableCell15 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell16 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents DetailReport6 As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents Detail7 As DevExpress.XtraReports.UI.DetailBand
     Friend WithEvents XrTable6 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow6 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell21 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell22 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents GroupHeader3 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents GroupHeader6 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrTable5 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow5 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell17 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell18 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents GroupHeader2 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents GroupHeader5 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrTable3 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow3 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell9 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell10 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents XrTableCell11 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell12 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents GroupHeader4 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrTable2 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow2 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell5 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell6 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell7 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell8 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents GroupFooter1 As DevExpress.XtraReports.UI.GroupFooterBand
-    Friend WithEvents TableStyle As DevExpress.XtraReports.UI.XRControlStyle
-    Friend WithEvents TableHeader As DevExpress.XtraReports.UI.XRControlStyle
 End Class

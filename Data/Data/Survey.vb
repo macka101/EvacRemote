@@ -34,7 +34,6 @@ Namespace Esso.Data
             End If
         End Sub
         Private _division As Division
-        <Association("Division-Survey")>
         Public Property Division() As Division
             Get
                 Return _division
@@ -90,9 +89,6 @@ Namespace Esso.Data
                 SetPropertyValue(Of Integer)("EscapeRoutes", _escapeRoutes, value)
             End Set
         End Property
-
-
-
         Private _signer As String
         Public Property Signer() As String
             Get
@@ -102,20 +98,6 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Signer", _signer, value)
             End Set
         End Property
-
-        '<Association("Service-IBEX")>
-        'Public ReadOnly Property IbexServices() As XPCollection(Of IbexService)
-        '    Get
-        '        Return GetCollection(Of IbexService)("IbexServices")
-        '    End Get
-        'End Property
-        <Association("Survey-Buildings")>
-          Public ReadOnly Property Buildings() As XPCollection(Of Building)
-            Get
-                Return GetCollection(Of Building)("Buildings")
-            End Get
-        End Property
-
         Private _notes As String
         Public Property Notes() As String
             Get
