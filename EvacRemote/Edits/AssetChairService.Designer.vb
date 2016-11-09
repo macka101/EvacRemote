@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AssetServiceChair
+Partial Class AssetChairService
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -23,8 +23,10 @@ Partial Class AssetServiceChair
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AssetServiceChair))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AssetChairService))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.teEngineer = New DevExpress.XtraEditors.TextEdit()
+        Me.dteServiceDate = New DevExpress.XtraEditors.DateEdit()
         Me.icbKickstandBolt = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbStabiliserRivets = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbClosure = New DevExpress.XtraEditors.ImageComboBoxEdit()
@@ -32,7 +34,6 @@ Partial Class AssetServiceChair
         Me.icbSkiAssemblyRollers = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbSpindlePosition = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbKickstandGasSpring = New DevExpress.XtraEditors.ImageComboBoxEdit()
-        Me.btnDefaults = New DevExpress.XtraEditors.SimpleButton()
         Me.icbPaddingSeat = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbSpringClips = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbSeatFrame = New DevExpress.XtraEditors.ImageComboBoxEdit()
@@ -42,7 +43,6 @@ Partial Class AssetServiceChair
         Me.icbRearHandle = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbFrontHandle = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.icbSeatRivets = New DevExpress.XtraEditors.ImageComboBoxEdit()
-        Me.teDescription = New DevExpress.XtraEditors.TextEdit()
         Me.tsClosure = New DevExpress.XtraEditors.ToggleSwitch()
         Me.tsStabiliserRivets = New DevExpress.XtraEditors.ToggleSwitch()
         Me.tsKickstandGas = New DevExpress.XtraEditors.ToggleSwitch()
@@ -70,10 +70,6 @@ Partial Class AssetServiceChair
         Me.lciSpindlePosition = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciKickstandBolt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciStabiliserRivets = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciDescription = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciBuilding = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.lciEscapeRoute = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem5 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.lciSeatRivetsOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciFrontHandleOpt = New DevExpress.XtraLayout.LayoutControlItem()
@@ -81,7 +77,6 @@ Partial Class AssetServiceChair
         Me.lciRotationBeltsOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciPlasticBushesOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciPassengerBeltOpt = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.lciSkiAssemblyRollersOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciSpindlePositionOpt = New DevExpress.XtraLayout.LayoutControlItem()
@@ -105,13 +100,15 @@ Partial Class AssetServiceChair
         Me.lciClosure = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciClosureOpt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciKickstandBoltOpt = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciServiceDate = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciEngineer = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
-        Me.lueBuilding = New DevExpress.XtraEditors.LookUpEdit()
-        Me.lueLocation = New DevExpress.XtraEditors.LookUpEdit()
-        Me.LookUpEdit1 = New DevExpress.XtraEditors.LookUpEdit()
-        Me.lciFloor = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.teEngineer.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dteServiceDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dteServiceDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.icbKickstandBolt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.icbStabiliserRivets.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.icbClosure.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,7 +125,6 @@ Partial Class AssetServiceChair
         CType(Me.icbRearHandle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.icbFrontHandle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.icbSeatRivets.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tsClosure.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tsStabiliserRivets.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tsKickstandGas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,10 +152,6 @@ Partial Class AssetServiceChair
         CType(Me.lciSpindlePosition, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciKickstandBolt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciStabiliserRivets, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciDescription, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciBuilding, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciEscapeRoute, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciSeatRivetsOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFrontHandleOpt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,7 +159,6 @@ Partial Class AssetServiceChair
         CType(Me.lciRotationBeltsOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPlasticBushesOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPassengerBeltOpt, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciSkiAssemblyRollersOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciSpindlePositionOpt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,16 +182,16 @@ Partial Class AssetServiceChair
         CType(Me.lciClosure, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciClosureOpt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciKickstandBoltOpt, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciServiceDate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciEngineer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lueLocation.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.LookUpEdit1)
+        Me.LayoutControl1.Controls.Add(Me.teEngineer)
+        Me.LayoutControl1.Controls.Add(Me.dteServiceDate)
         Me.LayoutControl1.Controls.Add(Me.icbKickstandBolt)
         Me.LayoutControl1.Controls.Add(Me.icbStabiliserRivets)
         Me.LayoutControl1.Controls.Add(Me.icbClosure)
@@ -208,7 +199,6 @@ Partial Class AssetServiceChair
         Me.LayoutControl1.Controls.Add(Me.icbSkiAssemblyRollers)
         Me.LayoutControl1.Controls.Add(Me.icbSpindlePosition)
         Me.LayoutControl1.Controls.Add(Me.icbKickstandGasSpring)
-        Me.LayoutControl1.Controls.Add(Me.btnDefaults)
         Me.LayoutControl1.Controls.Add(Me.icbPaddingSeat)
         Me.LayoutControl1.Controls.Add(Me.icbSpringClips)
         Me.LayoutControl1.Controls.Add(Me.icbSeatFrame)
@@ -218,7 +208,6 @@ Partial Class AssetServiceChair
         Me.LayoutControl1.Controls.Add(Me.icbRearHandle)
         Me.LayoutControl1.Controls.Add(Me.icbFrontHandle)
         Me.LayoutControl1.Controls.Add(Me.icbSeatRivets)
-        Me.LayoutControl1.Controls.Add(Me.teDescription)
         Me.LayoutControl1.Controls.Add(Me.tsClosure)
         Me.LayoutControl1.Controls.Add(Me.tsStabiliserRivets)
         Me.LayoutControl1.Controls.Add(Me.tsKickstandGas)
@@ -237,8 +226,6 @@ Partial Class AssetServiceChair
         Me.LayoutControl1.Controls.Add(Me.tsSafetyBelt)
         Me.LayoutControl1.Controls.Add(Me.teNotes)
         Me.LayoutControl1.Controls.Add(Me.picBack)
-        Me.LayoutControl1.Controls.Add(Me.lueBuilding)
-        Me.LayoutControl1.Controls.Add(Me.lueLocation)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
@@ -248,10 +235,30 @@ Partial Class AssetServiceChair
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'teEngineer
+        '
+        Me.teEngineer.Location = New System.Drawing.Point(747, 12)
+        Me.teEngineer.Name = "teEngineer"
+        Me.teEngineer.Properties.ReadOnly = True
+        Me.teEngineer.Size = New System.Drawing.Size(153, 20)
+        Me.teEngineer.StyleController = Me.LayoutControl1
+        Me.teEngineer.TabIndex = 60
+        '
+        'dteServiceDate
+        '
+        Me.dteServiceDate.EditValue = Nothing
+        Me.dteServiceDate.Location = New System.Drawing.Point(331, 12)
+        Me.dteServiceDate.Name = "dteServiceDate"
+        Me.dteServiceDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dteServiceDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dteServiceDate.Size = New System.Drawing.Size(153, 20)
+        Me.dteServiceDate.StyleController = Me.LayoutControl1
+        Me.dteServiceDate.TabIndex = 59
+        '
         'icbKickstandBolt
         '
         Me.icbKickstandBolt.Enabled = False
-        Me.icbKickstandBolt.Location = New System.Drawing.Point(433, 238)
+        Me.icbKickstandBolt.Location = New System.Drawing.Point(433, 214)
         Me.icbKickstandBolt.Name = "icbKickstandBolt"
         Me.icbKickstandBolt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbKickstandBolt.Size = New System.Drawing.Size(51, 20)
@@ -261,7 +268,7 @@ Partial Class AssetServiceChair
         'icbStabiliserRivets
         '
         Me.icbStabiliserRivets.Enabled = False
-        Me.icbStabiliserRivets.Location = New System.Drawing.Point(433, 266)
+        Me.icbStabiliserRivets.Location = New System.Drawing.Point(433, 242)
         Me.icbStabiliserRivets.Name = "icbStabiliserRivets"
         Me.icbStabiliserRivets.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbStabiliserRivets.Size = New System.Drawing.Size(51, 20)
@@ -271,7 +278,7 @@ Partial Class AssetServiceChair
         'icbClosure
         '
         Me.icbClosure.Enabled = False
-        Me.icbClosure.Location = New System.Drawing.Point(849, 266)
+        Me.icbClosure.Location = New System.Drawing.Point(849, 242)
         Me.icbClosure.Name = "icbClosure"
         Me.icbClosure.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbClosure.Size = New System.Drawing.Size(51, 20)
@@ -281,7 +288,7 @@ Partial Class AssetServiceChair
         'icbKickstandGas
         '
         Me.icbKickstandGas.Enabled = False
-        Me.icbKickstandGas.Location = New System.Drawing.Point(849, 238)
+        Me.icbKickstandGas.Location = New System.Drawing.Point(849, 214)
         Me.icbKickstandGas.Name = "icbKickstandGas"
         Me.icbKickstandGas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbKickstandGas.Size = New System.Drawing.Size(51, 20)
@@ -291,7 +298,7 @@ Partial Class AssetServiceChair
         'icbSkiAssemblyRollers
         '
         Me.icbSkiAssemblyRollers.Enabled = False
-        Me.icbSkiAssemblyRollers.Location = New System.Drawing.Point(433, 182)
+        Me.icbSkiAssemblyRollers.Location = New System.Drawing.Point(433, 158)
         Me.icbSkiAssemblyRollers.Name = "icbSkiAssemblyRollers"
         Me.icbSkiAssemblyRollers.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbSkiAssemblyRollers.Size = New System.Drawing.Size(51, 20)
@@ -301,7 +308,7 @@ Partial Class AssetServiceChair
         'icbSpindlePosition
         '
         Me.icbSpindlePosition.Enabled = False
-        Me.icbSpindlePosition.Location = New System.Drawing.Point(849, 182)
+        Me.icbSpindlePosition.Location = New System.Drawing.Point(849, 158)
         Me.icbSpindlePosition.Name = "icbSpindlePosition"
         Me.icbSpindlePosition.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbSpindlePosition.Size = New System.Drawing.Size(51, 20)
@@ -311,26 +318,17 @@ Partial Class AssetServiceChair
         'icbKickstandGasSpring
         '
         Me.icbKickstandGasSpring.Enabled = False
-        Me.icbKickstandGasSpring.Location = New System.Drawing.Point(433, 154)
+        Me.icbKickstandGasSpring.Location = New System.Drawing.Point(433, 130)
         Me.icbKickstandGasSpring.Name = "icbKickstandGasSpring"
         Me.icbKickstandGasSpring.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbKickstandGasSpring.Size = New System.Drawing.Size(51, 20)
         Me.icbKickstandGasSpring.StyleController = Me.LayoutControl1
         Me.icbKickstandGasSpring.TabIndex = 50
         '
-        'btnDefaults
-        '
-        Me.btnDefaults.Location = New System.Drawing.Point(806, 294)
-        Me.btnDefaults.Name = "btnDefaults"
-        Me.btnDefaults.Size = New System.Drawing.Size(94, 22)
-        Me.btnDefaults.StyleController = Me.LayoutControl1
-        Me.btnDefaults.TabIndex = 48
-        Me.btnDefaults.Text = "Defaults"
-        '
         'icbPaddingSeat
         '
         Me.icbPaddingSeat.Enabled = False
-        Me.icbPaddingSeat.Location = New System.Drawing.Point(433, 98)
+        Me.icbPaddingSeat.Location = New System.Drawing.Point(433, 74)
         Me.icbPaddingSeat.Name = "icbPaddingSeat"
         Me.icbPaddingSeat.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbPaddingSeat.Size = New System.Drawing.Size(51, 20)
@@ -340,7 +338,7 @@ Partial Class AssetServiceChair
         'icbSpringClips
         '
         Me.icbSpringClips.Enabled = False
-        Me.icbSpringClips.Location = New System.Drawing.Point(433, 70)
+        Me.icbSpringClips.Location = New System.Drawing.Point(433, 46)
         Me.icbSpringClips.Name = "icbSpringClips"
         Me.icbSpringClips.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbSpringClips.Size = New System.Drawing.Size(51, 20)
@@ -350,7 +348,7 @@ Partial Class AssetServiceChair
         'icbSeatFrame
         '
         Me.icbSeatFrame.Enabled = False
-        Me.icbSeatFrame.Location = New System.Drawing.Point(849, 210)
+        Me.icbSeatFrame.Location = New System.Drawing.Point(849, 186)
         Me.icbSeatFrame.Name = "icbSeatFrame"
         Me.icbSeatFrame.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbSeatFrame.Size = New System.Drawing.Size(51, 20)
@@ -360,7 +358,7 @@ Partial Class AssetServiceChair
         'icbSafetyBelt
         '
         Me.icbSafetyBelt.Enabled = False
-        Me.icbSafetyBelt.Location = New System.Drawing.Point(433, 210)
+        Me.icbSafetyBelt.Location = New System.Drawing.Point(433, 186)
         Me.icbSafetyBelt.Name = "icbSafetyBelt"
         Me.icbSafetyBelt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbSafetyBelt.Size = New System.Drawing.Size(51, 20)
@@ -370,7 +368,7 @@ Partial Class AssetServiceChair
         'icbHammockCondition
         '
         Me.icbHammockCondition.Enabled = False
-        Me.icbHammockCondition.Location = New System.Drawing.Point(849, 126)
+        Me.icbHammockCondition.Location = New System.Drawing.Point(849, 102)
         Me.icbHammockCondition.Name = "icbHammockCondition"
         Me.icbHammockCondition.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbHammockCondition.Size = New System.Drawing.Size(51, 20)
@@ -380,7 +378,7 @@ Partial Class AssetServiceChair
         'icbRotationBelts
         '
         Me.icbRotationBelts.Enabled = False
-        Me.icbRotationBelts.Location = New System.Drawing.Point(849, 154)
+        Me.icbRotationBelts.Location = New System.Drawing.Point(849, 130)
         Me.icbRotationBelts.Name = "icbRotationBelts"
         Me.icbRotationBelts.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbRotationBelts.Size = New System.Drawing.Size(51, 20)
@@ -390,7 +388,7 @@ Partial Class AssetServiceChair
         'icbRearHandle
         '
         Me.icbRearHandle.Enabled = False
-        Me.icbRearHandle.Location = New System.Drawing.Point(433, 126)
+        Me.icbRearHandle.Location = New System.Drawing.Point(433, 102)
         Me.icbRearHandle.Name = "icbRearHandle"
         Me.icbRearHandle.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbRearHandle.Size = New System.Drawing.Size(51, 20)
@@ -400,7 +398,7 @@ Partial Class AssetServiceChair
         'icbFrontHandle
         '
         Me.icbFrontHandle.Enabled = False
-        Me.icbFrontHandle.Location = New System.Drawing.Point(849, 98)
+        Me.icbFrontHandle.Location = New System.Drawing.Point(849, 74)
         Me.icbFrontHandle.Name = "icbFrontHandle"
         Me.icbFrontHandle.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbFrontHandle.Size = New System.Drawing.Size(51, 20)
@@ -410,24 +408,16 @@ Partial Class AssetServiceChair
         'icbSeatRivets
         '
         Me.icbSeatRivets.Enabled = False
-        Me.icbSeatRivets.Location = New System.Drawing.Point(849, 70)
+        Me.icbSeatRivets.Location = New System.Drawing.Point(849, 46)
         Me.icbSeatRivets.Name = "icbSeatRivets"
         Me.icbSeatRivets.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbSeatRivets.Size = New System.Drawing.Size(51, 20)
         Me.icbSeatRivets.StyleController = Me.LayoutControl1
         Me.icbSeatRivets.TabIndex = 37
         '
-        'teDescription
-        '
-        Me.teDescription.Location = New System.Drawing.Point(152, 46)
-        Me.teDescription.Name = "teDescription"
-        Me.teDescription.Size = New System.Drawing.Size(748, 20)
-        Me.teDescription.StyleController = Me.LayoutControl1
-        Me.teDescription.TabIndex = 34
-        '
         'tsClosure
         '
-        Me.tsClosure.Location = New System.Drawing.Point(747, 266)
+        Me.tsClosure.Location = New System.Drawing.Point(747, 242)
         Me.tsClosure.Name = "tsClosure"
         Me.tsClosure.Properties.OffText = "Fail"
         Me.tsClosure.Properties.OnText = "Pass"
@@ -437,7 +427,7 @@ Partial Class AssetServiceChair
         '
         'tsStabiliserRivets
         '
-        Me.tsStabiliserRivets.Location = New System.Drawing.Point(331, 266)
+        Me.tsStabiliserRivets.Location = New System.Drawing.Point(331, 242)
         Me.tsStabiliserRivets.Name = "tsStabiliserRivets"
         Me.tsStabiliserRivets.Properties.OffText = "Fail"
         Me.tsStabiliserRivets.Properties.OnText = "Pass"
@@ -447,7 +437,7 @@ Partial Class AssetServiceChair
         '
         'tsKickstandGas
         '
-        Me.tsKickstandGas.Location = New System.Drawing.Point(747, 238)
+        Me.tsKickstandGas.Location = New System.Drawing.Point(747, 214)
         Me.tsKickstandGas.Name = "tsKickstandGas"
         Me.tsKickstandGas.Properties.OffText = "Fail"
         Me.tsKickstandGas.Properties.OnText = "Pass"
@@ -457,7 +447,7 @@ Partial Class AssetServiceChair
         '
         'tsRotationBelts
         '
-        Me.tsRotationBelts.Location = New System.Drawing.Point(747, 154)
+        Me.tsRotationBelts.Location = New System.Drawing.Point(747, 130)
         Me.tsRotationBelts.Name = "tsRotationBelts"
         Me.tsRotationBelts.Properties.OffText = "Fail"
         Me.tsRotationBelts.Properties.OnText = "Pass"
@@ -467,7 +457,7 @@ Partial Class AssetServiceChair
         '
         'tsSeatFrame
         '
-        Me.tsSeatFrame.Location = New System.Drawing.Point(747, 210)
+        Me.tsSeatFrame.Location = New System.Drawing.Point(747, 186)
         Me.tsSeatFrame.Name = "tsSeatFrame"
         Me.tsSeatFrame.Properties.OffText = "Fail"
         Me.tsSeatFrame.Properties.OnText = "Pass"
@@ -477,7 +467,7 @@ Partial Class AssetServiceChair
         '
         'tsKickstandBolt
         '
-        Me.tsKickstandBolt.Location = New System.Drawing.Point(331, 238)
+        Me.tsKickstandBolt.Location = New System.Drawing.Point(331, 214)
         Me.tsKickstandBolt.Name = "tsKickstandBolt"
         Me.tsKickstandBolt.Properties.OffText = "Fail"
         Me.tsKickstandBolt.Properties.OnText = "Pass"
@@ -487,7 +477,7 @@ Partial Class AssetServiceChair
         '
         'tsFrontHandle
         '
-        Me.tsFrontHandle.Location = New System.Drawing.Point(747, 98)
+        Me.tsFrontHandle.Location = New System.Drawing.Point(747, 74)
         Me.tsFrontHandle.Name = "tsFrontHandle"
         Me.tsFrontHandle.Properties.OffText = "Fail"
         Me.tsFrontHandle.Properties.OnText = "Pass"
@@ -497,7 +487,7 @@ Partial Class AssetServiceChair
         '
         'tsSeatRivets
         '
-        Me.tsSeatRivets.Location = New System.Drawing.Point(747, 70)
+        Me.tsSeatRivets.Location = New System.Drawing.Point(747, 46)
         Me.tsSeatRivets.Name = "tsSeatRivets"
         Me.tsSeatRivets.Properties.OffText = "Fail"
         Me.tsSeatRivets.Properties.OnText = "Pass"
@@ -507,7 +497,7 @@ Partial Class AssetServiceChair
         '
         'tsSpindlePosition
         '
-        Me.tsSpindlePosition.Location = New System.Drawing.Point(747, 182)
+        Me.tsSpindlePosition.Location = New System.Drawing.Point(747, 158)
         Me.tsSpindlePosition.Name = "tsSpindlePosition"
         Me.tsSpindlePosition.Properties.OffText = "Fail"
         Me.tsSpindlePosition.Properties.OnText = "Pass"
@@ -517,7 +507,7 @@ Partial Class AssetServiceChair
         '
         'tsKickstandGasSpring
         '
-        Me.tsKickstandGasSpring.Location = New System.Drawing.Point(331, 154)
+        Me.tsKickstandGasSpring.Location = New System.Drawing.Point(331, 130)
         Me.tsKickstandGasSpring.Name = "tsKickstandGasSpring"
         Me.tsKickstandGasSpring.Properties.OffText = "Fail"
         Me.tsKickstandGasSpring.Properties.OnText = "Pass"
@@ -527,7 +517,7 @@ Partial Class AssetServiceChair
         '
         'tsSkiAssemblyRollers
         '
-        Me.tsSkiAssemblyRollers.Location = New System.Drawing.Point(331, 182)
+        Me.tsSkiAssemblyRollers.Location = New System.Drawing.Point(331, 158)
         Me.tsSkiAssemblyRollers.Name = "tsSkiAssemblyRollers"
         Me.tsSkiAssemblyRollers.Properties.OffText = "Fail"
         Me.tsSkiAssemblyRollers.Properties.OnText = "Pass"
@@ -537,7 +527,7 @@ Partial Class AssetServiceChair
         '
         'tsRearHandle
         '
-        Me.tsRearHandle.Location = New System.Drawing.Point(331, 126)
+        Me.tsRearHandle.Location = New System.Drawing.Point(331, 102)
         Me.tsRearHandle.Name = "tsRearHandle"
         Me.tsRearHandle.Properties.OffText = "Fail"
         Me.tsRearHandle.Properties.OnText = "Pass"
@@ -547,7 +537,7 @@ Partial Class AssetServiceChair
         '
         'tsPaddingSeat
         '
-        Me.tsPaddingSeat.Location = New System.Drawing.Point(331, 98)
+        Me.tsPaddingSeat.Location = New System.Drawing.Point(331, 74)
         Me.tsPaddingSeat.Name = "tsPaddingSeat"
         Me.tsPaddingSeat.Properties.OffText = "Fail"
         Me.tsPaddingSeat.Properties.OnText = "Pass"
@@ -557,7 +547,7 @@ Partial Class AssetServiceChair
         '
         'tsHammockCondition
         '
-        Me.tsHammockCondition.Location = New System.Drawing.Point(747, 126)
+        Me.tsHammockCondition.Location = New System.Drawing.Point(747, 102)
         Me.tsHammockCondition.Name = "tsHammockCondition"
         Me.tsHammockCondition.Properties.OffText = "Fail"
         Me.tsHammockCondition.Properties.OnText = "Pass"
@@ -567,7 +557,7 @@ Partial Class AssetServiceChair
         '
         'tsSpringClips
         '
-        Me.tsSpringClips.Location = New System.Drawing.Point(331, 70)
+        Me.tsSpringClips.Location = New System.Drawing.Point(331, 46)
         Me.tsSpringClips.Name = "tsSpringClips"
         Me.tsSpringClips.Properties.OffText = "Fail"
         Me.tsSpringClips.Properties.OnText = "Pass"
@@ -577,7 +567,7 @@ Partial Class AssetServiceChair
         '
         'tsSafetyBelt
         '
-        Me.tsSafetyBelt.Location = New System.Drawing.Point(331, 210)
+        Me.tsSafetyBelt.Location = New System.Drawing.Point(331, 186)
         Me.tsSafetyBelt.Name = "tsSafetyBelt"
         Me.tsSafetyBelt.Properties.OffText = "Fail"
         Me.tsSafetyBelt.Properties.OnText = "Pass"
@@ -587,9 +577,9 @@ Partial Class AssetServiceChair
         '
         'teNotes
         '
-        Me.teNotes.Location = New System.Drawing.Point(72, 336)
+        Me.teNotes.Location = New System.Drawing.Point(72, 319)
         Me.teNotes.Name = "teNotes"
-        Me.teNotes.Size = New System.Drawing.Size(828, 62)
+        Me.teNotes.Size = New System.Drawing.Size(828, 58)
         Me.teNotes.StyleController = Me.LayoutControl1
         Me.teNotes.TabIndex = 13
         '
@@ -607,7 +597,7 @@ Partial Class AssetServiceChair
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciNotes, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciRearHandle, Me.lciSpindlePosition, Me.lciKickstandBolt, Me.lciStabiliserRivets, Me.lciBuilding, Me.lciEscapeRoute, Me.EmptySpaceItem4, Me.EmptySpaceItem5, Me.lciSeatRivetsOpt, Me.lciFrontHandleOpt, Me.lciTrolleyAssemblyandClipsOpt, Me.lciRotationBeltsOpt, Me.lciPlasticBushesOpt, Me.lciPassengerBeltOpt, Me.LayoutControlItem1, Me.EmptySpaceItem3, Me.lciSkiAssemblyRollersOpt, Me.lciSpindlePositionOpt, Me.lciSpringClips, Me.lciSeatRivets, Me.lciSafetyBelt, Me.lciPaddingSeat, Me.lciFrontHandle, Me.lciHammockCondition, Me.lciHammockConditionOpt, Me.lciKickstandGasSpring, Me.lciRotationBelts, Me.lciSkiAssemblyRollers, Me.licSkiAssemblyRollersOpt, Me.lciiSafetyBeltOpt, Me.lciSeatFrame, Me.lciSeatFrameOpt, Me.lciKickstandGas, Me.lciKickstandGasOpt, Me.lciStabiliserRivetsOpt, Me.lciClosure, Me.lciClosureOpt, Me.lciKickstandBoltOpt, Me.lciDescription, Me.lciFloor})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciBack, Me.lciNotes, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.lciRearHandle, Me.lciSpindlePosition, Me.lciKickstandBolt, Me.lciStabiliserRivets, Me.EmptySpaceItem5, Me.lciSeatRivetsOpt, Me.lciFrontHandleOpt, Me.lciTrolleyAssemblyandClipsOpt, Me.lciRotationBeltsOpt, Me.lciPlasticBushesOpt, Me.lciPassengerBeltOpt, Me.EmptySpaceItem3, Me.lciSkiAssemblyRollersOpt, Me.lciSpindlePositionOpt, Me.lciSpringClips, Me.lciSeatRivets, Me.lciSafetyBelt, Me.lciPaddingSeat, Me.lciFrontHandle, Me.lciHammockCondition, Me.lciHammockConditionOpt, Me.lciKickstandGasSpring, Me.lciRotationBelts, Me.lciSkiAssemblyRollers, Me.licSkiAssemblyRollersOpt, Me.lciiSafetyBeltOpt, Me.lciSeatFrame, Me.lciSeatFrameOpt, Me.lciKickstandGas, Me.lciKickstandGasOpt, Me.lciStabiliserRivetsOpt, Me.lciClosure, Me.lciClosureOpt, Me.lciKickstandBoltOpt, Me.lciServiceDate, Me.lciEngineer, Me.EmptySpaceItem4})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(922, 452)
@@ -631,9 +621,9 @@ Partial Class AssetServiceChair
         Me.lciNotes.Control = Me.teNotes
         Me.lciNotes.ControlAlignment = System.Drawing.ContentAlignment.MiddleLeft
         Me.lciNotes.CustomizationFormText = "Notes"
-        Me.lciNotes.Location = New System.Drawing.Point(60, 308)
+        Me.lciNotes.Location = New System.Drawing.Point(60, 291)
         Me.lciNotes.Name = "lciNotes"
-        Me.lciNotes.Size = New System.Drawing.Size(832, 82)
+        Me.lciNotes.Size = New System.Drawing.Size(832, 78)
         Me.lciNotes.Text = "Notes"
         Me.lciNotes.TextLocation = DevExpress.Utils.Locations.Top
         Me.lciNotes.TextSize = New System.Drawing.Size(256, 13)
@@ -660,7 +650,7 @@ Partial Class AssetServiceChair
         '
         Me.lciRearHandle.Control = Me.tsRearHandle
         Me.lciRearHandle.CustomizationFormText = "Trolley Assembly and Clips"
-        Me.lciRearHandle.Location = New System.Drawing.Point(60, 114)
+        Me.lciRearHandle.Location = New System.Drawing.Point(60, 90)
         Me.lciRearHandle.Name = "lciRearHandle"
         Me.lciRearHandle.Size = New System.Drawing.Size(361, 28)
         Me.lciRearHandle.Text = "Rear Handle opens,locks,folds back and safety strap "
@@ -670,7 +660,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSpindlePosition.Control = Me.tsSpindlePosition
         Me.lciSpindlePosition.CustomizationFormText = "Spindle Position "
-        Me.lciSpindlePosition.Location = New System.Drawing.Point(476, 170)
+        Me.lciSpindlePosition.Location = New System.Drawing.Point(476, 146)
         Me.lciSpindlePosition.Name = "lciSpindlePosition"
         Me.lciSpindlePosition.Size = New System.Drawing.Size(361, 28)
         Me.lciSpindlePosition.Text = "Spindle Position/Spacers"
@@ -680,7 +670,7 @@ Partial Class AssetServiceChair
         '
         Me.lciKickstandBolt.Control = Me.tsKickstandBolt
         Me.lciKickstandBolt.CustomizationFormText = "Wall Hooks Fitted"
-        Me.lciKickstandBolt.Location = New System.Drawing.Point(60, 226)
+        Me.lciKickstandBolt.Location = New System.Drawing.Point(60, 202)
         Me.lciKickstandBolt.Name = "lciKickstandBolt"
         Me.lciKickstandBolt.Size = New System.Drawing.Size(361, 28)
         Me.lciKickstandBolt.Text = "Kickstand Bolt"
@@ -690,71 +680,26 @@ Partial Class AssetServiceChair
         '
         Me.lciStabiliserRivets.Control = Me.tsStabiliserRivets
         Me.lciStabiliserRivets.CustomizationFormText = "Padded Wooden Seat"
-        Me.lciStabiliserRivets.Location = New System.Drawing.Point(60, 254)
+        Me.lciStabiliserRivets.Location = New System.Drawing.Point(60, 230)
         Me.lciStabiliserRivets.Name = "lciStabiliserRivets"
         Me.lciStabiliserRivets.Size = New System.Drawing.Size(361, 28)
         Me.lciStabiliserRivets.Text = "Stabiliser – Rivets "
         Me.lciStabiliserRivets.TextSize = New System.Drawing.Size(256, 13)
         '
-        'lciDescription
-        '
-        Me.lciDescription.Control = Me.teDescription
-        Me.lciDescription.CustomizationFormText = "Description"
-        Me.lciDescription.Location = New System.Drawing.Point(60, 34)
-        Me.lciDescription.Name = "lciDescription"
-        Me.lciDescription.Size = New System.Drawing.Size(832, 24)
-        Me.lciDescription.Text = "Description"
-        Me.lciDescription.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize
-        Me.lciDescription.TextSize = New System.Drawing.Size(75, 20)
-        Me.lciDescription.TextToControlDistance = 5
-        '
-        'lciBuilding
-        '
-        Me.lciBuilding.Control = Me.lueBuilding
-        Me.lciBuilding.CustomizationFormText = "Building"
-        Me.lciBuilding.Location = New System.Drawing.Point(60, 10)
-        Me.lciBuilding.Name = "lciBuilding"
-        Me.lciBuilding.Size = New System.Drawing.Size(361, 24)
-        Me.lciBuilding.Text = "Building"
-        Me.lciBuilding.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
-        Me.lciBuilding.TextSize = New System.Drawing.Size(36, 13)
-        Me.lciBuilding.TextToControlDistance = 5
-        '
-        'lciEscapeRoute
-        '
-        Me.lciEscapeRoute.Control = Me.lueLocation
-        Me.lciEscapeRoute.CustomizationFormText = "Location"
-        Me.lciEscapeRoute.Location = New System.Drawing.Point(421, 10)
-        Me.lciEscapeRoute.Name = "lciEscapeRoute"
-        Me.lciEscapeRoute.Size = New System.Drawing.Size(256, 24)
-        Me.lciEscapeRoute.Text = "Location"
-        Me.lciEscapeRoute.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
-        Me.lciEscapeRoute.TextSize = New System.Drawing.Size(40, 13)
-        Me.lciEscapeRoute.TextToControlDistance = 5
-        '
-        'EmptySpaceItem4
-        '
-        Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(60, 0)
-        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(832, 10)
-        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
-        '
         'EmptySpaceItem5
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(60, 390)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(60, 369)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(832, 42)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(832, 63)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciSeatRivetsOpt
         '
         Me.lciSeatRivetsOpt.Control = Me.icbSeatRivets
         Me.lciSeatRivetsOpt.CustomizationFormText = "lciSpringOptions"
-        Me.lciSeatRivetsOpt.Location = New System.Drawing.Point(837, 58)
+        Me.lciSeatRivetsOpt.Location = New System.Drawing.Point(837, 34)
         Me.lciSeatRivetsOpt.Name = "lciSeatRivetsOpt"
         Me.lciSeatRivetsOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciSeatRivetsOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -764,7 +709,7 @@ Partial Class AssetServiceChair
         '
         Me.lciFrontHandleOpt.Control = Me.icbFrontHandle
         Me.lciFrontHandleOpt.CustomizationFormText = "lciHammockSeatPaddingOpt"
-        Me.lciFrontHandleOpt.Location = New System.Drawing.Point(837, 86)
+        Me.lciFrontHandleOpt.Location = New System.Drawing.Point(837, 62)
         Me.lciFrontHandleOpt.Name = "lciFrontHandleOpt"
         Me.lciFrontHandleOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciFrontHandleOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -774,7 +719,7 @@ Partial Class AssetServiceChair
         '
         Me.lciTrolleyAssemblyandClipsOpt.Control = Me.icbRearHandle
         Me.lciTrolleyAssemblyandClipsOpt.CustomizationFormText = "LayoutControlItem2"
-        Me.lciTrolleyAssemblyandClipsOpt.Location = New System.Drawing.Point(421, 114)
+        Me.lciTrolleyAssemblyandClipsOpt.Location = New System.Drawing.Point(421, 90)
         Me.lciTrolleyAssemblyandClipsOpt.Name = "lciTrolleyAssemblyandClipsOpt"
         Me.lciTrolleyAssemblyandClipsOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciTrolleyAssemblyandClipsOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -784,7 +729,7 @@ Partial Class AssetServiceChair
         '
         Me.lciRotationBeltsOpt.Control = Me.icbRotationBelts
         Me.lciRotationBeltsOpt.CustomizationFormText = "LayoutControlItem3"
-        Me.lciRotationBeltsOpt.Location = New System.Drawing.Point(837, 142)
+        Me.lciRotationBeltsOpt.Location = New System.Drawing.Point(837, 118)
         Me.lciRotationBeltsOpt.Name = "lciRotationBeltsOpt"
         Me.lciRotationBeltsOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciRotationBeltsOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -794,7 +739,7 @@ Partial Class AssetServiceChair
         '
         Me.lciPlasticBushesOpt.Control = Me.icbSpringClips
         Me.lciPlasticBushesOpt.CustomizationFormText = "lciPlasticBushesOpt"
-        Me.lciPlasticBushesOpt.Location = New System.Drawing.Point(421, 58)
+        Me.lciPlasticBushesOpt.Location = New System.Drawing.Point(421, 34)
         Me.lciPlasticBushesOpt.Name = "lciPlasticBushesOpt"
         Me.lciPlasticBushesOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciPlasticBushesOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -804,36 +749,26 @@ Partial Class AssetServiceChair
         '
         Me.lciPassengerBeltOpt.Control = Me.icbPaddingSeat
         Me.lciPassengerBeltOpt.CustomizationFormText = "lciPassengerBeltOpt"
-        Me.lciPassengerBeltOpt.Location = New System.Drawing.Point(421, 86)
+        Me.lciPassengerBeltOpt.Location = New System.Drawing.Point(421, 62)
         Me.lciPassengerBeltOpt.Name = "lciPassengerBeltOpt"
         Me.lciPassengerBeltOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciPassengerBeltOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciPassengerBeltOpt.TextVisible = False
         '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.btnDefaults
-        Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(794, 282)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(98, 26)
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem1.TextVisible = False
-        '
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(60, 282)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(60, 258)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(734, 26)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(832, 33)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'lciSkiAssemblyRollersOpt
         '
         Me.lciSkiAssemblyRollersOpt.Control = Me.icbKickstandGasSpring
         Me.lciSkiAssemblyRollersOpt.CustomizationFormText = "lciSkiAssemblyRollersOpt"
-        Me.lciSkiAssemblyRollersOpt.Location = New System.Drawing.Point(421, 142)
+        Me.lciSkiAssemblyRollersOpt.Location = New System.Drawing.Point(421, 118)
         Me.lciSkiAssemblyRollersOpt.Name = "lciSkiAssemblyRollersOpt"
         Me.lciSkiAssemblyRollersOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciSkiAssemblyRollersOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -843,7 +778,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSpindlePositionOpt.Control = Me.icbSpindlePosition
         Me.lciSpindlePositionOpt.CustomizationFormText = "lciTractionBeltsHighChangeOpt"
-        Me.lciSpindlePositionOpt.Location = New System.Drawing.Point(837, 170)
+        Me.lciSpindlePositionOpt.Location = New System.Drawing.Point(837, 146)
         Me.lciSpindlePositionOpt.Name = "lciSpindlePositionOpt"
         Me.lciSpindlePositionOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciSpindlePositionOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -853,7 +788,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSpringClips.Control = Me.tsSpringClips
         Me.lciSpringClips.CustomizationFormText = "Spring Clips"
-        Me.lciSpringClips.Location = New System.Drawing.Point(60, 58)
+        Me.lciSpringClips.Location = New System.Drawing.Point(60, 34)
         Me.lciSpringClips.Name = "lciSpringClips"
         Me.lciSpringClips.Size = New System.Drawing.Size(361, 28)
         Me.lciSpringClips.Text = "Spring Clips/Ext Handle"
@@ -863,7 +798,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSeatRivets.Control = Me.tsSeatRivets
         Me.lciSeatRivets.CustomizationFormText = "Check All Rivets/Nuts/Bolts"
-        Me.lciSeatRivets.Location = New System.Drawing.Point(476, 58)
+        Me.lciSeatRivets.Location = New System.Drawing.Point(476, 34)
         Me.lciSeatRivets.Name = "lciSeatRivets"
         Me.lciSeatRivets.Size = New System.Drawing.Size(361, 28)
         Me.lciSeatRivets.Text = "Seat Opens/Closes Rivets/Nuts/Bolts"
@@ -873,7 +808,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSafetyBelt.Control = Me.tsSafetyBelt
         Me.lciSafetyBelt.CustomizationFormText = "Plastic Bushes"
-        Me.lciSafetyBelt.Location = New System.Drawing.Point(60, 198)
+        Me.lciSafetyBelt.Location = New System.Drawing.Point(60, 174)
         Me.lciSafetyBelt.Name = "lciSafetyBelt"
         Me.lciSafetyBelt.Size = New System.Drawing.Size(361, 28)
         Me.lciSafetyBelt.Text = "Safety Belt"
@@ -883,7 +818,7 @@ Partial Class AssetServiceChair
         '
         Me.lciPaddingSeat.Control = Me.tsPaddingSeat
         Me.lciPaddingSeat.CustomizationFormText = "Hammock/SeatPadding"
-        Me.lciPaddingSeat.Location = New System.Drawing.Point(60, 86)
+        Me.lciPaddingSeat.Location = New System.Drawing.Point(60, 62)
         Me.lciPaddingSeat.Name = "lciPaddingSeat"
         Me.lciPaddingSeat.Size = New System.Drawing.Size(361, 28)
         Me.lciPaddingSeat.Text = "Padding Seat Frame, Back Tube"
@@ -893,7 +828,7 @@ Partial Class AssetServiceChair
         '
         Me.lciFrontHandle.Control = Me.tsFrontHandle
         Me.lciFrontHandle.CustomizationFormText = "Level Ground Movement and Balance Position"
-        Me.lciFrontHandle.Location = New System.Drawing.Point(476, 86)
+        Me.lciFrontHandle.Location = New System.Drawing.Point(476, 62)
         Me.lciFrontHandle.Name = "lciFrontHandle"
         Me.lciFrontHandle.Size = New System.Drawing.Size(361, 28)
         Me.lciFrontHandle.Text = "Front Handle or Footrest  "
@@ -903,7 +838,7 @@ Partial Class AssetServiceChair
         '
         Me.lciHammockCondition.Control = Me.tsHammockCondition
         Me.lciHammockCondition.CustomizationFormText = "Passenger Belt"
-        Me.lciHammockCondition.Location = New System.Drawing.Point(476, 114)
+        Me.lciHammockCondition.Location = New System.Drawing.Point(476, 90)
         Me.lciHammockCondition.Name = "lciHammockCondition"
         Me.lciHammockCondition.Size = New System.Drawing.Size(361, 28)
         Me.lciHammockCondition.Text = "Hammock Condition"
@@ -913,7 +848,7 @@ Partial Class AssetServiceChair
         '
         Me.lciHammockConditionOpt.Control = Me.icbHammockCondition
         Me.lciHammockConditionOpt.CustomizationFormText = "LayoutControlItem5"
-        Me.lciHammockConditionOpt.Location = New System.Drawing.Point(837, 114)
+        Me.lciHammockConditionOpt.Location = New System.Drawing.Point(837, 90)
         Me.lciHammockConditionOpt.Name = "lciHammockConditionOpt"
         Me.lciHammockConditionOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciHammockConditionOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -923,7 +858,7 @@ Partial Class AssetServiceChair
         '
         Me.lciKickstandGasSpring.Control = Me.tsKickstandGasSpring
         Me.lciKickstandGasSpring.CustomizationFormText = "Belts Rotation and Tension"
-        Me.lciKickstandGasSpring.Location = New System.Drawing.Point(60, 142)
+        Me.lciKickstandGasSpring.Location = New System.Drawing.Point(60, 118)
         Me.lciKickstandGasSpring.Name = "lciKickstandGasSpring"
         Me.lciKickstandGasSpring.Size = New System.Drawing.Size(361, 28)
         Me.lciKickstandGasSpring.Text = "Kickstand Open/Close correctly  Gas Spring"
@@ -933,7 +868,7 @@ Partial Class AssetServiceChair
         '
         Me.lciRotationBelts.Control = Me.tsRotationBelts
         Me.lciRotationBelts.CustomizationFormText = "Alarm Fitted"
-        Me.lciRotationBelts.Location = New System.Drawing.Point(476, 142)
+        Me.lciRotationBelts.Location = New System.Drawing.Point(476, 118)
         Me.lciRotationBelts.Name = "lciRotationBelts"
         Me.lciRotationBelts.Size = New System.Drawing.Size(361, 28)
         Me.lciRotationBelts.Text = "Rotation of V belts "
@@ -943,7 +878,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSkiAssemblyRollers.Control = Me.tsSkiAssemblyRollers
         Me.lciSkiAssemblyRollers.CustomizationFormText = "Ski Assembly/Rollers"
-        Me.lciSkiAssemblyRollers.Location = New System.Drawing.Point(60, 170)
+        Me.lciSkiAssemblyRollers.Location = New System.Drawing.Point(60, 146)
         Me.lciSkiAssemblyRollers.Name = "lciSkiAssemblyRollers"
         Me.lciSkiAssemblyRollers.Size = New System.Drawing.Size(361, 28)
         Me.lciSkiAssemblyRollers.Text = "Ski Assembly/Rollers"
@@ -953,7 +888,7 @@ Partial Class AssetServiceChair
         '
         Me.licSkiAssemblyRollersOpt.Control = Me.icbSkiAssemblyRollers
         Me.licSkiAssemblyRollersOpt.CustomizationFormText = "lciCheckRivetsOpt"
-        Me.licSkiAssemblyRollersOpt.Location = New System.Drawing.Point(421, 170)
+        Me.licSkiAssemblyRollersOpt.Location = New System.Drawing.Point(421, 146)
         Me.licSkiAssemblyRollersOpt.Name = "licSkiAssemblyRollersOpt"
         Me.licSkiAssemblyRollersOpt.Size = New System.Drawing.Size(55, 28)
         Me.licSkiAssemblyRollersOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -963,7 +898,7 @@ Partial Class AssetServiceChair
         '
         Me.lciiSafetyBeltOpt.Control = Me.icbSafetyBelt
         Me.lciiSafetyBeltOpt.CustomizationFormText = "LayoutControlItem7"
-        Me.lciiSafetyBeltOpt.Location = New System.Drawing.Point(421, 198)
+        Me.lciiSafetyBeltOpt.Location = New System.Drawing.Point(421, 174)
         Me.lciiSafetyBeltOpt.Name = "lciiSafetyBeltOpt"
         Me.lciiSafetyBeltOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciiSafetyBeltOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -973,7 +908,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSeatFrame.Control = Me.tsSeatFrame
         Me.lciSeatFrame.CustomizationFormText = "Signage in place"
-        Me.lciSeatFrame.Location = New System.Drawing.Point(476, 198)
+        Me.lciSeatFrame.Location = New System.Drawing.Point(476, 174)
         Me.lciSeatFrame.Name = "lciSeatFrame"
         Me.lciSeatFrame.Size = New System.Drawing.Size(361, 28)
         Me.lciSeatFrame.Text = "Seat Frame "
@@ -983,7 +918,7 @@ Partial Class AssetServiceChair
         '
         Me.lciSeatFrameOpt.Control = Me.icbSeatFrame
         Me.lciSeatFrameOpt.CustomizationFormText = "LayoutControlItem8"
-        Me.lciSeatFrameOpt.Location = New System.Drawing.Point(837, 198)
+        Me.lciSeatFrameOpt.Location = New System.Drawing.Point(837, 174)
         Me.lciSeatFrameOpt.Name = "lciSeatFrameOpt"
         Me.lciSeatFrameOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciSeatFrameOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -993,7 +928,7 @@ Partial Class AssetServiceChair
         '
         Me.lciKickstandGas.Control = Me.tsKickstandGas
         Me.lciKickstandGas.CustomizationFormText = "A Code of practice (ACOP)"
-        Me.lciKickstandGas.Location = New System.Drawing.Point(476, 226)
+        Me.lciKickstandGas.Location = New System.Drawing.Point(476, 202)
         Me.lciKickstandGas.Name = "lciKickstandGas"
         Me.lciKickstandGas.Size = New System.Drawing.Size(361, 28)
         Me.lciKickstandGas.Text = "Kickstand  - Gas spring "
@@ -1003,7 +938,7 @@ Partial Class AssetServiceChair
         '
         Me.lciKickstandGasOpt.Control = Me.icbKickstandGas
         Me.lciKickstandGasOpt.CustomizationFormText = "lciACOPOpt"
-        Me.lciKickstandGasOpt.Location = New System.Drawing.Point(837, 226)
+        Me.lciKickstandGasOpt.Location = New System.Drawing.Point(837, 202)
         Me.lciKickstandGasOpt.Name = "lciKickstandGasOpt"
         Me.lciKickstandGasOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciKickstandGasOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -1013,7 +948,7 @@ Partial Class AssetServiceChair
         '
         Me.lciStabiliserRivetsOpt.Control = Me.icbStabiliserRivets
         Me.lciStabiliserRivetsOpt.CustomizationFormText = "lciStabiliserRivetsOpt"
-        Me.lciStabiliserRivetsOpt.Location = New System.Drawing.Point(421, 254)
+        Me.lciStabiliserRivetsOpt.Location = New System.Drawing.Point(421, 230)
         Me.lciStabiliserRivetsOpt.Name = "lciStabiliserRivetsOpt"
         Me.lciStabiliserRivetsOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciStabiliserRivetsOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -1023,7 +958,7 @@ Partial Class AssetServiceChair
         '
         Me.lciClosure.Control = Me.tsClosure
         Me.lciClosure.CustomizationFormText = "Dusted Chair"
-        Me.lciClosure.Location = New System.Drawing.Point(476, 254)
+        Me.lciClosure.Location = New System.Drawing.Point(476, 230)
         Me.lciClosure.Name = "lciClosure"
         Me.lciClosure.Size = New System.Drawing.Size(361, 28)
         Me.lciClosure.Text = "Closure of chair & looping"
@@ -1033,7 +968,7 @@ Partial Class AssetServiceChair
         '
         Me.lciClosureOpt.Control = Me.icbClosure
         Me.lciClosureOpt.CustomizationFormText = "lciDustedChairOpt"
-        Me.lciClosureOpt.Location = New System.Drawing.Point(837, 254)
+        Me.lciClosureOpt.Location = New System.Drawing.Point(837, 230)
         Me.lciClosureOpt.Name = "lciClosureOpt"
         Me.lciClosureOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciClosureOpt.TextSize = New System.Drawing.Size(0, 0)
@@ -1043,66 +978,51 @@ Partial Class AssetServiceChair
         '
         Me.lciKickstandBoltOpt.Control = Me.icbKickstandBolt
         Me.lciKickstandBoltOpt.CustomizationFormText = "lciKickstandBoltOpt"
-        Me.lciKickstandBoltOpt.Location = New System.Drawing.Point(421, 226)
+        Me.lciKickstandBoltOpt.Location = New System.Drawing.Point(421, 202)
         Me.lciKickstandBoltOpt.Name = "lciKickstandBoltOpt"
         Me.lciKickstandBoltOpt.Size = New System.Drawing.Size(55, 28)
         Me.lciKickstandBoltOpt.TextSize = New System.Drawing.Size(0, 0)
         Me.lciKickstandBoltOpt.TextVisible = False
         '
-        'lueBuilding
+        'lciServiceDate
         '
-        Me.lueBuilding.Location = New System.Drawing.Point(113, 22)
-        Me.lueBuilding.Name = "lueBuilding"
-        Me.lueBuilding.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.lueBuilding.Properties.NullText = ""
-        Me.lueBuilding.Properties.PopupSizeable = False
-        Me.lueBuilding.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        Me.lueBuilding.Size = New System.Drawing.Size(316, 20)
-        Me.lueBuilding.StyleController = Me.LayoutControl1
-        Me.lueBuilding.TabIndex = 35
+        Me.lciServiceDate.Control = Me.dteServiceDate
+        Me.lciServiceDate.Location = New System.Drawing.Point(60, 0)
+        Me.lciServiceDate.Name = "lciServiceDate"
+        Me.lciServiceDate.Size = New System.Drawing.Size(416, 24)
+        Me.lciServiceDate.Text = "Service Date"
+        Me.lciServiceDate.TextSize = New System.Drawing.Size(256, 13)
         '
-        'lueLocation
+        'lciEngineer
         '
-        Me.lueLocation.Location = New System.Drawing.Point(478, 22)
-        Me.lueLocation.Name = "lueLocation"
-        Me.lueLocation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.lueLocation.Properties.NullText = ""
-        Me.lueLocation.Properties.PopupSizeable = False
-        Me.lueLocation.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        Me.lueLocation.Size = New System.Drawing.Size(207, 20)
-        Me.lueLocation.StyleController = Me.LayoutControl1
-        Me.lueLocation.TabIndex = 36
+        Me.lciEngineer.Control = Me.teEngineer
+        Me.lciEngineer.Location = New System.Drawing.Point(476, 0)
+        Me.lciEngineer.Name = "lciEngineer"
+        Me.lciEngineer.Size = New System.Drawing.Size(416, 24)
+        Me.lciEngineer.Text = "Engineer"
+        Me.lciEngineer.TextSize = New System.Drawing.Size(256, 13)
         '
-        'LookUpEdit1
+        'EmptySpaceItem4
         '
-        Me.LookUpEdit1.Location = New System.Drawing.Point(718, 22)
-        Me.LookUpEdit1.Name = "LookUpEdit1"
-        Me.LookUpEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LookUpEdit1.Size = New System.Drawing.Size(182, 20)
-        Me.LookUpEdit1.StyleController = Me.LayoutControl1
-        Me.LookUpEdit1.TabIndex = 59
+        Me.EmptySpaceItem4.AllowHotTrack = False
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(60, 24)
+        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(832, 10)
+        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
-        'lciFloor
-        '
-        Me.lciFloor.Control = Me.LookUpEdit1
-        Me.lciFloor.Location = New System.Drawing.Point(677, 10)
-        Me.lciFloor.Name = "lciFloor"
-        Me.lciFloor.Size = New System.Drawing.Size(215, 24)
-        Me.lciFloor.Text = "Floor"
-        Me.lciFloor.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
-        Me.lciFloor.TextSize = New System.Drawing.Size(24, 13)
-        Me.lciFloor.TextToControlDistance = 5
-        '
-        'AssetServiceChair
+        'AssetChairService
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "AssetServiceChair"
+        Me.Name = "AssetChairService"
         Me.Size = New System.Drawing.Size(922, 452)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.teEngineer.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dteServiceDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dteServiceDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.icbKickstandBolt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.icbStabiliserRivets.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.icbClosure.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1119,7 +1039,6 @@ Partial Class AssetServiceChair
         CType(Me.icbRearHandle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.icbFrontHandle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.icbSeatRivets.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tsClosure.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tsStabiliserRivets.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tsKickstandGas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1147,10 +1066,6 @@ Partial Class AssetServiceChair
         CType(Me.lciSpindlePosition, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciKickstandBolt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciStabiliserRivets, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciDescription, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciBuilding, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciEscapeRoute, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciSeatRivetsOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFrontHandleOpt, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1158,7 +1073,6 @@ Partial Class AssetServiceChair
         CType(Me.lciRotationBeltsOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPlasticBushesOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPassengerBeltOpt, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciSkiAssemblyRollersOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciSpindlePositionOpt, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1182,11 +1096,10 @@ Partial Class AssetServiceChair
         CType(Me.lciClosure, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciClosureOpt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciKickstandBoltOpt, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciServiceDate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciEngineer, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lueLocation.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1198,7 +1111,6 @@ Partial Class AssetServiceChair
     Friend WithEvents lciNotes As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents teDescription As DevExpress.XtraEditors.TextEdit
     Friend WithEvents tsClosure As DevExpress.XtraEditors.ToggleSwitch
     Friend WithEvents tsStabiliserRivets As DevExpress.XtraEditors.ToggleSwitch
     Friend WithEvents tsKickstandGas As DevExpress.XtraEditors.ToggleSwitch
@@ -1231,10 +1143,6 @@ Partial Class AssetServiceChair
     Friend WithEvents lciKickstandGas As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciStabiliserRivets As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciClosure As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents lciDescription As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents lciBuilding As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents lciEscapeRoute As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents icbSeatRivets As DevExpress.XtraEditors.ImageComboBoxEdit
     Friend WithEvents lciSeatRivetsOpt As DevExpress.XtraLayout.LayoutControlItem
@@ -1259,8 +1167,6 @@ Partial Class AssetServiceChair
     Friend WithEvents icbSkiAssemblyRollers As DevExpress.XtraEditors.ImageComboBoxEdit
     Friend WithEvents icbSpindlePosition As DevExpress.XtraEditors.ImageComboBoxEdit
     Friend WithEvents icbKickstandGasSpring As DevExpress.XtraEditors.ImageComboBoxEdit
-    Friend WithEvents btnDefaults As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents lciSkiAssemblyRollersOpt As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciSpindlePositionOpt As DevExpress.XtraLayout.LayoutControlItem
@@ -1272,9 +1178,10 @@ Partial Class AssetServiceChair
     Friend WithEvents lciStabiliserRivetsOpt As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents icbKickstandBolt As DevExpress.XtraEditors.ImageComboBoxEdit
     Friend WithEvents lciKickstandBoltOpt As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents lueBuilding As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents lueLocation As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents LookUpEdit1 As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents lciFloor As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents dteServiceDate As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents lciServiceDate As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents teEngineer As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lciEngineer As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
 
 End Class

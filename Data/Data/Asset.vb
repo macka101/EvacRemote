@@ -43,22 +43,32 @@ Namespace Esso.Data
                 SetPropertyValue(Of Integer)("ID", _Id, value)
             End Set
         End Property
-        Private _serviceField As eServiceFields
-        Public Property ServiceField() As eServiceFields
+        Private _Field As eField
+        Public Property Field() As eField
             Get
-                Return _serviceField
+                Return _Field
             End Get
-            Set(ByVal value As eServiceFields)
-                SetPropertyValue(Of eServiceFields)("ServiceField", _serviceField, value)
+            Set(ByVal value As eField)
+                SetPropertyValue(Of eField)("ServiceField", _Field, value)
             End Set
         End Property
         Private _description As String
+        <Size(40)>
         Public Property Description() As String
             Get
                 Return _description
             End Get
             Set(value As String)
-                _description = value
+                SetPropertyValue(Of String)("Description", _description, value)
+            End Set
+        End Property
+        Private _active As Boolean
+        Public Property Active() As Boolean
+            Get
+                Return _active
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("Active", _active, value)
             End Set
         End Property
     End Class
@@ -101,6 +111,25 @@ Namespace Esso.Data
                 SetPropertyValue(Of Building)("Building", _building, value)
             End Set
         End Property
+        Private _escapeRoute As EscapeRoute
+        Public Property EscapeRoute() As EscapeRoute
+            Get
+                Return _escapeRoute
+            End Get
+            Set(value As EscapeRoute)
+                SetPropertyValue(Of EscapeRoute)("EscapeRoute", _escapeRoute, value)
+            End Set
+        End Property
+        Private _floor As Floor
+        Public Property Floor() As Floor
+            Get
+                Return _floor
+            End Get
+            Set(value As Floor)
+                SetPropertyValue(Of Floor)("Floor", _floor, value)
+            End Set
+        End Property
+
         Private _barcode As String
         <Size(20)> _
         Public Property BarCode() As String

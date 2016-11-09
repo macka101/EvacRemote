@@ -6,7 +6,7 @@ Imports DevExpress.XtraReports.UI
 Imports DevExpress.LookAndFeel
 Imports Esso.Data
 
-Public Class ServiceDetail
+Public Class ViewServiceDetail
     Private _Loaded As Boolean = False
 
     Private xpBuildings As XPCollection(Of Building)
@@ -38,6 +38,9 @@ Public Class ServiceDetail
         '        xpBuildings = New XPCollection(Of Building)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Building]", DevExpress.Xpo.DB.SortingDirection.Ascending))
         '       xpStairWells = New XPCollection(Of EscapeRoute)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Floor]", DevExpress.Xpo.DB.SortingDirection.Ascending))
         '      xpAssets = New XPCollection(Of Asset)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Product]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+
+
+        dteServiceDate.DateTime = _currentService.ServiceDate
 
         grid_assets.DataSource = _currentDivision.Assets
 
@@ -75,7 +78,7 @@ Public Class ServiceDetail
     Private Sub view_Assets_Click(sender As Object, e As EventArgs) Handles view_Assets.Click
         If CurrentAsset IsNot Nothing Then
             _currentAsset = CurrentAsset
-            ParentFormMain.SelectPage(frmMain.ePage.AssetServiceChair)
+            ParentFormMain.SelectPage(frmMain.ePage.AssetServiceHistory)
 
             '   If CurrentAsset.ProductType = ProductType.Chair Then
             '  ParentFormMain.ViewServiceChair(Me, gCurrentAsset)
@@ -108,9 +111,9 @@ Public Class ServiceDetail
         End Using
     End Sub
 
-    Private Sub btnNewStairWell_Click(sender As Object, e As EventArgs) Handles btnNewStairWell.Click
+    Private Sub btnNewStairWell_Click(sender As Object, e As EventArgs)
         _currentAsset = New Asset(_session)
-        ParentFormMain.SelectPage(frmMain.ePage.AssetServiceChair)
+        ParentFormMain.SelectPage(frmMain.ePage.AssetChairService)
     End Sub
     Private Sub SaveData()
         _session.CommitChanges()

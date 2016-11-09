@@ -69,20 +69,20 @@ Public Class viewAssetSwipeIbex
             xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[Description]", DevExpress.Xpo.DB.SortingDirection.Ascending))
 
             For Each xOption As FieldOption In xpOptions
-                Select Case xOption.ServiceField
-                    Case eServiceFields.BackRest
+                Select Case xOption.Field
+                    Case eField.BackRest
                         icbBackRest.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.BrakeMechanism
+                    Case eField.BrakeMechanism
                         icbBrakeMechanism.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.BrakeMechanism
+                    Case eField.BrakeMechanism
                         icbFasteners.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.HandGrips
+                    Case eField.HandGrips
                         icbHandGrips.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.PatientStraps
+                    Case eField.PatientStraps
                         icbPatientStraps.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.PlugsCaps
+                    Case eField.PlugsCaps
                         icbPlugsCaps.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.WheelPulleys
+                    Case eField.WheelPulleys
                         icbWheelPulleys.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                 End Select
             Next

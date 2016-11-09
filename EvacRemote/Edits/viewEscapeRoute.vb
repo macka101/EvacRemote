@@ -30,29 +30,32 @@ Public Class viewEscapeRoute
     End Property
 
     Public Sub InitEditors()
-
-
-        Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
+        Misc.CreateFieldOptionGrid(_session, gleStairwayType.Properties, Nothing, False, eField.StairwayType)
+        Misc.CreateFieldOptionGrid(_session, gleNosing.Properties, Nothing, False, eField.Nosing)
+        Misc.CreateFieldOptionGrid(_session, gleTread.Properties, Nothing, False, eField.Tread)
+        Misc.CreateFieldOptionGrid(_session, glePitch.Properties, Nothing, False, eField.Pitch)
+        Misc.CreateFieldOptionGrid(_session, gleGoing.Properties, Nothing, False, eField.Going)
 
         Me.gridFloors.DataSource = _currentEscapeRoute.Floors
 
         AddHandler teLocation.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler teFloors.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler cbeStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler icbNosing.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler cbeThread.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler cbePitch.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler CBEGoing.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleNosing.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleTread.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler glePitch.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleGoing.EditValueChanged, AddressOf edit_EditValueChanged
     End Sub
     Public Sub Initdata()
         InitEditors()
 
         teLocation.Text = _currentEscapeRoute.Location
         teFloors.Text = _currentEscapeRoute.NoFloors
-        cbeStairwayType.EditValue = _currentEscapeRoute.Type
-        icbNosing.EditValue = _currentEscapeRoute.Nosing
-        cbePitch.EditValue = _currentEscapeRoute.Angle
-        CBEGoing.EditValue = _currentEscapeRoute.Going
+        gleStairwayType.EditValue = _currentEscapeRoute.StairWayType
+        gleTread.EditValue = _currentEscapeRoute.Tread
+        gleNosing.EditValue = _currentEscapeRoute.Nosing
+        glePitch.EditValue = _currentEscapeRoute.Pitch
+        gleGoing.EditValue = _currentEscapeRoute.Going
 
         tgsUnEvenGround.EditValue = _currentEscapeRoute.UnevenGround
         tgsHorizontal.EditValue = _currentEscapeRoute.Horizontal
@@ -99,16 +102,16 @@ Public Class viewEscapeRoute
 
         _currentEscapeRoute.Location = teLocation.Text
         _currentEscapeRoute.NoFloors = teFloors.Text
-        _currentEscapeRoute.Type = cbeStairwayType.EditValue
-        _currentEscapeRoute.Nosing = icbNosing.EditValue
-        _currentEscapeRoute.Angle = cbePitch.EditValue
-        _currentEscapeRoute.Going = CBEGoing.EditValue
+        _currentEscapeRoute.StairWayType = gleStairwayType.EditValue
+        _currentEscapeRoute.Tread = gleTread.EditValue
+        _currentEscapeRoute.Nosing = gleNosing.EditValue
+        _currentEscapeRoute.Pitch = glePitch.EditValue
+        _currentEscapeRoute.Going = gleGoing.EditValue
 
         _currentEscapeRoute.UnevenGround = tgsUnEvenGround.EditValue
         _currentEscapeRoute.Horizontal = tgsHorizontal.EditValue
         _currentEscapeRoute.Misuse = tgsMisuse.EditValue
         _currentEscapeRoute.Upstairs = tgsUpstairs.EditValue
-
 
         _currentEscapeRoute.Save()
         _session.CommitTransaction()
@@ -139,7 +142,7 @@ Public Class viewEscapeRoute
             For i As Integer = _currentEscapeRoute.Floors.Count + 1 To required
                 Dim _floor As New Floor(_session)
                 _floor.Building = _currentEscapeRoute.Building
-                _floor.Floor = String.Format("Floor {0}", i)
+                _floor.Location = String.Format("Floor {0}", i)
                 _floor.Type = "Fire Exit"
                 _floor.Save()
                 _currentEscapeRoute.Floors.Add(_floor)

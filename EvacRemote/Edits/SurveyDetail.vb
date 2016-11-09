@@ -211,7 +211,7 @@ Public Class SurveyDetail
             For i As Integer = CurrentBuilding.Floors.Count + 1 To required
                 Dim _stairWell As New Floor(_session)
                 _stairWell.Building = CurrentBuilding
-                _stairWell.Floor = String.Format("StairWell Route {0}", i)
+                _stairWell.Location = String.Format("StairWell Route {0}", i)
                 _stairWell.Type = "Fire Exit"
                 '                _stairWell.IntExt = "Internal"
                 _stairWell.Save()

@@ -234,7 +234,7 @@ Namespace Esso.Data
                 Return _nofloors
             End Get
             Set(value As Integer)
-                _nofloors = value
+                SetPropertyValue(Of String)("NoFloors", _nofloors, value)
             End Set
         End Property
         Private _type As String
@@ -243,52 +243,70 @@ Namespace Esso.Data
                 Return _type
             End Get
             Set(value As String)
-                _type = value
+                SetPropertyValue(Of String)("Type", _type, value)
             End Set
         End Property
-        Private _nosing As eNosing
-        Public Property Nosing() As eNosing
+        Private _stairwaytype As FieldOption
+        Public Property StairWayType() As FieldOption
+            Get
+                Return _stairwaytype
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("StairWayType", _stairwaytype, value)
+            End Set
+        End Property
+        Private _tread As FieldOption
+        Public Property Tread() As FieldOption
+            Get
+                Return _tread
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Tread", _tread, value)
+            End Set
+        End Property
+        Private _nosing As FieldOption
+        Public Property Nosing() As FieldOption
             Get
                 Return _nosing
             End Get
-            Set(value As eNosing)
-                _nosing = value
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Nosing", _nosing, value)
             End Set
         End Property
-        Private _glass As String
-        Public Property Glass() As String
+        Private _glass As FieldOption
+        Public Property Glass() As FieldOption
             Get
                 Return _glass
             End Get
-            Set(value As String)
-                SetPropertyValue(Of String)("Glass", _glass, value)
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Glass", _glass, value)
             End Set
         End Property
-        Private _angle As String
-        Public Property Angle() As String
+        Private _pitch As FieldOption
+        Public Property Pitch() As FieldOption
             Get
-                Return _angle
+                Return _pitch
             End Get
-            Set(value As String)
-                SetPropertyValue(Of String)("Pitch", _angle, value)
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Pitch", _pitch, value)
             End Set
         End Property
-        Private _width As String
-        Public Property Width() As String
+        Private _width As FieldOption
+        Public Property Width() As FieldOption
             Get
                 Return _width
             End Get
-            Set(value As String)
-                SetPropertyValue(Of String)("Width", _width, value)
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Width", _width, value)
             End Set
         End Property
-        Private _going As String
-        Public Property Going() As String
+        Private _going As FieldOption
+        Public Property Going() As FieldOption
             Get
                 Return _going
             End Get
-            Set(value As String)
-                _going = value
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Going", _going, value)
             End Set
         End Property
         Private _narrowStairs As Boolean
@@ -425,6 +443,9 @@ Namespace Esso.Data
                 Return GetCollection(Of Floor)("Floors")
             End Get
         End Property
+        Public Overrides Function ToString() As String
+            Return String.Format("{0}", Location)
+        End Function
     End Class
     Public Class Floor
         Inherits XPCustomObject
@@ -452,8 +473,6 @@ Namespace Esso.Data
             ModifiedAt = DateTime.Now
         End Sub
         Private ID_Renamed As Integer
-        Private _pitch As String
-        Private _going As String
         Private _notes As String
         Private _escaperoute As EscapeRoute
         <Association("EscapeRoute-Floor")>
@@ -475,13 +494,13 @@ Namespace Esso.Data
                 _building = value
             End Set
         End Property
-        Private _floor As String
-        Public Property Floor() As String
+        Private _Location As String
+        Public Property Location() As String
             Get
-                Return _floor
+                Return _Location
             End Get
             Set(value As String)
-                _floor = value
+                _Location = value
             End Set
         End Property
         Private _type As String
@@ -493,40 +512,67 @@ Namespace Esso.Data
                 _type = value
             End Set
         End Property
-        Private _nosing As String
-        Public Property Nosing() As String
+        Private _stairwaytype As FieldOption
+        Public Property StairWayType() As FieldOption
+            Get
+                Return _stairwaytype
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("StairWayType", _stairwaytype, value)
+            End Set
+        End Property
+        Private _tread As FieldOption
+        Public Property Tread() As FieldOption
+            Get
+                Return _tread
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Tread", _tread, value)
+            End Set
+        End Property
+        Private _nosing As FieldOption
+        Public Property Nosing() As FieldOption
             Get
                 Return _nosing
             End Get
-            Set(value As String)
-                _nosing = value
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Nosing", _nosing, value)
             End Set
         End Property
-        Private _glass As String
-        Public Property Glass() As String
+        Private _glass As FieldOption
+        Public Property Glass() As FieldOption
             Get
                 Return _glass
             End Get
-            Set(value As String)
-                _glass = value
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Glass", _glass, value)
             End Set
         End Property
-
-        Public Property Pitch() As String
+        Private _pitch As FieldOption
+        Public Property Pitch() As FieldOption
             Get
                 Return _pitch
             End Get
-            Set(value As String)
-                SetPropertyValue(Of String)("Pitch", _pitch, value)
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Pitch", _pitch, value)
             End Set
         End Property
-
-        Public Property Going() As String
+        Private _width As FieldOption
+        Public Property Width() As FieldOption
+            Get
+                Return _width
+            End Get
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Width", _width, value)
+            End Set
+        End Property
+        Private _going As FieldOption
+        Public Property Going() As FieldOption
             Get
                 Return _going
             End Get
-            Set(value As String)
-                _going = value
+            Set(value As FieldOption)
+                SetPropertyValue(Of FieldOption)("Going", _going, value)
             End Set
         End Property
         Private _bedBound As Boolean
@@ -657,5 +703,8 @@ Namespace Esso.Data
                 SetPropertyValue(Of DateTime)("ModifiedAt", fmodifiedAt, value)
             End Set
         End Property
+        Public Overrides Function ToString() As String
+            Return String.Format("{0}", Location)
+        End Function
     End Class
 End Namespace

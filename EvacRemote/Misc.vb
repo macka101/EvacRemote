@@ -10,6 +10,7 @@ Imports Esso.Data
 Imports DevExpress.XtraEditors
 Imports DevExpress.Data.Filtering
 Imports System.Deployment.Application
+Imports DevExpress.XtraGrid.Columns
 
 Public Class GlobalVariables
     Public Shared SupportFilesDirectory As String = Nothing
@@ -30,6 +31,7 @@ Module Misc
     Public _currentProduct As Product
     Public _currentSurvey As EvacSurvey
     Public _currentService As EvacService
+    Public _currentChairservice As ChairService
     Public _currentFloor As Floor
 
     Public _currentBuilding As Building
@@ -147,6 +149,116 @@ Module Misc
         Return ret
     End Function
 
+    Public Function CreateEscapeRouteLookUpEdit(ByVal session As Session, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, ByRef _building As Guid) As RepositoryItemLookUpEdit
+        Return CreateEscapeRouteLookUpEdit(session, Nothing, collection, key, _building)
+    End Function
+    Public Function CreateEscapeRouteLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByRef _building As Guid) As RepositoryItemLookUpEdit
+        Return CreateEscapeRouteLookUpEdit(session, edit, collection, False, _building)
+    End Function
+    Public Function CreateEscapeRouteLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, ByRef _building As Guid) As RepositoryItemLookUpEdit
+        Dim ret As RepositoryItemLookUpEdit
+        If Object.Equals(edit, Nothing) Then
+            ret = New RepositoryItemLookUpEdit()
+        Else
+            ret = edit
+        End If
+        If (Not Object.Equals(collection, Nothing)) Then
+            collection.Add(ret)
+        End If
+        If key Then
+            ret.ValueMember = "Oid"
+        Else
+            ret.ValueMember = "This"
+        End If
+
+        ret.DisplayMember = "Location"
+
+        Dim filter As CriteriaOperator = Nothing
+        filter = CriteriaOperator.Parse("Building = ? ", _building)
+
+        ret.DataSource = New XPCollection(Of EscapeRoute)(session, filter, New SortProperty("Location", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        ret.NullText = String.Empty
+        ret.Columns.Clear()
+        ret.Columns.Add(New LookUpColumnInfo("Location"))
+        ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
+        ret.ShowHeader = False
+        ret.DropDownRows = 10
+        Return ret
+    End Function
+
+    Public Function CreateFloorLookUpEdit(ByVal session As Session, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, ByRef _escapeRoute As Guid) As RepositoryItemLookUpEdit
+        Return CreateFloorLookUpEdit(session, Nothing, collection, key, _escapeRoute)
+    End Function
+    Public Function CreateFloorLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByRef _escapeRoute As Guid) As RepositoryItemLookUpEdit
+        Return CreateFloorLookUpEdit(session, edit, collection, False, _escapeRoute)
+    End Function
+    Public Function CreateFloorLookUpEdit(ByVal session As Session, ByVal edit As RepositoryItemLookUpEdit, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, ByRef _escapeRoute As Guid) As RepositoryItemLookUpEdit
+        Dim ret As RepositoryItemLookUpEdit
+        If Object.Equals(edit, Nothing) Then
+            ret = New RepositoryItemLookUpEdit()
+        Else
+            ret = edit
+        End If
+        If (Not Object.Equals(collection, Nothing)) Then
+            collection.Add(ret)
+        End If
+        If key Then
+            ret.ValueMember = "Oid"
+        Else
+            ret.ValueMember = "This"
+        End If
+
+        ret.DisplayMember = "Location"
+
+        Dim filter As CriteriaOperator = Nothing
+        filter = CriteriaOperator.Parse("EscapeRoute = ? ", _escapeRoute)
+
+        ret.DataSource = New XPCollection(Of Floor)(session, filter, New SortProperty("Location", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        ret.NullText = String.Empty
+        ret.Columns.Clear()
+        ret.Columns.Add(New LookUpColumnInfo("Location"))
+        ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
+        ret.ShowHeader = False
+        ret.DropDownRows = 10
+        Return ret
+    End Function
+
+    Public Function CreateFieldOptionGrid(ByVal session As Session, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, _field As eField) As RepositoryItemGridLookUpEdit
+        Return CreateFieldOptionGrid(session, Nothing, collection, key, _field)
+    End Function
+    Public Function CreateFieldOptionGrid(ByVal session As Session, ByVal edit As RepositoryItemGridLookUpEdit, ByVal collection As RepositoryItemCollection, _field As eField) As RepositoryItemGridLookUpEdit
+        Return CreateFieldOptionGrid(session, edit, collection, False, _field)
+    End Function
+    Public Function CreateFieldOptionGrid(ByVal session As Session, ByVal edit As RepositoryItemGridLookUpEdit, ByVal collection As RepositoryItemCollection, ByVal key As Boolean, _field As eField) As RepositoryItemGridLookUpEdit
+        Dim ret As RepositoryItemGridLookUpEdit
+        If Object.Equals(edit, Nothing) Then
+            ret = New RepositoryItemGridLookUpEdit()
+        Else
+            ret = edit
+        End If
+        If (Not Object.Equals(collection, Nothing)) Then
+            collection.Add(ret)
+        End If
+        If key Then
+            ret.ValueMember = "Oid"
+        Else
+            ret.ValueMember = "This"
+        End If
+
+        ret.DisplayMember = "Description"
+
+        ret.DataSource = New XPCollection(Of FieldOption)(session, CriteriaOperator.Parse("Field = ? ", _field), New SortProperty("Description", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        ret.NullText = String.Empty
+        ret.AllowDropDownWhenReadOnly = DefaultBoolean.False
+        ret.PopulateViewColumns()
+        For Each ocol As GridColumn In ret.View.Columns
+            If ocol.FieldName <> "Description" Then
+                ocol.Visible = False
+            End If
+        Next
+
+        Return ret
+    End Function
 
 
 
@@ -390,10 +502,6 @@ Module Misc
             End If
             If _escaperoute.Spiral = True And _product.RatingSpiral > 0 Then
                 _matchcount += _product.RatingSpiral
-            End If
-
-            If _escaperoute.Upstairs = True And _product.RatingUpstairs > 0 Then
-                _matchcount += _product.RatingUpstairs
             End If
 
             If _floor.BedBound = True And _product.RatingBedBound > 0 Then

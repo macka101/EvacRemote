@@ -5,13 +5,12 @@ Imports DevExpress.Data.Helpers
 Imports DevExpress.XtraEditors.DXErrorProvider
 Imports DevExpress.XtraEditors
 Imports Esso.Data
+Imports DevExpress.Utils
 
-Public Class AssetServiceChair
+Public Class AssetChairService
     Private _parent As frmMain = Nothing
     Private _Loaded As Boolean = False
 
-    'Private _viewServiceSwipe As ServiceList = Nothing
-    'Private _Asset As Asset
     Private _session As UnitOfWork
     Private xpOptions As XPCollection(Of FieldOption)
     Public ReadOnly Property Loaded As Boolean
@@ -33,10 +32,28 @@ Public Class AssetServiceChair
     End Property
     Public Sub Initdata()
         InitEditors()
-        '     teDescription.Text = _currentAsset.Product
-        cbeBuilding.EditValue = _currentAsset.Building
-        cbeLocation.EditValue = _currentAsset.Division
-        teNotes.Text = _currentAsset.Notes
+
+        tsSpringClips.IsOn = _currentChairservice.SpringClips
+        tsSeatRivets.IsOn = _currentChairservice.CheckRivets
+        tsPaddingSeat.IsOn = _currentChairservice.PaddingSeat
+        tsFrontHandle.IsOn = _currentChairservice.FrontHandle
+        tsRearHandle.IsOn = _currentChairservice.RearHandle
+        tsHammockCondition.IsOn = _currentChairservice.HammockCondition
+        tsKickstandGasSpring.IsOn = _currentChairservice.KickstandGasSpring
+        tsRotationBelts.IsOn = _currentChairservice.RotationBelts
+        tsSkiAssemblyRollers.IsOn = _currentChairservice.SkiAssemblyRollers
+        tsSpindlePosition.IsOn = _currentChairservice.SpindlePosition
+        tsSafetyBelt.IsOn = _currentChairservice.SafetyBelt
+        tsSeatFrame.IsOn = _currentChairservice.SeatFrame
+        tsKickstandBolt.IsOn = _currentChairservice.KickstandBolt
+        tsKickstandGas.IsOn = _currentChairservice.KickstandGas
+        tsStabiliserRivets.IsOn = _currentChairservice.StabiliserRivets
+        tsClosure.IsOn = _currentChairservice.Closure
+
+        dteServiceDate.DateTime = _currentChairservice.ServiceDate
+        teEngineer.Text = _EngineerName
+        teNotes.Text = _currentChairservice.Notes
+
     End Sub
 
     Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
@@ -54,52 +71,69 @@ Public Class AssetServiceChair
             XtraMessageBox.Show("Please supply missing information.", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End If
-        '_currentAsset.Product = teDescription.Text
-        '_currentAsset.Building = cbeBuilding.EditValue
-        '_currentAsset.Division = cbeLocation.EditValue
-        _currentAsset.Notes = teNotes.Text
-        _currentAsset.Save()
-        _currentAsset.Session.CommitTransaction()
+
+        _currentChairservice.SpringClips = tsSpringClips.IsOn
+        _currentChairservice.CheckRivets = tsSeatRivets.IsOn
+        _currentChairservice.PaddingSeat = tsPaddingSeat.IsOn
+        _currentChairservice.FrontHandle = tsFrontHandle.IsOn
+        _currentChairservice.RearHandle = tsRearHandle.IsOn
+        _currentChairservice.HammockCondition = tsHammockCondition.IsOn
+        _currentChairservice.KickstandGasSpring = tsKickstandGasSpring.IsOn
+        _currentChairservice.RotationBelts = tsRotationBelts.IsOn
+        _currentChairservice.SkiAssemblyRollers = tsSkiAssemblyRollers.IsOn
+        _currentChairservice.SpindlePosition = tsSpindlePosition.IsOn
+        _currentChairservice.SafetyBelt = tsSafetyBelt.IsOn
+        _currentChairservice.SeatFrame = tsSeatFrame.IsOn
+        _currentChairservice.KickstandBolt = tsKickstandBolt.IsOn
+        _currentChairservice.KickstandGas = tsKickstandGas.IsOn
+        _currentChairservice.StabiliserRivets = tsStabiliserRivets.IsOn
+        _currentChairservice.Closure = tsClosure.IsOn
+
+        _currentChairservice.ServiceDate = dteServiceDate.DateTime
+        _currentChairservice.Notes = teNotes.Text
+        _currentChairservice.Save()
+        _currentChairservice.Session.CommitTransaction()
         '    ParentService.RefreshAsset()
         _parent.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
     Private Sub InitEditors()
+
         If xpOptions Is Nothing Then
             xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[Description]", DevExpress.Xpo.DB.SortingDirection.Ascending))
 
             For Each xOption As FieldOption In xpOptions
-                Select Case xOption.ServiceField
-                    Case eServiceFields.SpringClips
+                Select Case xOption.Field
+                    Case eField.SpringClips
                         icbSpringClips.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.SeatRivets
+                    Case eField.SeatRivets
                         icbSeatRivets.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.PaddingSeat
+                    Case eField.PaddingSeat
                         icbPaddingSeat.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.FrontHandle
+                    Case eField.FrontHandle
                         icbFrontHandle.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.RearHandle
+                    Case eField.RearHandle
                         icbRearHandle.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.HammockCondition
+                    Case eField.HammockCondition
                         icbHammockCondition.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.KickstandGasSpring
+                    Case eField.KickstandGasSpring
                         icbKickstandGasSpring.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.RotationBelts
+                    Case eField.RotationBelts
                         icbRotationBelts.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.SkiAssemblyRollers
+                    Case eField.SkiAssemblyRollers
                         icbSkiAssemblyRollers.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.SpindlePosition
+                    Case eField.SpindlePosition
                         icbSpindlePosition.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.SafetyBelt
+                    Case eField.SafetyBelt
                         icbSafetyBelt.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.SeatFrame
+                    Case eField.SeatFrame
                         icbSeatFrame.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.KickstandBolt
+                    Case eField.KickstandBolt
                         icbKickstandBolt.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.KickstandGas
+                    Case eField.KickstandGas
                         icbKickstandGas.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.StabiliserRivets
+                    Case eField.StabiliserRivets
                         icbStabiliserRivets.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
-                    Case eServiceFields.Closure
+                    Case eField.Closure
                         icbClosure.Properties.Items.Add(New ImageComboBoxItem(xOption.Description, xOption.Oid))
                 End Select
             Next
@@ -272,4 +306,7 @@ Public Class AssetServiceChair
             DxValidationProvider1.SetValidationRule(icbClosure, Nothing)
         End If
     End Sub
+
+
+
 End Class

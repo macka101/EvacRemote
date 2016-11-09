@@ -1,30 +1,36 @@
-﻿Public Enum eServiceFields
+﻿Public Enum eField
+    'General 
+    StairwayType = 10
+    Nosing = 20
+    Tread = 30
+    Pitch = 40
+    Going = 50
     'Ibex
-    BackRest
-    BrakeMechanism
-    Fasteners
-    HandGrips
-    PatientStraps
-    PlugsCaps
-    Telescopic
-    WheelPulleys
+    BackRest = 1000
+    BrakeMechanism = 1005
+    Fasteners = 1010
+    HandGrips = 1015
+    PatientStraps = 1020
+    PlugsCaps = 1025
+    Telescopic = 1030
+    WheelPulleys = 1035
     'Evac
-    SpringClips
-    SeatRivets
-    PaddingSeat
-    FrontHandle
-    RearHandle
-    HammockCondition
-    KickstandGasSpring
-    RotationBelts
-    SkiAssemblyRollers
-    SpindlePosition
-    SafetyBelt
-    SeatFrame
-    KickstandBolt
-    KickstandGas
-    StabiliserRivets
-    Closure
+    SpringClips = 2000
+    SeatRivets = 2005
+    PaddingSeat = 2010
+    FrontHandle = 2015
+    RearHandle = 2020
+    HammockCondition = 2025
+    KickstandGasSpring = 2030
+    RotationBelts = 2035
+    SkiAssemblyRollers = 2040
+    SpindlePosition = 2045
+    SafetyBelt = 2050
+    SeatFrame = 2055
+    KickstandBolt = 2060
+    KickstandGas = 2065
+    StabiliserRivets = 2070
+    Closure = 2075
 End Enum
 Public Enum ProductType
     Chair = 1

@@ -30,7 +30,13 @@ Public Class viewFloor
         End Get
     End Property
     Public Sub InitEditors()
-        Misc.CreateNosingImageComboBox(icbNosing.Properties, Nothing)
+
+        Misc.CreateFieldOptionGrid(_session, gleStairwayType.Properties, Nothing, False, eField.StairwayType)
+        Misc.CreateFieldOptionGrid(_session, gleNosing.Properties, Nothing, False, eField.Nosing)
+        Misc.CreateFieldOptionGrid(_session, gleTread.Properties, Nothing, False, eField.Tread)
+        Misc.CreateFieldOptionGrid(_session, glePitch.Properties, Nothing, False, eField.Pitch)
+        Misc.CreateFieldOptionGrid(_session, gleGoing.Properties, Nothing, False, eField.Going)
+
         Misc.CreateProductLookUpEdit(_session, lueRecomended.Properties, Nothing)
         Misc.CreateProductLookUpEdit(_session, lueChair.Properties, Nothing)
 
@@ -43,11 +49,11 @@ Public Class viewFloor
         Misc.CreateToggleSwitch(tgsSmallStorage)
 
         AddHandler teFloor.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler cbeStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler icbNosing.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler cbeThread.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler cbePitch.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler CBEGoing.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleNosing.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleTread.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler glePitch.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleGoing.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler teNotes.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsBedBound.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsBarriatric.EditValueChanged, AddressOf edit_EditValueChanged
@@ -59,11 +65,12 @@ Public Class viewFloor
     End Sub
     Public Sub Initdata()
         InitEditors()
-        teFloor.Text = _currentFloor.Floor
-        cbeStairwayType.EditValue = _currentFloor.Type
-        icbNosing.EditValue = _currentFloor.Nosing
-        cbePitch.EditValue = _currentFloor.Pitch
-        CBEGoing.EditValue = _currentFloor.Going
+        teFloor.Text = _currentFloor.Location
+        gleStairwayType.EditValue = _currentFloor.StairWayType
+        gleNosing.EditValue = _currentFloor.Nosing
+        glePitch.EditValue = _currentFloor.Pitch
+        gleGoing.EditValue = _currentFloor.Going
+        gleTread.EditValue = _currentFloor.Tread
         lueChair.EditValue = _currentFloor.Product
 
         tgsBedBound.IsOn = _currentFloor.BedBound
@@ -78,11 +85,12 @@ Public Class viewFloor
         teNotes.Text = _currentFloor.Notes
     End Sub
     Private Sub SaveData()
-        _currentFloor.Floor = teFloor.Text
-        _currentFloor.Type = cbeStairwayType.EditValue
-        _currentFloor.Nosing = icbNosing.EditValue
-        _currentFloor.Pitch = cbePitch.EditValue
-        _currentFloor.Going = CBEGoing.EditValue
+        _currentFloor.Location = teFloor.Text
+        _currentFloor.StairWayType = gleStairwayType.EditValue
+        _currentFloor.Nosing = gleNosing.EditValue
+        _currentFloor.Pitch = glePitch.EditValue
+        _currentFloor.Tread = gleTread.EditValue
+        _currentFloor.Going = gleGoing.EditValue
         _currentFloor.Product = lueChair.EditValue
 
         _currentFloor.BedBound = tgsBedBound.IsOn
@@ -133,8 +141,45 @@ Public Class viewFloor
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then
             _changed = True
-            RecommendProduct(_session, _currentFloor)
+
             lueRecomended.EditValue = _currentFloor.RecommendedProduct
         End If
+    End Sub
+
+  
+    Private Sub tgsBedBound_Validated(sender As Object, e As EventArgs) Handles tgsBedBound.Validated
+        _currentFloor.BedBound = tgsBedBound.IsOn
+        RecommendProduct(_session, _currentFloor)
+    End Sub
+
+
+    Private Sub tgsBarriatric_Validated(sender As Object, e As EventArgs) Handles tgsBarriatric.Validated
+        _currentFloor.Barriatric = tgsBarriatric.IsOn
+        RecommendProduct(_session, _currentFloor)
+    End Sub
+
+    Private Sub tgsComplexDisability_Validated(sender As Object, e As EventArgs) Handles tgsComplexDisability.Validated
+        _currentFloor.ComplexDisability = tgsComplexDisability.IsOn
+        RecommendProduct(_session, _currentFloor)
+    End Sub
+
+    Private Sub tgsSmallStorage_Validated(sender As Object, e As EventArgs) Handles tgsSmallStorage.Validated
+        _currentFloor.SmallStorage = tgsSmallStorage.IsOn
+        RecommendProduct(_session, _currentFloor)
+    End Sub
+
+    Private Sub tgsBedAccess_Validated(sender As Object, e As EventArgs) Handles tgsBedAccess.Validated
+        _currentFloor.BedAccess = tgsBedAccess.IsOn
+        RecommendProduct(_session, _currentFloor)
+    End Sub
+
+    Private Sub tgsMisuse_Validated(sender As Object, e As EventArgs) Handles tgsMisuse.Validated
+        _currentFloor.Misuse = tgsMisuse.IsOn
+        RecommendProduct(_session, _currentFloor)
+    End Sub
+
+    Private Sub tgsMovingHandling_Validated(sender As Object, e As EventArgs) Handles tgsMovingHandling.Validated
+        _currentFloor.MovingAndHandling = tgsMovingHandling.IsOn
+        RecommendProduct(_session, _currentFloor)
     End Sub
 End Class

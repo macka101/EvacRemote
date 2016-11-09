@@ -22,8 +22,9 @@ Public Class frmMain
     Dim _FloorDetail As viewFloor
 
     Dim _ServiceList As ViewServiceList
-    Dim _ServiceDetail As ServiceDetail
-    Dim _AssetServiceChair As AssetServiceChair
+    Dim _ServiceDetail As ViewServiceDetail
+    Dim _AssetServiceHistory As AssetServiceHistory
+    Dim _AssetChairService As AssetChairService
 
     Dim _ViewEscapeRoute As viewEscapeRoute
     Dim _ViewFloor As viewFloor
@@ -40,18 +41,19 @@ Public Class frmMain
 
     Public Enum ePage
         None = 0
-        ContactList = 1
-        ContactDetail = 2
+        ContactList = 10
+        ContactDetail = 20
         '        SurveyList = 3
-        SurveyDetail = 4
-        FloorDetail = 5
-        ProductList = 6
-        ProductDetail = 7
-        ServiceList = 8
-        ServiceDetail = 9
-        EscapeRoute = 10
-        DiarySchedule = 11
-        AssetServiceChair = 12
+        SurveyDetail = 40
+        FloorDetail = 50
+        ProductList = 60
+        ProductDetail = 70
+        ServiceList = 80
+        ServiceDetail = 90
+        EscapeRoute = 100
+        DiarySchedule = 110
+        AssetChairService = 120
+        AssetServiceHistory = 130
     End Enum
 
     Public _CurrentPage As ePage = ePage.None
@@ -113,6 +115,8 @@ Public Class frmMain
                 _ServiceDetail.Visible = False
             Case ePage.EscapeRoute
                 _EscapeRoute.Visible = False
+            Case ePage.AssetServiceHistory
+                _AssetServiceHistory.Visible = False
         End Select
 
         Select Case _page
@@ -209,7 +213,7 @@ Public Class frmMain
                 _ServiceList.Visible = True
             Case ePage.ServiceDetail
                 If _ServiceDetail Is Nothing Then
-                    _ServiceDetail = New ServiceDetail(dataSession, Me)
+                    _ServiceDetail = New ViewServiceDetail(dataSession, Me)
                 End If
                 _ServiceDetail.Parent = Me.MainPnl
                 _ServiceDetail.Dock = DockStyle.Fill
@@ -217,16 +221,28 @@ Public Class frmMain
                 _ServiceDetail.Initdata()
 
                 _ServiceDetail.Visible = True
-            Case ePage.AssetServiceChair
-                If _AssetServiceChair Is Nothing Then
-                    _AssetServiceChair = New AssetServiceChair(dataSession, Me)
+            Case ePage.AssetServiceHistory
+                If _AssetServiceHistory Is Nothing Then
+                    _AssetServiceHistory = New AssetServiceHistory(dataSession, Me)
                 End If
-                _AssetServiceChair.Parent = Me.MainPnl
-                _AssetServiceChair.Dock = DockStyle.Fill
+                _AssetServiceHistory.Parent = Me.MainPnl
+                _AssetServiceHistory.Dock = DockStyle.Fill
 
-                _AssetServiceChair.Initdata()
+                _AssetServiceHistory.Initdata()
 
-                _AssetServiceChair.Visible = True
+                _AssetServiceHistory.Visible = True
+
+            Case ePage.AssetChairService
+                If _AssetChairService Is Nothing Then
+                    _AssetChairService = New AssetChairService(dataSession, Me)
+                End If
+                _AssetChairService.Parent = Me.MainPnl
+                _AssetChairService.Dock = DockStyle.Fill
+
+                _AssetChairService.Initdata()
+
+                _AssetChairService.Visible = True
+
                 'Case ePage.StairWell
                 '    If _StairwellDetail Is Nothing Then
                 '        _StairwellDetail = New viewStairWellDetail(dataSession, Me)

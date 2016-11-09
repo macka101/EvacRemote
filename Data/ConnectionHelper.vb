@@ -63,14 +63,14 @@ Namespace Esso.Data
                 If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 1)), Nothing))) Then
                     Dim EObj As New FieldOption(session)
                     EObj.ID = 1
-                    EObj.ServiceField = eServiceFields.BackRest
+                    EObj.Field = eField.BackRest
                     EObj.Description = "Not Present"
                     EObj.Save()
                 End If
                 If ((Object.Equals(session.FindObject(Of FieldOption)(CriteriaOperator.Parse("ID =  ?", 2)), Nothing))) Then
                     Dim EObj As New FieldOption(session)
                     EObj.ID = 2
-                    EObj.ServiceField = eServiceFields.Fasteners
+                    EObj.Field = eField.Fasteners
                     EObj.Description = "Not Present"
                     EObj.Save()
                 End If

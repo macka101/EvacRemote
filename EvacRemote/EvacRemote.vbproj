@@ -196,6 +196,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeviceDetector.vb" />
+    <Compile Include="Edits\AssetServiceHistory.Designer.vb">
+      <DependentUpon>AssetServiceHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Edits\AssetServiceHistory.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Edits\frmSignature.Designer.vb">
       <DependentUpon>frmSignature.vb</DependentUpon>
     </Compile>
@@ -208,16 +214,16 @@
     <Compile Include="Edits\FrmStairway.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edits\ServiceDetail.Designer.vb">
-      <DependentUpon>ServiceDetail.vb</DependentUpon>
+    <Compile Include="Edits\AssetChairService.Designer.vb">
+      <DependentUpon>AssetChairService.vb</DependentUpon>
     </Compile>
-    <Compile Include="Edits\ServiceDetail.vb">
+    <Compile Include="Edits\AssetChairService.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Edits\AssetServiceChair.Designer.vb">
-      <DependentUpon>AssetServiceChair.vb</DependentUpon>
+    <Compile Include="Edits\ViewServiceDetail.Designer.vb">
+      <DependentUpon>ViewServiceDetail.vb</DependentUpon>
     </Compile>
-    <Compile Include="Edits\AssetServiceChair.vb">
+    <Compile Include="Edits\ViewServiceDetail.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Edits\viewAssetSwipeIbex.Designer.vb">
@@ -403,17 +409,20 @@
     <EmbeddedResource Include="Designers\XtraForm1.resx">
       <DependentUpon>XtraForm1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edits\AssetServiceHistory.resx">
+      <DependentUpon>AssetServiceHistory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edits\frmSignature.resx">
       <DependentUpon>frmSignature.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edits\FrmStairway.resx">
       <DependentUpon>FrmStairway.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edits\ServiceDetail.resx">
-      <DependentUpon>ServiceDetail.vb</DependentUpon>
+    <EmbeddedResource Include="Edits\AssetChairService.resx">
+      <DependentUpon>AssetChairService.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edits\AssetServiceChair.resx">
-      <DependentUpon>AssetServiceChair.vb</DependentUpon>
+    <EmbeddedResource Include="Edits\ViewServiceDetail.resx">
+      <DependentUpon>ViewServiceDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edits\viewAssetSwipeIbex.resx">
       <DependentUpon>viewAssetSwipeIbex.vb</DependentUpon>

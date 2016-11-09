@@ -90,27 +90,84 @@ Public Class ViewDiarySchedule
     End Sub
 
     Private Sub SchedulerControl1_EditAppointmentFormShowing(sender As Object, e As AppointmentFormEventArgs) Handles SchedulerControl1.EditAppointmentFormShowing
+        Dim nBuilding As Building
+        Dim nEscapeRoute As EscapeRoute
 
-        Dim _id As Integer = e.Appointment.CustomFields("CentralDiaryNo")
+        Dim _diaryId As Integer = e.Appointment.CustomFields("CentralDiaryNo")
 
-        Dim _diary As CentralDiary = _session.FindObject(Of CentralDiary)(CriteriaOperator.Parse("CentralDiaryNo= ?", _id))
+        Dim _diary As CentralDiary = _session.FindObject(Of CentralDiary)(CriteriaOperator.Parse("CentralDiaryNo= ?", _diaryId))
         If _diary IsNot Nothing Then
             _currentDivision = _diary.Division
             _currentContact = _diary.Contact
             Dim _chairs As Integer = e.Appointment.CustomFields("NoOfChairs")
+
+            If _currentDivision.Buildings.Count = 0 Then
+                nBuilding = New Building(_session)
+                nBuilding.Division = _currentDivision
+                nBuilding.Location = String.Format("Building {0}", 1)
+                nBuilding.Heritage = "No"
+                nBuilding.Access = "Private"
+                nBuilding.Save()
+                _session.CommitChanges()
+                _currentDivision.Buildings.Add(nBuilding)
+
+                nEscapeRoute = New EscapeRoute(_session)
+                nEscapeRoute.Building = nBuilding
+                nEscapeRoute.Location = "Escape Route 1"
+                nEscapeRoute.Save()
+                _session.CommitChanges()
+                nBuilding.EscapeRoutes.Add(nEscapeRoute)
+                nBuilding.Save()
+                _session.CommitChanges()
+            End If
+
+
             Dim _assetscount As Integer = 0
             If _currentDivision.Assets IsNot Nothing Then
                 _assetscount = _currentDivision.Assets.Count
             End If
             If _chairs > _assetscount Then
                 For i As Integer = _assetscount + 1 To _chairs
+                    Dim nFloor As New Floor(_session)
+                    nFloor.Building = nBuilding
+                    nFloor.EscapeRoute = nEscapeRoute
+                    nFloor.Location = String.Format("Floor {0}", i)
+                    nFloor.Save()
+                    _session.CommitChanges()
                     Dim _asset As New Asset(_session)
                     _asset.Division = _currentDivision
+                    _asset.Building = nBuilding
+                    _asset.EscapeRoute = nEscapeRoute
+                    _asset.Floor = nFloor
                     _asset.BarCode = "Not Identified"
                     _asset.Save()
+                    _session.CommitChanges()
                     _currentDivision.Assets.Add(_asset)
                 Next
             End If
+
+            _currentService = _session.FindObject(Of EvacService)(CriteriaOperator.Parse("CentralDiaryNo = ?", _diaryId))
+            If _currentService Is Nothing Then
+                _currentService = New EvacService(_session)
+                _currentService.CentralDiaryNo = _diaryId
+                _currentService.Division = _currentDivision
+                _currentService.Contact = _currentContact
+                _currentService.ServiceDate = _diary.BookedDate
+                _currentService.Save()
+                _session.CommitChanges()
+            End If
+            Dim _xpchairs As New XPCollection(Of Asset)(_session, (CriteriaOperator.Parse("Division = ?", _currentDivision.Oid)))
+            For Each _asset As Asset In _xpchairs
+                Dim _nService As ChairService = _session.FindObject(Of ChairService)(CriteriaOperator.Parse("Asset = ? and EvacService = ?", _asset.Oid, _currentService.Oid))
+                If _nService Is Nothing Then
+                    _nService = New ChairService(_session)
+                    _nService.EvacService = _currentService
+                    _nService.ServiceDate = _diary.BookedDate
+                    _nService.Asset = _asset
+                    _nService.Save()
+                    _session.CommitChanges()
+                End If
+            Next
         End If
         _session.CommitChanges()
         _currentDivision.Reload()

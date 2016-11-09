@@ -24,6 +24,7 @@ Partial Class ViewSurveyList
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewSurveyList))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.btnNew = New DevExpress.XtraEditors.SimpleButton()
         Me.grdSurveys = New DevExpress.XtraGrid.GridControl()
         Me.vw_Surveys = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -38,17 +39,16 @@ Partial Class ViewSurveyList
         Me.SIService = New DevExpress.XtraLayout.SimpleLabelItem()
         Me.lciContacts = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciSetCurrent = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.lcipicBack = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vw_Surveys, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciSetCurrent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lcipicBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,6 +65,15 @@ Partial Class ViewSurveyList
         Me.LayoutControl1.Size = New System.Drawing.Size(659, 419)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'picBack
+        '
+        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
+        Me.picBack.Location = New System.Drawing.Point(20, 30)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(30, 369)
+        Me.picBack.TabIndex = 6
+        Me.picBack.TabStop = False
         '
         'btnNew
         '
@@ -201,15 +210,6 @@ Partial Class ViewSurveyList
         Me.lciSetCurrent.TextSize = New System.Drawing.Size(0, 0)
         Me.lciSetCurrent.TextVisible = False
         '
-        'picBack
-        '
-        Me.picBack.Image = Global.EvacRemote.My.Resources.Resources.returnButton
-        Me.picBack.Location = New System.Drawing.Point(20, 30)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(30, 369)
-        Me.picBack.TabIndex = 6
-        Me.picBack.TabStop = False
-        '
         'lcipicBack
         '
         Me.lcipicBack.Control = Me.picBack
@@ -233,13 +233,13 @@ Partial Class ViewSurveyList
         Me.Size = New System.Drawing.Size(659, 419)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdSurveys, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vw_Surveys, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SIService, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciContacts, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciSetCurrent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lcipicBack, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

@@ -34,8 +34,16 @@ Namespace Esso.Data
                 _Oid = XpoDefault.NewGuid()
             End If
         End Sub
+        Private _diaryNo As Integer
+        Public Property CentralDiaryNo() As Integer
+            Get
+                Return _diaryNo
+            End Get
+            Set(ByVal value As Integer)
+                SetPropertyValue(Of Integer)("CentralDiaryNo", _diaryNo, value)
+            End Set
+        End Property
         Private _division As Division
-        <Association("Survey-Division")>
         Public Property Division() As Division
             Get
                 Return _division
@@ -45,7 +53,6 @@ Namespace Esso.Data
             End Set
         End Property
         Private _contact As Contact
-        <Association("Survey-Contact")>
         Public Property Contact() As Contact
             Get
                 Return _contact
@@ -163,7 +170,6 @@ Namespace Esso.Data
                 _evacSurvey = value
             End Set
         End Property
-
         Private _building As Building
         Public Property Building() As Building
             Get
@@ -202,186 +208,316 @@ Namespace Esso.Data
                 SetPropertyValue(Of Char)("PlasticBushes", _PlasticBushes, value)
             End Set
         End Property
-        Private _springClips As Char
+        Private _springClips As Boolean
         <DevExpress.Xpo.DisplayName("SpringClips")>
-        Public Property SpringClips() As Char
+        Public Property SpringClips() As Boolean
             Get
                 Return _springClips
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("SpringClips", _springClips, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("SpringClips", _springClips, value)
             End Set
         End Property
-        Private _passengerBelt As Char
+        Private _passengerBelt As Boolean
         <DevExpress.Xpo.DisplayName("PassengerBelt")>
-        Public Property PassengerBelt() As Char
+        Public Property PassengerBelt() As Boolean
             Get
                 Return PassengerBelt
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("PassengerBelt", _passengerBelt, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("PassengerBelt", _passengerBelt, value)
             End Set
         End Property
-        Private _hammockSeatPadding As Char
+        Private _hammockSeatPadding As Boolean
         <DevExpress.Xpo.DisplayName("HammockSeatPadding")>
-        Public Property HammockSeatPadding() As Char
+        Public Property HammockSeatPadding() As Boolean
             Get
                 Return _hammockSeatPadding
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("HammockSeatPadding", _hammockSeatPadding, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("HammockSeatPadding", _hammockSeatPadding, value)
             End Set
         End Property
-        Private _headRestraint As Char
+        Private _headRestraint As Boolean
         <DevExpress.Xpo.DisplayName("HeadRestraint")>
-        Public Property HeadRestraint() As Char
+        Public Property HeadRestraint() As Boolean
             Get
                 Return _headRestraint
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("HeadRestraint", _headRestraint, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("HeadRestraint", _headRestraint, value)
             End Set
         End Property
-        Private _trolleyAssemblyandClips As Char
+        Private _trolleyAssemblyandClips As Boolean
         <DevExpress.Xpo.DisplayName("TrolleyAssemblyandClips")>
-        Public Property TrolleyAssemblyandClips() As Char
+        Public Property TrolleyAssemblyandClips() As Boolean
             Get
                 Return _trolleyAssemblyandClips
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("TrolleyAssemblyandClips", _trolleyAssemblyandClips, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("TrolleyAssemblyandClips", _trolleyAssemblyandClips, value)
             End Set
         End Property
-        Private _skiAssemblyRollers As Char
+        Private _skiAssemblyRollers As Boolean
         <DevExpress.Xpo.DisplayName("SkiAssemblyRollers")>
-        Public Property SkiAssemblyRollers() As Char
+        Public Property SkiAssemblyRollers() As Boolean
             Get
                 Return _skiAssemblyRollers
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("SkiAssemblyRollers", _skiAssemblyRollers, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("SkiAssemblyRollers", _skiAssemblyRollers, value)
             End Set
         End Property
-        Private _beltsRotationTension As Char
+        Private _beltsRotationTension As Boolean
         <DevExpress.Xpo.DisplayName("Belts Rotation Tension")>
-        Public Property BeltsRotationTension() As Char
+        Public Property BeltsRotationTension() As Boolean
             Get
                 Return _beltsRotationTension
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("BeltsRotationTension", _beltsRotationTension, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("BeltsRotationTension", _beltsRotationTension, value)
             End Set
         End Property
-        Private _tractionBeltsHighChange As Char
+        Private _tractionBeltsHighChange As Boolean
         <DevExpress.Xpo.DisplayName("TractionBeltsHighChange")>
-        Public Property TractionBeltsHighChange() As Char
+        Public Property TractionBeltsHighChange() As Boolean
             Get
                 Return _tractionBeltsHighChange
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("TractionBeltsHighChange", _tractionBeltsHighChange, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("TractionBeltsHighChange", _tractionBeltsHighChange, value)
             End Set
         End Property
-        Private _mainWheelsMoveFreely As Char
+        Private _mainWheelsMoveFreely As Boolean
         <DevExpress.Xpo.DisplayName("Main Wheels Move Freely")>
-        Public Property MainWheelsMoveFreely() As Char
+        Public Property MainWheelsMoveFreely() As Boolean
             Get
                 Return _mainWheelsMoveFreely
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("MainWheelsMoveFreely", _mainWheelsMoveFreely, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("MainWheelsMoveFreely", _mainWheelsMoveFreely, value)
             End Set
         End Property
 
-        Private _CheckRivets As Char
+        Private _CheckRivets As Boolean
         <DevExpress.Xpo.DisplayName("CheckRivets")>
-        Public Property CheckRivets() As Char
+        Public Property CheckRivets() As Boolean
             Get
                 Return _CheckRivets
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("CheckRivets", _CheckRivets, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("CheckRivets", _CheckRivets, value)
+            End Set
+        End Property
+        Private _PaddingSeat As Boolean
+        <DevExpress.Xpo.DisplayName("PaddingSeat")>
+        Public Property PaddingSeat() As Boolean
+            Get
+                Return _CheckRivets
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("PaddingSeat", _PaddingSeat, value)
             End Set
         End Property
 
-        Private _levelGroundMovement As Char
+        Private _FrontHandle As Boolean
+        <DevExpress.Xpo.DisplayName("FrontHandle")>
+        Public Property FrontHandle() As Boolean
+            Get
+                Return _FrontHandle
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("FrontHandle", _FrontHandle, value)
+            End Set
+        End Property
+        Private _RearHandle As Boolean
+        <DevExpress.Xpo.DisplayName("RearHandle")>
+        Public Property RearHandle() As Boolean
+            Get
+                Return _RearHandle
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("RearHandle", _RearHandle, value)
+            End Set
+        End Property
+        Private _HammockCondition As Boolean
+        <DevExpress.Xpo.DisplayName("HammockCondition")>
+        Public Property HammockCondition() As Boolean
+            Get
+                Return _HammockCondition
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("HammockCondition", _HammockCondition, value)
+            End Set
+        End Property
+        Private _KickstandGasSpring As Boolean
+        <DevExpress.Xpo.DisplayName("KickstandGasSpring")>
+        Public Property KickstandGasSpring() As Boolean
+            Get
+                Return _KickstandGasSpring
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("KickstandGasSpring", _KickstandGasSpring, value)
+            End Set
+        End Property
+        Private _RotationBelts As Boolean
+        <DevExpress.Xpo.DisplayName("RotationBelts")>
+        Public Property RotationBelts() As Boolean
+            Get
+                Return _RotationBelts
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("RotationBelts", _RotationBelts, value)
+            End Set
+        End Property
+        Private _SpindlePosition As Boolean
+        <DevExpress.Xpo.DisplayName("SpindlePosition")>
+        Public Property SpindlePosition() As Boolean
+            Get
+                Return _SpindlePosition
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("SpindlePosition", _SpindlePosition, value)
+            End Set
+        End Property
+        Private _SafetyBelt As Boolean
+        <DevExpress.Xpo.DisplayName("SafetyBelt")>
+        Public Property SafetyBelt() As Boolean
+            Get
+                Return _SafetyBelt
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("SafetyBelt", _SafetyBelt, value)
+            End Set
+        End Property
+        Private _SeatFrame As Boolean
+        <DevExpress.Xpo.DisplayName("SeatFrame")>
+        Public Property SeatFrame() As Boolean
+            Get
+                Return _SeatFrame
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("SeatFrame", _SeatFrame, value)
+            End Set
+        End Property
+        Private _KickstandBolt As Boolean
+        <DevExpress.Xpo.DisplayName("KickstandBolt")>
+        Public Property KickstandBolt() As Boolean
+            Get
+                Return _KickstandBolt
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("KickstandBolt", _KickstandBolt, value)
+            End Set
+        End Property
+        Private _KickstandGas As Boolean
+        <DevExpress.Xpo.DisplayName("KickstandGas")>
+        Public Property KickstandGas() As Boolean
+            Get
+                Return _KickstandGas
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("KickstandGas", _KickstandGas, value)
+            End Set
+        End Property
+        Private _StabiliserRivets As Boolean
+        <DevExpress.Xpo.DisplayName("StabiliserRivets")>
+        Public Property StabiliserRivets() As Boolean
+            Get
+                Return _StabiliserRivets
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("StabiliserRivets", _StabiliserRivets, value)
+            End Set
+        End Property
+        Private _Closure As Boolean
+        <DevExpress.Xpo.DisplayName("Closure")>
+        Public Property Closure() As Boolean
+            Get
+                Return _Closure
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("Closure", _Closure, value)
+            End Set
+        End Property
+        Private _levelGroundMovement As Boolean
         <DevExpress.Xpo.DisplayName("Level Ground Movement")>
-        Public Property LevelGroundMovement() As Char
+        Public Property LevelGroundMovement() As Boolean
             Get
                 Return _levelGroundMovement
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("LevelGroundMovement", _levelGroundMovement, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("LevelGroundMovement", _levelGroundMovement, value)
             End Set
         End Property
-        Private _dustCoverinPlace As Char
+        Private _dustCoverinPlace As Boolean
         <DevExpress.Xpo.DisplayName("Dust Cover in Place")>
-        Public Property DustCoverinPlace() As Char
+        Public Property DustCoverinPlace() As Boolean
             Get
                 Return _dustCoverinPlace
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("DustCoverinPlace", _dustCoverinPlace, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("DustCoverinPlace", _dustCoverinPlace, value)
             End Set
         End Property
-        Private _wallHooksFitted As Char
+        Private _wallHooksFitted As Boolean
         <DevExpress.Xpo.DisplayName("Wall Hooks Fitted")>
-        Public Property WallHooksFitted() As Char
+        Public Property WallHooksFitted() As Boolean
             Get
                 Return _wallHooksFitted
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("WallHooksFitted", _wallHooksFitted, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("WallHooksFitted", _wallHooksFitted, value)
             End Set
         End Property
-        Private _signageinPlace As Char
+        Private _signageinPlace As Boolean
         <DevExpress.Xpo.DisplayName("SignageinPlace")>
-        Public Property SignageinPlace() As Char
+        Public Property SignageinPlace() As Boolean
             Get
                 Return _signageinPlace
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("SignageinPlace", _signageinPlace, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("SignageinPlace", _signageinPlace, value)
             End Set
         End Property
-        Private _alarmFitted As Char
+        Private _alarmFitted As Boolean
         <DevExpress.Xpo.DisplayName("Alarm Fitted")>
-        Public Property AlarmFitted() As Char
+        Public Property AlarmFitted() As Boolean
             Get
                 Return _alarmFitted
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("AlarmFitted", _alarmFitted, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("AlarmFitted", _alarmFitted, value)
             End Set
         End Property
-        Private _ACOP As Char
+        Private _ACOP As Boolean
         <DevExpress.Xpo.DisplayName("ACOP")>
-        Public Property ACOP() As Char
+        Public Property ACOP() As Boolean
             Get
                 Return _alarmFitted
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("ACOP", _ACOP, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("ACOP", _ACOP, value)
             End Set
         End Property
-        Private _paddedWoodenSeat As Char
+        Private _paddedWoodenSeat As Boolean
         <DevExpress.Xpo.DisplayName("Padded Wooden Seat")>
-        Public Property PaddedWoodenSeat() As Char
+        Public Property PaddedWoodenSeat() As Boolean
             Get
                 Return _paddedWoodenSeat
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("PaddedWoodenSeat", _paddedWoodenSeat, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("PaddedWoodenSeat", _paddedWoodenSeat, value)
             End Set
         End Property
-        Private _dustedChair As Char
+        Private _dustedChair As Boolean
         <DevExpress.Xpo.DisplayName("Dusted Chair")>
-        Public Property DustedChair() As Char
+        Public Property DustedChair() As Boolean
             Get
                 Return _dustedChair
             End Get
-            Set(value As Char)
-                SetPropertyValue(Of Char)("DustedChair", _dustedChair, value)
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("DustedChair", _dustedChair, value)
             End Set
         End Property
         Private _notes As String
