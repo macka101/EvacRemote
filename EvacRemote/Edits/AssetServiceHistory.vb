@@ -33,7 +33,7 @@ Public Class AssetServiceHistory
     Public Sub Initdata()
         InitEditors()
 
-        xpBuildings = _currentDivision.Buildings
+        'xpBuildings = _currentDivision.Buildings
 
         lueBuilding.EditValue = _currentAsset.Building
         lueEscapeRoute.EditValue = _currentAsset.EscapeRoute
@@ -112,17 +112,18 @@ Public Class AssetServiceHistory
     End Property
     Private Sub lueBuilding_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueBuilding.ButtonClick
         If e.Button.Kind = ButtonPredefines.Plus Then
-            Dim nBuilding As New Building(_session)
-            nBuilding.Location = String.Format("Building {0}", xpBuildings.Count + 1)
-            nBuilding.Heritage = "No"
-            nBuilding.Access = "Private"
-            nBuilding.Save()
+            Dim _building As New Building(_session)
+            _building.Location = String.Format("Building {0}", _currentDivision.Buildings.Count + 1)
+            _building.Heritage = "No"
+            _building.Access = "Private"
+            _building.Save()
             _session.CommitChanges()
-            xpBuildings.Add(nBuilding)
-            lueBuilding.Properties.DataSource = xpBuildings
+            '  xpBuildings.Add(_building)
 
-            lueBuilding.EditValue = xpBuildings.Last
-            lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
+            CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
+
+            lueBuilding.EditValue = _building
+            _currentAsset.Building = _building
         ElseIf e.Button.Kind = ButtonPredefines.Delete Then
         End If
     End Sub
@@ -155,17 +156,16 @@ Public Class AssetServiceHistory
 
     Private Sub lueEscapeRoute_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueEscapeRoute.ButtonClick
         If e.Button.Kind = ButtonPredefines.Plus Then
-            Dim nEscapeRoute As New EscapeRoute(_session)
-            nEscapeRoute.Location = String.Format("EscapeRoute {0}", CurrentBuilding.EscapeRoutes.Count + 1)
-            nEscapeRoute.Building = CurrentBuilding
-            nEscapeRoute.NoFloors = 0
-            nEscapeRoute.Save()
+            Dim _escapeRoute As New EscapeRoute(_session)
+            _escapeRoute.Location = String.Format("EscapeRoute {0}", CurrentBuilding.EscapeRoutes.Count + 1)
+            _escapeRoute.Building = CurrentBuilding
+            _escapeRoute.NoFloors = 0
+            _escapeRoute.Save()
             _session.CommitChanges()
 
             CreateEscapeRouteLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, CurrentBuilding.Oid)
-
-            lueEscapeRoute.EditValue = nEscapeRoute
-            lueEscapeRoute.Properties.DropDownRows = 5
+            lueEscapeRoute.EditValue = _escapeRoute
+            _currentAsset.EscapeRoute = _escapeRoute
         ElseIf e.Button.Kind = ButtonPredefines.Delete Then
         End If
     End Sub
@@ -188,21 +188,22 @@ Public Class AssetServiceHistory
             _escapeRoute.Location = lueEscapeRoute.Text
             _escapeRoute.Save()
             _session.CommitChanges()
+            _currentAsset.EscapeRoute = _escapeRoute
             e.Handled = True
         End If
     End Sub
 
     Private Sub lueFloor_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueFloor.ButtonClick
         If e.Button.Kind = ButtonPredefines.Plus Then
-            Dim nFloor As New Floor(_session)
-            nFloor.Location = String.Format("Floor {0}", CurrentEscapeRoute.Floors.Count + 1)
-            nFloor.Building = CurrentBuilding
-            nFloor.EscapeRoute = CurrentEscapeRoute
-            nFloor.Save()
+            Dim _floor As New Floor(_session)
+            _floor.Location = String.Format("Floor {0}", CurrentEscapeRoute.Floors.Count + 1)
+            _floor.Building = CurrentBuilding
+            _floor.EscapeRoute = CurrentEscapeRoute
+            _floor.Save()
             _session.CommitChanges()
-
-            CreateFloorLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, CurrentEscapeRoute.Oid)
-            lueFloor.EditValue = nFloor
+            CreateFloorLookUpEdit(_session, lueFloor.Properties, Nothing, CurrentEscapeRoute.Oid)
+            lueFloor.EditValue = _floor
+            _currentAsset.Floor = _floor
         ElseIf e.Button.Kind = ButtonPredefines.Delete Then
         End If
     End Sub
@@ -214,6 +215,7 @@ Public Class AssetServiceHistory
             _floor.Location = _name
             _floor.Save()
             _session.CommitChanges()
+            _currentAsset.Floor = _floor
             e.Handled = True
         End If
     End Sub

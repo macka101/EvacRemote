@@ -54,7 +54,7 @@ Public Class ViewDiarySchedule
         MapResourceData()
         SchedulerControl1.GroupType = SchedulerGroupType.Resource
 
-        Me.SchedulerStorage1.Appointments.DataSource = New XPCollection(Of CentralDiary)(_session, (CriteriaOperator.Parse("UserId = ? and BookedDate > ?", 8, DateTime.Today.AddDays(-8))), New DevExpress.Xpo.SortProperty("[BookedDate]", DevExpress.Xpo.DB.SortingDirection.Ascending))
+        Me.SchedulerStorage1.Appointments.DataSource = New XPCollection(Of CentralDiary)(_session, (CriteriaOperator.Parse("UserId = ? and BookedDate > ? and Label = 5", 8, DateTime.Today.AddDays(-8))), New DevExpress.Xpo.SortProperty("[BookedDate]", DevExpress.Xpo.DB.SortingDirection.Ascending))
         'Me.SchedulerStorage1.Appointments.DataMember = _ScheduleTable
         Me.SchedulerStorage1.Resources.DataSource = New XPCollection(Of Engineer)(_session, (CriteriaOperator.Parse("EngineerNo = ?", 8)))
         'Me.SchedulerStorage1.Resources.DataMember = _EngineerTable

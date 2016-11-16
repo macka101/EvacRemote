@@ -35,20 +35,10 @@ Public Class SurveyDetail
 
     Public Sub InitEditors()
 
-        xpBuildings = _currentDivision.Buildings
+        '     xpBuildings = _currentDivision.Buildings
 
-        xpEscapeRoutes = New XPCollection(Of EscapeRoute)(_session)
-        xpFloors = New XPCollection(Of Floor)(_session)
-
-        If xpBuildings.Count = 0 Then
-            Dim nBuilding As New Building(_session)
-            nBuilding.Location = String.Format("Building {0}", 1)
-            nBuilding.Heritage = "No"
-            nBuilding.Access = "Private"
-            nBuilding.Save()
-            _session.CommitChanges()
-            _currentDivision.Buildings.Add(nBuilding)
-        End If
+        'xpEscapeRoutes = New XPCollection(Of EscapeRoute)(_session)
+        'xpFloors = New XPCollection(Of Floor)(_session)
 
         CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
 
@@ -82,7 +72,7 @@ Public Class SurveyDetail
 
         InitEditors()
 
-        lueBuilding.EditValue = xpBuildings.First
+        '        lueBuilding.EditValue = xpBuildings.First
         icbAccess.EditValue = _currentSurvey.Access
         icbHeritage.EditValue = _currentSurvey.Heritage
         teEscapeRoutes.Text = _currentSurvey.EscapeRoutes
@@ -108,9 +98,9 @@ Public Class SurveyDetail
         ' ParentFormMain.HideProduct()
     End Sub
 
-    Public Sub RefreshStairWell()
-        xpEscapeRoutes.Reload()
-    End Sub
+    'Public Sub RefreshStairWell()
+    '    xpEscapeRoutes.Reload()
+    'End Sub
 
     'Private Sub view_Staircases_Click(sender As Object, e As EventArgs)
     '    If CurrentEscapeRoute IsNot Nothing Then
@@ -179,17 +169,15 @@ Public Class SurveyDetail
 
     Private Sub lueBuilding_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueBuilding.ButtonClick
         If e.Button.Kind = ButtonPredefines.Plus Then
-            Dim nBuilding As New Building(_session)
-            nBuilding.Location = String.Format("Building {0}", xpBuildings.Count + 1)
-            nBuilding.Heritage = "No"
-            nBuilding.Access = "Private"
-            nBuilding.Save()
+            Dim _building As New Building(_session)
+            _building.Location = String.Format("Building {0}", _currentDivision.Buildings.Count + 1)
+            _building.Heritage = "No"
+            _building.Access = "Private"
+            _building.Save()
             _session.CommitChanges()
-            xpBuildings.Add(nBuilding)
-            lueBuilding.Properties.DataSource = xpBuildings
+            '   xpBuildings.Add(nBuilding)
+         CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
 
-            lueBuilding.EditValue = xpBuildings.Last
-            lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
         ElseIf e.Button.Kind = ButtonPredefines.DropDown Then
 
         ElseIf e.Button.Kind = ButtonPredefines.Delete Then

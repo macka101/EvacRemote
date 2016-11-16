@@ -56,9 +56,9 @@ Module Misc
 
     Public currentADUser As System.DirectoryServices.AccountManagement.UserPrincipal
 
-    Public xpBuildings As XPCollection(Of Building)
-    Public xpEscapeRoutes As XPCollection(Of EscapeRoute)
-    Public xpFloors As XPCollection(Of Floor)
+    'Public xpBuildings As XPCollection(Of Building)
+    'Public xpEscapeRoutes As XPCollection(Of EscapeRoute)
+    'Public xpFloors As XPCollection(Of Floor)
 
     Public Function OpenConnection() As OdbcConnection
 

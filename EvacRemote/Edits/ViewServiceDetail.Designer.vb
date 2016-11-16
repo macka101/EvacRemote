@@ -43,6 +43,9 @@ Partial Class ViewServiceDetail
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciServiceDate = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.colBuilding = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colFloor = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colEscapeRoute = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.chkNoAccess.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,7 +142,7 @@ Partial Class ViewServiceDetail
         '
         'view_Assets
         '
-        Me.view_Assets.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colAssetId, Me.colBarCode, Me.colProduct, Me.colInstalled})
+        Me.view_Assets.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colAssetId, Me.colBarCode, Me.colBuilding, Me.colEscapeRoute, Me.colFloor, Me.colProduct, Me.colInstalled})
         Me.view_Assets.GridControl = Me.grid_assets
         Me.view_Assets.Name = "view_Assets"
         Me.view_Assets.OptionsBehavior.Editable = False
@@ -169,7 +172,7 @@ Partial Class ViewServiceDetail
         Me.colProduct.FieldName = "Product.Description"
         Me.colProduct.Name = "colProduct"
         Me.colProduct.Visible = True
-        Me.colProduct.VisibleIndex = 1
+        Me.colProduct.VisibleIndex = 4
         Me.colProduct.Width = 390
         '
         'colInstalled
@@ -180,7 +183,7 @@ Partial Class ViewServiceDetail
         Me.colInstalled.OptionsColumn.AllowSize = False
         Me.colInstalled.OptionsColumn.FixedWidth = True
         Me.colInstalled.Visible = True
-        Me.colInstalled.VisibleIndex = 2
+        Me.colInstalled.VisibleIndex = 5
         '
         'LayoutControlGroup1
         '
@@ -275,6 +278,30 @@ Partial Class ViewServiceDetail
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
+        'colBuilding
+        '
+        Me.colBuilding.Caption = "Building"
+        Me.colBuilding.FieldName = "Building.Location"
+        Me.colBuilding.Name = "colBuilding"
+        Me.colBuilding.Visible = True
+        Me.colBuilding.VisibleIndex = 1
+        '
+        'colFloor
+        '
+        Me.colFloor.Caption = "Floor"
+        Me.colFloor.FieldName = "Floor.Location"
+        Me.colFloor.Name = "colFloor"
+        Me.colFloor.Visible = True
+        Me.colFloor.VisibleIndex = 3
+        '
+        'colEscapeRoute
+        '
+        Me.colEscapeRoute.Caption = "EscapeRoute"
+        Me.colEscapeRoute.FieldName = "EscapeRoute.Location"
+        Me.colEscapeRoute.Name = "colEscapeRoute"
+        Me.colEscapeRoute.Visible = True
+        Me.colEscapeRoute.VisibleIndex = 2
+        '
         'ViewServiceDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -323,5 +350,8 @@ Partial Class ViewServiceDetail
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciServiceDate As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents colBuilding As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colEscapeRoute As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colFloor As DevExpress.XtraGrid.Columns.GridColumn
 
 End Class

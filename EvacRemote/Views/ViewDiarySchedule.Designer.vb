@@ -37,6 +37,12 @@ Partial Class ViewDiarySchedule
         Me.SchedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SchedulerControl1.Location = New System.Drawing.Point(0, 0)
         Me.SchedulerControl1.Name = "SchedulerControl1"
+        Me.SchedulerControl1.OptionsCustomization.AllowAppointmentCopy = DevExpress.XtraScheduler.UsedAppointmentType.None
+        Me.SchedulerControl1.OptionsCustomization.AllowAppointmentCreate = DevExpress.XtraScheduler.UsedAppointmentType.None
+        Me.SchedulerControl1.OptionsCustomization.AllowAppointmentDelete = DevExpress.XtraScheduler.UsedAppointmentType.None
+        Me.SchedulerControl1.OptionsCustomization.AllowAppointmentDragBetweenResources = DevExpress.XtraScheduler.UsedAppointmentType.None
+        Me.SchedulerControl1.OptionsCustomization.AllowAppointmentEdit = DevExpress.XtraScheduler.UsedAppointmentType.NonRecurring
+        Me.SchedulerControl1.OptionsCustomization.AllowAppointmentMultiSelect = False
         Me.SchedulerControl1.Size = New System.Drawing.Size(659, 419)
         Me.SchedulerControl1.Start = New Date(2016, 9, 21, 0, 0, 0, 0)
         Me.SchedulerControl1.Storage = Me.SchedulerStorage1
@@ -45,6 +51,8 @@ Partial Class ViewDiarySchedule
         Me.SchedulerControl1.Views.DayView.TimeRulers.Add(TimeRuler1)
         Me.SchedulerControl1.Views.FullWeekView.Enabled = True
         Me.SchedulerControl1.Views.FullWeekView.TimeRulers.Add(TimeRuler2)
+        Me.SchedulerControl1.Views.GanttView.Enabled = False
+        Me.SchedulerControl1.Views.TimelineView.Enabled = False
         Me.SchedulerControl1.Views.WeekView.Enabled = False
         Me.SchedulerControl1.Views.WorkWeekView.TimeRulers.Add(TimeRuler3)
         '
