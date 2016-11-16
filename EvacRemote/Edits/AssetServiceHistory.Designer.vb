@@ -28,6 +28,9 @@ Partial Class AssetServiceHistory
         Me.btnNewService = New DevExpress.XtraEditors.SimpleButton()
         Me.grdServices = New DevExpress.XtraGrid.GridControl()
         Me.vw_Services = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colServiceDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPassed = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.lueProduct = New DevExpress.XtraEditors.LookUpEdit()
         Me.lueFloor = New DevExpress.XtraEditors.LookUpEdit()
         Me.teDescription = New DevExpress.XtraEditors.TextEdit()
@@ -50,9 +53,6 @@ Partial Class AssetServiceHistory
         Me.lciServices = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
-        Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colServiceDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colPassed = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.grdServices, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,6 +131,28 @@ Partial Class AssetServiceHistory
         Me.vw_Services.OptionsCustomization.AllowGroup = False
         Me.vw_Services.OptionsView.ShowGroupPanel = False
         '
+        'colOid
+        '
+        Me.colOid.Caption = "Oid"
+        Me.colOid.FieldName = "Oid"
+        Me.colOid.Name = "colOid"
+        '
+        'colServiceDate
+        '
+        Me.colServiceDate.Caption = "Service Date"
+        Me.colServiceDate.FieldName = "ServiceDate"
+        Me.colServiceDate.Name = "colServiceDate"
+        Me.colServiceDate.Visible = True
+        Me.colServiceDate.VisibleIndex = 0
+        '
+        'colPassed
+        '
+        Me.colPassed.Caption = "Pass/Fail"
+        Me.colPassed.FieldName = "Passed"
+        Me.colPassed.Name = "colPassed"
+        Me.colPassed.Visible = True
+        Me.colPassed.VisibleIndex = 1
+        '
         'lueProduct
         '
         Me.lueProduct.Location = New System.Drawing.Point(436, 46)
@@ -144,7 +166,7 @@ Partial Class AssetServiceHistory
         '
         Me.lueFloor.Location = New System.Drawing.Point(718, 22)
         Me.lueFloor.Name = "lueFloor"
-        Me.lueFloor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lueFloor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)})
         Me.lueFloor.Size = New System.Drawing.Size(182, 20)
         Me.lueFloor.StyleController = Me.LayoutControl1
         Me.lueFloor.TabIndex = 59
@@ -190,7 +212,7 @@ Partial Class AssetServiceHistory
         '
         Me.lueEscapeRoute.Location = New System.Drawing.Point(465, 22)
         Me.lueEscapeRoute.Name = "lueEscapeRoute"
-        Me.lueEscapeRoute.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lueEscapeRoute.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)})
         Me.lueEscapeRoute.Properties.NullText = ""
         Me.lueEscapeRoute.Properties.PopupSizeable = False
         Me.lueEscapeRoute.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
@@ -347,35 +369,13 @@ Partial Class AssetServiceHistory
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
-        'colOid
-        '
-        Me.colOid.Caption = "Oid"
-        Me.colOid.FieldName = "Oid"
-        Me.colOid.Name = "colOid"
-        '
-        'colServiceDate
-        '
-        Me.colServiceDate.Caption = "Service Date"
-        Me.colServiceDate.FieldName = "ServiceDate"
-        Me.colServiceDate.Name = "colServiceDate"
-        Me.colServiceDate.Visible = True
-        Me.colServiceDate.VisibleIndex = 0
-        '
-        'colPassed
-        '
-        Me.colPassed.Caption = "Pass/Fail"
-        Me.colPassed.FieldName = "Passed"
-        Me.colPassed.Name = "colPassed"
-        Me.colPassed.Visible = True
-        Me.colPassed.VisibleIndex = 1
-        '
-        'AssetChairService
+        'AssetServiceHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "AssetChairService"
+        Me.Name = "AssetServiceHistory"
         Me.Size = New System.Drawing.Size(922, 452)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

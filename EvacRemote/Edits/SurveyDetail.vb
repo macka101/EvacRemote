@@ -50,21 +50,21 @@ Public Class SurveyDetail
             _currentDivision.Buildings.Add(nBuilding)
         End If
 
-        ' CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, True, _currentDivision.Oid)
+        CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
 
-        lueBuilding.Properties.DataSource = xpBuildings
-        lueBuilding.Properties.DisplayMember = "Location"
-        lueBuilding.Properties.NullText = String.Empty
-        lueBuilding.Properties.Columns.Clear()
-        lueBuilding.Properties.Columns.Add(New LookUpColumnInfo("Location"))
-        lueBuilding.Properties.ShowHeader = False
-        If xpBuildings Is Nothing Then
-            lueBuilding.Properties.DropDownRows = 9
-        Else
-            lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
-        End If
+        'lueBuilding.Properties.DataSource = xpBuildings
+        'lueBuilding.Properties.DisplayMember = "Location"
+        'lueBuilding.Properties.NullText = String.Empty
+        'lueBuilding.Properties.Columns.Clear()
+        'lueBuilding.Properties.Columns.Add(New LookUpColumnInfo("Location"))
+        'lueBuilding.Properties.ShowHeader = False
+        'If xpBuildings Is Nothing Then
+        '    lueBuilding.Properties.DropDownRows = 9
+        'Else
+        '    lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
+        'End If
 
-        lueBuilding.Properties.AllowDropDownWhenReadOnly = DefaultBoolean.False
+        'lueBuilding.Properties.AllowDropDownWhenReadOnly = DefaultBoolean.False
 
         AddHandler lueBuilding.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbAccess.EditValueChanged, AddressOf edit_EditValueChanged
@@ -197,10 +197,12 @@ Public Class SurveyDetail
     End Sub
 
     Private Sub lueBuilding_EditValueChanged(sender As Object, e As EventArgs) Handles lueBuilding.EditValueChanged
-        icbAccess.EditValue = CurrentBuilding.Access
-        icbHeritage.EditValue = CurrentBuilding.Heritage
-        teEscapeRoutes.EditValue = CurrentBuilding.EscapeRoutesNo
-        GrdEscapeRoutes.DataSource = CurrentBuilding.EscapeRoutes
+        If CurrentBuilding IsNot Nothing Then
+            icbAccess.EditValue = CurrentBuilding.Access
+            icbHeritage.EditValue = CurrentBuilding.Heritage
+            teEscapeRoutes.EditValue = CurrentBuilding.EscapeRoutesNo
+            GrdEscapeRoutes.DataSource = CurrentBuilding.EscapeRoutes
+        End If
     End Sub
 
     'Private Sub teStairwells_EditValueChanged(sender As Object, e As EventArgs)
@@ -237,10 +239,14 @@ Public Class SurveyDetail
     End Sub
 
     Private Sub lueBuilding_ProcessNewValue(sender As Object, e As ProcessNewValueEventArgs) Handles lueBuilding.ProcessNewValue
-        Dim _building As Building = TryCast(lueBuilding.EditValue, Building)
-        _building.Location = lueBuilding.Text
-        _building.Save()
-
+        Dim _name As String = e.DisplayValue.ToString
+        If XtraMessageBox.Show(Me, "Update Building Name ?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Dim _building As Building = TryCast(lueBuilding.EditValue, Building)
+            _building.Location = lueBuilding.Text
+            _building.Save()
+            _session.CommitChanges()
+            e.Handled = True
+        End If
     End Sub
     Private Sub SaveData()
         _currentSurvey.Access = icbAccess.Text

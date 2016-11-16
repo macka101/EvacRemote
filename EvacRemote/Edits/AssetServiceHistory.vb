@@ -33,6 +33,8 @@ Public Class AssetServiceHistory
     Public Sub Initdata()
         InitEditors()
 
+        xpBuildings = _currentDivision.Buildings
+
         lueBuilding.EditValue = _currentAsset.Building
         lueEscapeRoute.EditValue = _currentAsset.EscapeRoute
         lueFloor.EditValue = _currentAsset.Floor
@@ -87,10 +89,27 @@ Public Class AssetServiceHistory
         _parent.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
     Private Sub InitEditors()
-        CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, _currentDivision.Oid)
+        CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
+        'CreateEscapeRouteLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, False, CurrentBuilding.Oid)
         CreateProductLookUpEdit(_session, lueProduct.Properties, Nothing)
 
     End Sub
+    Private ReadOnly Property CurrentBuilding() As Building
+        Get
+            If Object.Equals(lueBuilding.EditValue, Nothing) Then
+                Return Nothing
+            End If
+            Return TryCast(lueBuilding.EditValue, Building)
+        End Get
+    End Property
+    Private ReadOnly Property CurrentEscapeRoute() As EscapeRoute
+        Get
+            If Object.Equals(lueEscapeRoute.EditValue, Nothing) Then
+                Return Nothing
+            End If
+            Return TryCast(lueEscapeRoute.EditValue, EscapeRoute)
+        End Get
+    End Property
     Private Sub lueBuilding_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueBuilding.ButtonClick
         If e.Button.Kind = ButtonPredefines.Plus Then
             Dim nBuilding As New Building(_session)
@@ -104,15 +123,13 @@ Public Class AssetServiceHistory
 
             lueBuilding.EditValue = xpBuildings.Last
             lueBuilding.Properties.DropDownRows = Math.Min(xpBuildings.Count, 9)
-        ElseIf e.Button.Kind = ButtonPredefines.DropDown Then
-
         ElseIf e.Button.Kind = ButtonPredefines.Delete Then
         End If
     End Sub
 
     Private Sub lueBuilding_EditValueChanged(sender As Object, e As EventArgs) Handles lueBuilding.EditValueChanged
 
-        CreateEscapeRouteLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, TryCast(lueBuilding.EditValue, Building).Oid)
+        CreateEscapeRouteLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, CurrentBuilding.Oid)
     End Sub
 
     Private Sub lueEscapeRoute_EditValueChanged(sender As Object, e As EventArgs) Handles lueEscapeRoute.EditValueChanged
@@ -133,6 +150,71 @@ Public Class AssetServiceHistory
             _currentChairservice = CurrentService
             ParentFormMain.SelectPage(frmMain.ePage.AssetChairService)
             vw_Services.RefreshData()
+        End If
+    End Sub
+
+    Private Sub lueEscapeRoute_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueEscapeRoute.ButtonClick
+        If e.Button.Kind = ButtonPredefines.Plus Then
+            Dim nEscapeRoute As New EscapeRoute(_session)
+            nEscapeRoute.Location = String.Format("EscapeRoute {0}", CurrentBuilding.EscapeRoutes.Count + 1)
+            nEscapeRoute.Building = CurrentBuilding
+            nEscapeRoute.NoFloors = 0
+            nEscapeRoute.Save()
+            _session.CommitChanges()
+
+            CreateEscapeRouteLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, CurrentBuilding.Oid)
+
+            lueEscapeRoute.EditValue = nEscapeRoute
+            lueEscapeRoute.Properties.DropDownRows = 5
+        ElseIf e.Button.Kind = ButtonPredefines.Delete Then
+        End If
+    End Sub
+
+    Private Sub lueBuilding_ProcessNewValue(sender As Object, e As ProcessNewValueEventArgs) Handles lueBuilding.ProcessNewValue
+        Dim _name As String = e.DisplayValue.ToString
+        If XtraMessageBox.Show(Me, "Update Building Name ?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Dim _building As Building = TryCast(lueBuilding.EditValue, Building)
+            _building.Location = lueBuilding.Text
+            _building.Save()
+            _session.CommitChanges()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub lueEscapeRoute_ProcessNewValue(sender As Object, e As ProcessNewValueEventArgs) Handles lueEscapeRoute.ProcessNewValue
+        Dim _name As String = e.DisplayValue.ToString
+        If XtraMessageBox.Show(Me, "Update Escapre Route Name?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Dim _escapeRoute As EscapeRoute = TryCast(lueEscapeRoute.EditValue, EscapeRoute)
+            _escapeRoute.Location = lueEscapeRoute.Text
+            _escapeRoute.Save()
+            _session.CommitChanges()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub lueFloor_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueFloor.ButtonClick
+        If e.Button.Kind = ButtonPredefines.Plus Then
+            Dim nFloor As New Floor(_session)
+            nFloor.Location = String.Format("Floor {0}", CurrentEscapeRoute.Floors.Count + 1)
+            nFloor.Building = CurrentBuilding
+            nFloor.EscapeRoute = CurrentEscapeRoute
+            nFloor.Save()
+            _session.CommitChanges()
+
+            CreateFloorLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, CurrentEscapeRoute.Oid)
+            lueFloor.EditValue = nFloor
+        ElseIf e.Button.Kind = ButtonPredefines.Delete Then
+        End If
+    End Sub
+
+    Private Sub lueFloor_ProcessNewValue(sender As Object, e As ProcessNewValueEventArgs) Handles lueFloor.ProcessNewValue
+        Dim _name As String = e.DisplayValue.ToString
+        If XtraMessageBox.Show(Me, "Update Floor Name ?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Dim _floor As Floor = TryCast(lueFloor.EditValue, Floor)
+            _floor.Location = _name
+            _floor.Save()
+            _session.CommitChanges()
+            e.Handled = True
         End If
     End Sub
 End Class

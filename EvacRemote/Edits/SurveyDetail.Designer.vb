@@ -114,6 +114,7 @@ Partial Class SurveyDetail
         Me.lueBuilding.EnterMoveNextControl = True
         Me.lueBuilding.Location = New System.Drawing.Point(134, 12)
         Me.lueBuilding.Name = "lueBuilding"
+        Me.lueBuilding.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.[False]
         Me.lueBuilding.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)})
         Me.lueBuilding.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.lueBuilding.Size = New System.Drawing.Size(348, 20)
