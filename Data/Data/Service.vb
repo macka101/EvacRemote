@@ -520,6 +520,16 @@ Namespace Esso.Data
                 SetPropertyValue(Of Boolean)("DustedChair", _dustedChair, value)
             End Set
         End Property
+        Private _passFail As Boolean
+        <DevExpress.Xpo.DisplayName("Pass/Fail")>
+        Public Property PassFail() As Boolean
+            Get
+                Return _passFail
+            End Get
+            Set(value As Boolean)
+                SetPropertyValue(Of Boolean)("PassFail", _passFail, value)
+            End Set
+        End Property
         Private _notes As String
         Public Property Notes() As String
             Get

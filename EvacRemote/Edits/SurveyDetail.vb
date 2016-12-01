@@ -68,14 +68,25 @@ Public Class SurveyDetail
             _currentSurvey.Division = _currentDivision
             _currentSurvey.Contact = _currentContact
             _currentSurvey.SurveyDate = DateTime.Today
+            _currentSurvey.Save()
+            _session.CommitChanges()
         End If
-
+        If _currentDivision.Buildings.Count = 0 Then
+            _currentBuilding = New Building(_session)
+            _currentBuilding.Division = _currentDivision
+            _currentBuilding.Location = "Building 1"
+            _currentBuilding.Heritage = "No"
+            _currentBuilding.Access = "Private"
+            _currentBuilding.EscapeRoutesNo = 0
+            _currentBuilding.Save()
+            _session.CommitChanges()
+        End If
         InitEditors()
-
+        lueBuilding.EditValue = _currentDivision.Buildings.First
         '        lueBuilding.EditValue = xpBuildings.First
-        icbAccess.EditValue = _currentSurvey.Access
-        icbHeritage.EditValue = _currentSurvey.Heritage
-        teEscapeRoutes.Text = _currentSurvey.EscapeRoutes
+        'icbAccess.EditValue = CurrentBuilding.Access
+        'icbHeritage.EditValue = CurrentBuilding.Heritage
+        'teEscapeRoutes.Text = CurrentBuilding.EscapeRoutesNo
         ' colClient.ColumnEdit = Misc.CreateAccessTypeImageComboBox(grid_Buildings.RepositoryItems, True, True)
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, False)
 
@@ -237,10 +248,10 @@ Public Class SurveyDetail
         End If
     End Sub
     Private Sub SaveData()
-        _currentSurvey.Access = icbAccess.Text
-        _currentSurvey.Heritage = icbHeritage.Text
-        _currentSurvey.EscapeRoutes = teEscapeRoutes.Text
-        _currentSurvey.Save()
+        CurrentBuilding.Access = icbAccess.Text
+        CurrentBuilding.Heritage = icbHeritage.Text
+        CurrentBuilding.EscapeRoutesNo = teEscapeRoutes.Text
+        CurrentBuilding.Save()
         _session.CommitChanges()
     End Sub
 

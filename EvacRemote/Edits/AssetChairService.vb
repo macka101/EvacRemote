@@ -49,7 +49,7 @@ Public Class AssetChairService
         tsKickstandGas.IsOn = _currentChairservice.KickstandGas
         tsStabiliserRivets.IsOn = _currentChairservice.StabiliserRivets
         tsClosure.IsOn = _currentChairservice.Closure
-
+        tsPassFail.IsOn = _currentChairservice.PassFail
         dteServiceDate.DateTime = _currentChairservice.ServiceDate
         teEngineer.Text = _EngineerName
         teNotes.Text = _currentChairservice.Notes
@@ -88,7 +88,7 @@ Public Class AssetChairService
         _currentChairservice.KickstandGas = tsKickstandGas.IsOn
         _currentChairservice.StabiliserRivets = tsStabiliserRivets.IsOn
         _currentChairservice.Closure = tsClosure.IsOn
-
+        _currentChairservice.PassFail = tsPassFail.IsOn
         _currentChairservice.ServiceDate = dteServiceDate.DateTime
         _currentChairservice.Notes = teNotes.Text
         _currentChairservice.Save()
@@ -97,6 +97,24 @@ Public Class AssetChairService
         _parent.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
     Private Sub InitEditors()
+
+        CreateToggleSwitch(tsSpringClips)
+        CreateToggleSwitch(tsPaddingSeat)
+        CreateToggleSwitch(tsRearHandle)
+        CreateToggleSwitch(tsKickstandGasSpring)
+        CreateToggleSwitch(tsSkiAssemblyRollers)
+        CreateToggleSwitch(tsSafetyBelt)
+        CreateToggleSwitch(tsKickstandBolt)
+        CreateToggleSwitch(tsStabiliserRivets)
+        CreateToggleSwitch(tsSeatRivets)
+        CreateToggleSwitch(tsFrontHandle)
+        CreateToggleSwitch(tsHammockCondition)
+        CreateToggleSwitch(tsRotationBelts)
+        CreateToggleSwitch(tsSpindlePosition)
+        CreateToggleSwitch(tsSeatFrame)
+        CreateToggleSwitch(tsKickstandGas)
+        CreateToggleSwitch(tsClosure)
+        CreateToggleSwitch(tsPassFail)
 
         If xpOptions Is Nothing Then
             xpOptions = New XPCollection(Of FieldOption)(_session, Nothing, New DevExpress.Xpo.SortProperty("[Description]", DevExpress.Xpo.DB.SortingDirection.Ascending))

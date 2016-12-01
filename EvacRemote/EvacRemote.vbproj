@@ -35,7 +35,7 @@
     <PublisherName>Evac Chair International</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>84</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -315,6 +315,12 @@
     <Compile Include="Reports\rptSurveyQuote.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\xptService.Designer.vb">
+      <DependentUpon>xptService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xptService.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RTFActions\1 RangeActions.vb" />
     <Compile Include="RTFActions\2 FormattingActions.vb" />
     <Compile Include="RTFActions\3 PageLayoutActions.vb" />
@@ -374,12 +380,6 @@
       <DependentUpon>ViewServiceList.vb</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewServiceList.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ViewSurveyList.Designer.vb">
-      <DependentUpon>ViewSurveyList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewSurveyList.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Edits\SurveyDetail.Designer.vb">
@@ -467,6 +467,9 @@
     <EmbeddedResource Include="Reports\rptSurveyQuote.resx">
       <DependentUpon>rptSurveyQuote.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xptService.resx">
+      <DependentUpon>xptService.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SwipeGrid\SwipeGridControl.resx" />
     <EmbeddedResource Include="Views\ViewBasketList.resx">
       <DependentUpon>ViewBasketList.vb</DependentUpon>
@@ -482,9 +485,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewServiceList.resx">
       <DependentUpon>ViewServiceList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ViewSurveyList.resx">
-      <DependentUpon>ViewSurveyList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edits\SurveyDetail.resx">
       <DependentUpon>SurveyDetail.vb</DependentUpon>

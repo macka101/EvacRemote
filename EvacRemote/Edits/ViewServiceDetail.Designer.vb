@@ -32,6 +32,9 @@ Partial Class ViewServiceDetail
         Me.view_Assets = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colAssetId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colBarCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colBuilding = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colEscapeRoute = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colFloor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colProduct = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colInstalled = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
@@ -43,9 +46,8 @@ Partial Class ViewServiceDetail
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciServiceDate = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.colBuilding = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colFloor = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colEscapeRoute = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.btnPrint = New DevExpress.XtraEditors.SimpleButton()
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.chkNoAccess.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,10 +65,12 @@ Partial Class ViewServiceDetail
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciServiceDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.btnPrint)
         Me.LayoutControl1.Controls.Add(Me.chkNoAccess)
         Me.LayoutControl1.Controls.Add(Me.dteServiceDate)
         Me.LayoutControl1.Controls.Add(Me.btnComplete)
@@ -87,7 +91,7 @@ Partial Class ViewServiceDetail
         Me.chkNoAccess.Location = New System.Drawing.Point(525, 12)
         Me.chkNoAccess.Name = "chkNoAccess"
         Me.chkNoAccess.Properties.Caption = "No Access"
-        Me.chkNoAccess.Size = New System.Drawing.Size(248, 19)
+        Me.chkNoAccess.Size = New System.Drawing.Size(157, 19)
         Me.chkNoAccess.StyleController = Me.LayoutControl1
         Me.chkNoAccess.TabIndex = 20
         '
@@ -104,9 +108,9 @@ Partial Class ViewServiceDetail
         '
         'btnComplete
         '
-        Me.btnComplete.Location = New System.Drawing.Point(777, 12)
+        Me.btnComplete.Location = New System.Drawing.Point(686, 12)
         Me.btnComplete.Name = "btnComplete"
-        Me.btnComplete.Size = New System.Drawing.Size(127, 22)
+        Me.btnComplete.Size = New System.Drawing.Size(137, 22)
         Me.btnComplete.StyleController = Me.LayoutControl1
         Me.btnComplete.TabIndex = 18
         Me.btnComplete.Text = "Sign Off"
@@ -166,6 +170,30 @@ Partial Class ViewServiceDetail
         Me.colBarCode.VisibleIndex = 0
         Me.colBarCode.Width = 120
         '
+        'colBuilding
+        '
+        Me.colBuilding.Caption = "Building"
+        Me.colBuilding.FieldName = "Building.Location"
+        Me.colBuilding.Name = "colBuilding"
+        Me.colBuilding.Visible = True
+        Me.colBuilding.VisibleIndex = 1
+        '
+        'colEscapeRoute
+        '
+        Me.colEscapeRoute.Caption = "EscapeRoute"
+        Me.colEscapeRoute.FieldName = "EscapeRoute.Location"
+        Me.colEscapeRoute.Name = "colEscapeRoute"
+        Me.colEscapeRoute.Visible = True
+        Me.colEscapeRoute.VisibleIndex = 2
+        '
+        'colFloor
+        '
+        Me.colFloor.Caption = "Floor"
+        Me.colFloor.FieldName = "Floor.Location"
+        Me.colFloor.Name = "colFloor"
+        Me.colFloor.Visible = True
+        Me.colFloor.VisibleIndex = 3
+        '
         'colProduct
         '
         Me.colProduct.Caption = "Product"
@@ -190,7 +218,7 @@ Partial Class ViewServiceDetail
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciAssets, Me.SimpleLabelItem3, Me.LayoutControlItem1, Me.EmptySpaceItem2, Me.lciPicBack, Me.LayoutControlItem2, Me.lciServiceDate, Me.LayoutControlItem3})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciAssets, Me.SimpleLabelItem3, Me.LayoutControlItem1, Me.EmptySpaceItem2, Me.lciPicBack, Me.LayoutControlItem2, Me.lciServiceDate, Me.LayoutControlItem3, Me.LayoutControlItem4})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -252,9 +280,9 @@ Partial Class ViewServiceDetail
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.btnComplete
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(765, 0)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(674, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(131, 26)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(141, 26)
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
@@ -274,33 +302,27 @@ Partial Class ViewServiceDetail
         Me.LayoutControlItem3.Control = Me.chkNoAccess
         Me.LayoutControlItem3.Location = New System.Drawing.Point(513, 0)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(252, 26)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(161, 26)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
-        'colBuilding
+        'btnPrint
         '
-        Me.colBuilding.Caption = "Building"
-        Me.colBuilding.FieldName = "Building.Location"
-        Me.colBuilding.Name = "colBuilding"
-        Me.colBuilding.Visible = True
-        Me.colBuilding.VisibleIndex = 1
+        Me.btnPrint.Location = New System.Drawing.Point(827, 12)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(77, 22)
+        Me.btnPrint.StyleController = Me.LayoutControl1
+        Me.btnPrint.TabIndex = 21
+        Me.btnPrint.Text = "Print"
         '
-        'colFloor
+        'LayoutControlItem4
         '
-        Me.colFloor.Caption = "Floor"
-        Me.colFloor.FieldName = "Floor.Location"
-        Me.colFloor.Name = "colFloor"
-        Me.colFloor.Visible = True
-        Me.colFloor.VisibleIndex = 3
-        '
-        'colEscapeRoute
-        '
-        Me.colEscapeRoute.Caption = "EscapeRoute"
-        Me.colEscapeRoute.FieldName = "EscapeRoute.Location"
-        Me.colEscapeRoute.Name = "colEscapeRoute"
-        Me.colEscapeRoute.Visible = True
-        Me.colEscapeRoute.VisibleIndex = 2
+        Me.LayoutControlItem4.Control = Me.btnPrint
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(815, 0)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(81, 26)
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem4.TextVisible = False
         '
         'ViewServiceDetail
         '
@@ -326,6 +348,7 @@ Partial Class ViewServiceDetail
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciServiceDate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -353,5 +376,6 @@ Partial Class ViewServiceDetail
     Friend WithEvents colBuilding As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colEscapeRoute As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFloor As DevExpress.XtraGrid.Columns.GridColumn
-
+    Friend WithEvents btnPrint As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
 End Class

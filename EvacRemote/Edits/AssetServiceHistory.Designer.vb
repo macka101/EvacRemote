@@ -148,7 +148,7 @@ Partial Class AssetServiceHistory
         'colPassed
         '
         Me.colPassed.Caption = "Pass/Fail"
-        Me.colPassed.FieldName = "Passed"
+        Me.colPassed.FieldName = "PassFail"
         Me.colPassed.Name = "colPassed"
         Me.colPassed.Visible = True
         Me.colPassed.VisibleIndex = 1
