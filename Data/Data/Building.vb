@@ -494,6 +494,16 @@ Namespace Esso.Data
                 _building = value
             End Set
         End Property
+        Private _Survey As EvacSurvey
+        <Association("Survey-Floors")>
+        Public Property Survey() As EvacSurvey
+            Get
+                Return _Survey
+            End Get
+            Set(value As EvacSurvey)
+                _Survey = value
+            End Set
+        End Property
         Private _Location As String
         Public Property Location() As String
             Get

@@ -181,6 +181,7 @@ Public Class SurveyDetail
     Private Sub lueBuilding_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles lueBuilding.ButtonClick
         If e.Button.Kind = ButtonPredefines.Plus Then
             Dim _building As New Building(_session)
+            _building.Division = _currentDivision
             _building.Location = String.Format("Building {0}", _currentDivision.Buildings.Count + 1)
             _building.Heritage = "No"
             _building.Access = "Private"
@@ -274,6 +275,14 @@ Public Class SurveyDetail
         Using printTool As New ReportPrintTool(_tafdoc)
             printTool.ShowPreviewDialog()
         End Using
+
+        Dim rptPivot As XtraReport = CreateSurveyPivotReport()
+        rptPivot.CreateDocument()
+
+        Using printTool As New ReportPrintTool(rptPivot)
+            printTool.ShowPreviewDialog()
+        End Using
+
 
     End Sub
 

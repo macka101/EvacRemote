@@ -11,6 +11,10 @@ Imports DevExpress.XtraEditors
 Imports DevExpress.Data.Filtering
 Imports System.Deployment.Application
 Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraReports.UI
+Imports DevExpress.Xpo.DB
+Imports DevExpress.XtraReports.UI.PivotGrid
+Imports DevExpress.XtraPivotGrid
 
 Public Class GlobalVariables
     Public Shared SupportFilesDirectory As String = Nothing
@@ -581,5 +585,77 @@ Module Misc
             End If
         End If
     End Sub
+    Public Function CreateSurveyPivotReport() As XtraReport
+        ' Create a blank report.
+        Dim _session As New UnitOfWork
+
+        Dim crossTabReport As New XtraReport()
+
+        ' Create a detail band and add it to the report.
+        Dim detail As New DetailBand()
+        crossTabReport.Bands.Add(detail)
+
+        ' Create a pivot grid and add it to the Detail band.
+        Dim pivotGrid As New XRPivotGrid()
+
+        pivotGrid.OptionsView.ShowFilterHeaders = False
+        pivotGrid.OptionsView.ShowRowHeaders = False
+        pivotGrid.OptionsView.ShowDataHeaders = False
+        pivotGrid.OptionsView.ShowColumnHeaders = False
+        pivotGrid.OptionsView.ShowColumnGrandTotals = True
+        pivotGrid.OptionsView.ShowColumnTotals = True
+        pivotGrid.OptionsView.ShowRowGrandTotals = True
+
+        detail.Controls.Add(pivotGrid)
+
+        ' Create a data source
+        'Dim connectionParameters As New Access97ConnectionParameters("..\..\nwind.mdb", "", "")
+        'Dim ds As New SqlDataSource(connectionParameters)
+
+        '' Create an SQL query to access the SalesPerson view.
+        'Dim query As New CustomSqlQuery()
+        'query.Name = "SalesPerson"
+        'query.Sql = "SELECT CategoryName, ProductName, Country, [Sales Person], Quantity, [Extended Price]  FROM SalesPerson"
+        'ds.Queries.Add(query)
+
+
+        Dim sSql As String = "SELECT        EvacSurvey.Oid, EvacSurvey.SurveyDate, EvacSurvey.Signer, EvacSurvey.Notes, "
+        sSql += " Product.ProductCode, Building.Location, 1 as Quantity "
+        sSql += "FROM EvacSurvey INNER JOIN "
+        sSql += "Floor ON EvacSurvey.Oid = Floor.Survey INNER JOIN "
+        sSql += "Product On Floor.Product = Product.Oid INNER JOIN "
+        sSql +=  "Building ON Floor.Building = Building.Oid "
+        sSql += String.Format("WHERE (EvacSurvey.Oid = '{0}')", _currentSurvey.Oid)
+
+        Dim data As SelectedData = _session.ExecuteQueryWithMetadata(sSql)
+        Dim PivotData As New XPDataView
+
+        If data IsNot Nothing Then
+            For Each row As SelectStatementResultRow In data.ResultSet(0).Rows
+                PivotData.AddProperty(DirectCast(row.Values(0), String), DBColumn.[GetType](DirectCast([Enum].Parse(GetType(DBColumnType), DirectCast(row.Values(2), String)), DBColumnType)))
+            Next
+        End If
+
+        PivotData.LoadData(New SelectedData(data.ResultSet(1)))
+        ' Bind the pivot grid to data.
+        pivotGrid.DataSource = PivotData
+        '        pivotGrid.DataMember = "SalesPerson"
+
+        ' Generate pivot grid's fields.
+        Dim fieldLocationName As New XRPivotGridField("Location", PivotArea.RowArea)
+        Dim fieldproductCode As New XRPivotGridField("ProductCode", PivotArea.ColumnArea)
+        Dim fieldQuantity As New XRPivotGridField("Quantity", PivotArea.DataArea)
+        fieldQuantity.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum
+
+        fieldQuantity.Options.ShowGrandTotal = True
+        fieldQuantity.Options.ShowTotals = True
+
+        ' Add these fields to the pivot grid.
+        pivotGrid.Fields.AddRange(New XRPivotGridField() {fieldLocationName, fieldproductCode, fieldQuantity})
+        pivotGrid.OptionsView.ShowAllTotals()
+
+
+        Return crossTabReport
+    End Function
 
 End Module

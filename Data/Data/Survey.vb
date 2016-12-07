@@ -89,6 +89,13 @@ Namespace Esso.Data
                 SetPropertyValue(Of Integer)("EscapeRoutes", _escapeRoutes, value)
             End Set
         End Property
+        <Association("Survey-Floors")>
+        Public ReadOnly Property Floors() As XPCollection(Of Floor)
+            Get
+                Return GetCollection(Of Floor)("Floors")
+            End Get
+        End Property
+
         Private _signer As String
         Public Property Signer() As String
             Get

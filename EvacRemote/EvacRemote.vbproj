@@ -309,6 +309,12 @@
     <Compile Include="Helpers\Misc.vb" />
     <Compile Include="Helpers\RichTextHelper.vb" />
     <Compile Include="Misc.vb" />
+    <Compile Include="Reports\rptSurveyPivot.Designer.vb">
+      <DependentUpon>rptSurveyPivot.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptSurveyPivot.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\rptSurveyQuote.Designer.vb">
       <DependentUpon>rptSurveyQuote.vb</DependentUpon>
     </Compile>
@@ -463,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSurveyPivot.resx">
+      <DependentUpon>rptSurveyPivot.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptSurveyQuote.resx">
       <DependentUpon>rptSurveyQuote.vb</DependentUpon>
