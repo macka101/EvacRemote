@@ -1,18 +1,18 @@
 ﻿Imports DevExpress.Data.Filtering
 Imports DevExpress.Xpo
+Imports DevExpress.Xpo.DB
+Imports DevExpress.XtraPivotGrid
+Imports DevExpress.XtraReports.UI.PivotGrid
 Imports Esso.Data
 
 Public Class rptSurveyPivot
     Dim _session As New UnitOfWork
 
-    Private Sub Detail_BeforePrint(sender As Object, e As Printing.PrintEventArgs) Handles Detail.BeforePrint
-        Dim filter As CriteriaOperator
-        filter = CriteriaOperator.Parse("Oid = ? ", Me.SurveyId.Value)
-        Dim pSurvey As New XPCollection(Of EvacSurvey)(_session, filter)
-        DataSource = pSurvey
+
+    Private Sub XpCollection1_ResolveSession(sender As Object, e As ResolveSessionEventArgs)
     End Sub
 
-    Private Sub XpCollection1_ResolveSession(sender As Object, e As ResolveSessionEventArgs) Handles XpCollection1.ResolveSession
-        e.Session = _session
+    Private Sub rptSurveyPivot_BeforePrint(sender As Object, e As Drawing.Printing.PrintEventArgs) Handles MyBase.BeforePrint
+
     End Sub
 End Class

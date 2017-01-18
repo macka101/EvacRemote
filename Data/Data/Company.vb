@@ -51,7 +51,7 @@ Namespace Esso.Data
             End Set
         End Property
         Private _statusFlag As String
-        <Size(1)>
+        <Size(1), Indexed>
         Public Property StatusFlag() As String
             Get
                 Return _statusFlag
@@ -61,8 +61,8 @@ Namespace Esso.Data
             End Set
         End Property
         Private _lastupdatedtimestamp As Date
-        <Indexed(Unique:=False)> _
-            Public Property lastupdatedtimestamp() As Date
+        <Indexed(Unique:=False)>
+        Public Property lastupdatedtimestamp() As Date
             Get
                 Return _lastupdatedtimestamp
             End Get

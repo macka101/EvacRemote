@@ -22,12 +22,13 @@ Partial Class viewEscapeRoute
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.gridFloors = New DevExpress.XtraGrid.GridControl()
         Me.vw_floors = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colFloor = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colProduct = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.teLocation = New DevExpress.XtraEditors.TextEdit()
         Me.teFloors = New DevExpress.XtraEditors.TextEdit()
         Me.picBack = New System.Windows.Forms.PictureBox()
@@ -37,6 +38,14 @@ Partial Class viewEscapeRoute
         Me.tgsUpstairs = New DevExpress.XtraEditors.ToggleSwitch()
         Me.gleStairwayType = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.GridLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.gleNosing = New DevExpress.XtraEditors.GridLookUpEdit()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.gleTread = New DevExpress.XtraEditors.GridLookUpEdit()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.glePitch = New DevExpress.XtraEditors.GridLookUpEdit()
+        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.gleGoing = New DevExpress.XtraEditors.GridLookUpEdit()
+        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.lciBack = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
@@ -54,14 +63,7 @@ Partial Class viewEscapeRoute
         Me.lciPitch = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciGoing = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciFloor = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.gleNosing = New DevExpress.XtraEditors.GridLookUpEdit()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.gleTread = New DevExpress.XtraEditors.GridLookUpEdit()
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.glePitch = New DevExpress.XtraEditors.GridLookUpEdit()
-        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.gleGoing = New DevExpress.XtraEditors.GridLookUpEdit()
-        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.XpCollection1 = New DevExpress.Xpo.XPCollection(Me.components)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.gridFloors, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,6 +77,14 @@ Partial Class viewEscapeRoute
         CType(Me.tgsUpstairs.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gleStairwayType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gleNosing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gleTread.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.glePitch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gleGoing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,14 +102,7 @@ Partial Class viewEscapeRoute
         CType(Me.lciPitch, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciGoing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gleNosing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gleTread.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.glePitch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gleGoing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -128,6 +131,7 @@ Partial Class viewEscapeRoute
         '
         'gridFloors
         '
+        Me.gridFloors.DataSource = Me.XpCollection1
         Me.gridFloors.Location = New System.Drawing.Point(62, 232)
         Me.gridFloors.MainView = Me.vw_floors
         Me.gridFloors.Name = "gridFloors"
@@ -138,7 +142,7 @@ Partial Class viewEscapeRoute
         '
         'vw_floors
         '
-        Me.vw_floors.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colFloor, Me.colType})
+        Me.vw_floors.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colFloor, Me.colProduct})
         Me.vw_floors.GridControl = Me.gridFloors
         Me.vw_floors.Name = "vw_floors"
         Me.vw_floors.OptionsBehavior.Editable = False
@@ -153,18 +157,18 @@ Partial Class viewEscapeRoute
         'colFloor
         '
         Me.colFloor.Caption = "Floor"
-        Me.colFloor.FieldName = "Floor"
+        Me.colFloor.FieldName = "Location"
         Me.colFloor.Name = "colFloor"
         Me.colFloor.Visible = True
         Me.colFloor.VisibleIndex = 0
         '
-        'colType
+        'colProduct
         '
-        Me.colType.Caption = "Type"
-        Me.colType.FieldName = "Type"
-        Me.colType.Name = "colType"
-        Me.colType.Visible = True
-        Me.colType.VisibleIndex = 1
+        Me.colProduct.Caption = "Product"
+        Me.colProduct.FieldName = "Product.Description"
+        Me.colProduct.Name = "colProduct"
+        Me.colProduct.Visible = True
+        Me.colProduct.VisibleIndex = 1
         '
         'teLocation
         '
@@ -251,6 +255,82 @@ Partial Class viewEscapeRoute
         Me.GridLookUpEdit1View.Name = "GridLookUpEdit1View"
         Me.GridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.GridLookUpEdit1View.OptionsView.ShowGroupPanel = False
+        '
+        'gleNosing
+        '
+        Me.gleNosing.Location = New System.Drawing.Point(155, 72)
+        Me.gleNosing.Name = "gleNosing"
+        Me.gleNosing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.gleNosing.Properties.NullText = ""
+        Me.gleNosing.Properties.PopupSizeable = False
+        Me.gleNosing.Properties.View = Me.GridView1
+        Me.gleNosing.Size = New System.Drawing.Size(679, 20)
+        Me.gleNosing.StyleController = Me.LayoutControl1
+        Me.gleNosing.TabIndex = 14
+        '
+        'GridView1
+        '
+        Me.GridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'gleTread
+        '
+        Me.gleTread.Location = New System.Drawing.Point(155, 96)
+        Me.gleTread.Name = "gleTread"
+        Me.gleTread.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.gleTread.Properties.NullText = ""
+        Me.gleTread.Properties.PopupSizeable = False
+        Me.gleTread.Properties.View = Me.GridView2
+        Me.gleTread.Size = New System.Drawing.Size(679, 20)
+        Me.gleTread.StyleController = Me.LayoutControl1
+        Me.gleTread.TabIndex = 11
+        '
+        'GridView2
+        '
+        Me.GridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView2.Name = "GridView2"
+        Me.GridView2.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView2.OptionsView.ShowGroupPanel = False
+        '
+        'glePitch
+        '
+        Me.glePitch.Location = New System.Drawing.Point(155, 120)
+        Me.glePitch.Name = "glePitch"
+        Me.glePitch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.glePitch.Properties.NullText = ""
+        Me.glePitch.Properties.PopupSizeable = False
+        Me.glePitch.Properties.View = Me.GridView3
+        Me.glePitch.Size = New System.Drawing.Size(679, 20)
+        Me.glePitch.StyleController = Me.LayoutControl1
+        Me.glePitch.TabIndex = 9
+        '
+        'GridView3
+        '
+        Me.GridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView3.Name = "GridView3"
+        Me.GridView3.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView3.OptionsView.ShowGroupPanel = False
+        '
+        'gleGoing
+        '
+        Me.gleGoing.Location = New System.Drawing.Point(155, 144)
+        Me.gleGoing.Name = "gleGoing"
+        Me.gleGoing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.gleGoing.Properties.NullText = ""
+        Me.gleGoing.Properties.PopupSizeable = False
+        Me.gleGoing.Properties.View = Me.GridView4
+        Me.gleGoing.Size = New System.Drawing.Size(679, 20)
+        Me.gleGoing.StyleController = Me.LayoutControl1
+        Me.gleGoing.TabIndex = 12
+        '
+        'GridView4
+        '
+        Me.GridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView4.Name = "GridView4"
+        Me.GridView4.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView4.OptionsView.ShowGroupPanel = False
         '
         'LayoutControlGroup1
         '
@@ -419,81 +499,10 @@ Partial Class viewEscapeRoute
         Me.lciFloor.Text = "Floors"
         Me.lciFloor.TextSize = New System.Drawing.Size(78, 13)
         '
-        'gleNosing
+        'XpCollection1
         '
-        Me.gleNosing.Location = New System.Drawing.Point(155, 72)
-        Me.gleNosing.Name = "gleNosing"
-        Me.gleNosing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.gleNosing.Properties.NullText = ""
-        Me.gleNosing.Properties.PopupSizeable = False
-        Me.gleNosing.Properties.View = Me.GridView1
-        Me.gleNosing.Size = New System.Drawing.Size(679, 20)
-        Me.gleNosing.StyleController = Me.LayoutControl1
-        Me.gleNosing.TabIndex = 14
-        '
-        'GridView1
-        '
-        Me.GridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'gleTread
-        '
-        Me.gleTread.Location = New System.Drawing.Point(155, 96)
-        Me.gleTread.Name = "gleTread"
-        Me.gleTread.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.gleTread.Properties.NullText = ""
-        Me.gleTread.Properties.PopupSizeable = False
-        Me.gleTread.Properties.View = Me.GridView2
-        Me.gleTread.Size = New System.Drawing.Size(679, 20)
-        Me.gleTread.StyleController = Me.LayoutControl1
-        Me.gleTread.TabIndex = 11
-        '
-        'GridView2
-        '
-        Me.GridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView2.Name = "GridView2"
-        Me.GridView2.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView2.OptionsView.ShowGroupPanel = False
-        '
-        'glePitch
-        '
-        Me.glePitch.Location = New System.Drawing.Point(155, 120)
-        Me.glePitch.Name = "glePitch"
-        Me.glePitch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.glePitch.Properties.NullText = ""
-        Me.glePitch.Properties.PopupSizeable = False
-        Me.glePitch.Properties.View = Me.GridView3
-        Me.glePitch.Size = New System.Drawing.Size(679, 20)
-        Me.glePitch.StyleController = Me.LayoutControl1
-        Me.glePitch.TabIndex = 9
-        '
-        'GridView3
-        '
-        Me.GridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView3.Name = "GridView3"
-        Me.GridView3.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView3.OptionsView.ShowGroupPanel = False
-        '
-        'gleGoing
-        '
-        Me.gleGoing.Location = New System.Drawing.Point(155, 144)
-        Me.gleGoing.Name = "gleGoing"
-        Me.gleGoing.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.gleGoing.Properties.NullText = ""
-        Me.gleGoing.Properties.PopupSizeable = False
-        Me.gleGoing.Properties.View = Me.GridView4
-        Me.gleGoing.Size = New System.Drawing.Size(679, 20)
-        Me.gleGoing.StyleController = Me.LayoutControl1
-        Me.gleGoing.TabIndex = 12
-        '
-        'GridView4
-        '
-        Me.GridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView4.Name = "GridView4"
-        Me.GridView4.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView4.OptionsView.ShowGroupPanel = False
+        Me.XpCollection1.LoadingEnabled = False
+        Me.XpCollection1.ObjectType = GetType(Esso.Data.Floor)
         '
         'viewEscapeRoute
         '
@@ -515,6 +524,14 @@ Partial Class viewEscapeRoute
         CType(Me.tgsUpstairs.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gleStairwayType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gleNosing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gleTread.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.glePitch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gleGoing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -532,14 +549,7 @@ Partial Class viewEscapeRoute
         CType(Me.lciPitch, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciGoing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciFloor, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gleNosing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gleTread.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.glePitch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gleGoing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -562,7 +572,7 @@ Partial Class viewEscapeRoute
     Friend WithEvents lciFloors As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFloor As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colProduct As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents tgsUnEvenGround As DevExpress.XtraEditors.ToggleSwitch
     Friend WithEvents tgsHorizontal As DevExpress.XtraEditors.ToggleSwitch
     Friend WithEvents tgsMisuse As DevExpress.XtraEditors.ToggleSwitch
@@ -583,5 +593,5 @@ Partial Class viewEscapeRoute
     Friend WithEvents GridView3 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents gleGoing As DevExpress.XtraEditors.GridLookUpEdit
     Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
-
+    Friend WithEvents XpCollection1 As DevExpress.Xpo.XPCollection
 End Class

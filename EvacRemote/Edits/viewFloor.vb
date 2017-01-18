@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.Xpo
+Imports DevExpress.XtraEditors
 Imports Esso.Data
 
 Public Class viewFloor
@@ -10,7 +11,6 @@ Public Class viewFloor
     Private freadOnly As Boolean = False
     Private _binding As Boolean = False
     Private _changed As Boolean = False
-    Private _loaded As Boolean = False
 
     Public Property ParentFormMain() As frmMain
         Get
@@ -24,11 +24,6 @@ Public Class viewFloor
         End Set
     End Property
 
-    Public ReadOnly Property Loaded As Boolean
-        Get
-            Return _loaded
-        End Get
-    End Property
     Public Sub InitEditors()
 
         Misc.CreateFieldOptionGrid(_session, gleStairwayType.Properties, Nothing, False, eField.StairwayType)
@@ -51,10 +46,10 @@ Public Class viewFloor
         AddHandler teFloor.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler gleStairwayType.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler gleNosing.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler gleTread.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler glePitch.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler gleGoing.EditValueChanged, AddressOf edit_EditValueChanged
-        AddHandler teNotes.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler gleTread.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler lueChair.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsBedBound.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsBarriatric.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsComplexDisability.EditValueChanged, AddressOf edit_EditValueChanged
@@ -62,9 +57,17 @@ Public Class viewFloor
         AddHandler tgsBedAccess.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsMisuse.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler tgsMovingHandling.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler lueRecomended.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsMovingHandling.EditValueChanged, AddressOf edit_EditValueChanged
+
+        AddHandler teNotes.EditValueChanged, AddressOf edit_EditValueChanged
+
     End Sub
     Public Sub Initdata()
         InitEditors()
+        _changed = False
+        _binding = True
+
         teFloor.Text = _currentFloor.Location
         gleStairwayType.EditValue = _currentFloor.StairWayType
         gleNosing.EditValue = _currentFloor.Nosing
@@ -83,6 +86,7 @@ Public Class viewFloor
 
         lueRecomended.EditValue = _currentFloor.RecommendedProduct
         teNotes.Text = _currentFloor.Notes
+        _binding = False
     End Sub
     Private Sub SaveData()
         _currentFloor.Location = teFloor.Text
@@ -135,8 +139,21 @@ Public Class viewFloor
 
     End Sub
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        SaveData()
+        If _changed = True Then
+            Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+            If _save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If _save = DialogResult.Yes Then
+                SaveData()
+            Else
+                _currentFloor.Reload()
+            End If
+        End If
         ParentFormMain.SelectPage(frmMain.ePage.EscapeRoute)
+
+
+
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then
@@ -146,7 +163,7 @@ Public Class viewFloor
         End If
     End Sub
 
-  
+
     Private Sub tgsBedBound_Validated(sender As Object, e As EventArgs) Handles tgsBedBound.Validated
         _currentFloor.BedBound = tgsBedBound.IsOn
         RecommendProduct(_session, _currentFloor)

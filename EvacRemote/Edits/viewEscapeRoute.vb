@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.Xpo
+Imports DevExpress.XtraEditors
 Imports Esso.Data
 
 Public Class viewEscapeRoute
@@ -10,12 +11,12 @@ Public Class viewEscapeRoute
     Private freadOnly As Boolean = False
     Private _binding As Boolean = False
     Private _changed As Boolean = False
-    Private _loaded As Boolean = False
-    Public ReadOnly Property Loaded As Boolean
-        Get
-            Return _Loaded
-        End Get
-    End Property
+    '   Private _loaded As Boolean = False
+    'Public ReadOnly Property Loaded As Boolean
+    '    Get
+    '        Return _loaded
+    '    End Get
+    'End Property
 
     Public Property ParentFormMain() As frmMain
         Get
@@ -45,10 +46,16 @@ Public Class viewEscapeRoute
         AddHandler gleTread.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler glePitch.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler gleGoing.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsUnEvenGround.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsHorizontal.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsMisuse.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler tgsUpstairs.EditValueChanged, AddressOf edit_EditValueChanged
+
     End Sub
     Public Sub Initdata()
         InitEditors()
-
+        _changed = False
+        _binding = True
         teLocation.Text = _currentEscapeRoute.Location
         teFloors.Text = _currentEscapeRoute.NoFloors
         gleStairwayType.EditValue = _currentEscapeRoute.StairWayType
@@ -61,8 +68,7 @@ Public Class viewEscapeRoute
         tgsHorizontal.EditValue = _currentEscapeRoute.Horizontal
         tgsMisuse.EditValue = _currentEscapeRoute.Misuse
         tgsUpstairs.EditValue = _currentEscapeRoute.Upstairs
-
-        _loaded = True
+        _binding = False
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, True)
     End Sub
 
@@ -95,7 +101,18 @@ Public Class viewEscapeRoute
 
     End Sub
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        SaveData()
+        If _changed = True Then
+            Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+            If _save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If _save = DialogResult.Yes Then
+                SaveData()
+            Else
+                _currentEscapeRoute.Reload()
+            End If
+        End If
+        ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
     End Sub
 
     Private Sub SaveData()
@@ -115,7 +132,7 @@ Public Class viewEscapeRoute
 
         _currentEscapeRoute.Save()
         _session.CommitTransaction()
-        ParentFormMain.SelectPage(frmMain.ePage.SurveyDetail)
+
     End Sub
     Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         If [ReadOnly] = False And _binding = False Then
@@ -132,6 +149,17 @@ Public Class viewEscapeRoute
     End Property
     Private Sub gridFloors_Click(sender As Object, e As EventArgs) Handles gridFloors.Click
         If CurrentFloor IsNot Nothing Then
+            If _changed = True Then
+                Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+                If _save = DialogResult.Cancel Then
+                    Exit Sub
+                End If
+                If _save = DialogResult.Yes Then
+                    SaveData()
+                Else
+                    _currentEscapeRoute.Reload()
+                End If
+            End If
             _currentFloor = CurrentFloor
             ParentFormMain.SelectPage(frmMain.ePage.FloorDetail)
         End If

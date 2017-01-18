@@ -234,7 +234,7 @@ Namespace Esso.Data
                 Return _nofloors
             End Get
             Set(value As Integer)
-                SetPropertyValue(Of String)("NoFloors", _nofloors, value)
+                SetPropertyValue(Of Integer)("NoFloors", _nofloors, value)
             End Set
         End Property
         Private _type As String

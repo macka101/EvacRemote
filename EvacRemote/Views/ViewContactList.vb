@@ -50,12 +50,14 @@ Public Class ViewContactList
         '_companyView.AddProperty("ContNo", "Contact.ContNo")
         '_companyView.AddProperty("DivNo", "Contact.DivNo")
 
+        _companyView.Criteria = (CriteriaOperator.Parse("StatusFlag <> 'D'"))
+
         Dim sortCollection As SortingCollection = New SortingCollection()
         '     sortCollection.Add(New SortProperty("Divname", SortingDirection.Ascending))
+        sortCollection.Add(New SortProperty("SearchName", SortingDirection.Ascending))
         sortCollection.Add(New SortProperty("DivName", SortingDirection.Ascending))
-        sortCollection.Add(New SortProperty("Contact", SortingDirection.Ascending))
 
-        '    _companyView.Criteria = (CriteriaOperator.Parse("StatusFlag <> 'D'"))
+
         _companyView.Sorting = sortCollection
         grdCompanies.DataSource = _companyView
         'vw_Companies.ActiveFilterString = "[DivName] <> '' "

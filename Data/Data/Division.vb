@@ -32,6 +32,7 @@ Namespace Esso.Data
             ModifiedAt = DateTime.Now
         End Sub
         Private _divno As Integer
+        <Indexed>
         Public Property DivNo() As Integer
             Get
                 Return _divno
@@ -100,7 +101,7 @@ Namespace Esso.Data
             End Set
         End Property
         Private _statusFlag As String
-        <Size(1)>
+        <Size(1), Indexed>
         Public Property StatusFlag() As String
             Get
                 Return _statusFlag
@@ -196,6 +197,7 @@ Namespace Esso.Data
             ModifiedAt = DateTime.Now
         End Sub
         Private _contno As Integer
+        <Indexed>
         Public Property ContNo() As Integer
             Get
                 Return _contno
@@ -303,7 +305,7 @@ Namespace Esso.Data
             End Set
         End Property
         Private _statusFlag As String
-        <Size(1)>
+        <Size(1), Indexed>
         Public Property StatusFlag() As String
             Get
                 Return _statusFlag
@@ -324,7 +326,7 @@ Namespace Esso.Data
         <PersistentAlias("isnull(Forename,'') + ' ' + isnull(Surname,'')")>
         Public ReadOnly Property SearchName() As String
             Get
-                Return CType(EvaluateAlias("SearchName"), String)
+                Return CType(EvaluateAlias("SearchName"), String).Trim
             End Get
         End Property
         '<PersistentAlias("ContNo = 0 or DivNo = 0")>

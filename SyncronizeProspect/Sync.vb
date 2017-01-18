@@ -15,6 +15,13 @@ Module Sync
 
     Dim _timer1 As New Timer
     Dim _startTime As DateTime
+    Dim _ResetAll As Boolean = False
+    Dim _ResetAddress As Boolean = False
+    Dim _ResetCompany As Boolean = False
+    Dim _ResetDivision As Boolean = False
+    Dim _ResetContact As Boolean = False
+    Dim _ResetDiary As Boolean = True
+
 
     Sub Main()
         If Environment.MachineName = "JOHN-PC2" Then
@@ -174,7 +181,7 @@ Module Sync
 
         _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Address]")
 
-        If _lastSync = DateTime.MinValue Then
+        If _lastSync = DateTime.MinValue Or _ResetAll = True Or _ResetAddress = True Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
@@ -228,7 +235,7 @@ Module Sync
 
         _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Company]")
 
-        If _lastSync = DateTime.MinValue Then
+        If _lastSync = DateTime.MinValue Or _ResetAll = True Or _ResetCompany = True Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
@@ -282,7 +289,7 @@ Module Sync
 
         _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Division]")
 
-        If _lastSync = DateTime.MinValue Then
+        If _lastSync = DateTime.MinValue Or _ResetAll = True Or _ResetDivision = True Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
@@ -336,7 +343,7 @@ Module Sync
 
         _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[Contact]")
 
-        If _lastSync = DateTime.MinValue Then
+        If _lastSync = DateTime.MinValue Or _ResetAll = True Or _ResetContact = True Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
@@ -398,12 +405,13 @@ Module Sync
 
         _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[CentralDiary]")
 
-        If _lastSync = DateTime.MinValue Then
+        If _lastSync = DateTime.MinValue Or _ResetAll = True Or _ResetDiary = True Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
-        Str = "SELECT central_diary.*,  lead.contno, contact.divno "
+        Str = "SELECT central_diary.*,  lead.contno, contact.divno, lead_xtra.no_of_chairs as noChairs "
         Str = String.Concat(Str, "FROM central_diary INNER JOIN ")
         Str = String.Concat(Str, "lead ON central_diary.Leadno = lead.leadno INNER JOIN ")
+        Str = String.Concat(Str, "lead_xtra ON central_diary.Leadno = lead_xtra.leadno INNER JOIN ")
         Str = String.Concat(Str, "contact ON lead.contno = contact.contno ")
 
         Str = String.Concat(Str, String.Format("where central_diary.lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by central_diary.lastupdatedtimestamp", _lastSync))
@@ -434,7 +442,7 @@ Module Sync
                 xDiary.EndDate = GetValueorNull(orow, "EndDate")
                 xDiary.Label = GetValueorNull(orow, "Label")
                 xDiary.Leadno = GetValueorNull(orow, "Leadno")
-                xDiary.NoOfChairs = GetValueorNull(orow, "no_of_chairs")
+                xDiary.NoOfChairs = GetValueorNull(orow, "noChairs")
                 xDiary.Note = GetValueorNull(orow, "Note")
                 xDiary.OutlookEntryID = GetValueorNull(orow, "OutlookEntryID")
                 xDiary.Subject = GetValueorNull(orow, "Subject")

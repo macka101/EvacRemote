@@ -1,5 +1,4 @@
-﻿Imports System.Devices.Geolocation
-Imports Esso.Data
+﻿Imports Esso.Data
 Imports DevExpress.Xpo
 Imports DevExpress.XtraEditors
 

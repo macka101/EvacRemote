@@ -9,15 +9,12 @@ Imports DevExpress.Utils
 
 Public Class AssetServiceHistory
     Private _parent As frmMain = Nothing
-    Private _Loaded As Boolean = False
 
     Private _session As UnitOfWork
     Private xpOptions As XPCollection(Of FieldOption)
-    Public ReadOnly Property Loaded As Boolean
-        Get
-            Return _Loaded
-        End Get
-    End Property
+
+    Private _binding As Boolean = False
+    Private _changed As Boolean = False
 
     Public Property ParentFormMain() As frmMain
         Get
@@ -32,8 +29,8 @@ Public Class AssetServiceHistory
     End Property
     Public Sub Initdata()
         InitEditors()
-
-        'xpBuildings = _currentDivision.Buildings
+        _changed = False
+        _binding = True
 
         lueBuilding.EditValue = _currentAsset.Building
         lueEscapeRoute.EditValue = _currentAsset.EscapeRoute
@@ -41,23 +38,6 @@ Public Class AssetServiceHistory
         lueProduct.EditValue = _currentAsset.Product
 
         grdServices.DataSource = _currentAsset.ChairServices
-
-        'tsSpringClips
-        'tsSeatRivets
-        'tsPaddingSeat
-        'tsFrontHandle
-        'tsRearHandle
-        'tsHammockCondition
-        'tsKickstandGasSpring
-        'tsRotationBelts
-        'tsSkiAssemblyRollers
-        'tsSpindlePosition
-        'tsSafetyBelt
-        'tsSeatFrame
-        'tsKickstandBolt
-        'tsKickstandGas
-        'tsStabiliserRivets
-        'tsClosure
 
         teNotes.Text = _currentAsset.Notes
 
@@ -72,12 +52,7 @@ Public Class AssetServiceHistory
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-
-    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        If Not DxValidationProvider1.Validate() Then
-            XtraMessageBox.Show("Please supply missing information.", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return
-        End If
+    Private Sub SaveData()
         _currentAsset.Building = lueBuilding.EditValue
         _currentAsset.EscapeRoute = lueEscapeRoute.EditValue
         _currentAsset.Floor = lueFloor.EditValue
@@ -85,13 +60,36 @@ Public Class AssetServiceHistory
         _currentAsset.Notes = teNotes.Text
         _currentAsset.Save()
         _currentAsset.Session.CommitTransaction()
-        '    ParentService.RefreshAsset()
+    End Sub
+
+
+    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+        If Not DxValidationProvider1.Validate() Then
+            XtraMessageBox.Show("Please supply missing information.", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
+
+        If _changed = True Then
+            Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+            If _save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If _save = DialogResult.Yes Then
+                SaveData()
+            Else
+                _currentAsset.Reload()
+            End If
+        End If
         _parent.SelectPage(frmMain.ePage.ServiceDetail)
     End Sub
     Private Sub InitEditors()
         CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
         'CreateEscapeRouteLookUpEdit(_session, lueEscapeRoute.Properties, Nothing, False, CurrentBuilding.Oid)
         CreateProductLookUpEdit(_session, lueProduct.Properties, Nothing)
+        AddHandler lueBuilding.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler lueEscapeRoute.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler teBarCode.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler lueProduct.EditValueChanged, AddressOf edit_EditValueChanged
 
     End Sub
     Private ReadOnly Property CurrentBuilding() As Building
@@ -217,6 +215,11 @@ Public Class AssetServiceHistory
             _session.CommitChanges()
             _currentAsset.Floor = _floor
             e.Handled = True
+        End If
+    End Sub
+    Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If _binding = False Then
+            _changed = True
         End If
     End Sub
 End Class

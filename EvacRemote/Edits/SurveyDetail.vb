@@ -5,9 +5,10 @@ Imports DevExpress.XtraEditors
 Imports DevExpress.Utils
 Imports Esso.Data
 Imports DevExpress.XtraReports.UI
+Imports DevExpress.Xpo.DB
+Imports DevExpress.XtraReports.UI.PivotGrid
 
 Public Class SurveyDetail
-    Private _Loaded As Boolean = False
 
     Private _parent As frmMain = Nothing
     Private _session As UnitOfWork
@@ -16,11 +17,6 @@ Public Class SurveyDetail
     Private _binding As Boolean = False
     Private _changed As Boolean = False
 
-    Public ReadOnly Property Loaded As Boolean
-        Get
-            Return _Loaded
-        End Get
-    End Property
     Public Property ParentFormMain() As frmMain
         Get
             Return _parent
@@ -59,6 +55,7 @@ Public Class SurveyDetail
         AddHandler lueBuilding.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbAccess.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbHeritage.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler teEscapeRoutes.EditValueChanged, AddressOf edit_EditValueChanged
 
     End Sub
     Public Sub Initdata()
@@ -82,15 +79,13 @@ Public Class SurveyDetail
             _session.CommitChanges()
         End If
         InitEditors()
+        _changed = False
+        _binding = True
+
         lueBuilding.EditValue = _currentDivision.Buildings.First
-        '        lueBuilding.EditValue = xpBuildings.First
-        'icbAccess.EditValue = CurrentBuilding.Access
-        'icbHeritage.EditValue = CurrentBuilding.Heritage
-        'teEscapeRoutes.Text = CurrentBuilding.EscapeRoutesNo
-        ' colClient.ColumnEdit = Misc.CreateAccessTypeImageComboBox(grid_Buildings.RepositoryItems, True, True)
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, False)
 
-        _Loaded = True
+        _binding = False
     End Sub
 
     Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
@@ -100,13 +95,9 @@ Public Class SurveyDetail
         _parent = parent
         _session = session
 
-    
+
         ' Add any initialization after the InitializeComponent() call.
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, True)
-    End Sub
-
-    Private Sub picBack_Click(sender As Object, e As EventArgs)
-        ' ParentFormMain.HideProduct()
     End Sub
 
     'Public Sub RefreshStairWell()
@@ -188,7 +179,7 @@ Public Class SurveyDetail
             _building.Save()
             _session.CommitChanges()
             '   xpBuildings.Add(nBuilding)
-         CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
+            CreateBuildingLookUpEdit(_session, lueBuilding.Properties, Nothing, False, _currentDivision.Oid)
 
         ElseIf e.Button.Kind = ButtonPredefines.DropDown Then
 
@@ -205,9 +196,6 @@ Public Class SurveyDetail
         End If
     End Sub
 
-    'Private Sub teStairwells_EditValueChanged(sender As Object, e As EventArgs)
-    '    InitEscapeRoutes(teStairwells.EditValue)
-    'End Sub
     Private Sub InitStairways(ByVal required As Integer)
         If required > CurrentBuilding.Floors.Count Then
             For i As Integer = CurrentBuilding.Floors.Count + 1 To required
@@ -276,22 +264,117 @@ Public Class SurveyDetail
             printTool.ShowPreviewDialog()
         End Using
 
-        Dim rptPivot As XtraReport = CreateSurveyPivotReport()
-        rptPivot.CreateDocument()
+        Dim _pivotDoc As New rptSurveyPivot
 
-        Using printTool As New ReportPrintTool(rptPivot)
+        'Dim pivotGrid As New XRPivotGrid()
+        Dim pivotGrid = _pivotDoc.XrPivotGrid1
+
+        pivotGrid.OptionsView.ShowFilterHeaders = False
+        pivotGrid.OptionsView.ShowRowHeaders = False
+        pivotGrid.OptionsView.ShowDataHeaders = False
+        pivotGrid.OptionsView.ShowColumnHeaders = False
+        pivotGrid.OptionsView.ShowColumnGrandTotals = True
+        pivotGrid.OptionsView.ShowColumnTotals = True
+        pivotGrid.OptionsView.ShowRowGrandTotals = True
+
+        '_pivotDoc.Detail.Controls.Add(pivotGrid)
+        Dim sSql As String = "SELECT        EvacSurvey.Oid, EvacSurvey.SurveyDate, EvacSurvey.Signer, EvacSurvey.Notes, "
+        sSql += " Product.ProductCode, Building.Location, 1 as Quantity "
+        sSql += "From EvacSurvey INNER Join "
+        sSql += "Division On EvacSurvey.Division = Division.Oid INNER Join "
+        sSql += "Building On Division.Oid = Building.Division INNER Join "
+        sSql += "Floor On Building.Oid = Floor.Building INNER Join "
+        sSql += "Product On Floor.Product = Product.Oid "
+        sSql += String.Format("WHERE (EvacSurvey.Oid = '{0}')", _currentSurvey.Oid)
+
+        Dim data As SelectedData = _session.ExecuteQueryWithMetadata(sSql)
+        Dim PivotData As New XPDataView
+
+        If data IsNot Nothing Then
+            For Each row As SelectStatementResultRow In data.ResultSet(0).Rows
+                PivotData.AddProperty(DirectCast(row.Values(0), String), DBColumn.[GetType](DirectCast([Enum].Parse(GetType(DBColumnType), DirectCast(row.Values(2), String)), DBColumnType)))
+            Next
+        End If
+
+        PivotData.LoadData(New SelectedData(data.ResultSet(1)))
+        ' Bind the pivot grid to data.
+        pivotGrid.DataSource = PivotData
+        '        pivotGrid.DataMember = "SalesPerson"
+
+        ' Generate pivot grid's fields.
+        Dim fieldLocationName As New PivotGrid.XRPivotGridField("Location", DevExpress.XtraPivotGrid.PivotArea.RowArea)
+        Dim fieldproductCode As New PivotGrid.XRPivotGridField("ProductCode", DevExpress.XtraPivotGrid.PivotArea.ColumnArea)
+        Dim fieldQuantity As New PivotGrid.XRPivotGridField("Quantity", DevExpress.XtraPivotGrid.PivotArea.DataArea)
+        fieldQuantity.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum
+
+        fieldQuantity.Options.ShowGrandTotal = True
+        fieldQuantity.Options.ShowTotals = True
+
+        ' Add these fields to the pivot grid.
+        pivotGrid.Fields.AddRange(New PivotGrid.XRPivotGridField() {fieldLocationName, fieldproductCode, fieldQuantity})
+        pivotGrid.OptionsView.ShowAllTotals()
+
+
+        Dim xrStyles As New XRPivotGridStyles(pivotGrid)
+
+        Dim CellStyle As XRControlStyle = New XRControlStyle()
+        CellStyle.Name = "Cell style"
+        CellStyle.Borders = DevExpress.XtraPrinting.BorderSide.All
+        CellStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid
+        CellStyle.BorderColor = Color.LightCoral
+        CellStyle.ForeColor = Color.LightCoral
+        CellStyle.BorderWidth = 2
+        CellStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+
+        CellStyle.Font = New Font(_pivotDoc.Font, FontStyle.Bold)
+        xrStyles.CellStyle = CellStyle
+        '        xrStyles.GrandTotalCellStyle = CellStyle
+        xrStyles.FieldValueGrandTotalStyle = CellStyle
+        xrStyles.FieldValueStyle = CellStyle
+
+        Dim HeaderStyle As XRControlStyle = New XRControlStyle()
+
+        HeaderStyle.Name = "Header style"
+        HeaderStyle.Font = New Font(_pivotDoc.Font, FontStyle.Bold)
+        HeaderStyle.Borders = DevExpress.XtraPrinting.BorderSide.All
+        HeaderStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid
+        HeaderStyle.BorderColor = Color.White
+        HeaderStyle.ForeColor = Color.White
+        HeaderStyle.BackColor = Color.LightCoral
+        HeaderStyle.BorderWidth = 2
+
+        xrStyles.FieldHeaderStyle = HeaderStyle
+
+        _pivotDoc.CreateDocument()
+
+        Using printTool As New ReportPrintTool(_pivotDoc)
             printTool.ShowPreviewDialog()
         End Using
 
+        'Dim rptPivot As XtraReport = CreateSurveyPivotReport()
+
+        'rptPivot.CreateDocument()
+
+        'Using printTool As New ReportPrintTool(rptPivot)
+        '    printTool.ShowPreviewDialog()
+        'End Using
+
 
     End Sub
 
-    Private Sub lciPicback_Click(sender As Object, e As EventArgs) Handles lciPicback.Click
 
-    End Sub
-
-    Private Sub Picback_Click_1(sender As Object, e As EventArgs) Handles Picback.Click
-        SaveData()
+    Private Sub Picback_Click(sender As Object, e As EventArgs) Handles Picback.Click
+        If _changed = True Then
+            Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+            If _save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If _save = DialogResult.Yes Then
+                SaveData()
+            Else
+                _currentSurvey.Reload()
+            End If
+        End If
         ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
     End Sub
 End Class

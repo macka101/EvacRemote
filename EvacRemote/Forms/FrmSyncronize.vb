@@ -136,7 +136,64 @@ Partial Public Class FrmSyncronize
             conn.Disconnect()
         End Try
     End Sub
+    Public Sub DeleteMergePullSubscriptionViaRMO()
+        'Create a connection to the Publisher.
 
+        Dim publisherConn As ServerConnection = New ServerConnection(publisherName)
+        Dim subscriberConn As ServerConnection = New ServerConnection(subscriberName)
+        ' Create the objects that we need.
+        Dim publication As MergePublication
+        Dim subscription As MergePullSubscription
+
+        Try
+            ' Connect to the Subscriber.
+            subscriberConn.Connect()
+
+            ' Define the pull subscription.
+            subscription = New MergePullSubscription()
+            Subscription.ConnectionContext = subscriberConn
+            Subscription.PublisherName = publisherName
+            Subscription.PublicationName = publicationName
+            Subscription.PublicationDBName = publicationDbName
+            Subscription.DatabaseName = subscriptionDbName
+
+            ' Delete the pull subscription, if it exists.
+            If subscription.IsExistingObject Then
+                subscription.Remove()
+
+                'Define the publication.
+                publication = New MergePublication()
+                publication.WebSynchronizationUrl = "https://willow.evacchair.co.uk/SQLReplication/replisapi.dll"
+                publication.Name = publicationName
+                publication.DatabaseName = publicationDbName
+                publication.ConnectionContext = publisherConn
+                publication.Remove()
+                ' Delete the pull subscription at the Subscriber.
+
+
+                If publication.LoadProperties() Then
+
+                    publication.RemovePullSubscription(subscriberName, subscriptionDbName)
+                Else
+                    ' Do something here if the publication does not exist.
+                    Throw New ApplicationException(String.Format(
+                     "The publication '{0}' does not exist on {1}.",
+                     publicationName, publisherName))
+                End If
+            Else
+                Throw New ApplicationException(String.Format(
+                 "The subscription to {0} does not exist on {1}",
+                 publicationName, subscriberName))
+            End If
+        Catch ex As Exception
+            ' Implement the appropriate error handling here.
+            Throw New ApplicationException(String.Format(
+                "The subscription to {0} could not be deleted.", publicationName), ex)
+        Finally
+            subscriberConn.Disconnect()
+            publisherConn.Disconnect()
+        End Try
+    End Sub
     ' This event handler handles the Status event and reports the agent progress.
     Public Sub agent_Status(sender As Object, e As StatusEventArgs)
         syncBackgroundWorker.ReportProgress(Convert.ToInt32(e.PercentCompleted), e.Message.ToString())
@@ -278,4 +335,31 @@ Partial Public Class FrmSyncronize
         End If
     End Sub
 
+    Private Sub btnRemoveSubscription_Click(sender As Object, e As EventArgs) Handles btnRemoveSubscription.Click
+        Exit Sub
+        If XtraMessageBox.Show("Are you sure !!! this will remove all data from your PC", "Delete DB", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            '  DeleteMergePullSubscriptionViaRMO()
+        End If
+        '        SET @publication = N'WillowPub';
+        'SET @publisher = 'EVACSERVER1\WILLOW';
+        'SET @publication_db = N'Willow';
+
+        'USE [Willow]
+        'EXEC sp_dropmergepullsubscription 
+        '  @publisher = @publisher, 
+        '  @publisher_db = @publication_db, 
+        '  @publication = @publication;
+
+
+        '        EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'Willow' 
+        '        GO
+        '        USE [master] 
+        'GO
+        '        ALTER DATABASE Willow SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+        'GO
+        '        USE master ;  
+        'GO
+        '        DROP DATABASE [Willow] ;  
+        'GO
+    End Sub
 End Class

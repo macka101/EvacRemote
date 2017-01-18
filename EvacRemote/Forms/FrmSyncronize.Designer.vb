@@ -33,6 +33,7 @@ Partial Class FrmSyncronize
         Me.lblSubscription = New System.Windows.Forms.Label()
         Me.tbLastStatusMessage = New System.Windows.Forms.TextBox()
         Me.pbStatus = New System.Windows.Forms.ProgressBar()
+        Me.btnRemoveSubscription = New System.Windows.Forms.Button()
         CType(Me.pictureBoxStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -153,11 +154,23 @@ Partial Class FrmSyncronize
         Me.pbStatus.Size = New System.Drawing.Size(425, 241)
         Me.pbStatus.TabIndex = 33
         '
+        'btnRemoveSubscription
+        '
+        Me.btnRemoveSubscription.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRemoveSubscription.Location = New System.Drawing.Point(40, 416)
+        Me.btnRemoveSubscription.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnRemoveSubscription.Name = "btnRemoveSubscription"
+        Me.btnRemoveSubscription.Size = New System.Drawing.Size(158, 19)
+        Me.btnRemoveSubscription.TabIndex = 43
+        Me.btnRemoveSubscription.Text = "Remove Subscription"
+        Me.btnRemoveSubscription.UseVisualStyleBackColor = True
+        '
         'FrmSyncronize
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(540, 446)
+        Me.Controls.Add(Me.btnRemoveSubscription)
         Me.Controls.Add(Me.lblPublicationName)
         Me.Controls.Add(Me.lblSubscriptionName)
         Me.Controls.Add(Me.pictureBoxStatus)
@@ -187,5 +200,5 @@ Partial Class FrmSyncronize
     Private WithEvents lblSubscription As System.Windows.Forms.Label
     Private WithEvents tbLastStatusMessage As System.Windows.Forms.TextBox
     Private WithEvents pbStatus As System.Windows.Forms.ProgressBar
-
+    Private WithEvents btnRemoveSubscription As Button
 End Class

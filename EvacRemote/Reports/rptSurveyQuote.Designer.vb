@@ -489,7 +489,7 @@ Partial Public Class rptSurveyQuote
         '
         'XrTableCell21
         '
-        Me.XrTableCell21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.Floors.Floor")})
+        Me.XrTableCell21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Division.Buildings.EscapeRoutes.Floors.Location")})
         Me.XrTableCell21.Dpi = 100.0!
         Me.XrTableCell21.Name = "XrTableCell21"
         Me.XrTableCell21.Weight = 0.46240681492655544R
@@ -679,7 +679,7 @@ Partial Public Class rptSurveyQuote
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.SurveyId})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField, Me.TableStyle, Me.TableHeader})
-        Me.Version = "16.1"
+        Me.Version = "16.2"
         CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable4, System.ComponentModel.ISupportInitialize).EndInit()

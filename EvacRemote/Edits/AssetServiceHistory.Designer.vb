@@ -33,7 +33,7 @@ Partial Class AssetServiceHistory
         Me.colPassed = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.lueProduct = New DevExpress.XtraEditors.LookUpEdit()
         Me.lueFloor = New DevExpress.XtraEditors.LookUpEdit()
-        Me.teDescription = New DevExpress.XtraEditors.TextEdit()
+        Me.teBarCode = New DevExpress.XtraEditors.TextEdit()
         Me.teNotes = New DevExpress.XtraEditors.MemoEdit()
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.lueBuilding = New DevExpress.XtraEditors.LookUpEdit()
@@ -59,7 +59,7 @@ Partial Class AssetServiceHistory
         CType(Me.vw_Services, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lueProduct.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lueFloor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.teBarCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,7 +87,7 @@ Partial Class AssetServiceHistory
         Me.LayoutControl1.Controls.Add(Me.grdServices)
         Me.LayoutControl1.Controls.Add(Me.lueProduct)
         Me.LayoutControl1.Controls.Add(Me.lueFloor)
-        Me.LayoutControl1.Controls.Add(Me.teDescription)
+        Me.LayoutControl1.Controls.Add(Me.teBarCode)
         Me.LayoutControl1.Controls.Add(Me.teNotes)
         Me.LayoutControl1.Controls.Add(Me.picBack)
         Me.LayoutControl1.Controls.Add(Me.lueBuilding)
@@ -167,17 +167,18 @@ Partial Class AssetServiceHistory
         Me.lueFloor.Location = New System.Drawing.Point(718, 22)
         Me.lueFloor.Name = "lueFloor"
         Me.lueFloor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)})
+        Me.lueFloor.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.lueFloor.Size = New System.Drawing.Size(182, 20)
         Me.lueFloor.StyleController = Me.LayoutControl1
         Me.lueFloor.TabIndex = 59
         '
-        'teDescription
+        'teBarCode
         '
-        Me.teDescription.Location = New System.Drawing.Point(152, 46)
-        Me.teDescription.Name = "teDescription"
-        Me.teDescription.Size = New System.Drawing.Size(238, 20)
-        Me.teDescription.StyleController = Me.LayoutControl1
-        Me.teDescription.TabIndex = 34
+        Me.teBarCode.Location = New System.Drawing.Point(152, 46)
+        Me.teBarCode.Name = "teBarCode"
+        Me.teBarCode.Size = New System.Drawing.Size(238, 20)
+        Me.teBarCode.StyleController = Me.LayoutControl1
+        Me.teBarCode.TabIndex = 34
         '
         'teNotes
         '
@@ -306,7 +307,7 @@ Partial Class AssetServiceHistory
         '
         'lciBarCode
         '
-        Me.lciBarCode.Control = Me.teDescription
+        Me.lciBarCode.Control = Me.teBarCode
         Me.lciBarCode.CustomizationFormText = "Description"
         Me.lciBarCode.Location = New System.Drawing.Point(60, 34)
         Me.lciBarCode.Name = "lciBarCode"
@@ -383,7 +384,7 @@ Partial Class AssetServiceHistory
         CType(Me.vw_Services, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lueProduct.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lueFloor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.teDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.teBarCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.teNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -414,7 +415,7 @@ Partial Class AssetServiceHistory
     Friend WithEvents lciNotes As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents teDescription As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents teBarCode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lciBarCode As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciBuilding As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lciEscapeRoute As DevExpress.XtraLayout.LayoutControlItem

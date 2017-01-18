@@ -40,7 +40,7 @@ Public Class ViewServiceList
         _serviceView.AddProperty("Oid", "Oid")
         _serviceView.AddProperty("ServiceDate", "ServiceDate")
         _serviceView.AddProperty("Division", "Division.Divname")
-        _serviceView.AddProperty("Contact", "isnull(Contact.Forename,'') + ' ' + isnull(Contact.SurName,'')")
+        _serviceView.AddProperty("Contact", "isnull(Contact.Forename,'') + ' ' + isnull(Contact.Surname,'')")
 
         Dim sortCollection As SortingCollection = New SortingCollection()
 

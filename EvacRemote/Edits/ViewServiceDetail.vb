@@ -7,7 +7,7 @@ Imports DevExpress.LookAndFeel
 Imports Esso.Data
 
 Public Class ViewServiceDetail
-    Private _Loaded As Boolean = False
+
 
     Private xpBuildings As XPCollection(Of Building)
     Private xpStairWells As XPCollection(Of EscapeRoute)
@@ -16,11 +16,9 @@ Public Class ViewServiceDetail
     Private _parent As frmMain = Nothing
     Private _session As UnitOfWork
     Private bNewBuilding As Boolean = False
-    Public ReadOnly Property Loaded As Boolean
-        Get
-            Return _Loaded
-        End Get
-    End Property
+    Private _binding As Boolean = False
+    Private _changed As Boolean = False
+
     Public Property ParentFormMain() As frmMain
         Get
             Return _parent
@@ -32,23 +30,29 @@ Public Class ViewServiceDetail
             _parent = value
         End Set
     End Property
-
+    Public Sub InitEditors()
+        AddHandler dteServiceDate.EditValueChanged, AddressOf edit_EditValueChanged
+    End Sub
     Public Sub Initdata()
 
         '        xpBuildings = New XPCollection(Of Building)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Building]", DevExpress.Xpo.DB.SortingDirection.Ascending))
         '       xpStairWells = New XPCollection(Of EscapeRoute)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Floor]", DevExpress.Xpo.DB.SortingDirection.Ascending))
         '      xpAssets = New XPCollection(Of Asset)(_session, (CriteriaOperator.Parse("Division = ?", iDivison)), New DevExpress.Xpo.SortProperty("[Product]", DevExpress.Xpo.DB.SortingDirection.Ascending))
-
+        InitEditors()
+        _changed = False
+        _binding = True
 
         dteServiceDate.DateTime = _currentService.ServiceDate
-
         grid_assets.DataSource = _currentDivision.Assets
-
+        _binding = False
         LayoutControl1.FocusHelper.FocusFirstInGroup(LayoutControlGroup1, False)
 
-        _Loaded = True
     End Sub
-
+    Private Sub edit_EditValueChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If _binding = False Then
+            _changed = True
+        End If
+    End Sub
     Public Sub New(ByVal session As UnitOfWork, ByVal parent As frmMain)
 
         ' This call is required by the designer.
@@ -59,9 +63,6 @@ Public Class ViewServiceDetail
 
     End Sub
 
-    Private Sub picBack_Click(sender As Object, e As EventArgs)
-        'ParentFormMain.HideProduct()
-    End Sub
 
     Private ReadOnly Property CurrentAsset() As Asset
         Get
@@ -116,10 +117,23 @@ Public Class ViewServiceDetail
         ParentFormMain.SelectPage(frmMain.ePage.AssetChairService)
     End Sub
     Private Sub SaveData()
+        _currentService.ServiceDate = dteServiceDate.DateTime
+        _currentService.Save()
         _session.CommitChanges()
     End Sub
-    Private Sub picBack_Click_1(sender As Object, e As EventArgs) Handles picBack.Click
-        SaveData()
-        ParentFormMain.SelectPage(frmMain.ePage.DiarySchedule)
+    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+
+        If _changed = True Then
+            Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+            If _save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If _save = DialogResult.Yes Then
+                SaveData()
+            Else
+                _currentService.Reload()
+            End If
+        End If
+        ParentFormMain.SelectPage(frmMain.ePage.ContactDetail)
     End Sub
 End Class

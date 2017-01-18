@@ -90,8 +90,8 @@ Public Class ViewDiarySchedule
     End Sub
 
     Private Sub SchedulerControl1_EditAppointmentFormShowing(sender As Object, e As AppointmentFormEventArgs) Handles SchedulerControl1.EditAppointmentFormShowing
-        Dim nBuilding As Building
-        Dim nEscapeRoute As EscapeRoute
+        Dim nBuilding As Building = Nothing
+        Dim nEscapeRoute As EscapeRoute = Nothing
 
         Dim _diaryId As Integer = e.Appointment.CustomFields("CentralDiaryNo")
 
@@ -125,26 +125,45 @@ Public Class ViewDiarySchedule
             Dim _assetscount As Integer = 0
             If _currentDivision.Assets IsNot Nothing Then
                 _assetscount = _currentDivision.Assets.Count
-            End If
-            If _chairs > _assetscount Then
-                For i As Integer = _assetscount + 1 To _chairs
-                    Dim nFloor As New Floor(_session)
-                    nFloor.Building = nBuilding
-                    nFloor.EscapeRoute = nEscapeRoute
-                    nFloor.Location = String.Format("Floor {0}", i)
-                    nFloor.Save()
-                    _session.CommitChanges()
-                    Dim _asset As New Asset(_session)
-                    _asset.Division = _currentDivision
-                    _asset.Building = nBuilding
-                    _asset.EscapeRoute = nEscapeRoute
-                    _asset.Floor = nFloor
-                    _asset.BarCode = "Not Identified"
-                    _asset.Save()
-                    _session.CommitChanges()
-                    _currentDivision.Assets.Add(_asset)
-                Next
-            End If
+                If _assetscount = 0 Then
+                    For i As Integer = 1 To _chairs
+                        Dim nFloor As New Floor(_session)
+                        nFloor.Building = nBuilding
+                        nFloor.EscapeRoute = nEscapeRoute
+                        nFloor.Location = String.Format("Floor {0}", i)
+                        nFloor.Save()
+                        _session.CommitChanges()
+                        Dim _asset As New Asset(_session)
+                        _asset.Division = _currentDivision
+                        _asset.Building = nBuilding
+                        _asset.EscapeRoute = nEscapeRoute
+                        _asset.Floor = nFloor
+                        _asset.BarCode = "Not Identified"
+                        _asset.Save()
+                        _session.CommitChanges()
+                        _currentDivision.Assets.Add(_asset)
+
+                    Next
+                ElseIf _chairs > _assetscount Or _assetscount = 0 Then
+                    For i As Integer = _assetscount + 1 To _chairs
+                            Dim nFloor As New Floor(_session)
+                            nFloor.Building = nBuilding
+                            nFloor.EscapeRoute = nEscapeRoute
+                            nFloor.Location = String.Format("Floor {0}", i)
+                            nFloor.Save()
+                            _session.CommitChanges()
+                            Dim _asset As New Asset(_session)
+                            _asset.Division = _currentDivision
+                            _asset.Building = nBuilding
+                            _asset.EscapeRoute = nEscapeRoute
+                            _asset.Floor = nFloor
+                            _asset.BarCode = "Not Identified"
+                            _asset.Save()
+                            _session.CommitChanges()
+                            _currentDivision.Assets.Add(_asset)
+                        Next
+                    End If
+                End If
 
             _currentService = _session.FindObject(Of EvacService)(CriteriaOperator.Parse("CentralDiaryNo = ?", _diaryId))
             If _currentService Is Nothing Then
