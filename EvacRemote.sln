@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EvacRemote", "EvacRemote\EvacRemote.vbproj", "{ED6637C1-3BA1-4E0B-9FF4-76657535DDB3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C33A4890-4E10-4251-AF49-98C13EB80CEA} = {C33A4890-4E10-4251-AF49-98C13EB80CEA}

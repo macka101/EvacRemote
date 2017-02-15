@@ -48,9 +48,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.DataAccess.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,11 +72,13 @@
     <Compile Include="Data\Building.vb" />
     <Compile Include="Data\CentralDiary.vb" />
     <Compile Include="Data\Company.vb" />
+    <Compile Include="Data\Contact.vb" />
     <Compile Include="Data\Division.vb" />
     <Compile Include="Data\Engineer.vb" />
     <Compile Include="Data\Enums.vb" />
     <Compile Include="Data\EvacTask.vb" />
     <Compile Include="Data\Product.vb" />
+    <Compile Include="Data\ReportOption.vb" />
     <Compile Include="Data\Service.vb" />
     <Compile Include="Data\Survey.vb" />
     <Compile Include="Data\Task.vb" />

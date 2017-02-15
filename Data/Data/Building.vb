@@ -84,14 +84,32 @@ Namespace Esso.Data
                 _access = value
             End Set
         End Property
-        Private _heritage As String
-        <Size(50)>
-        Public Property Heritage() As String
+        Private _heritage As Char
+        Public Property Heritage() As Char
             Get
                 Return _heritage
             End Get
-            Set(value As String)
-                _heritage = value
+            Set(value As Char)
+                SetPropertyValue(Of Char)("Heritage", _heritage, value)
+            End Set
+        End Property
+        Private _hospital As Char
+        <Size(1)>
+        Public Property Hospital() As Char
+            Get
+                Return _hospital
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("Hospital", _hospital, value)
+            End Set
+        End Property
+        Private _educational As Char
+        Public Property Educational() As Char
+            Get
+                Return _educational
+            End Get
+            Set(value As Char)
+                SetPropertyValue(Of Char)("Educational", _educational, value)
             End Set
         End Property
         Private _escapeRoutesNo As Integer

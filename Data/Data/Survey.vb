@@ -80,6 +80,38 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Heritage", _heritage, value)
             End Set
         End Property
+        Public ReadOnly Property HasHeritage() As Integer
+            Get
+                Return Convert.ToInt32(Session.Evaluate(Of Building)(CriteriaOperator.Parse("Count()"), CriteriaOperator.Parse("Division = ? and Heritage='Y'", Division)))
+            End Get
+        End Property
+        Public ReadOnly Property HasHospital() As Integer
+            Get
+                Return Convert.ToInt32(Session.Evaluate(Of Building)(CriteriaOperator.Parse("Count()"), CriteriaOperator.Parse("Division = ? and Hospital=?", Division, "Y")))
+            End Get
+        End Property
+        Public ReadOnly Property HasEducational() As Integer
+            Get
+                Return Convert.ToInt32(Session.Evaluate(Of Building)(CriteriaOperator.Parse("Count()"), CriteriaOperator.Parse("Division = ? and Educational='Y'", Division)))
+            End Get
+        End Property
+        Public ReadOnly Property ReportOptions() As String
+
+            Get
+                Dim _ret As String = String.Empty
+
+                If HasHeritage > 0 Then
+                    _ret += String.Format("{0} {1}", Session.FindObject(Of ReportOption)(CriteriaOperator.Parse("OptNo= 1")).Text, Environment.NewLine)
+                End If
+                If HasHospital > 0 Then
+                    _ret += String.Format("{0} {1}", Session.FindObject(Of ReportOption)(CriteriaOperator.Parse("OptNo= 2")).Text, Environment.NewLine)
+                End If
+                If HasEducational > 0 Then
+                    _ret += String.Format("{0} {1}", Session.FindObject(Of ReportOption)(CriteriaOperator.Parse("OptNo= 3")).Text, Environment.NewLine)
+                End If
+                Return _ret.TrimEnd
+            End Get
+        End Property
         Private _escapeRoutes As Integer
         Public Property EscapeRoutes() As Integer
             Get

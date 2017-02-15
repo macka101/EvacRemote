@@ -5,7 +5,7 @@ Imports DevExpress.XtraPivotGrid
 Imports DevExpress.XtraReports.UI.PivotGrid
 Imports Esso.Data
 
-Public Class rptSurveyPivot
+Public Class rptSurveyProductsPivot
     Dim _session As New UnitOfWork
 
 

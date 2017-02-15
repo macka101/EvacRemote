@@ -20,7 +20,7 @@ Module Sync
     Dim _ResetCompany As Boolean = False
     Dim _ResetDivision As Boolean = False
     Dim _ResetContact As Boolean = False
-    Dim _ResetDiary As Boolean = True
+    Dim _ResetDiary As Boolean = False
 
 
     Sub Main()
@@ -53,6 +53,7 @@ Module Sync
         _timer1.Start() 'Timer starts functioning
 
         If SyncUsers() = True Then
+            SyncReportOptions()
             SyncEngineers()
             SyncAddresses()
             SyncCompanies()
@@ -63,6 +64,33 @@ Module Sync
         _timer1.Stop()
         cn.Close()
 
+    End Sub
+    Private Sub SyncReportOptions()
+        Dim _reportOption As ReportOption
+        Dim _session As New UnitOfWork
+
+        _reportOption = _session.FindObject(Of ReportOption)(CriteriaOperator.Parse("OptNo= 1"))
+        If _reportOption Is Nothing Then
+            _reportOption = New ReportOption(_session)
+            _reportOption.Optno = 1
+            _reportOption.Text = "Our survey has highlighted your building/s as being either heritage or listed.  Due to the sensitive nature of your building we have selected products and storage solutions that allow you to provide emergency evacuation solutions whilst allowing the building to be unaffected."
+            _reportOption.Save()
+        End If
+        _reportOption = _session.FindObject(Of ReportOption)(CriteriaOperator.Parse("OptNo= 1"))
+        If _reportOption Is Nothing Then
+            _reportOption = New ReportOption(_session)
+            _reportOption.Optno = 2
+            _reportOption.Text = "Within the healthcare sector organisations often operate on a progressive horizontal evacuation procedure which ultimately could require the use of a stair case to fully evacuate the building totally.  A mix of seated chair evacuation and fully horizontal evacuation equipment could be required, to allow total coverage of the conditions you might encounter."
+            _reportOption.Save()
+        End If
+        _reportOption = _session.FindObject(Of ReportOption)(CriteriaOperator.Parse("OptNo= 1"))
+        If _reportOption Is Nothing Then
+            _reportOption = New ReportOption(_session)
+            _reportOption.Optno = 3
+            _reportOption.Text = "Due to the unique evacuation situations faced in educational environments we have selected equipment that will provide evacuation solutions suitable for all body sizes.  By selecting equipment that has been hand built with your particular situation in mind you can be confident your chairs will be a reliable partner in your emergency evacuation planning."
+            _reportOption.Save()
+        End If
+        _session.CommitChanges()
     End Sub
 
     Private Function SyncUsers() As Boolean
@@ -115,7 +143,7 @@ Module Sync
                     Console.Write("{0:D5}", iCounter)
                 Next
             End If
-            Console.WriteLine(" Done.")
+            Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(40, " "))
             SyncUsers = True
         Else
             Console.WriteLine("Cannot Access User table")
@@ -164,7 +192,7 @@ Module Sync
                     Console.Write("{0:D5}", iCounter)
                 Next
             End If
-            Console.WriteLine(" Done.")
+            Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(40, " "))
             SyncEngineers = True
         Else
             Console.WriteLine("Cannot Access User table")
@@ -222,7 +250,7 @@ Module Sync
             Console.WriteLine("Cannot Access Address Table")
             SyncAddresses = False
         End If
-        Console.WriteLine(" Done.")
+        Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(40, " "))
     End Function
 
     Private Function SyncCompanies() As Boolean
@@ -241,7 +269,7 @@ Module Sync
 
 
         Str = "SELECT [compno],[compname],[comptypecd],[StatusFlag],[lastupdatedtimestamp]"
-        Str = String.Concat(Str, "FROM [company]")
+        Str = String.Concat(Str, "FROM [company] ")
         Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
@@ -278,7 +306,7 @@ Module Sync
             Console.WriteLine("Cannot Access Company Table")
             SyncCompanies = False
         End If
-        Console.WriteLine(" Done.")
+        Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(40, " "))
     End Function
     Private Function SyncDivisions() As Boolean
         Dim Str As String = Nothing
@@ -332,7 +360,7 @@ Module Sync
             Console.WriteLine("Cannot Access Division Table")
             SyncDivisions = False
         End If
-        Console.WriteLine(" Done.")
+        Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(40, " "))
     End Function
     Private Function SyncContacts() As Boolean
         Dim Str As String = Nothing
@@ -362,7 +390,7 @@ Module Sync
             iLeft = Console.CursorLeft
             Dim xContact As Contact
             For Each orow As DataRow In dsContacts.Tables(0).Rows
-                xContact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("ContNo= ?", orow.Item("divno")))
+                xContact = _session.FindObject(Of Contact)(CriteriaOperator.Parse("ContNo= ?", orow.Item("contno")))
                 If xContact Is Nothing Then
                     xContact = New Contact(_session)
                 End If
@@ -379,7 +407,7 @@ Module Sync
                 xContact.Phone = GetValueorNull(orow, "primephone")
                 xContact.Notepad = GetValueorNull(orow, "notepad")
                 xContact.StatusFlag = GetValueorNull(orow, "StatusFlag")
-                If xContact.ContNo = 0 Or xContact.DivNo Then
+                If xContact.ContNo = 0 Or xContact.DivNo = 0 Then
                     xContact.StatusFlag = "D"
                 End If
                 xContact.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
@@ -394,7 +422,7 @@ Module Sync
             Console.WriteLine("Cannot Access Contacts Table")
             SyncContacts = False
         End If
-        Console.WriteLine(" Done.")
+        Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(40, " "))
     End Function
     Private Function SyncDiary() As Boolean
         Dim Str As String = Nothing
@@ -459,7 +487,7 @@ Module Sync
             Console.WriteLine("Cannot Access Diary Table")
             SyncDiary = False
         End If
-        Console.WriteLine(" Done.")
+        Console.WriteLine(" Done." & Microsoft.VisualBasic.Strings.StrDup(20, " "))
     End Function
     Private Function GetValueorNull(ByRef dr As DataRow, ByRef _field As String) As Object
         If Not dr.IsNull(_field) Then

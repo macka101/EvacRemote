@@ -1,16 +1,17 @@
-﻿Imports System.Reflection
+﻿Imports System.Resources
+Imports System.Reflection
 Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly: AssemblyTitle("Evac Remote Application")> 
-<Assembly: AssemblyDescription("Evac Remote")> 
+<Assembly: AssemblyTitle("Evac Remote Application")>
+<Assembly: AssemblyDescription("Evac Remote")>
 <Assembly: AssemblyConfiguration("")>
-<Assembly: AssemblyCompany("Evac Chair International")> 
-<Assembly: AssemblyProduct("Evac Remote")> 
-<Assembly: AssemblyCopyright("Copyright ©  2016")> 
+<Assembly: AssemblyCompany("Evac Chair International")>
+<Assembly: AssemblyProduct("Evac Remote")>
+<Assembly: AssemblyCopyright("Copyright ©  2017")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: AssemblyCulture("")>
 
@@ -34,3 +35,4 @@ Imports System.Runtime.InteropServices
 ' [assembly: AssemblyVersion("1.0.*")]
 <Assembly: AssemblyVersion("1.0.0.0")>
 <Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: NeutralResourcesLanguage("en-GB")>

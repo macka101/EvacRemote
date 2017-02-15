@@ -24,6 +24,8 @@ Partial Class SurveyDetail
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SurveyDetail))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.icbEducational = New DevExpress.XtraEditors.ImageComboBoxEdit()
+        Me.icbHospital = New DevExpress.XtraEditors.ImageComboBoxEdit()
         Me.Picback = New System.Windows.Forms.PictureBox()
         Me.btnPrintQuote = New DevExpress.XtraEditors.SimpleButton()
         Me.lueBuilding = New DevExpress.XtraEditors.LookUpEdit()
@@ -47,12 +49,16 @@ Partial Class SurveyDetail
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lciPicback = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciHospital = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lciEducational = New DevExpress.XtraLayout.LayoutControlItem()
         Me.colEscapeRoute = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colIntExt = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colFloors = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.icbEducational.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icbHospital.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Picback, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrdEscapeRoutes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,10 +76,14 @@ Partial Class SurveyDetail
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lciPicback, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciHospital, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lciEducational, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.icbEducational)
+        Me.LayoutControl1.Controls.Add(Me.icbHospital)
         Me.LayoutControl1.Controls.Add(Me.Picback)
         Me.LayoutControl1.Controls.Add(Me.btnPrintQuote)
         Me.LayoutControl1.Controls.Add(Me.lueBuilding)
@@ -89,6 +99,26 @@ Partial Class SurveyDetail
         Me.LayoutControl1.Size = New System.Drawing.Size(916, 486)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'icbEducational
+        '
+        Me.icbEducational.Location = New System.Drawing.Point(690, 54)
+        Me.icbEducational.Name = "icbEducational"
+        Me.icbEducational.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.icbEducational.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("No", Global.Microsoft.VisualBasic.ChrW(78), -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Yes", Global.Microsoft.VisualBasic.ChrW(89), -1)})
+        Me.icbEducational.Size = New System.Drawing.Size(79, 20)
+        Me.icbEducational.StyleController = Me.LayoutControl1
+        Me.icbEducational.TabIndex = 32
+        '
+        'icbHospital
+        '
+        Me.icbHospital.Location = New System.Drawing.Point(545, 54)
+        Me.icbHospital.Name = "icbHospital"
+        Me.icbHospital.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.icbHospital.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("No", Global.Microsoft.VisualBasic.ChrW(78), -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Yes", Global.Microsoft.VisualBasic.ChrW(89), -1)})
+        Me.icbHospital.Size = New System.Drawing.Size(70, 20)
+        Me.icbHospital.StyleController = Me.LayoutControl1
+        Me.icbHospital.TabIndex = 31
         '
         'Picback
         '
@@ -179,11 +209,11 @@ Partial Class SurveyDetail
         'icbHeritage
         '
         Me.icbHeritage.EnterMoveNextControl = True
-        Me.icbHeritage.Location = New System.Drawing.Point(486, 54)
+        Me.icbHeritage.Location = New System.Drawing.Point(392, 54)
         Me.icbHeritage.Name = "icbHeritage"
         Me.icbHeritage.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.icbHeritage.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("No", "No", -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Yes", "Yes", -1)})
-        Me.icbHeritage.Size = New System.Drawing.Size(72, 20)
+        Me.icbHeritage.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("No", Global.Microsoft.VisualBasic.ChrW(78), -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Yes", Global.Microsoft.VisualBasic.ChrW(89), -1)})
+        Me.icbHeritage.Size = New System.Drawing.Size(78, 20)
         Me.icbHeritage.StyleController = Me.LayoutControl1
         Me.icbHeritage.TabIndex = 23
         '
@@ -194,16 +224,16 @@ Partial Class SurveyDetail
         Me.icbAccess.Name = "icbAccess"
         Me.icbAccess.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.icbAccess.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.ImageComboBoxItem() {New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Public", "Public", -1), New DevExpress.XtraEditors.Controls.ImageComboBoxItem("Private", "Private", -1)})
-        Me.icbAccess.Size = New System.Drawing.Size(277, 20)
+        Me.icbAccess.Size = New System.Drawing.Size(183, 20)
         Me.icbAccess.StyleController = Me.LayoutControl1
         Me.icbAccess.TabIndex = 22
         '
         'teEscapeRoutes
         '
         Me.teEscapeRoutes.EnterMoveNextControl = True
-        Me.teEscapeRoutes.Location = New System.Drawing.Point(633, 54)
+        Me.teEscapeRoutes.Location = New System.Drawing.Point(844, 54)
         Me.teEscapeRoutes.Name = "teEscapeRoutes"
-        Me.teEscapeRoutes.Size = New System.Drawing.Size(98, 20)
+        Me.teEscapeRoutes.Size = New System.Drawing.Size(50, 20)
         Me.teEscapeRoutes.StyleController = Me.LayoutControl1
         Me.teEscapeRoutes.TabIndex = 21
         '
@@ -212,7 +242,7 @@ Partial Class SurveyDetail
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciAccess, Me.lciHeritage, Me.lciEscapeRoutes, Me.grdEscapeRoute, Me.lciBuilding, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.lciPicback})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lciAccess, Me.lciHeritage, Me.lciEscapeRoutes, Me.grdEscapeRoute, Me.lciBuilding, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.lciPicback, Me.lciHospital, Me.lciEducational})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(916, 486)
@@ -223,25 +253,25 @@ Partial Class SurveyDetail
         Me.lciAccess.Control = Me.icbAccess
         Me.lciAccess.Location = New System.Drawing.Point(51, 42)
         Me.lciAccess.Name = "lciAccess"
-        Me.lciAccess.Size = New System.Drawing.Size(352, 24)
+        Me.lciAccess.Size = New System.Drawing.Size(258, 24)
         Me.lciAccess.Text = "Access"
         Me.lciAccess.TextSize = New System.Drawing.Size(68, 13)
         '
         'lciHeritage
         '
         Me.lciHeritage.Control = Me.icbHeritage
-        Me.lciHeritage.Location = New System.Drawing.Point(403, 42)
+        Me.lciHeritage.Location = New System.Drawing.Point(309, 42)
         Me.lciHeritage.Name = "lciHeritage"
-        Me.lciHeritage.Size = New System.Drawing.Size(147, 24)
+        Me.lciHeritage.Size = New System.Drawing.Size(153, 24)
         Me.lciHeritage.Text = "Heritage"
         Me.lciHeritage.TextSize = New System.Drawing.Size(68, 13)
         '
         'lciEscapeRoutes
         '
         Me.lciEscapeRoutes.Control = Me.teEscapeRoutes
-        Me.lciEscapeRoutes.Location = New System.Drawing.Point(550, 42)
+        Me.lciEscapeRoutes.Location = New System.Drawing.Point(761, 42)
         Me.lciEscapeRoutes.Name = "lciEscapeRoutes"
-        Me.lciEscapeRoutes.Size = New System.Drawing.Size(173, 24)
+        Me.lciEscapeRoutes.Size = New System.Drawing.Size(125, 24)
         Me.lciEscapeRoutes.Text = "EscapeRoutes"
         Me.lciEscapeRoutes.TextSize = New System.Drawing.Size(68, 13)
         '
@@ -266,9 +296,9 @@ Partial Class SurveyDetail
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(723, 42)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(886, 42)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(173, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(10, 24)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
@@ -301,6 +331,24 @@ Partial Class SurveyDetail
         Me.lciPicback.TextSize = New System.Drawing.Size(0, 0)
         Me.lciPicback.TextToControlDistance = 0
         Me.lciPicback.TextVisible = False
+        '
+        'lciHospital
+        '
+        Me.lciHospital.Control = Me.icbHospital
+        Me.lciHospital.Location = New System.Drawing.Point(462, 42)
+        Me.lciHospital.Name = "lciHospital"
+        Me.lciHospital.Size = New System.Drawing.Size(145, 24)
+        Me.lciHospital.Text = "Hospital"
+        Me.lciHospital.TextSize = New System.Drawing.Size(68, 13)
+        '
+        'lciEducational
+        '
+        Me.lciEducational.Control = Me.icbEducational
+        Me.lciEducational.Location = New System.Drawing.Point(607, 42)
+        Me.lciEducational.Name = "lciEducational"
+        Me.lciEducational.Size = New System.Drawing.Size(154, 24)
+        Me.lciEducational.Text = "Educational"
+        Me.lciEducational.TextSize = New System.Drawing.Size(68, 13)
         '
         'colEscapeRoute
         '
@@ -343,6 +391,8 @@ Partial Class SurveyDetail
         Me.Size = New System.Drawing.Size(916, 486)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.icbEducational.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icbHospital.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Picback, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lueBuilding.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrdEscapeRoutes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -360,6 +410,8 @@ Partial Class SurveyDetail
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lciPicback, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciHospital, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lciEducational, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -391,5 +443,8 @@ Partial Class SurveyDetail
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents Picback As System.Windows.Forms.PictureBox
     Friend WithEvents lciPicback As DevExpress.XtraLayout.LayoutControlItem
-
+    Friend WithEvents icbEducational As DevExpress.XtraEditors.ImageComboBoxEdit
+    Friend WithEvents icbHospital As DevExpress.XtraEditors.ImageComboBoxEdit
+    Friend WithEvents lciHospital As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lciEducational As DevExpress.XtraLayout.LayoutControlItem
 End Class

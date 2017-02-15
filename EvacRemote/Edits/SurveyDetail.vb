@@ -55,6 +55,9 @@ Public Class SurveyDetail
         AddHandler lueBuilding.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbAccess.EditValueChanged, AddressOf edit_EditValueChanged
         AddHandler icbHeritage.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler icbHospital.EditValueChanged, AddressOf edit_EditValueChanged
+        AddHandler icbEducational.EditValueChanged, AddressOf edit_EditValueChanged
+
         AddHandler teEscapeRoutes.EditValueChanged, AddressOf edit_EditValueChanged
 
     End Sub
@@ -72,7 +75,9 @@ Public Class SurveyDetail
             _currentBuilding = New Building(_session)
             _currentBuilding.Division = _currentDivision
             _currentBuilding.Location = "Building 1"
-            _currentBuilding.Heritage = "No"
+            _currentBuilding.Heritage = "N"c
+            _currentBuilding.Hospital = "N"c
+            _currentBuilding.Educational = "N"c
             _currentBuilding.Access = "Private"
             _currentBuilding.EscapeRoutesNo = 0
             _currentBuilding.Save()
@@ -174,7 +179,9 @@ Public Class SurveyDetail
             Dim _building As New Building(_session)
             _building.Division = _currentDivision
             _building.Location = String.Format("Building {0}", _currentDivision.Buildings.Count + 1)
-            _building.Heritage = "No"
+            _building.Heritage = "N"c
+            _building.Hospital = "N"c
+            _building.Educational = "N"c
             _building.Access = "Private"
             _building.Save()
             _session.CommitChanges()
@@ -191,6 +198,8 @@ Public Class SurveyDetail
         If CurrentBuilding IsNot Nothing Then
             icbAccess.EditValue = CurrentBuilding.Access
             icbHeritage.EditValue = CurrentBuilding.Heritage
+            icbHospital.EditValue = CurrentBuilding.Hospital
+            icbEducational.EditValue = CurrentBuilding.Educational
             teEscapeRoutes.EditValue = CurrentBuilding.EscapeRoutesNo
             GrdEscapeRoutes.DataSource = CurrentBuilding.EscapeRoutes
         End If
@@ -238,7 +247,9 @@ Public Class SurveyDetail
     End Sub
     Private Sub SaveData()
         CurrentBuilding.Access = icbAccess.Text
-        CurrentBuilding.Heritage = icbHeritage.Text
+        CurrentBuilding.Heritage = icbHeritage.EditValue
+        CurrentBuilding.Hospital = icbHospital.EditValue
+        CurrentBuilding.Educational = icbEducational.EditValue
         CurrentBuilding.EscapeRoutesNo = teEscapeRoutes.Text
         CurrentBuilding.Save()
         _session.CommitChanges()
@@ -255,16 +266,25 @@ Public Class SurveyDetail
     End Sub
 
     Private Sub btnPrintQuote_Click(sender As Object, e As EventArgs) Handles btnPrintQuote.Click
-        Dim _tafdoc As New rptSurveyQuote
-        _tafdoc.RequestParameters = False
-        _tafdoc.Parameters(0).Value = _currentSurvey.Oid
-        _tafdoc.CreateDocument()
+        If _changed = True Then
+            Dim _save As DialogResult = XtraMessageBox.Show(Me, "Save Changes?", "Save", MessageBoxButtons.YesNoCancel)
+            If _save = DialogResult.Cancel Then
+                Exit Sub
+            End If
+            If _save = DialogResult.Yes Then
+                SaveData()
+            Else
+                _currentSurvey.Reload()
+            End If
+        End If
 
-        Using printTool As New ReportPrintTool(_tafdoc)
-            printTool.ShowPreviewDialog()
-        End Using
+        Dim _quoteDoc As New xptSurveyQuote
+        _quoteDoc.RequestParameters = False
+        _quoteDoc.Parameters(0).Value = _currentSurvey.Oid
+        _quoteDoc.CreateDocument()
 
-        Dim _pivotDoc As New rptSurveyPivot
+
+        Dim _pivotDoc As New rptSurveyProductsPivot
 
         'Dim pivotGrid As New XRPivotGrid()
         Dim pivotGrid = _pivotDoc.XrPivotGrid1
@@ -277,7 +297,6 @@ Public Class SurveyDetail
         pivotGrid.OptionsView.ShowColumnTotals = True
         pivotGrid.OptionsView.ShowRowGrandTotals = True
 
-        '_pivotDoc.Detail.Controls.Add(pivotGrid)
         Dim sSql As String = "SELECT        EvacSurvey.Oid, EvacSurvey.SurveyDate, EvacSurvey.Signer, EvacSurvey.Notes, "
         sSql += " Product.ProductCode, Building.Location, 1 as Quantity "
         sSql += "From EvacSurvey INNER Join "
@@ -347,18 +366,15 @@ Public Class SurveyDetail
 
         _pivotDoc.CreateDocument()
 
-        Using printTool As New ReportPrintTool(_pivotDoc)
+        ' Add all pages of the 2nd report to the end of the 1st report. 
+        _quoteDoc.Pages.AddRange(_pivotDoc.Pages)
+
+        ' Reset all page numbers in the resulting document. 
+        _quoteDoc.PrintingSystem.ContinuousPageNumbering = True
+
+        Using printTool As New ReportPrintTool(_quoteDoc)
             printTool.ShowPreviewDialog()
         End Using
-
-        'Dim rptPivot As XtraReport = CreateSurveyPivotReport()
-
-        'rptPivot.CreateDocument()
-
-        'Using printTool As New ReportPrintTool(rptPivot)
-        '    printTool.ShowPreviewDialog()
-        'End Using
-
 
     End Sub
 

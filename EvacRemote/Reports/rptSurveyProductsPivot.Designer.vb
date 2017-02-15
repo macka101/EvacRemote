@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Public Class rptSurveyPivot
+Partial Public Class rptSurveyProductsPivot
     Inherits DevExpress.XtraReports.UI.XtraReport
 
     'XtraReport overrides dispose to clean up the component list.
@@ -19,7 +19,7 @@ Partial Public Class rptSurveyPivot
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(rptSurveyPivot))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(rptSurveyProductsPivot))
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel()
