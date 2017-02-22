@@ -4,6 +4,7 @@ Imports DevExpress.Xpo
 Imports DevExpress.Xpo.DB
 Imports Esso.Data
 Imports DevExpress.XtraEditors
+Imports DevExpress.Data.Filtering
 
 Public Class frmMain
 
@@ -140,7 +141,7 @@ Public Class frmMain
                 _DiarySchedule.Parent = Me.MainPnl
                 _DiarySchedule.Dock = DockStyle.Fill
 
-                _DiarySchedule.InitData()
+                _DiarySchedule.Initdata()
 
                 _DiarySchedule.Visible = True
             Case ePage.ContactDetail
@@ -285,7 +286,7 @@ Public Class frmMain
         _ProductList.Visible = False
         _ViewProductWeb.Visible = True
     End Sub
- 
+
     Public Sub HideStairCase()
         _ViewEscapeRoute.Visible = False
         '_Survey.Visible = True
@@ -343,22 +344,20 @@ Public Class frmMain
         ConnectionHelper.ConnectionString = "XpoProvider=MSSqlServer;data source=.\SQLEXPRESS;integrated security=SSPI;initial catalog=Willow"
 
         ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists)
-        'End If
-
-        'OpenConnection()
-        '        currentADUser = System.DirectoryServices.AccountManagement.UserPrincipal.Current
-        '       Dim domainAndUserName As String = Environment.UserDomainName & "\" & Environment.UserName
-
-
         dataSession = New UnitOfWork(XpoDefault.DataLayer)
-        '  Dim sSql As String = String.Format(" SELECT usercode FROM user_intlogin where winusername = '{0}' ", domainAndUserName)
-        '_UserCode = dataSession.ExecuteScalar(sSql)
-        If _UserCode Is Nothing Or Debugger.IsAttached Then
-            _UserCode = "MH"
+
+        Dim DomainUserName As String = Environment.UserDomainName & "\" & Environment.UserName
+
+        _user = dataSession.FindObject(Of User)(CriteriaOperator.Parse("winusername = ?", DomainUserName))
+        If _user Is Nothing Then
+            _user = dataSession.FindObject(Of User)(CriteriaOperator.Parse("UserCode = ?", "LS"))
         End If
+        'If _UserCode Is Nothing Or Debugger.IsAttached Then
+        '    _UserCode = "MH"
+        'End If
         SupportFilesDirectory = FindsSupportDirectory()
         ConnectionHelper.CheckForInitialRecords(dataSession)
-        ConnectionHelper.Login(dataSession, _UserCode)
+        ConnectionHelper.Login(dataSession, _user)
         BasketEnabled(False)
         SurveyEnabled(False)
         ServiceEnabled(False)

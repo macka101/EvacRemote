@@ -63,6 +63,15 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Description", fdescription, value)
             End Set
         End Property
+        Private _unitPrice As Double
+        Public Property UnitPrice() As Double
+            Get
+                Return _unitPrice
+            End Get
+            Set(ByVal value As Double)
+                SetPropertyValue(Of Double)("UnitPrice", _unitPrice, value)
+            End Set
+        End Property
         Private ffeatures As String
         <Size(2000)>
         Public Property Features() As String

@@ -12,6 +12,7 @@ Imports DevExpress.Data.Filtering
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Drawing
+Imports DevExpress.Xpo.DB
 
 Namespace Esso.Data
     Public Class EvacSurvey
@@ -49,6 +50,15 @@ Namespace Esso.Data
             End Get
             Set(ByVal value As Contact)
                 SetPropertyValue(Of Contact)("Contact", _contact, value)
+            End Set
+        End Property
+        Private _surveyBy As User
+        Public Property SurveyBy() As User
+            Get
+                Return _surveyBy
+            End Get
+            Set(value As User)
+                SetPropertyValue(Of User)("SurveyBy", _surveyBy, value)
             End Set
         End Property
         Private _surveyDate As Date
@@ -146,6 +156,37 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Notes", _notes, value)
             End Set
         End Property
+
+        Public ReadOnly Property ProductsSummary() As XPDataView
+            '''
+            Get
+                Return GetProductsSummary()
+            End Get
+        End Property
+        Private Function GetProductsSummary() As XPDataView
+
+            Dim _sql As String = ""
+
+            Dim sSql As String = "SELECT  EvacSurvey.Oid, EvacSurvey.SurveyDate, EvacSurvey.Signer, EvacSurvey.Notes, "
+            sSql += " Product.ProductCode, Building.Location, 1 as Quantity "
+            sSql += "From EvacSurvey INNER Join "
+            sSql += "Division On EvacSurvey.Division = Division.Oid INNER Join "
+            sSql += "Building On Division.Oid = Building.Division INNER Join "
+            sSql += "Floor On Building.Oid = Floor.Building INNER Join "
+            sSql += "Product On Floor.Product = Product.Oid "
+            sSql += String.Format("WHERE (EvacSurvey.Oid = '{0}')", Oid)
+
+
+            Dim dv As New XPDataView()
+            Dim data As SelectedData = Session.ExecuteQueryWithMetadata(_sql)
+            For Each row As SelectStatementResultRow In data.ResultSet(0).Rows
+                dv.AddProperty(DirectCast(row.Values(0), String), DBColumn.[GetType](DirectCast([Enum].Parse(GetType(DBColumnType), DirectCast(row.Values(2), String)), DBColumnType)))
+            Next
+            dv.LoadData(New SelectedData(data.ResultSet(1)))
+
+            Return dv
+
+        End Function
         Private fcreatedBy As User
         Public Property CreatedBy() As User
             Get

@@ -39,8 +39,8 @@ Namespace Esso.Data
         Public Shared Function GetDataLayer(ByVal autoCreationOption As DB.AutoCreateOption) As IDataLayer
             Return XpoDefault.GetDataLayer(ConnectionString, autoCreationOption)
         End Function
-        Public Shared Function Login(_session As UnitOfWork, ByRef _code As String) As User
-            _CurrentUser = _session.FindObject(Of User)(CriteriaOperator.Parse("UserCode= ?", _code))
+        Public Shared Function Login(_session As UnitOfWork, ByRef _user As User) As User
+            _CurrentUser = _session.FindObject(Of User)(CriteriaOperator.Parse("UserCode= ?", _user.UserCode))
         End Function
         Public Shared Function GetCurrentUser(_session As UnitOfWork) As User
             Return _session.GetObjectByKey(Of User)(_CurrentUser.Oid)

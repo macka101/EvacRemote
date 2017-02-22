@@ -24,14 +24,14 @@ Partial Public Class xptSurveyQuote
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
         Me.XrRichText1 = New DevExpress.XtraReports.UI.XRRichText()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
+        Me.XrRichText3 = New DevExpress.XtraReports.UI.XRRichText()
         Me.XrRichText2 = New DevExpress.XtraReports.UI.XRRichText()
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
         Me.SurveyId = New DevExpress.XtraReports.Parameters.Parameter()
-        Me.XrRichText3 = New DevExpress.XtraReports.UI.XRRichText()
         Me.XpCollection1 = New DevExpress.Xpo.XPCollection(Me.components)
         CType(Me.XrRichText1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XrRichText2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrRichText3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XrRichText2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -62,6 +62,17 @@ Partial Public Class xptSurveyQuote
         Me.TopMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
+        'XrRichText3
+        '
+        Me.XrRichText3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Rtf", Nothing, "Contact.FullAddressBlock")})
+        Me.XrRichText3.Dpi = 100.0!
+        Me.XrRichText3.Font = New System.Drawing.Font("Calibri", 11.0!)
+        Me.XrRichText3.LocationFloat = New DevExpress.Utils.PointFloat(0!, 164.5417!)
+        Me.XrRichText3.Name = "XrRichText3"
+        Me.XrRichText3.SerializableRtfString = resources.GetString("XrRichText3.SerializableRtfString")
+        Me.XrRichText3.SizeF = New System.Drawing.SizeF(351.0417!, 101.125!)
+        Me.XrRichText3.StylePriority.UseFont = False
+        '
         'XrRichText2
         '
         Me.XrRichText2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Rtf", Nothing, "Contact.FullName")})
@@ -89,17 +100,6 @@ Partial Public Class xptSurveyQuote
         Me.SurveyId.ValueInfo = "00000000-0000-0000-0000-000000000000"
         Me.SurveyId.Visible = False
         '
-        'XrRichText3
-        '
-        Me.XrRichText3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Rtf", Nothing, "Contact.FullAddressBlock")})
-        Me.XrRichText3.Dpi = 100.0!
-        Me.XrRichText3.Font = New System.Drawing.Font("Calibri", 11.0!)
-        Me.XrRichText3.LocationFloat = New DevExpress.Utils.PointFloat(0!, 164.5417!)
-        Me.XrRichText3.Name = "XrRichText3"
-        Me.XrRichText3.SerializableRtfString = resources.GetString("XrRichText3.SerializableRtfString")
-        Me.XrRichText3.SizeF = New System.Drawing.SizeF(351.0417!, 101.125!)
-        Me.XrRichText3.StylePriority.UseFont = False
-        '
         'XpCollection1
         '
         Me.XpCollection1.LoadingEnabled = False
@@ -119,8 +119,8 @@ Partial Public Class xptSurveyQuote
         Me.Watermark.Image = CType(resources.GetObject("xptSurveyQuote.Watermark.Image"), System.Drawing.Image)
         Me.Watermark.PageRange = "1"
         CType(Me.XrRichText1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XrRichText2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrRichText3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XrRichText2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XpCollection1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 

@@ -73,6 +73,8 @@ Friend NotInheritable Class Program
             End If
         End If
 
+
+
         Application.Run(New frmMain())
 
     End Sub

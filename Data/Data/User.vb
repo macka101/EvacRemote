@@ -54,6 +54,27 @@ Namespace Esso.Data
                 SetPropertyValue(Of String)("Email", _email, value)
             End Set
         End Property
+        Private _directphone As String
+        <Size(120)>
+        Public Property directphone() As String
+            Get
+                Return _directphone
+            End Get
+            Set(ByVal value As String)
+                SetPropertyValue(Of String)("directphone", _directphone, value)
+            End Set
+        End Property
+        Private _winusername As String
+        <Size(120)>
+        Public Property winusername() As String
+            Get
+                Return _winusername
+            End Get
+            Set(ByVal value As String)
+                SetPropertyValue(Of String)("winusername", _winusername, value)
+            End Set
+        End Property
+
         Private _lastupdatedtimestamp As Date
         Public Property lastupdatedtimestamp() As Date
             Get

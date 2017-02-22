@@ -50,6 +50,7 @@ Module Misc
     Public Const PDF_FOLDER As String = "\PDF\"
     Public Const VIDEO_FOLDER As String = "\VIDEO\"
 
+    Public _user As User
     Public _UserId As Integer = -1
     Public _UserCode As String = ""
     Public _EngineerNo As Integer = 0

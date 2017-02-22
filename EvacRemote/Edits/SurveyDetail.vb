@@ -68,6 +68,7 @@ Public Class SurveyDetail
             _currentSurvey.Division = _currentDivision
             _currentSurvey.Contact = _currentContact
             _currentSurvey.SurveyDate = DateTime.Today
+            _currentSurvey.SurveyBy = _session.GetObjectByKey(Of User)(_user.Oid)
             _currentSurvey.Save()
             _session.CommitChanges()
         End If
@@ -253,6 +254,11 @@ Public Class SurveyDetail
         CurrentBuilding.EscapeRoutesNo = teEscapeRoutes.Text
         CurrentBuilding.Save()
         _session.CommitChanges()
+        If _currentSurvey.SurveyBy Is Nothing Then
+            _currentSurvey.SurveyBy = _session.GetObjectByKey(Of User)(_user.Oid)
+            _currentSurvey.Save()
+            _session.CommitChanges()
+        End If
     End Sub
 
     Private Sub vw_EscapeRoute_Click(sender As Object, e As EventArgs) Handles vw_EscapeRoute.Click
@@ -284,90 +290,12 @@ Public Class SurveyDetail
         _quoteDoc.CreateDocument()
 
 
-        Dim _pivotDoc As New rptSurveyProductsPivot
-
-        'Dim pivotGrid As New XRPivotGrid()
-        Dim pivotGrid = _pivotDoc.XrPivotGrid1
-
-        pivotGrid.OptionsView.ShowFilterHeaders = False
-        pivotGrid.OptionsView.ShowRowHeaders = False
-        pivotGrid.OptionsView.ShowDataHeaders = False
-        pivotGrid.OptionsView.ShowColumnHeaders = False
-        pivotGrid.OptionsView.ShowColumnGrandTotals = True
-        pivotGrid.OptionsView.ShowColumnTotals = True
-        pivotGrid.OptionsView.ShowRowGrandTotals = True
-
-        Dim sSql As String = "SELECT        EvacSurvey.Oid, EvacSurvey.SurveyDate, EvacSurvey.Signer, EvacSurvey.Notes, "
-        sSql += " Product.ProductCode, Building.Location, 1 as Quantity "
-        sSql += "From EvacSurvey INNER Join "
-        sSql += "Division On EvacSurvey.Division = Division.Oid INNER Join "
-        sSql += "Building On Division.Oid = Building.Division INNER Join "
-        sSql += "Floor On Building.Oid = Floor.Building INNER Join "
-        sSql += "Product On Floor.Product = Product.Oid "
-        sSql += String.Format("WHERE (EvacSurvey.Oid = '{0}')", _currentSurvey.Oid)
-
-        Dim data As SelectedData = _session.ExecuteQueryWithMetadata(sSql)
-        Dim PivotData As New XPDataView
-
-        If data IsNot Nothing Then
-            For Each row As SelectStatementResultRow In data.ResultSet(0).Rows
-                PivotData.AddProperty(DirectCast(row.Values(0), String), DBColumn.[GetType](DirectCast([Enum].Parse(GetType(DBColumnType), DirectCast(row.Values(2), String)), DBColumnType)))
-            Next
-        End If
-
-        PivotData.LoadData(New SelectedData(data.ResultSet(1)))
-        ' Bind the pivot grid to data.
-        pivotGrid.DataSource = PivotData
-        '        pivotGrid.DataMember = "SalesPerson"
-
-        ' Generate pivot grid's fields.
-        Dim fieldLocationName As New PivotGrid.XRPivotGridField("Location", DevExpress.XtraPivotGrid.PivotArea.RowArea)
-        Dim fieldproductCode As New PivotGrid.XRPivotGridField("ProductCode", DevExpress.XtraPivotGrid.PivotArea.ColumnArea)
-        Dim fieldQuantity As New PivotGrid.XRPivotGridField("Quantity", DevExpress.XtraPivotGrid.PivotArea.DataArea)
-        fieldQuantity.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum
-
-        fieldQuantity.Options.ShowGrandTotal = True
-        fieldQuantity.Options.ShowTotals = True
-
-        ' Add these fields to the pivot grid.
-        pivotGrid.Fields.AddRange(New PivotGrid.XRPivotGridField() {fieldLocationName, fieldproductCode, fieldQuantity})
-        pivotGrid.OptionsView.ShowAllTotals()
-
-
-        Dim xrStyles As New XRPivotGridStyles(pivotGrid)
-
-        Dim CellStyle As XRControlStyle = New XRControlStyle()
-        CellStyle.Name = "Cell style"
-        CellStyle.Borders = DevExpress.XtraPrinting.BorderSide.All
-        CellStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid
-        CellStyle.BorderColor = Color.LightCoral
-        CellStyle.ForeColor = Color.LightCoral
-        CellStyle.BorderWidth = 2
-        CellStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-
-        CellStyle.Font = New Font(_pivotDoc.Font, FontStyle.Bold)
-        xrStyles.CellStyle = CellStyle
-        '        xrStyles.GrandTotalCellStyle = CellStyle
-        xrStyles.FieldValueGrandTotalStyle = CellStyle
-        xrStyles.FieldValueStyle = CellStyle
-
-        Dim HeaderStyle As XRControlStyle = New XRControlStyle()
-
-        HeaderStyle.Name = "Header style"
-        HeaderStyle.Font = New Font(_pivotDoc.Font, FontStyle.Bold)
-        HeaderStyle.Borders = DevExpress.XtraPrinting.BorderSide.All
-        HeaderStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid
-        HeaderStyle.BorderColor = Color.White
-        HeaderStyle.ForeColor = Color.White
-        HeaderStyle.BackColor = Color.LightCoral
-        HeaderStyle.BorderWidth = 2
-
-        xrStyles.FieldHeaderStyle = HeaderStyle
-
-        _pivotDoc.CreateDocument()
+        Dim _productDoc As New xptSurveyProducts
+        _productDoc.Parameters(0).Value = _currentSurvey.Oid
+        _productDoc.CreateDocument()
 
         ' Add all pages of the 2nd report to the end of the 1st report. 
-        _quoteDoc.Pages.AddRange(_pivotDoc.Pages)
+        _quoteDoc.Pages.AddRange(_productDoc.Pages)
 
         ' Reset all page numbers in the resulting document. 
         _quoteDoc.PrintingSystem.ContinuousPageNumbering = True

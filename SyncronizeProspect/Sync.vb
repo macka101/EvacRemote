@@ -16,6 +16,7 @@ Module Sync
     Dim _timer1 As New Timer
     Dim _startTime As DateTime
     Dim _ResetAll As Boolean = False
+    Dim _ResetUser As Boolean = True
     Dim _ResetAddress As Boolean = False
     Dim _ResetCompany As Boolean = False
     Dim _ResetDivision As Boolean = False
@@ -35,7 +36,8 @@ Module Sync
             ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists)
         End If
         Using _session As New UnitOfWork
-            ConnectionHelper.Login(_session, "DBA")
+            Dim _user = _session.FindObject(Of User)(CriteriaOperator.Parse("UserCode = ?", "DBA"))
+            ConnectionHelper.Login(_session, _user)
             _session.UpdateSchema()
         End Using
 
@@ -102,12 +104,13 @@ Module Sync
 
         _lastSync = _session.ExecuteScalar("SELECT max([lastupdatedtimestamp])  FROM [Willow].[dbo].[User]")
 
-        If _lastSync = DateTime.MinValue Then
+        If _lastSync = DateTime.MinValue Or _ResetUser = True Then
             _lastSync = Convert.ToDateTime("1980-1-1")
         End If
 
-        Str = String.Concat(Str, "SELECT usercode, username, emailaddr, lastupdatedtimestamp ")
+        Str = String.Concat(Str, "SELECT [user].usercode, username, emailaddr, lastupdatedtimestamp,directphone,winusername ")
         Str = String.Concat(Str, "FROM [user] ")
+        Str = String.Concat(Str, "left outer Join user_intlogin ON [user].usercode = user_intlogin.usercode ")
         Str = String.Concat(Str, String.Format("where lastupdatedtimestamp > '{0:yyyy/MM/dd HH:mm}' order by lastupdatedtimestamp", _lastSync))
 
         Dim da As New OdbcDataAdapter(Str, cn)
@@ -129,10 +132,14 @@ Module Sync
                         xuser.UserCode = orow.Item("usercode")
                         xuser.Email = GetValueorNull(orow, "emailaddr")
                         xuser.username = GetValueorNull(orow, "username")
+                        xuser.winusername = GetValueorNull(orow, "winusername")
+                        xuser.directphone = GetValueorNull(orow, "directphone")
 
                     Else
                         xuser.Email = GetValueorNull(orow, "emailaddr")
                         xuser.username = GetValueorNull(orow, "username")
+                        xuser.winusername = GetValueorNull(orow, "winusername")
+                        xuser.directphone = GetValueorNull(orow, "directphone")
                     End If
                     xuser.lastupdatedtimestamp = orow.Item("lastupdatedtimestamp")
                     xuser.Save()
